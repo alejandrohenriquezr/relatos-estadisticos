@@ -1,4 +1,4 @@
-name: Diagnóstico fuentes policiales 2025
+name: Regenerar snapshot policial 2025
 
 on:
   push:
@@ -8,58 +8,69 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  probe:
+  regenerate:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 10
     steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: Preparar lector XLSX
         run: python3 -m pip install --disable-pip-version-check openpyxl
 
-      - name: Descargar libro penal anual 2025
+      - name: Regenerar snapshot desde el libro oficial 2025
         shell: bash
         run: |
           set -euo pipefail
           url='https://www.ine.gob.cl/docs/default-source/estadisticas-policiales-y-judiciales/cuadro-estad%C3%ADstico/estadisticas-policiales/2025/estad%C3%ADsticas-policiales_penal_2025.xlsx?sfvrsn=9579c5aa_4'
-          curl -L --fail --max-time 60 --retry 2 \
-            --user-agent 'Mozilla/5.0 INE-Relatos-source-audit/1.0' \
-            "$url" -o /tmp/police-2025.xlsx
-          test "$(xxd -p -l 4 /tmp/police-2025.xlsx)" = '504b0304'
-          echo "XLSX_BYTES $(wc -c < /tmp/police-2025.xlsx)"
+          python3 scripts/extract-police.py "$url" --output public/police-data.json
 
-      - name: Inspeccionar hojas y cabeceras relevantes
+      - name: Validar contrato y cifras de control
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
           import json
-          import re
-          import openpyxl
+          from pathlib import Path
 
-          path = "/tmp/police-2025.xlsx"
-          wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
-          print("SHEETS", json.dumps(wb.sheetnames, ensure_ascii=False))
+          data = json.loads(Path('public/police-data.json').read_text(encoding='utf-8'))
+          assert data['updated'] == 2025, data['updated']
 
-          keywords = re.compile(r"denunc|deten|v[ií]ctim|carabiner|investigaciones|pdi", re.I)
-          for name in wb.sheetnames:
-              ws = wb[name]
-              matches = []
-              preview = []
-              for row_index, row in enumerate(ws.iter_rows(values_only=True), start=1):
-                  values = list(row[:25])
-                  compact = [value for value in values if value not in (None, "")]
-                  if row_index <= 12 and compact:
-                      preview.append((row_index, compact[:18]))
-                  text = " | ".join(str(value) for value in compact)
-                  if keywords.search(text):
-                      matches.append((row_index, compact[:18]))
-                  if row_index >= 80 and len(matches) >= 8:
-                      break
-              if matches or name in {"1", "6", "7", "15", "17", "23", "28", "37"}:
-                  print(f"=== SHEET {name} ===")
-                  print("PREVIEW", json.dumps(preview[:12], ensure_ascii=False, default=str))
-                  print("MATCHES", json.dumps(matches[:12], ensure_ascii=False, default=str))
-          wb.close()
+          institutions = data['institutions']
+          expected = {
+              ('carabineros', 'denuncias'): 1523703,
+              ('pdi', 'denuncias'): 96603,
+          }
+          for institution, payload in institutions.items():
+              for series_name, series in payload['series'].items():
+                  latest = [row for row in series if row['year'] == 2025]
+                  assert len(latest) == 1, (institution, series_name, len(latest))
+                  regions = latest[0]['regions']
+                  assert len(regions) == 16, (institution, series_name, len(regions))
+                  assert not any(name.startswith('VARIACIÓN') for name in regions), regions
+                  if (institution, series_name) in expected:
+                      assert latest[0]['total'] == expected[(institution, series_name)], latest[0]
+
+          print('SNAPSHOT_POLICE_2025_OK')
+          print('CCH_DENUNCIAS_2025', expected[('carabineros', 'denuncias')])
+          print('PDI_DENUNCIAS_2025', expected[('pdi', 'denuncias')])
           PY
+
+      - name: Versionar snapshot actualizado
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- public/police-data.json; then
+            echo 'SNAPSHOT_ALREADY_CURRENT'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/police-data.json
+          git commit -m 'Actualiza snapshot policial a 2025'
+          git push origin HEAD:main
