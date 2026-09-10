@@ -9,6 +9,7 @@ fi
 
 worker="${SITES_PROJECT_ROOT}/dist/server/index.js"
 hosting="${SITES_PROJECT_ROOT}/dist/.openai/hosting.json"
+migrations_dir="${SITES_PROJECT_ROOT}/dist/.openai/drizzle"
 
 [[ -f "${worker}" ]] || {
   echo "Missing Sites Worker entry: dist/server/index.js" >&2
@@ -18,6 +19,23 @@ hosting="${SITES_PROJECT_ROOT}/dist/.openai/hosting.json"
   echo "Missing packaged Sites manifest: dist/.openai/hosting.json" >&2
   exit 66
 }
+
+# Si el proyecto declara migraciones Drizzle, el artefacto Sites debe llevarlas.
+# Esto evita builds válidos que luego no puedan reconstruir el esquema D1.
+if compgen -G "${SITES_PROJECT_ROOT}/drizzle/*.sql" >/dev/null; then
+  [[ -d "${migrations_dir}" ]] || {
+    echo "Missing packaged D1 migrations: dist/.openai/drizzle" >&2
+    exit 66
+  }
+
+  for source_migration in "${SITES_PROJECT_ROOT}"/drizzle/*.sql; do
+    migration_name="$(basename "${source_migration}")"
+    [[ -f "${migrations_dir}/${migration_name}" ]] || {
+      echo "Missing packaged D1 migration: dist/.openai/drizzle/${migration_name}" >&2
+      exit 66
+    }
+  done
+fi
 
 node --input-type=module - "${worker}" "${hosting}" <<'NODE'
 import { readFile } from "node:fs/promises";
@@ -34,4 +52,4 @@ if (!worker.default || typeof worker.default.fetch !== "function") {
 }
 NODE
 
-echo "Validated Sites artifact: ESM Worker default.fetch and hosting manifest are present."
+echo "Validated Sites artifact: Worker, hosting manifest and D1 migrations are present."
