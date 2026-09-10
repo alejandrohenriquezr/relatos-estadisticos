@@ -1,4 +1,4 @@
-name: Auditoría fuentes vitales 2025
+name: Regenerar snapshots vitales 2025
 
 on:
   push:
@@ -8,20 +8,22 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  audit:
+  regenerate:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
       - name: Obtener repositorio
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Preparar dependencias
         run: npm ci --ignore-scripts
 
-      - name: Descargar la nueva serie histórica oficial
+      - name: Descargar la serie histórica oficial
         shell: bash
         run: |
           set -euo pipefail
@@ -30,9 +32,8 @@ jobs:
             --user-agent 'Mozilla/5.0 INE-Relatos-source-audit/1.0' \
             "$url" -o /tmp/series-vitales-1992-2025p.xlsx
           test "$(xxd -p -l 4 /tmp/series-vitales-1992-2025p.xlsx)" = '504b0304'
-          echo "XLSX_BYTES $(wc -c < /tmp/series-vitales-1992-2025p.xlsx)"
 
-      - name: Probar el parser productivo sin modificaciones
+      - name: Regenerar los cinco snapshots públicos
         shell: bash
         run: |
           set -euo pipefail
@@ -43,7 +44,6 @@ jobs:
           const bytes = fs.readFileSync('/tmp/series-vitales-1992-2025p.xlsx');
           const input = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
           const payload = parseVitalStatistics(input);
-
           const summary = {
             births: payload.births.series.at(-1),
             fertility: payload.fertility.series.at(-1),
@@ -52,7 +52,6 @@ jobs:
             marriages: payload.unions.marriages.at(-1),
             auc: payload.unions.auc.at(-1),
           };
-          console.log('PARSER_SUMMARY', JSON.stringify(summary));
 
           for (const [name, last] of Object.entries(summary)) {
             if (!last || last.year !== 2025)
@@ -64,5 +63,47 @@ jobs:
             throw new Error(`TGF 2025 inesperada: ${summary.fertility.tgf}`);
           if (Math.abs(summary.mortality.crude - 6.3) > 0.01)
             throw new Error(`Mortalidad 2025 inesperada: ${summary.mortality.crude}`);
-          console.log('VITAL_2025_PARSER_COMPATIBLE');
+
+          const write = (path, value) =>
+            fs.writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+          write('public/births-data.json', payload.births);
+          write('public/fertility-data.json', payload.fertility);
+          write('public/deaths-data.json', payload.deaths);
+          write('public/mortality-data.json', payload.mortality);
+          write('public/unions-data.json', payload.unions);
+
+          console.log('VITAL_2025_SNAPSHOTS_OK', JSON.stringify(summary));
           NODE
+
+      - name: Validar integridad antes de versionar
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/check-repository-integrity.py
+          grep -q '"year": 2025' public/births-data.json
+          grep -q '"observed": 146446' public/births-data.json
+          grep -q '"year": 2025' public/fertility-data.json
+          grep -q '"year": 2025' public/deaths-data.json
+          grep -q '"year": 2025' public/mortality-data.json
+          grep -q '"year": 2025' public/unions-data.json
+
+      - name: Versionar snapshots actualizados
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            public/births-data.json
+            public/fertility-data.json
+            public/deaths-data.json
+            public/mortality-data.json
+            public/unions-data.json
+          )
+          if git diff --quiet -- "${files[@]}"; then
+            echo 'VITAL_SNAPSHOTS_ALREADY_CURRENT'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "${files[@]}"
+          git commit -m 'Actualiza snapshots vitales a 2025(p)'
+          git push origin HEAD:main
