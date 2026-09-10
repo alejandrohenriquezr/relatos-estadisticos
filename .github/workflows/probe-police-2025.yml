@@ -15,29 +15,29 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Probar candidatos sin asumir nombres
+      - name: Inspeccionar página y configuración Sitefinity
         shell: bash
         run: |
-          set -u
-          base='https://www.ine.gob.cl/docs/default-source/estadisticas-policiales-y-judiciales'
-          candidates=(
-            "$base/cuadro-estad%C3%ADstico/estadisticas-policiales/cuadros-estadisticas-policiales_cch_2025.xlsx"
-            "$base/cuadro-estad%C3%ADstico/estadisticas-policiales/cuadros-estad%C3%ADsticas-policiales_cch_2025.xlsx"
-            "$base/cuadro-estadistico/estadisticas-policiales/cuadros-estadisticas-policiales_cch_2025.xlsx"
-            "$base/cuadro-estad%C3%ADstico/estadisticas-policiales/cuadros-estad%C3%ADsticas-policiales_pdi_2025.xlsx"
-            "$base/cuadro-estad%C3%ADstico/estadisticas-policiales/cuadros-estadisticas-policiales_pdi_2025.xlsx"
-            "$base/cuadro-estadistico/estadisticas-policiales/cuadros-estadisticas-policiales_pdi_2025.xlsx"
-          )
-          for url in "${candidates[@]}"; do
-            echo "PROBE $url"
-            tmp="$(mktemp)"
-            code="$(curl -L -sS --max-time 30 --retry 1 -o "$tmp" -w '%{http_code}' "$url" || true)"
-            bytes="$(wc -c < "$tmp")"
-            signature="$(xxd -p -l 4 "$tmp" 2>/dev/null || true)"
-            mime="$(file -b --mime-type "$tmp" 2>/dev/null || true)"
-            echo "RESULT code=$code bytes=$bytes signature=$signature mime=$mime"
-            if [ "$code" = "200" ] && [ "$signature" = "504b0304" ]; then
-              echo "VALID_XLSX $url"
-            fi
-            rm -f "$tmp"
-          done
+          set -euo pipefail
+          page='https://www.ine.gob.cl/estadisticas-por-tema/sociedad-y-condiciones-de-vida/estadisticas-policiales-y-judiciales'
+          curl -L --fail --max-time 60 --retry 2 \
+            --user-agent 'Mozilla/5.0 INE-Relatos-source-audit/1.0' \
+            "$page" -o /tmp/police.html
+          echo "HTML_BYTES $(wc -c < /tmp/police.html)"
+
+          echo '=== XLSX/XLS references ==='
+          grep -Eoi 'https?://[^"'"'"' <>]+\.(xlsx|xls)(\?[^"'"'"' <>]*)?|/[^"'"'"' <>]+\.(xlsx|xls)(\?[^"'"'"' <>]*)?' /tmp/police.html \
+            | sed 's/&amp;/\&/g' | sort -u | head -n 100 || true
+
+          echo '=== Sitefinity/API references ==='
+          grep -Eoi 'https?://[^"'"'"' <>]+|/[^"'"'"' <>]+' /tmp/police.html \
+            | grep -Ei 'sitefinity|api/default|sf-|document|download|cuadro|library' \
+            | sort -u | head -n 150 || true
+
+          echo '=== Context around 2025 / CUADROS ==='
+          grep -Ein -C 2 '2025|CUADROS ESTAD|estadisticas-policiales|estadísticas-policiales' /tmp/police.html \
+            | head -n 250 || true
+
+          echo '=== Script sources ==='
+          grep -Eoi '<script[^>]+src=["'"'"'][^"'"'"']+' /tmp/police.html \
+            | sed -E 's/.*src=["'"'"']//I' | head -n 100 || true
