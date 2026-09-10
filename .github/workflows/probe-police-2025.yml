@@ -1,0 +1,43 @@
+name: Diagnóstico fuentes policiales 2025
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/probe-police-2025.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probar candidatos sin asumir nombres
+        shell: bash
+        run: |
+          set -u
+          base='https://www.ine.gob.cl/docs/default-source/estadisticas-policiales-y-judiciales'
+          candidates=(
+            "$base/cuadro-estad%C3%ADstico/estadisticas-policiales/cuadros-estadisticas-policiales_cch_2025.xlsx"
+            "$base/cuadro-estad%C3%ADstico/estadisticas-policiales/cuadros-estad%C3%ADsticas-policiales_cch_2025.xlsx"
+            "$base/cuadro-estadistico/estadisticas-policiales/cuadros-estadisticas-policiales_cch_2025.xlsx"
+            "$base/cuadro-estad%C3%ADstico/estadisticas-policiales/cuadros-estad%C3%ADsticas-policiales_pdi_2025.xlsx"
+            "$base/cuadro-estad%C3%ADstico/estadisticas-policiales/cuadros-estadisticas-policiales_pdi_2025.xlsx"
+            "$base/cuadro-estadistico/estadisticas-policiales/cuadros-estadisticas-policiales_pdi_2025.xlsx"
+          )
+          for url in "${candidates[@]}"; do
+            echo "PROBE $url"
+            tmp="$(mktemp)"
+            code="$(curl -L -sS --max-time 30 --retry 1 -o "$tmp" -w '%{http_code}' "$url" || true)"
+            bytes="$(wc -c < "$tmp")"
+            signature="$(xxd -p -l 4 "$tmp" 2>/dev/null || true)"
+            mime="$(file -b --mime-type "$tmp" 2>/dev/null || true)"
+            echo "RESULT code=$code bytes=$bytes signature=$signature mime=$mime"
+            if [ "$code" = "200" ] && [ "$signature" = "504b0304" ]; then
+              echo "VALID_XLSX $url"
+            fi
+            rm -f "$tmp"
+          done
