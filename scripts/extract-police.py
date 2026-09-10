@@ -1,60 +1,109 @@
+#!/usr/bin/env python3
+"""Extrae las series policiales desde un libro oficial del INE.
+
+El origen puede ser una ruta local o una URL directa a un XLSX. No se fija un
+año máximo: el año publicado se obtiene del contenido del libro, por lo que el
+mismo extractor sirve para futuras actualizaciones mientras se conserve la
+estructura de hojas utilizada por el INE.
+
+Uso:
+    python scripts/extract-police.py archivo.xlsx
+    python scripts/extract-police.py https://.../archivo.xlsx
+    python scripts/extract-police.py archivo.xlsx --output salida.json
+"""
+
+from __future__ import annotations
+
+import argparse
 import json
 import re
+import tempfile
+import urllib.request
+from contextlib import contextmanager
 from pathlib import Path
+from typing import Iterator
 
 import openpyxl
 
 
-SOURCE = Path("/workspace/scratch/2d2d04d80cf0/upload/01-cuadros-estad-sticas-policiales_2025-1s.xlsx")
-OUTPUT = Path("public/police-data.json")
-REGION_ALIASES = {"Metropolitana ": "METROPOLITANA", "O'Higgins": "O'HIGGINS"}
+DEFAULT_OUTPUT = Path(__file__).resolve().parents[1] / "public" / "police-data.json"
+REGION_ALIASES = {"Metropolitana": "METROPOLITANA", "O'Higgins": "O'HIGGINS"}
 
 
-def clean_region(value):
+def clean_region(value: object) -> str:
+    """Normaliza la glosa territorial manteniendo los nombres usados por la web."""
     label = str(value).strip()
-    return REGION_ALIASES.get(value, label.upper())
+    return REGION_ALIASES.get(label, label.upper())
 
 
-def numeric(value):
+def numeric(value: object) -> int | float | None:
+    """Conserva sólo celdas numéricas del libro."""
     return value if isinstance(value, (int, float)) else None
 
 
-def extract_sheet(workbook, sheet_name, combined=False):
+@contextmanager
+def source_path(source: str) -> Iterator[Path]:
+    """Entrega una ruta local para un archivo local o una URL remota."""
+    if not source.lower().startswith(("http://", "https://")):
+        path = Path(source).expanduser().resolve()
+        if not path.is_file():
+            raise FileNotFoundError(f"No existe el libro de entrada: {path}")
+        yield path
+        return
+
+    request = urllib.request.Request(
+        source,
+        headers={"User-Agent": "INE-Relatos-source-extractor/1.0"},
+    )
+    temporary = tempfile.NamedTemporaryFile(suffix=".xlsx", delete=False)
+    path = Path(temporary.name)
+    try:
+        with urllib.request.urlopen(request, timeout=120) as response:
+            while chunk := response.read(1024 * 1024):
+                temporary.write(chunk)
+        temporary.close()
+        if path.read_bytes()[:4] != b"PK\x03\x04":
+            raise ValueError("La URL no devolvió un archivo XLSX válido")
+        yield path
+    finally:
+        temporary.close()
+        path.unlink(missing_ok=True)
+
+
+def extract_sheet(workbook, sheet_name: str, combined: bool = False) -> list[dict]:
+    """Extrae una serie anual total y regional desde una hoja conocida."""
+    if sheet_name not in workbook.sheetnames:
+        raise ValueError(f"El libro no contiene la hoja requerida: {sheet_name}")
+
     sheet = workbook[sheet_name]
     headers = [clean_region(cell.value) for cell in sheet[4][1:]]
-    records = []
+    records: list[dict] = []
+
     for row in sheet.iter_rows(min_row=5, values_only=True):
         label = row[0]
-        if combined:
-            if not isinstance(label, str) or not label.startswith("Denuncias "):
-                continue
-            match = re.search(r"(20\d{2})", label)
-            if not match:
-                continue
-            year = int(match.group(1))
-        else:
-            match = re.search(r"(20\d{2})", str(label))
-            if not match:
-                continue
-            year = int(match.group(1))
-        if year > 2024:
+        if combined and (not isinstance(label, str) or not label.startswith("Denuncias ")):
             continue
-        records.append({
-            "year": year,
-            "total": numeric(row[1]),
-            "regions": {
-                region: numeric(value)
-                for region, value in zip(headers[1:], row[2:])
-                if region != "NONE"
-            },
-        })
+        match = re.search(r"(20\d{2})", str(label))
+        if not match:
+            continue
+        year = int(match.group(1))
+        records.append(
+            {
+                "year": year,
+                "total": numeric(row[1]),
+                "regions": {
+                    region: numeric(value)
+                    for region, value in zip(headers[1:], row[2:])
+                    if region != "NONE"
+                },
+            }
+        )
     return records
 
 
-workbook = openpyxl.load_workbook(SOURCE, data_only=True, read_only=True)
-data = {
-    "updated": 2024,
-    "institutions": {
+def build_payload(workbook) -> dict:
+    """Construye el contrato JSON consumido por la página policial."""
+    institutions = {
         "carabineros": {
             "label": "Carabineros de Chile",
             "series": {
@@ -71,6 +120,49 @@ data = {
                 "victimas": extract_sheet(workbook, "37"),
             },
         },
-    },
-}
-OUTPUT.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    }
+    years = [
+        record["year"]
+        for institution in institutions.values()
+        for series in institution["series"].values()
+        for record in series
+    ]
+    if not years:
+        raise ValueError("No se encontraron observaciones anuales en el libro")
+    return {"updated": max(years), "institutions": institutions}
+
+
+def main() -> None:
+    """Lee el libro, valida que existan observaciones y escribe el snapshot."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("source", help="Ruta local o URL directa al XLSX oficial")
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=DEFAULT_OUTPUT,
+        help=f"JSON de salida (predeterminado: {DEFAULT_OUTPUT})",
+    )
+    args = parser.parse_args()
+
+    with source_path(args.source) as source:
+        workbook = openpyxl.load_workbook(source, data_only=True, read_only=True)
+        try:
+            payload = build_payload(workbook)
+        finally:
+            workbook.close()
+
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(
+        json.dumps(
+            {"output": str(args.output), "updated": payload["updated"]},
+            ensure_ascii=False,
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()
