@@ -1,26 +1,55 @@
 #!/usr/bin/env python3
-"""Valida la integridad básica de los archivos versionados.
+"""Valida integridad y portabilidad básica de los archivos versionados.
 
-Detecta texto no UTF-8, JSON inválido, HTML sin estructura reconocible y
-firmas incorrectas de XLSX/PDF. El objetivo es impedir que una sincronización
-de archivos vuelva a introducir contenido binario o texto recodificado.
+Detecta texto no UTF-8, JSON inválido, HTML sin estructura reconocible,
+firmas incorrectas de XLSX/PDF y rutas absolutas propias de una máquina de
+trabajo en código ejecutable. El objetivo es impedir que una sincronización
+vuelva a introducir archivos dañados o dependencias de una sesión local.
 """
+
 from pathlib import Path
 import json
 import subprocess
 import sys
 
+
 TEXT_EXTENSIONS = {
-    ".css", ".csv", ".html", ".js", ".json", ".md", ".mjs", ".py",
-    ".ts", ".tsx", ".txt", ".xml", ".yml", ".yaml",
+    ".css",
+    ".csv",
+    ".html",
+    ".js",
+    ".json",
+    ".md",
+    ".mjs",
+    ".py",
+    ".sh",
+    ".ts",
+    ".tsx",
+    ".txt",
+    ".xml",
+    ".yml",
+    ".yaml",
 }
+CODE_EXTENSIONS = {".js", ".mjs", ".py", ".sh", ".ts", ".tsx"}
+CODE_PREFIXES = ("scripts/", "public/sdmx/", "app/", "lib/", "db/", "worker/", "tests/")
 SKIP_PREFIXES = ("node_modules/", ".git/", "dist/", ".next/")
+# Se construyen por partes para que este validador no se denuncie a sí mismo.
+FORBIDDEN_MACHINE_PATHS = ("/" + "workspace/", "/" + "home/")
 
 
 def tracked_files() -> list[Path]:
     """Obtiene únicamente archivos controlados por Git."""
     output = subprocess.check_output(["git", "ls-files", "-z"])
     return [Path(item.decode("utf-8")) for item in output.split(b"\0") if item]
+
+
+def check_machine_paths(rel: str, suffix: str, text: str, errors: list[str]) -> None:
+    """Rechaza rutas de sesiones Linux dentro del código que debe ser portable."""
+    if suffix not in CODE_EXTENSIONS or not rel.startswith(CODE_PREFIXES):
+        return
+    for forbidden in FORBIDDEN_MACHINE_PATHS:
+        if forbidden in text:
+            errors.append(f"ABSOLUTE_MACHINE_PATH {rel}: contiene {forbidden}")
 
 
 def main() -> int:
@@ -43,11 +72,16 @@ def main() -> int:
                 errors.append(f"TEXT_NOT_UTF8 {rel}: {exc}")
                 continue
 
+        if text is not None:
+            check_machine_paths(rel, suffix, text, errors)
+
         if suffix == ".json" and text is not None:
             try:
                 json.loads(text)
             except json.JSONDecodeError as exc:
-                errors.append(f"INVALID_JSON {rel}: line {exc.lineno}, column {exc.colno}: {exc.msg}")
+                errors.append(
+                    f"INVALID_JSON {rel}: line {exc.lineno}, column {exc.colno}: {exc.msg}"
+                )
 
         if suffix == ".html" and text is not None:
             head = text.lstrip().lower()[:1000]
@@ -62,12 +96,12 @@ def main() -> int:
 
     print(f"Archivos versionados revisados: {checked}")
     if errors:
-        print("Errores de integridad:")
+        print("Errores de integridad o portabilidad:")
         for error in errors:
             print(f"- {error}")
         return 1
 
-    print("Integridad básica: OK")
+    print("Integridad y portabilidad básicas: OK")
     return 0
 
 
