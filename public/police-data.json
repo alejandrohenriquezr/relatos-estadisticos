@@ -1,5 +1,5 @@
 {
-  "updated": 2024,
+  "updated": 2025,
   "institutions": {
     "carabineros": {
       "label": "Carabineros de Chile",
@@ -202,6 +202,28 @@
               "AYSÉN": 9083,
               "MAGALLANES": 8955
             }
+          },
+          {
+            "year": 2025,
+            "total": 1523703,
+            "regions": {
+              "ARICA Y PARINACOTA": 21701,
+              "TARAPACÁ": 29785,
+              "ANTOFAGASTA": 55229,
+              "ATACAMA": 23460,
+              "COQUIMBO": 72773,
+              "VALPARAÍSO": 167994,
+              "METROPOLITANA": 619545,
+              "O'HIGGINS": 77760,
+              "MAULE": 82251,
+              "ÑUBLE": 37530,
+              "BIOBÍO": 115957,
+              "LA ARAUCANÍA": 80044,
+              "LOS RÍOS": 34635,
+              "LOS LAGOS": 86148,
+              "AYSÉN": 9393,
+              "MAGALLANES": 9498
+            }
           }
         ],
         "detenidos": [
@@ -402,6 +424,72 @@
               "AYSÉN": 2312,
               "MAGALLANES": 2019
             }
+          },
+          {
+            "year": 2025,
+            "total": 278752,
+            "regions": {
+              "ARICA Y PARINACOTA": 6079,
+              "TARAPACÁ": 8604,
+              "ANTOFAGASTA": 14128,
+              "ATACAMA": 5209,
+              "COQUIMBO": 12155,
+              "VALPARAÍSO": 33325,
+              "METROPOLITANA": 83835,
+              "O'HIGGINS": 17054,
+              "MAULE": 14680,
+              "ÑUBLE": 7302,
+              "BIOBÍO": 26403,
+              "LA ARAUCANÍA": 19887,
+              "LOS RÍOS": 7077,
+              "LOS LAGOS": 18371,
+              "AYSÉN": 2407,
+              "MAGALLANES": 2236
+            }
+          },
+          {
+            "year": 2023,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
+            }
+          },
+          {
+            "year": 2015,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
+            }
           }
         ],
         "victimas": [
@@ -601,6 +689,72 @@
               "LOS LAGOS": 66717,
               "AYSÉN": 7829,
               "MAGALLANES": 8081
+            }
+          },
+          {
+            "year": 2025,
+            "total": 1396351,
+            "regions": {
+              "ARICA Y PARINACOTA": 20746,
+              "TARAPACÁ": 29328,
+              "ANTOFAGASTA": 49099,
+              "ATACAMA": 21334,
+              "COQUIMBO": 60650,
+              "VALPARAÍSO": 154354,
+              "METROPOLITANA": 568770,
+              "O'HIGGINS": 72597,
+              "MAULE": 78509,
+              "ÑUBLE": 35741,
+              "BIOBÍO": 110713,
+              "LA ARAUCANÍA": 76586,
+              "LOS RÍOS": 31007,
+              "LOS LAGOS": 70205,
+              "AYSÉN": 8145,
+              "MAGALLANES": 8567
+            }
+          },
+          {
+            "year": 2023,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
+            }
+          },
+          {
+            "year": 2015,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
             }
           }
         ]
@@ -807,6 +961,72 @@
               "AYSÉN": 834,
               "MAGALLANES": 2399
             }
+          },
+          {
+            "year": 2025,
+            "total": 96603,
+            "regions": {
+              "ARICA Y PARINACOTA": 1858,
+              "TARAPACÁ": 1656,
+              "ANTOFAGASTA": 3149,
+              "ATACAMA": 3265,
+              "COQUIMBO": 5021,
+              "VALPARAÍSO": 9744,
+              "METROPOLITANA": 29327,
+              "O'HIGGINS": 6524,
+              "MAULE": 7681,
+              "ÑUBLE": 1970,
+              "BIOBÍO": 10675,
+              "LA ARAUCANÍA": 4893,
+              "LOS RÍOS": 1937,
+              "LOS LAGOS": 5383,
+              "AYSÉN": 808,
+              "MAGALLANES": 2712
+            }
+          },
+          {
+            "year": 2023,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
+            }
+          },
+          {
+            "year": 2015,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
+            }
           }
         ],
         "detenidos": [
@@ -984,6 +1204,116 @@
               "LOS LAGOS": 1400,
               "AYSÉN": 441,
               "MAGALLANES": 541
+            }
+          },
+          {
+            "year": 2024,
+            "total": 29888,
+            "regions": {
+              "ARICA Y PARINACOTA": 1280,
+              "TARAPACÁ": 1169,
+              "ANTOFAGASTA": 1316,
+              "ATACAMA": 793,
+              "COQUIMBO": 1104,
+              "VALPARAÍSO": 2718,
+              "METROPOLITANA": 10490,
+              "O'HIGGINS": 1336,
+              "MAULE": 2219,
+              "ÑUBLE": 781,
+              "BIOBÍO": 2209,
+              "LA ARAUCANÍA": 1824,
+              "LOS RÍOS": 787,
+              "LOS LAGOS": 1012,
+              "AYSÉN": 397,
+              "MAGALLANES": 453
+            }
+          },
+          {
+            "year": 2025,
+            "total": 31240,
+            "regions": {
+              "ARICA Y PARINACOTA": 1135,
+              "TARAPACÁ": 1404,
+              "ANTOFAGASTA": 1244,
+              "ATACAMA": 961,
+              "COQUIMBO": 1439,
+              "VALPARAÍSO": 3201,
+              "METROPOLITANA": 10883,
+              "O'HIGGINS": 1366,
+              "MAULE": 2091,
+              "ÑUBLE": 852,
+              "BIOBÍO": 1934,
+              "LA ARAUCANÍA": 1974,
+              "LOS RÍOS": 819,
+              "LOS LAGOS": 1148,
+              "AYSÉN": 313,
+              "MAGALLANES": 476
+            }
+          },
+          {
+            "year": 2015,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
+            }
+          },
+          {
+            "year": 2018,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
+            }
+          },
+          {
+            "year": 2024,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
             }
           }
         ],
@@ -1184,6 +1514,72 @@
               "LOS LAGOS": 4666,
               "AYSÉN": 806,
               "MAGALLANES": 2256
+            }
+          },
+          {
+            "year": 2025,
+            "total": 95257,
+            "regions": {
+              "ARICA Y PARINACOTA": 1777,
+              "TARAPACÁ": 1504,
+              "ANTOFAGASTA": 3007,
+              "ATACAMA": 3229,
+              "COQUIMBO": 5080,
+              "VALPARAÍSO": 9533,
+              "METROPOLITANA": 29111,
+              "O'HIGGINS": 6506,
+              "MAULE": 7532,
+              "ÑUBLE": 1890,
+              "BIOBÍO": 10673,
+              "LA ARAUCANÍA": 4727,
+              "LOS RÍOS": 1877,
+              "LOS LAGOS": 5437,
+              "AYSÉN": 757,
+              "MAGALLANES": 2617
+            }
+          },
+          {
+            "year": 2023,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
+            }
+          },
+          {
+            "year": 2015,
+            "total": null,
+            "regions": {
+              "ARICA Y PARINACOTA": null,
+              "TARAPACÁ": null,
+              "ANTOFAGASTA": null,
+              "ATACAMA": null,
+              "COQUIMBO": null,
+              "VALPARAÍSO": null,
+              "METROPOLITANA": null,
+              "O'HIGGINS": null,
+              "MAULE": null,
+              "ÑUBLE": null,
+              "BIOBÍO": null,
+              "LA ARAUCANÍA": null,
+              "LOS RÍOS": null,
+              "LOS LAGOS": null,
+              "AYSÉN": null,
+              "MAGALLANES": null
             }
           }
         ]
