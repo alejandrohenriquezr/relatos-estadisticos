@@ -120,11 +120,15 @@ La estructura SDMX propuesta y sus dimensiones están documentadas en [`docs/sdm
 
 ## CMS
 
-La ruta `/admin` administra la configuración de secciones por operación. La persistencia se realiza en D1 y la configuración pública se expone mediante `GET /api/operation-config`.
+La ruta `/admin` administra la configuración de secciones por operación y requiere una sesión de ChatGPT autenticada. La persistencia se realiza en D1 y la configuración pública de lectura se expone mediante `GET /api/operation-config`.
 
-Las secciones contempladas por el modelo incluyen análisis de resultados, publicaciones, documentación, bases de datos y centro de recursos. La lógica exacta de tablas y migraciones está en `db/` y `drizzle/`.
+Las secciones contempladas por el modelo son **Análisis**, **Publicaciones**, **Documentación**, **Bases de datos** y **Centro de recursos**. El análisis queda activo por omisión. Cuando una operación tiene dos o más secciones habilitadas, `app/OperationSections.tsx` genera el menú de pestañas; la configuración se consulta nuevamente al abrir la operación, de modo que un cambio guardado en el CMS se refleja en la interfaz sin modificar el código.
 
-Una clonación sin D1 puede construir y mostrar los contenidos versionados, pero no reproduce por sí sola el estado persistido del CMS productivo.
+El editor de `/admin/operations/[operation]` recupera la revisión persistida en D1 antes de mostrar los controles. El endpoint de escritura `PUT /api/admin/operations` exige identidad autenticada y registra el correo del usuario en `updated_by`. Una configuración guardada ya no se limita, por tanto, a mostrar un mensaje de éxito: la lectura editorial y la vista pública comparten el mismo registro persistido.
+
+Las secciones distintas de Análisis reúnen recursos que ya están enlazados por la operación —por ejemplo boletines, metodología, microdatos, Excel o recursos SDMX/API—. Si una categoría está habilitada pero la revisión versionada no contiene un recurso clasificable, la interfaz remite a la fuente oficial del INE en vez de inventar contenido.
+
+Una clonación sin D1 puede construir y mostrar los contenidos y valores por omisión, pero no reproduce por sí sola el estado persistido del CMS productivo. Las regresiones de integración se encuentran en `tests/cms-operation-sections.test.mjs`.
 
 ## API SDMX
 
@@ -165,7 +169,7 @@ Los cambios de esquema deben registrarse mediante migraciones y probarse antes d
 1. integridad del repositorio;
 2. instalación reproducible con `npm ci`;
 3. `npm run lint` como paso bloqueante ante errores;
-4. `npm test`, que incluye build, render SSR, regresiones de caché, fallback estático y MCP/SDMX;
+4. `npm test`, que incluye build, render SSR, regresiones de caché, fallback estático, CMS y MCP/SDMX;
 5. conservación temporal del artefacto de construcción;
 6. revisión de secretos con Gitleaks.
 
