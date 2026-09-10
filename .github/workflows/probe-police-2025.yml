@@ -15,100 +15,51 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
-      - name: Obtener árbol de descargas policiales
+      - name: Preparar lector XLSX
+        run: python3 -m pip install --disable-pip-version-check openpyxl
+
+      - name: Descargar libro penal anual 2025
         shell: bash
         run: |
           set -euo pipefail
-          page='https://www.ine.gob.cl/estadisticas-por-tema/sociedad-y-condiciones-de-vida/estadisticas-policiales-y-judiciales'
-          root_folder='add82975-cfc3-49d5-b27e-de99b7529a9d'
-
-          # Conserva la sesión que crea Sitefinity al abrir la página y replica
-          # exactamente la llamada AJAX publicada por el sitio: idFolder.
+          url='https://www.ine.gob.cl/docs/default-source/estadisticas-policiales-y-judiciales/cuadro-estad%C3%ADstico/estadisticas-policiales/2025/estad%C3%ADsticas-policiales_penal_2025.xlsx?sfvrsn=9579c5aa_4'
           curl -L --fail --max-time 60 --retry 2 \
-            -c /tmp/ine.cookies \
             --user-agent 'Mozilla/5.0 INE-Relatos-source-audit/1.0' \
-            "$page" -o /tmp/police.html
+            "$url" -o /tmp/police-2025.xlsx
+          test "$(xxd -p -l 4 /tmp/police-2025.xlsx)" = '504b0304'
+          echo "XLSX_BYTES $(wc -c < /tmp/police-2025.xlsx)"
 
-          post_json() {
-            local endpoint="$1"
-            local folder="$2"
-            local output="$3"
-            curl -L -sS --fail --max-time 30 \
-              -b /tmp/ine.cookies -c /tmp/ine.cookies \
-              --user-agent 'Mozilla/5.0 INE-Relatos-source-audit/1.0' \
-              -H "Referer: $page" \
-              -H 'X-Requested-With: XMLHttpRequest' \
-              -H 'Accept: application/json, text/javascript, */*; q=0.01' \
-              -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
-              --data-urlencode "idFolder=$folder" \
-              "$page/$endpoint/" -o "$output"
-          }
-
-          post_json hijosCarpeta "$root_folder" /tmp/root.json
-          echo '=== ROOT RESPONSE ==='
-          python3 -m json.tool /tmp/root.json
-
-          # Recorre el árbol que devuelve la misma API del widget. Para cada
-          # carpeta sin hijos consulta getArchivos y muestra únicamente título,
-          # tipo, peso y URL, sin adivinar nombres ni rutas de descarga.
+      - name: Inspeccionar hojas y cabeceras relevantes
+        shell: bash
+        run: |
+          set -euo pipefail
           python3 - <<'PY'
           import json
-          import subprocess
-          from pathlib import Path
+          import re
+          import openpyxl
 
-          page = "https://www.ine.gob.cl/estadisticas-por-tema/sociedad-y-condiciones-de-vida/estadisticas-policiales-y-judiciales"
-          cookies = "/tmp/ine.cookies"
+          path = "/tmp/police-2025.xlsx"
+          wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
+          print("SHEETS", json.dumps(wb.sheetnames, ensure_ascii=False))
 
-          def request(endpoint: str, folder_id: str):
-              command = [
-                  "curl", "-L", "-sS", "--fail", "--max-time", "30",
-                  "-b", cookies, "-c", cookies,
-                  "--user-agent", "Mozilla/5.0 INE-Relatos-source-audit/1.0",
-                  "-H", f"Referer: {page}",
-                  "-H", "X-Requested-With: XMLHttpRequest",
-                  "-H", "Accept: application/json, text/javascript, */*; q=0.01",
-                  "-H", "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
-                  "--data-urlencode", f"idFolder={folder_id}",
-                  f"{page}/{endpoint}/",
-              ]
-              raw = subprocess.check_output(command, text=True)
-              return json.loads(raw)
-
-          root = json.loads(Path("/tmp/root.json").read_text(encoding="utf-8"))
-          queue = [(item["Id"], item.get("Titulo", ""), [item.get("Titulo", "")]) for item in root.get("folder", [])]
-          seen = set()
-          documents = []
-
-          while queue:
-              folder_id, title, trail = queue.pop(0)
-              if folder_id in seen:
-                  continue
-              seen.add(folder_id)
-              children = request("hijosCarpeta", folder_id).get("folder") or []
-              if children:
-                  for child in children:
-                      queue.append((child["Id"], child.get("Titulo", ""), trail + [child.get("Titulo", "")]))
-                  continue
-              data = request("getArchivos", folder_id)
-              for document in data.get("documento") or []:
-                  record = {
-                      "path": " > ".join(part for part in trail if part),
-                      "title": document.get("Titulo"),
-                      "type": document.get("Tipo"),
-                      "size": document.get("Peso"),
-                      "url": str(document.get("Url", "")).replace("http:", "https:"),
-                  }
-                  documents.append(record)
-
-          print("=== DOCUMENTS ===")
-          for document in documents:
-              print(json.dumps(document, ensure_ascii=False))
-
-          candidates = [
-              item for item in documents
-              if "2025" in (item.get("title") or "")
-              and str(item.get("type") or "").lower().endswith(("xlsx", "xls"))
-          ]
-          print("=== 2025 XLS CANDIDATES ===")
-          print(json.dumps(candidates, ensure_ascii=False, indent=2))
+          keywords = re.compile(r"denunc|deten|v[ií]ctim|carabiner|investigaciones|pdi", re.I)
+          for name in wb.sheetnames:
+              ws = wb[name]
+              matches = []
+              preview = []
+              for row_index, row in enumerate(ws.iter_rows(values_only=True), start=1):
+                  values = list(row[:25])
+                  compact = [value for value in values if value not in (None, "")]
+                  if row_index <= 12 and compact:
+                      preview.append((row_index, compact[:18]))
+                  text = " | ".join(str(value) for value in compact)
+                  if keywords.search(text):
+                      matches.append((row_index, compact[:18]))
+                  if row_index >= 80 and len(matches) >= 8:
+                      break
+              if matches or name in {"1", "6", "7", "15", "17", "23", "28", "37"}:
+                  print(f"=== SHEET {name} ===")
+                  print("PREVIEW", json.dumps(preview[:12], ensure_ascii=False, default=str))
+                  print("MATCHES", json.dumps(matches[:12], ensure_ascii=False, default=str))
+          wb.close()
           PY
