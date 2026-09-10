@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   quality:
-    name: Lint, pruebas y construcción
+    name: Integridad, lint, pruebas y construcción
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -24,6 +24,11 @@ jobs:
       # Descarga exactamente la revisión que disparó el flujo.
       - name: Obtener código
         uses: actions/checkout@v4
+
+      # Detecta texto no UTF-8 y archivos XLSX/PDF con firmas inválidas antes
+      # de invertir tiempo en instalar dependencias o compilar.
+      - name: Verificar integridad del repositorio
+        run: python3 scripts/check-repository-integrity.py
 
       # Usa la versión mínima de Node declarada por el proyecto y habilita caché.
       - name: Configurar Node.js
