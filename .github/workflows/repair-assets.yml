@@ -1,0 +1,114 @@
+name: Reparar artefactos sincronizados
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/repair-assets.yml"
+      - "scripts/build-business-demography-snapshot.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    name: Regenerar y guardar artefactos
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.13.0"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Preparar Python para ENUSC
+        run: python3 -m pip install --disable-pip-version-check openpyxl
+
+      - name: Restaurar lector XLSX del navegador
+        run: |
+          set -euo pipefail
+          cp node_modules/xlsx/dist/xlsx.full.min.js public/worker/vendor/xlsx.full.min.js
+          node --check public/worker/vendor/xlsx.full.min.js
+
+      - name: Regenerar ENUSC desde la fuente oficial
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            --user-agent "INE-Relatos/1.0" \
+            "https://www.ine.gob.cl/docs/default-source/seguridad-ciudadana/cuadros-estadisticos/2025/tabulados-regionales---enusc-2025.xlsx" \
+            --output /tmp/enusc-2025.xlsx
+          python3 scripts/extract-enusc.py /tmp/enusc-2025.xlsx public/enusc-data.json
+          python3 -m json.tool public/enusc-data.json >/dev/null
+
+      - name: Regenerar SDMX ENE desde la fuente oficial
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/ene-sdmx
+          mkdir -p /tmp/ene-sdmx
+          python3 public/sdmx/transformar_ene_sdmx.py --output-dir /tmp/ene-sdmx
+          CSV="$(find /tmp/ene-sdmx -maxdepth 1 -type f -name '*completo*SDMX-CSV*.csv' | head -n 1)"
+          if [ -z "$CSV" ]; then
+            echo "No se generó el CSV SDMX completo de ENE" >&2
+            find /tmp/ene-sdmx -maxdepth 1 -type f -print >&2
+            exit 1
+          fi
+          cp "$CSV" public/sdmx/ENE_IND_PRINCIPALES_completo_SDMX-CSV_2.0.csv
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('public/sdmx/ENE_IND_PRINCIPALES_completo_SDMX-CSV_2.0.csv')
+          text = p.read_text(encoding='utf-8-sig')
+          if 'STRUCTURE' not in text[:300] or 'OBS_VALUE' not in text[:300]:
+              raise SystemExit('Cabecera SDMX ENE inválida')
+          print(f'ENE SDMX: {len(text.splitlines()) - 1} observaciones')
+          PY
+
+      - name: Recuperar Demografía de empresas desde su repositorio fuente
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/demografia-de-empresas
+          git clone --depth 1 --branch main \
+            https://github.com/alejandrohenriquezr/demografia-de-empresas.git \
+            /tmp/demografia-de-empresas
+          cp /tmp/demografia-de-empresas/index.html public/demografia-empresas/index.html
+          grep -qi '<!DOCTYPE html>' public/demografia-empresas/index.html
+          node scripts/build-business-demography-snapshot.mjs \
+            public/demografia-empresas/index.html \
+            public/sdmx/demografia-empresas-observations.json
+          node -e "const x=require('./public/sdmx/demografia-empresas-observations.json'); if(!Array.isArray(x)||x.length<100) process.exit(1); console.log('Demografía SDMX:',x.length,'observaciones')"
+
+      - name: Comprobar integridad reparada
+        run: python3 scripts/check-repository-integrity.py
+
+      - name: Guardar reparación en main
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- \
+            public/demografia-empresas/index.html \
+            public/enusc-data.json \
+            public/sdmx/ENE_IND_PRINCIPALES_completo_SDMX-CSV_2.0.csv \
+            public/sdmx/demografia-empresas-observations.json \
+            public/worker/vendor/xlsx.full.min.js; then
+            echo "No hay cambios que guardar."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            public/demografia-empresas/index.html \
+            public/enusc-data.json \
+            public/sdmx/ENE_IND_PRINCIPALES_completo_SDMX-CSV_2.0.csv \
+            public/sdmx/demografia-empresas-observations.json \
+            public/worker/vendor/xlsx.full.min.js
+          git commit -m "Repara artefactos de datos sincronizados [assets-repaired]"
+          git push origin HEAD:main
