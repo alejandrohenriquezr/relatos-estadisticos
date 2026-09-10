@@ -15,55 +15,100 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
-      - name: Obtener repositorio
-        uses: actions/checkout@v4
-
-      - name: Consultar descargas dinámicas del INE
+      - name: Obtener árbol de descargas policiales
         shell: bash
         run: |
           set -euo pipefail
           page='https://www.ine.gob.cl/estadisticas-por-tema/sociedad-y-condiciones-de-vida/estadisticas-policiales-y-judiciales'
+          root_folder='add82975-cfc3-49d5-b27e-de99b7529a9d'
+
+          # Conserva la sesión que crea Sitefinity al abrir la página y replica
+          # exactamente la llamada AJAX publicada por el sitio: idFolder.
           curl -L --fail --max-time 60 --retry 2 \
+            -c /tmp/ine.cookies \
             --user-agent 'Mozilla/5.0 INE-Relatos-source-audit/1.0' \
             "$page" -o /tmp/police.html
 
-          echo '=== JavaScript que define hijosCarpeta/getArchivos ==='
-          nl -ba /tmp/police.html | sed -n '1715,1825p'
-
-          # La carpeta raíz de CUADROS ESTADÍSTICOS se obtiene del atributo
-          # data-folder publicado por la propia página. La llamada se ensaya con
-          # los nombres de campo que aparezcan en el JavaScript anterior.
-          root_folder='add82975-cfc3-49d5-b27e-de99b7529a9d'
-          base="$page"
-          echo '=== Ensayo hijosCarpeta con campos habituales ==='
-          for field in id idCarpeta carpeta folder folderId; do
-            echo "FIELD $field"
-            curl -L -sS --max-time 30 \
+          post_json() {
+            local endpoint="$1"
+            local folder="$2"
+            local output="$3"
+            curl -L -sS --fail --max-time 30 \
+              -b /tmp/ine.cookies -c /tmp/ine.cookies \
               --user-agent 'Mozilla/5.0 INE-Relatos-source-audit/1.0' \
+              -H "Referer: $page" \
               -H 'X-Requested-With: XMLHttpRequest' \
+              -H 'Accept: application/json, text/javascript, */*; q=0.01' \
               -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
-              --data-urlencode "$field=$root_folder" \
-              "$base/hijosCarpeta/" | head -c 4000 || true
-            echo
-          done
+              --data-urlencode "idFolder=$folder" \
+              "$page/$endpoint/" -o "$output"
+          }
 
-          echo '=== Ensayo getArchivos con campos habituales ==='
-          for field in id idCarpeta carpeta folder folderId; do
-            echo "FIELD $field"
-            curl -L -sS --max-time 30 \
-              --user-agent 'Mozilla/5.0 INE-Relatos-source-audit/1.0' \
-              -H 'X-Requested-With: XMLHttpRequest' \
-              -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
-              --data-urlencode "$field=$root_folder" \
-              "$base/getArchivos/" | head -c 6000 || true
-            echo
-          done
+          post_json hijosCarpeta "$root_folder" /tmp/root.json
+          echo '=== ROOT RESPONSE ==='
+          python3 -m json.tool /tmp/root.json
 
-      - name: Auditar rutas locales no reproducibles
-        shell: bash
-        run: |
-          set -euo pipefail
-          echo '=== Referencias /workspace o /home en código ejecutable ==='
-          grep -R -nE '(/workspace/|/home/)' scripts public/sdmx app lib db worker tests \
-            --include='*.py' --include='*.mjs' --include='*.js' \
-            --include='*.ts' --include='*.tsx' --include='*.sh' || true
+          # Recorre el árbol que devuelve la misma API del widget. Para cada
+          # carpeta sin hijos consulta getArchivos y muestra únicamente título,
+          # tipo, peso y URL, sin adivinar nombres ni rutas de descarga.
+          python3 - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          page = "https://www.ine.gob.cl/estadisticas-por-tema/sociedad-y-condiciones-de-vida/estadisticas-policiales-y-judiciales"
+          cookies = "/tmp/ine.cookies"
+
+          def request(endpoint: str, folder_id: str):
+              command = [
+                  "curl", "-L", "-sS", "--fail", "--max-time", "30",
+                  "-b", cookies, "-c", cookies,
+                  "--user-agent", "Mozilla/5.0 INE-Relatos-source-audit/1.0",
+                  "-H", f"Referer: {page}",
+                  "-H", "X-Requested-With: XMLHttpRequest",
+                  "-H", "Accept: application/json, text/javascript, */*; q=0.01",
+                  "-H", "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
+                  "--data-urlencode", f"idFolder={folder_id}",
+                  f"{page}/{endpoint}/",
+              ]
+              raw = subprocess.check_output(command, text=True)
+              return json.loads(raw)
+
+          root = json.loads(Path("/tmp/root.json").read_text(encoding="utf-8"))
+          queue = [(item["Id"], item.get("Titulo", ""), [item.get("Titulo", "")]) for item in root.get("folder", [])]
+          seen = set()
+          documents = []
+
+          while queue:
+              folder_id, title, trail = queue.pop(0)
+              if folder_id in seen:
+                  continue
+              seen.add(folder_id)
+              children = request("hijosCarpeta", folder_id).get("folder") or []
+              if children:
+                  for child in children:
+                      queue.append((child["Id"], child.get("Titulo", ""), trail + [child.get("Titulo", "")]))
+                  continue
+              data = request("getArchivos", folder_id)
+              for document in data.get("documento") or []:
+                  record = {
+                      "path": " > ".join(part for part in trail if part),
+                      "title": document.get("Titulo"),
+                      "type": document.get("Tipo"),
+                      "size": document.get("Peso"),
+                      "url": str(document.get("Url", "")).replace("http:", "https:"),
+                  }
+                  documents.append(record)
+
+          print("=== DOCUMENTS ===")
+          for document in documents:
+              print(json.dumps(document, ensure_ascii=False))
+
+          candidates = [
+              item for item in documents
+              if "2025" in (item.get("title") or "")
+              and str(item.get("type") or "").lower().endswith(("xlsx", "xls"))
+          ]
+          print("=== 2025 XLS CANDIDATES ===")
+          print(json.dumps(candidates, ensure_ascii=False, indent=2))
+          PY
