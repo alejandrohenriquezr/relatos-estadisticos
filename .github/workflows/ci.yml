@@ -41,10 +41,9 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      # El análisis estático queda temporalmente informativo mientras se
-      # resuelven las observaciones heredadas documentadas en TECHNICAL_DEBT.md.
+      # El análisis estático es bloqueante: cualquier error de lint impide
+      # aceptar la revisión, aunque las advertencias no detienen el flujo.
       - name: Auditar lint
-        continue-on-error: true
         run: npm run lint
 
       # Las pruebas incluyen construcción, artefacto y regresiones principales.
