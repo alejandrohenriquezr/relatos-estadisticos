@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export type TemporalPreset = {
   value: number | "all";
@@ -100,7 +100,9 @@ export function TemporalChartControls({
 }
 
 // Gestiona la ventana visible sin modificar la serie original. Los rangos
-// rápidos siempre terminan en el dato más reciente disponible.
+// rápidos siempre terminan en el dato más reciente disponible. Los límites
+// efectivos se derivan durante el render para que un cambio de largo de la
+// serie no requiera un segundo render sincronizado desde un effect.
 export function useTemporalWindow<T>(
   items: T[],
   labels: string[],
@@ -108,25 +110,26 @@ export function useTemporalWindow<T>(
   initial: number,
 ) {
   const [preset, setPreset] = useState<number | "all" | "custom">(initial);
-  const [start, setStart] = useState(Math.max(0, items.length - initial));
-  const [end, setEnd] = useState(Math.max(0, items.length - 1));
-
-  useEffect(() => {
-    const count = preset === "all" || preset === "custom" ? items.length : preset;
-    if (preset !== "custom") setStart(Math.max(0, items.length - count));
-    setEnd(Math.max(0, items.length - 1));
-  }, [items.length, preset]);
+  const [customStart, setCustomStart] = useState(Math.max(0, items.length - initial));
+  const [customEnd, setCustomEnd] = useState(Math.max(0, items.length - 1));
+  const lastIndex = Math.max(0, items.length - 1);
+  const quickCount = preset === "all" ? items.length : typeof preset === "number" ? preset : items.length;
+  const start =
+    preset === "custom"
+      ? Math.min(customStart, lastIndex)
+      : Math.max(0, items.length - quickCount);
+  const end = preset === "custom" ? Math.min(customEnd, lastIndex) : lastIndex;
 
   const choosePreset = (value: number | "all") => setPreset(value);
   const chooseStart = (value: number) => {
     setPreset("custom");
-    setStart(value);
-    if (value > end) setEnd(value);
+    setCustomStart(value);
+    if (value > end) setCustomEnd(value);
   };
   const chooseEnd = (value: number) => {
     setPreset("custom");
-    setEnd(value);
-    if (value < start) setStart(value);
+    setCustomEnd(value);
+    if (value < start) setCustomStart(value);
   };
 
   return {
