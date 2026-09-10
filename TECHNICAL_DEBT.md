@@ -1,26 +1,29 @@
 # Deuda técnica registrada
 
-## Análisis estático
+## Estado del análisis estático
 
-La versión respaldada compila y cuenta con pruebas funcionales, pero ESLint
-detecta observaciones heredadas en componentes de la aplicación:
+El saneamiento realizado el 10 de septiembre de 2026 eliminó los errores que impedían convertir ESLint en control de aceptación. El workflow `.github/workflows/ci.yml` ejecuta ahora `npm run lint` como paso **bloqueante**: cualquier error hace fallar la revisión.
 
-- actualizaciones sincrónicas de estado dentro de algunos efectos;
-- acceso a referencias React durante el renderizado;
-- tipos `any` en la ruta de supermercados;
-- dependencias faltantes y directivas no utilizadas.
+Las correcciones incluyeron:
 
-Por esta razón, el paso de lint en GitHub Actions es inicialmente informativo.
-Las pruebas y la construcción siguen siendo obligatorias.
+- eliminación de actualizaciones sincrónicas de estado dentro de efectos donde no correspondían;
+- refactorización del hook de animación para no leer ni escribir referencias React durante el renderizado;
+- tipado explícito en transformaciones SDMX;
+- exclusión del bundle XLSX vendorizado del análisis de código propio;
+- corrección del acceso a colecciones ENE opcionales durante SSR;
+- navegación interna mediante `Link`.
 
-## Plan de regularización
+## Observaciones no bloqueantes
 
-1. Corregir primero los tipos explícitos de las rutas API.
-2. Refactorizar los hooks de animación conservando el comportamiento visual.
-3. Sustituir estados derivados por cálculos durante el renderizado cuando
-   corresponda.
-4. Agregar pruebas de regresión para cada refactorización.
-5. Convertir lint nuevamente en control bloqueante.
+Pueden permanecer advertencias de ESLint que no alteran la corrección del build, principalmente relacionadas con optimización de imágenes, dependencias de efectos y variables heredadas del cliente integrado de Demografía de empresas. Estas advertencias deben reducirse cuando se intervengan esos componentes, pero no deben ocultarse mediante `continue-on-error` ni reglas globales que silencien errores.
 
-Estas correcciones deben realizarse en pull requests separados del respaldo
-inicial para mantener trazabilidad y facilitar la reversión.
+## Criterio de aceptación vigente
+
+Una revisión desplegable debe superar, como mínimo:
+
+1. `python3 scripts/check-repository-integrity.py`;
+2. `npm run lint` sin errores;
+3. `npm test`, que incluye build, render SSR, rutas de caché, fallback estático y contratos MCP/SDMX;
+4. revisión de secretos en GitHub Actions.
+
+Las futuras correcciones deben mantener estos controles como bloqueantes y agregar pruebas de regresión cuando cambien rutas de datos, caché, navegación o comportamiento de los relatos.
