@@ -1,0 +1,113 @@
+name: Auditoría de fuentes económicas
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/audit-economic-sources.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar dependencias
+        run: npm ci --ignore-scripts
+
+      - name: Comparar fuentes oficiales con snapshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --import tsx --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { parseEconomicWorkbook } from './lib/economic-data.ts';
+          import { parseIppOfficialFiles } from './lib/ipp-official-data.ts';
+
+          const monthNames = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+          const configs = {
+            energy: {
+              root: 'https://www.ine.gob.cl/docs/default-source/produccion-de-electricidad-gas-y-agua/cuadros-estadisticos/base-promedio-2018-100/',
+              prefix: 'series-empalmadas-y-mensuales-a-',
+            },
+            industry: {
+              root: 'https://www.ine.gob.cl/docs/default-source/indice-de-produccion-industrial/cuadros-estadisticos/base-promedio-2018-100/',
+              prefix: 'series-empalmadas-y-mensuales-a-',
+            },
+            permits: {
+              root: 'https://www.ine.gob.cl/docs/default-source/permisos-de-edificacion/cuadros-estadisticos/series-mensuales/',
+              prefix: 'series-históricas-a-',
+            },
+          };
+
+          async function discover(kind) {
+            const now = new Date('2026-09-10T12:00:00Z');
+            const attempts = [];
+            for (let offset = 0; offset < 18; offset++) {
+              const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - offset, 1));
+              const base = `${configs[kind].root}${configs[kind].prefix}${monthNames[d.getUTCMonth()]}-${d.getUTCFullYear()}`;
+              for (const extension of ['.xls', '.xlsx']) {
+                const url = `${base}${extension}`;
+                let response;
+                try {
+                  response = await fetch(url, { method: 'HEAD', redirect: 'follow', headers: {'user-agent':'INE-Relatos-source-audit/1.0'} });
+                } catch {
+                  attempts.push([url, 'fetch-error']);
+                  continue;
+                }
+                attempts.push([url, response.status]);
+                if (!response.ok) continue;
+                const download = await fetch(url, { redirect: 'follow', headers: {'user-agent':'INE-Relatos-source-audit/1.0'} });
+                const bytes = await download.arrayBuffer();
+                const payload = parseEconomicWorkbook(bytes, kind);
+                return { url, payload, attempts };
+              }
+            }
+            throw new Error(`${kind}: no se encontró fuente; ${JSON.stringify(attempts.slice(0,12))}`);
+          }
+
+          const fallbackLatest = {
+            energy: JSON.parse(fs.readFileSync('public/economic-energy.json','utf8')).main.at(-1),
+            industry: JSON.parse(fs.readFileSync('public/economic-industry.json','utf8')).main.at(-1),
+            permits: JSON.parse(fs.readFileSync('public/economic-permits.json','utf8')).surface.total.at(-1),
+          };
+          console.log('FALLBACK_ECONOMIC_LATEST', JSON.stringify(fallbackLatest));
+
+          for (const kind of ['energy','industry','permits']) {
+            const found = await discover(kind);
+            const latest = kind === 'permits' ? found.payload.surface.total.at(-1) : found.payload.main.at(-1);
+            console.log(`REMOTE_${kind.toUpperCase()}_SOURCE`, found.url);
+            console.log(`REMOTE_${kind.toUpperCase()}_LATEST`, JSON.stringify(latest));
+            console.log(`REMOTE_${kind.toUpperCase()}_ATTEMPTS`, JSON.stringify(found.attempts.slice(0,12)));
+          }
+
+          const ippSources = {
+            industries: 'https://www.ine.gob.cl/docs/default-source/indice-de-precios-de-productor/cuadros-estadisticos/base-anual-2019-100/industrias-xlsx.xlsx',
+            mining: 'https://www.ine.gob.cl/docs/default-source/indice-de-precios-de-productor/cuadros-estadisticos/base-anual-2019-100/miner%C3%ADa-xlsx.xlsx',
+            ipdega: 'https://www.ine.gob.cl/docs/default-source/indice-de-precios-de-productor/cuadros-estadisticos/base-anual-2019-100/ipdega-xlsx',
+            manufacturing: 'https://www.ine.gob.cl/docs/default-source/indice-de-precios-de-productor/cuadros-estadisticos/base-anual-2019-100/industria-manufacturera-xlsx.xlsx',
+          };
+          const files = {};
+          for (const [key,url] of Object.entries(ippSources)) {
+            const response = await fetch(`${url}?_ine_refresh=${Date.now()}`, {redirect:'follow',headers:{'cache-control':'no-cache','user-agent':'INE-Relatos-source-audit/1.0'}});
+            console.log(`IPP_SOURCE_${key.toUpperCase()}`, response.status, response.headers.get('content-type'), response.headers.get('content-length'), url);
+            if (!response.ok) throw new Error(`IPP ${key}: HTTP ${response.status}`);
+            files[key] = await response.arrayBuffer();
+          }
+          const ipp = parseIppOfficialFiles(files);
+          console.log('REMOTE_IPP_UPDATED', ipp.data.updated);
+          console.log('REMOTE_IPP_INDUSTRIES_LATEST', JSON.stringify(ipp.data.industries.at(-1)));
+          console.log('REMOTE_IPP_IPDEGA_LATEST', JSON.stringify(ipp.data.ipdega.series.at(-1)));
+          console.log('REMOTE_IPP_MANUFACTURING_LATEST', JSON.stringify(ipp.data.manufacturing.series.at(-1)));
+
+          const ippFallback = JSON.parse(fs.readFileSync('public/ipp-data.json','utf8'));
+          console.log('IPP_FALLBACK_KEYS', JSON.stringify(Object.keys(ippFallback)));
+          console.log('IPP_FALLBACK_UPDATED', JSON.stringify(ippFallback?.data?.updated ?? ippFallback?.updated ?? null));
+          console.log('IPP_FALLBACK_INDUSTRIES_LATEST', JSON.stringify(ippFallback?.data?.industries?.at?.(-1) ?? ippFallback?.industries?.at?.(-1) ?? null));
+          NODE
