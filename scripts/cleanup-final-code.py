@@ -131,6 +131,31 @@ text = sub_once(
     "selector indicador ENUSC",
     flags=0,
 )
+# El snapshot ENE puede existir sin series complementarias; todas esas colecciones son opcionales.
+text = replace_once(
+    text,
+    "data?.seasonal.findIndex((p) => p.year === year && p.quarter === quarter) ??",
+    "data?.seasonal?.findIndex((p) => p.year === year && p.quarter === quarter) ??",
+    "seasonal opcional ENE",
+)
+text = replace_once(
+    text,
+    "data?.sectorContributions.find(",
+    "data?.sectorContributions?.find(",
+    "sectores opcionales ENE",
+)
+text = replace_once(
+    text,
+    "data?.categoryContributions.find(",
+    "data?.categoryContributions?.find(",
+    "categorías opcionales ENE",
+)
+text = replace_once(
+    text,
+    "const absent = data?.absentEmployment.find(",
+    "const absent = data?.absentEmployment?.find(",
+    "ausentes opcional ENE",
+)
 page.write_text(text)
 
 # EconomicPage: difiere las actualizaciones iniciales del effect un microtask,
