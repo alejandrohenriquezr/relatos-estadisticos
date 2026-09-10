@@ -24,7 +24,7 @@ app/                     páginas, componentes y rutas API
 lib/                     transformadores, modelos y utilidades de datos
 db/                      acceso y esquema de persistencia
 drizzle/                 migraciones de base de datos
-docs/                    documentación técnica y contratos SDMX
+docs/                    documentación técnica, metadatos y contratos SDMX
 public/                   activos públicos y snapshots estadísticos iniciales
 public/datos_OE/          insumos de Demografía de empresas
 public/sdmx/              estructuras, salidas y documentación SDMX
@@ -79,7 +79,7 @@ public/supermarkets-data.json
 
 Este comportamiento permite que una clonación siga mostrando los datos agregados versionados aun sin una copia de la D1 productiva. La persistencia compartida y el CMS sí requieren el binding D1 correspondiente.
 
-La trazabilidad de fuentes y transformaciones se documenta en [`DATA_SOURCES.md`](DATA_SOURCES.md). Los criterios de gobierno están en [`DATA_GOVERNANCE.md`](DATA_GOVERNANCE.md).
+La trazabilidad de fuentes y transformaciones se documenta en [`DATA_SOURCES.md`](DATA_SOURCES.md). Los criterios de gobierno están en [`DATA_GOVERNANCE.md`](DATA_GOVERNANCE.md) y el mapa de metadatos editoriales/técnicos en [`docs/METADATA.md`](docs/METADATA.md).
 
 ### Regeneradores reproducibles
 
@@ -175,7 +175,7 @@ No deben incorporarse credenciales, archivos `.env` ni datos personales al repos
 
 La configuración del proyecto Sites está en `.openai/hosting.json`. El despliegue requiere conservar el binding D1 `DB` cuando se necesiten persistencia/caché compartida/CMS y validar previamente el artefacto construido.
 
-El procedimiento de clonación, despliegue, recuperación y reversión está en [`DEPLOYMENT.md`](DEPLOYMENT.md). La arquitectura está descrita en [`ARCHITECTURE.md`](ARCHITECTURE.md) y las reglas de contribución en [`CONTRIBUTING.md`](CONTRIBUTING.md).
+El procedimiento de clonación, despliegue, recuperación y reversión está en [`DEPLOYMENT.md`](DEPLOYMENT.md). La arquitectura está descrita en [`ARCHITECTURE.md`](ARCHITECTURE.md), los metadatos en [`docs/METADATA.md`](docs/METADATA.md) y las reglas de contribución en [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Documentación técnica
 
@@ -185,6 +185,7 @@ El procedimiento de clonación, despliegue, recuperación y reversión está en 
 - [`DEPLOYMENT.md`](DEPLOYMENT.md): clonación, despliegue, recuperación y reversión.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md): flujo de cambios y criterios de aceptación.
 - [`TECHNICAL_DEBT.md`](TECHNICAL_DEBT.md): observaciones técnicas pendientes y estado del lint.
+- [`docs/METADATA.md`](docs/METADATA.md): metadatos globales, editoriales, de procedencia y SDMX.
 - [`docs/sdmx/`](docs/sdmx/): contratos y documentación SDMX.
 
 ## Estado de sincronización
