@@ -31,6 +31,8 @@ const monthLabel = (value: string) => {
   return label[0].toUpperCase() + label.slice(1);
 };
 
+// Compara días calendario de Chile para no consultar varias veces la misma
+// fuente oficial dentro de una jornada, aunque el Worker opere internamente en UTC.
 const chileDay = (value: string | Date) => {
   const date = value instanceof Date ? value : new Date(value);
   if (Number.isNaN(date.getTime())) return "";
@@ -116,6 +118,12 @@ export async function GET(request: NextRequest) {
 
   const now = new Date();
   const nowIso = now.toISOString();
+
+  // La segunda fase puede ser solicitada varias veces por clientes distintos.
+  // Si la fuente ya fue comprobada durante el mismo día en Chile, se reutiliza
+  // la caché compartida y se evita una nueva descarga desde ine.gob.cl.
+  if (cached && chileDay(cached.checked_at) === chileDay(now))
+    return cachedResponse(cached, "shared");
 
   try {
     const downloads = await Promise.all(
