@@ -3,7 +3,9 @@ import * as XLSX from "xlsx";
 type Cell = string | number | null;
 type Row = Cell[];
 
-const SOURCE = "series-vitales-1992-2024(p).xlsx";
+export const VITAL_STATISTICS_SOURCE_URL =
+  "https://www.ine.gob.cl/docs/default-source/nacimientos-matrimonios-y-defunciones/cuadros-estadisticos/series-hist%C3%B3ricas/series-vitales-1992-2025(p).xlsx?sfvrsn=bfbe614_4";
+const SOURCE = "series-vitales-1992-2025(p).xlsx";
 const AGE_LABELS = [
   "Menores de 15",
   "15-19",
@@ -99,9 +101,15 @@ export function parseVitalStatistics(buffer: ArrayBuffer) {
     birthRate: numeric(row[3]) ?? 0,
     women1549: numeric(row[4]) ?? 0,
     generalRate: numeric(row[5]) ?? 0,
-    specificRates: ["15 a 19", "20 a 24", "25 a 29", "30 a 34", "35 a 39", "40 a 44", "45 a 49"].map(
-      (label, index) => ({ label, value: numeric(row[index + 20]) ?? 0 }),
-    ),
+    specificRates: [
+      "15 a 19",
+      "20 a 24",
+      "25 a 29",
+      "30 a 34",
+      "35 a 39",
+      "40 a 44",
+      "45 a 49",
+    ].map((label, index) => ({ label, value: numeric(row[index + 20]) ?? 0 })),
     tgf: numeric(row[27]) ?? 0,
     tbr: numeric(row[28]) ?? 0,
     meanFertilityAge: numeric(row[29]) ?? 0,
