@@ -78,7 +78,7 @@ jobs:
         run: |
           set -euo pipefail
           files=(public/commerce-data.json public/tourism-data.json public/supermarkets-data.json)
-          if git diff --quiet -- "${files[@]}"; then
+          if [ -z "$(git status --porcelain -- "${files[@]}")" ]; then
             echo SERVICES_FALLBACKS_ALREADY_CURRENT
             exit 0
           fi
