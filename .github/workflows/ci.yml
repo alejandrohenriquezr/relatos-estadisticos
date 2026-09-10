@@ -25,8 +25,8 @@ jobs:
       - name: Obtener código
         uses: actions/checkout@v4
 
-      # Detecta texto no UTF-8 y archivos XLSX/PDF con firmas inválidas antes
-      # de invertir tiempo en instalar dependencias o compilar.
+      # Detecta texto no UTF-8, artefactos dañados y tablas D1 sin migración
+      # antes de invertir tiempo en instalar dependencias o compilar.
       - name: Verificar integridad del repositorio
         run: python3 scripts/check-repository-integrity.py
 
@@ -46,17 +46,19 @@ jobs:
       - name: Auditar lint
         run: npm run lint
 
-      # Las pruebas incluyen construcción, artefacto y regresiones principales.
+      # Las pruebas incluyen construcción, validación del artefacto y regresiones.
       - name: Ejecutar pruebas
         run: npm test
 
-      # Conserva el resultado compilado para diagnóstico, sin publicarlo.
+      # Conserva el resultado compilado completo. `dist/.openai/` es oculto y
+      # contiene hosting.json y las migraciones D1 necesarias para Sites.
       - name: Guardar artefacto de construcción
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: sitio-compilado
           path: dist/
+          include-hidden-files: true
           if-no-files-found: ignore
           retention-days: 7
 
