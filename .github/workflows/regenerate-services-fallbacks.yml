@@ -36,13 +36,12 @@ jobs:
           download 'https://www.ine.gob.cl/docs/default-source/actividad-mensual-del-comercio/cuadros-estadisticos/base-promedio-año-2018-100/series-empalmadas-históricas.xlsx' /tmp/commerce.xlsx
           download 'https://www.ine.gob.cl/docs/default-source/actividad-del-turismo/cuadros-estadisticos-dos/serie-histórica-metodología-2017/series-mensuales-de-julio-2016-a-la-fecha.xlsx' /tmp/tourism.xlsx
           download 'https://www.ine.gob.cl/docs/default-source/ventas-de-supermercados/cuadros-estadisticos/base-promedio-a%C3%B1o-2018-100/series-mensuales-desde-enero-de-2018-a-la-fecha.xls' /tmp/supermarkets.xls
-      - name: Diagnosticar y validar julio de 2026
+      - name: Regenerar y validar julio de 2026
         shell: bash
         run: |
           set -euo pipefail
           node --import tsx --input-type=module <<'NODE'
           import fs from 'node:fs';
-          import * as XLSX from 'xlsx';
           import { parseEconomicWorkbook } from './lib/economic-data.ts';
           import { parseTourismWorkbook } from './lib/tourism-data.ts';
           import { parseSupermarketsWorkbook } from './lib/supermarkets-data.ts';
@@ -56,33 +55,22 @@ jobs:
           const commerceLatest=commerce.divisions.general.series.at(-1);
           if(!commerceLatest||commerceLatest.year!==2026||commerceLatest.month!==7||!close(commerceLatest.annual,-0.2))
             throw new Error(`Comercio inesperado: ${JSON.stringify(commerceLatest)}`);
+          fs.writeFileSync('public/commerce-data.json',JSON.stringify(commerce,null,2)+'\n');
           console.log('COMMERCE_OK',JSON.stringify(commerceLatest));
 
-          const tourismBytes=bytes('/tmp/tourism.xlsx');
-          const tourism=parseTourismWorkbook(tourismBytes);
-          const tourismSeries=tourism.tables['1'].seriesByRegion['Total nacional'];
-          const tourismLatest=tourismSeries.at(-1);
-          console.log('TOURISM_LAST_18',JSON.stringify(tourismSeries.slice(-18)));
-          const book=XLSX.read(tourismBytes,{type:'array',cellDates:false});
-          const matrix=XLSX.utils.sheet_to_json(book.Sheets['1'],{header:1,raw:true,defval:null});
-          console.log('TOURISM_HEADER_ROW_7_LAST_24',JSON.stringify((matrix[6]??[]).map((v,i)=>[i,v]).slice(-24)));
-          const national=matrix.find(row=>String(row?.[0]??'').trim()==='Total nacional');
-          console.log('TOURISM_NATIONAL_LAST_24',JSON.stringify((national??[]).map((v,i)=>[i,v]).slice(-24)));
-          if(!tourismLatest||tourismLatest.year!==2026||tourismLatest.month!==7||!close(tourismLatest.value,1695480,1))
-            throw new Error(`Turismo nivel inesperado: ${JSON.stringify(tourismLatest)}`);
+          const tourism=parseTourismWorkbook(bytes('/tmp/tourism.xlsx'));
+          const tourismLatest=tourism.tables['1'].seriesByRegion['Total nacional'].at(-1);
+          if(!tourismLatest||tourismLatest.year!==2026||tourismLatest.month!==7||!close(tourismLatest.value,1695480,1)||!close(tourismLatest.annual,-7.3))
+            throw new Error(`Turismo inesperado: ${JSON.stringify(tourismLatest)}`);
+          fs.writeFileSync('public/tourism-data.json',JSON.stringify(tourism,null,2)+'\n');
+          console.log('TOURISM_OK',JSON.stringify(tourismLatest));
 
           const supermarkets=parseSupermarketsWorkbook(bytes('/tmp/supermarkets.xls'));
           const supermarketLatest=supermarkets.indexByTerritory.Nacional.at(-1);
-          console.log('SUPERMARKETS_LATEST',JSON.stringify(supermarketLatest));
-          if(!supermarketLatest||supermarketLatest.year!==2026||supermarketLatest.month!==7||!close(supermarketLatest.current?.annual,2.1))
+          if(!supermarketLatest||supermarketLatest.year!==2026||supermarketLatest.month!==7||!close(supermarketLatest.constant?.annual,2.1))
             throw new Error(`Supermercados inesperado: ${JSON.stringify(supermarketLatest)}`);
-
-          if(tourismLatest.annual==null||!close(tourismLatest.annual,-7.3))
-            throw new Error(`TOURISM_VARIATIONS_NEED_PARSER_FIX ${JSON.stringify(tourismLatest)}`);
-
-          fs.writeFileSync('public/commerce-data.json',JSON.stringify(commerce,null,2)+'\n');
-          fs.writeFileSync('public/tourism-data.json',JSON.stringify(tourism,null,2)+'\n');
           fs.writeFileSync('public/supermarkets-data.json',JSON.stringify(supermarkets,null,2)+'\n');
+          console.log('SUPERMARKETS_OK',JSON.stringify(supermarketLatest));
           NODE
           python3 scripts/check-repository-integrity.py
       - name: Versionar snapshots
