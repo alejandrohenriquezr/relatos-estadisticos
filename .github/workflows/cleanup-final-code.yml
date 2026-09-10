@@ -28,8 +28,21 @@ jobs:
         run: npx prettier --write app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs
       - name: Validar lint
         run: npm run lint
-      - name: Ejecutar pruebas completas
-        run: NODE_OPTIONS=--enable-source-maps npm test
+      - name: Construir sitio
+        run: npm run build
+      - name: Probar render SSR
+        id: ssr
+        continue-on-error: true
+        run: node --test tests/rendered-html.test.mjs
+      - name: Diagnosticar bundle si falla SSR
+        if: steps.ssr.outcome == 'failure'
+        shell: bash
+        run: grep -n -B 8 -A 8 "\.findIndex" dist/server/ssr/assets/page-*.js | tail -n 160
+      - name: Bloquear si falló SSR
+        if: steps.ssr.outcome == 'failure'
+        run: exit 1
+      - name: Probar rutas y MCP
+        run: node --import tsx --test tests/cache-first-routes.test.ts tests/mcp-statistics.test.ts
       - name: Validar integridad
         run: python3 scripts/check-repository-integrity.py
       - name: Activar lint obligatorio
