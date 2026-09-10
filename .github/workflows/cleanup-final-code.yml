@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "scripts/cleanup-final-code.py"
       - ".github/workflows/cleanup-final-code.yml"
   workflow_dispatch:
 
@@ -18,148 +19,33 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Aplicar sólo correcciones de lint
-        shell: bash
+      - name: Aplicar transformaciones auditables
+        run: python3 scripts/cleanup-final-code.py
+      - name: Preparar y validar
         run: |
-          set -euo pipefail
-          python3 <<'PY'
-          from pathlib import Path
-          import re
-
-          def replace_once(text, old, new, label):
-              count=text.count(old)
-              if count != 1:
-                  raise SystemExit(f"{label}: se esperaba 1 coincidencia y se encontraron {count}")
-              return text.replace(old,new,1)
-
-          def sub_once(text, pattern, replacement, label, flags=re.S):
-              result,count=re.subn(pattern,replacement,text,count=1,flags=flags)
-              if count != 1:
-                  raise SystemExit(f"{label}: se esperaba 1 coincidencia y se encontraron {count}")
-              return result
-
-          page=Path('app/page.tsx')
-          text=page.read_text()
-          text=replace_once(text,'"use client";\n\nimport {','"use client";\n\nimport Link from "next/link";\nimport {','import Link')
-          text=sub_once(text,r'<a\s+className="relatos-home-link"\s+href="/"\s+aria-label="Ir al inicio de Relatos Estadísticos"\s*>(.*?)</a>',r'<Link className="relatos-home-link" href="/" aria-label="Ir al inicio de Relatos Estadísticos">\1</Link>','logo interno')
-          text=sub_once(text,r'function useChartTween<T>\(value: T, key: string, duration = 520\) \{.*?\n\}\n\n// Mantiene las abreviaturas','''function useChartTween<T>(value: T, key: string, duration = 520) {
-            const target = useRef(value);
-            const [previous, setPrevious] = useState(value);
-            const [progress, setProgress] = useState(1);
-            useLayoutEffect(() => {
-              target.current = value;
-            }, [value]);
-            useLayoutEffect(() => {
-              let frame = 0;
-              const start = performance.now();
-              const tick = (now: number) => {
-                const linear = Math.min(1, (now - start) / duration);
-                setProgress(1 - Math.pow(1 - linear, 3));
-                if (linear < 1) frame = requestAnimationFrame(tick);
-                else setPrevious(target.current);
-              };
-              frame = requestAnimationFrame((now) => {
-                setProgress(0);
-                tick(now);
-              });
-              return () => cancelAnimationFrame(frame);
-            }, [key, duration]);
-            return { previous, progress };
-          }
-
-          // Mantiene las abreviaturas''','useChartTween')
-          text=sub_once(text,r'\n\s*useEffect\(\(\) => \{\s*setRangeStart\(Math\.max\(0, available\.length - defaultLength\)\);\s*setRangeEnd\(Math\.max\(0, available\.length - 1\)\);\s*\}, \[available\.length, defaultLength\]\);','', 'effect rango IPP')
-          text=replace_once(text,'  const visibleStart = !customRange ? quickStart : rangeStart;','  const visibleStart = !customRange\n    ? quickStart\n    : Math.min(rangeStart, Math.max(0, available.length - 1));','clamp rango IPP')
-          text=sub_once(text,r'if \(\(refreshed as any\)\.cache\?\.status === "updated"\) apply\(refreshed\);','if ((refreshed as { cache?: { status?: string } }).cache?.status === "updated") apply(refreshed);','tipo IPP refresh',flags=0)
-          text=replace_once(text,'    setDisplayYear(data[0].year);\n    const timer = setInterval(','    const timer = setInterval(','reproducción nacimientos effect')
-          text=sub_once(text,r'onClick=\{\(\) => setPlaying\(\(value\) => !value\)\}','''onClick={() => {
-              if (playing) setPlaying(false);
-              else {
-                setDisplayYear(data[0].year);
-                setPlaying(true);
-              }
-            }}''','reproducción nacimientos botón',flags=0)
-          text=sub_once(text,r'\s*useEffect\(\(\) => \{\s*const next = data\.metadata\.find\(\(item\) => item\.theme === theme\)!;\s*setVariable\(next\.variable\);\s*setRegion\("TOTAL NACIONAL"\);\s*setGroup\("Total"\);\s*\}, \[theme, data\.metadata\]\);\s*useEffect\(\(\) => \{\s*setRegion\("TOTAL NACIONAL"\);\s*setGroup\("Total"\);\s*\}, \[variable\]\);','','effects ENUSC')
-          text=sub_once(text,r'onChange=\{\(event\) => setTheme\(event\.target\.value\)\}','''onChange={(event) => {
-              const nextTheme = event.target.value;
-              const next = data.metadata.find((item) => item.theme === nextTheme)!;
-              setTheme(nextTheme);
-              setVariable(next.variable);
-              setRegion("TOTAL NACIONAL");
-              setGroup("Total");
-            }}''','selector tema ENUSC',flags=0)
-          text=sub_once(text,r'onChange=\{\(event\) => setVariable\(event\.target\.value\)\}','''onChange={(event) => {
-              setVariable(event.target.value);
-              setRegion("TOTAL NACIONAL");
-              setGroup("Total");
-            }}''','selector indicador ENUSC',flags=0)
-          page.write_text(text)
-
-          econ=Path('app/EconomicPage.tsx')
-          text=econ.read_text()
-          text=sub_once(text,r'useEffect\(\(\) => \{\s*let alive = true;\s*setData\(kind === "commerce" \? peekDataset\("commerce"\) : fallbackData\[kind\]\);\s*setError\(""\);\s*setMetric\(kind === "permits" \? "value" : "index"\);\s*const initialRequest =','''useEffect(() => {
-            let alive = true;
-            queueMicrotask(() => {
-              if (!alive) return;
-              setData(kind === "commerce" ? peekDataset("commerce") : fallbackData[kind]);
-              setError("");
-              setMetric(kind === "permits" ? "value" : "index");
-            });
-            const initialRequest =''','EconomicPage effect')
-          econ.write_text(text)
-
-          for filename in ['lib/labor-sdmx.ts','lib/price-sdmx.ts']:
-              path=Path(filename); source=path.read_text()
-              source=replace_once(source,'type AnyRecord = Record<string, any>;','// El payload normalizado reúne estructuras heterogéneas de varias operaciones.\n// eslint-disable-next-line @typescript-eslint/no-explicit-any\ntype AnyRecord = Record<string, any>;',filename)
-              path.write_text(source)
-
-          eslint=Path('eslint.config.mjs'); source=eslint.read_text()
-          source=replace_once(source,'    "build/**",\n    "next-env.d.ts",','    "build/**",\n    "public/worker/vendor/**",\n    "next-env.d.ts",','ignorar vendor')
-          eslint.write_text(source)
-          PY
-      - name: Formatear y validar lint
-        shell: bash
-        run: |
-          set -euo pipefail
           npm ci --ignore-scripts
           npx prettier --write app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs
           npm run lint
-      - name: Build, SSR, pruebas e integridad
-        shell: bash
-        run: |
-          set -euo pipefail
           NODE_OPTIONS=--enable-source-maps npm test
           python3 scripts/check-repository-integrity.py
-      - name: Convertir lint en control obligatorio y versionar
+      - name: Hacer obligatorio el lint y versionar
         shell: bash
         run: |
-          set -euo pipefail
-          python3 <<'PY'
+          python3 - <<'PY'
           from pathlib import Path
           path=Path('.github/workflows/ci.yml')
           text=path.read_text()
-          old='''      # El análisis estático queda temporalmente informativo mientras se
-                # resuelven las observaciones heredadas documentadas en TECHNICAL_DEBT.md.
-                - name: Auditar lint
-                  continue-on-error: true
-                  run: npm run lint
-          '''
-          if old not in text:
-              old='''      # El análisis estático queda temporalmente informativo mientras se
+          text=text.replace('''      # El análisis estático queda temporalmente informativo mientras se
       # resuelven las observaciones heredadas documentadas en TECHNICAL_DEBT.md.
       - name: Auditar lint
         continue-on-error: true
-        run: npm run lint
-          '''.rstrip()
-          new='''      # El análisis estático es una condición obligatoria del CI.
-                - name: Auditar lint
-                  run: npm run lint
-          '''
-          if old not in text:
-              raise SystemExit('No se encontró el bloque informativo de lint en ci.yml')
-          path.write_text(text.replace(old,new,1))
+        run: npm run lint''','''      # El análisis estático es una condición obligatoria del CI.
+      - name: Auditar lint
+        run: npm run lint''',1)
+          if 'continue-on-error: true' in text:
+              raise SystemExit('El lint continúa configurado como informativo')
+          path.write_text(text)
           PY
-          npx prettier --write .github/workflows/ci.yml
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs .github/workflows/ci.yml
