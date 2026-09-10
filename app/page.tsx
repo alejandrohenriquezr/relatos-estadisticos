@@ -34,6 +34,7 @@ import SectionHeader, {
   type SiteDestination,
 } from "./SectionHeader";
 import { primeDataset, type PrefetchKey } from "../lib/client-data-prefetch";
+import { useOperationSections } from "./OperationSections";
 import {
   useTemporalWindow,
   type TemporalPreset,
@@ -10238,6 +10239,7 @@ export default function Home() {
     | "supermarkets"
     | "businessDemography"
   >("home");
+  useOperationSections(view);
   const [pricesOpen, setPricesOpen] = useState(false);
   const [laborOpen, setLaborOpen] = useState(false);
   const [demographyOpen, setDemographyOpen] = useState(false);
