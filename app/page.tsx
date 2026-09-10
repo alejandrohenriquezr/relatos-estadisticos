@@ -498,42 +498,11 @@ const formatQuarter = (quarter: string) =>
     .split("-")
     .map((month) => MONTH_NAMES[month.trim()] || month.trim())
     .join(" - ");
+const initialEne = rawData as EneData;
 const latest: Record<string, Point> = {
-  Total: {
-    year: 2026,
-    quarter: "Mar - May",
-    pet: 16651.701,
-    labor: 10397.687,
-    employed: 9416.372,
-    unemployed: 981.315,
-    ceased: 878.997,
-    firstJob: 102.318,
-    participation: 62.4,
-    employmentRate: 56.5,
-    unemploymentRate: 9.44,
-  },
-  Mujeres: {
-    year: 2026,
-    quarter: "Mar - May",
-    pet: 8496.2,
-    labor: 4554.2,
-    employed: 4075.8,
-    unemployed: 478.4,
-    participation: 53.6,
-    employmentRate: 47.97,
-    unemploymentRate: 10.5,
-  },
-  Hombres: {
-    year: 2026,
-    quarter: "Mar - May",
-    pet: 8155.5,
-    labor: 5843.5,
-    employed: 5340.6,
-    unemployed: 502.9,
-    participation: 71.65,
-    employmentRate: 65.49,
-    unemploymentRate: 8.61,
-  },
+  Total: initialEne.series.Total.at(-1)!,
+  Mujeres: initialEne.series.Mujeres.at(-1)!,
+  Hombres: initialEne.series.Hombres.at(-1)!,
 };
 
 function Icon({ name }: { name: string }) {
@@ -10235,13 +10204,6 @@ export default function Home() {
       d.sectorContributions = remoteEne.sectorContributions;
       d.absentEmployment = remoteEne.absentEmployment;
       d.metadata.updated = remoteEne.cache?.updatedAt || d.metadata.updated;
-    } else {
-      Object.keys(latest).forEach((k) => {
-        if (
-          !d.series[k].some((p) => p.year === 2026 && p.quarter === "Mar - May")
-        )
-          d.series[k].push(latest[k]);
-      });
     }
     return d;
   }, [remoteEne]);
@@ -10250,8 +10212,8 @@ export default function Home() {
     if (remoteEne?.indicatorSeries) base.series = remoteEne.indicatorSeries;
     return base;
   }, [remoteEne]);
-  const [year, setYear] = useState(2026);
-  const [quarter, setQuarter] = useState("Mar - May");
+  const [year, setYear] = useState(latest.Total.year);
+  const [quarter, setQuarter] = useState(latest.Total.quarter);
   const [indicator, setIndicator] = useState("unemploymentRate");
   const [active, setActive] = useState(["Total", "Mujeres", "Hombres"]);
   const [menu, setMenu] = useState(false);
