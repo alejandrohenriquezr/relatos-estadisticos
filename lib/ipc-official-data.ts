@@ -2,6 +2,22 @@ import * as XLSX from "xlsx";
 
 type Cell = string | number | null;
 
+const MONTHS = [
+  "",
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
+];
+
 const rows = (buffer: ArrayBuffer) => {
   const workbook = XLSX.read(buffer, { type: "array", cellDates: false });
   const sheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -57,8 +73,24 @@ export function parseIpcOfficialFiles(files: {
       accumulated: number(row[5]),
     }));
 
+  const latest = series.reduce<{ year: number; month: number } | null>(
+    (current, item) =>
+      !current ||
+      item.year > current.year ||
+      (item.year === current.year && item.month > current.month)
+        ? { year: item.year, month: item.month }
+        : current,
+    null,
+  );
+  if (!latest)
+    throw new Error("La fuente IPC no contiene observaciones válidas");
+
   return {
-    data: { base: "2023=100", updated: "", series },
+    data: {
+      base: "2023=100",
+      updated: `${MONTHS[latest.month]} de ${latest.year}`,
+      series,
+    },
     analytics: { base: "2023=100", series: analytics },
   };
 }
