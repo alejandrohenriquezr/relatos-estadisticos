@@ -1,0 +1,261 @@
+name: Limpieza funcional y lint final
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/cleanup-final-code.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Aplicar correcciones determinísticas
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          def replace_once(text, old, new, label):
+              count=text.count(old)
+              if count != 1:
+                  raise SystemExit(f"{label}: se esperaba 1 coincidencia y se encontraron {count}")
+              return text.replace(old,new,1)
+
+          page=Path('app/page.tsx')
+          text=page.read_text()
+          text=replace_once(text,'"use client";\n\nimport {','"use client";\n\nimport Link from "next/link";\nimport {','import Link')
+          text=replace_once(text,
+          '''      <a
+                className="relatos-home-link"
+                href="/"
+                aria-label="Ir al inicio de Relatos Estadísticos"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/branding/logo-relatos-estadisticos-home.png"
+                  alt="Relatos Estadísticos"
+                />
+              </a>''',
+          '''      <Link
+                className="relatos-home-link"
+                href="/"
+                aria-label="Ir al inicio de Relatos Estadísticos"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/branding/logo-relatos-estadisticos-home.png"
+                  alt="Relatos Estadísticos"
+                />
+              </Link>''','logo interno')
+
+          tween_pattern=r'''function useChartTween<T>\(value: T, key: string, duration = 520\) \{.*?\n\}\n\n// Mantiene las abreviaturas'''
+          tween_replacement='''function useChartTween<T>(value: T, key: string, duration = 520) {
+            // La geometría previa vive en estado; la referencia al objetivo sólo se
+            // actualiza dentro de un layout effect y nunca se lee durante el render.
+            const target = useRef(value);
+            const [previous, setPrevious] = useState(value);
+            const [progress, setProgress] = useState(1);
+            useLayoutEffect(() => {
+              target.current = value;
+            }, [value]);
+            useLayoutEffect(() => {
+              let frame = 0;
+              const start = performance.now();
+              const tick = (now: number) => {
+                const linear = Math.min(1, (now - start) / duration);
+                setProgress(1 - Math.pow(1 - linear, 3));
+                if (linear < 1) frame = requestAnimationFrame(tick);
+                else setPrevious(target.current);
+              };
+              frame = requestAnimationFrame((now) => {
+                setProgress(0);
+                tick(now);
+              });
+              return () => cancelAnimationFrame(frame);
+            }, [key, duration]);
+            return { previous, progress };
+          }
+
+          // Mantiene las abreviaturas'''
+          text,n=re.subn(tween_pattern,tween_replacement,text,flags=re.S)
+          if n!=1: raise SystemExit(f'useChartTween: {n} coincidencias')
+
+          latest_pattern=r'''const latest: Record<string, Point> = \{.*?\n\};\n\nfunction Icon'''
+          latest_replacement='''const initialEne = rawData as EneData;
+          const latest: Record<string, Point> = {
+            Total: initialEne.series.Total.at(-1)!,
+            Mujeres: initialEne.series.Mujeres.at(-1)!,
+            Hombres: initialEne.series.Hombres.at(-1)!,
+          };
+
+          function Icon'''
+          text,n=re.subn(latest_pattern,latest_replacement,text,count=1,flags=re.S)
+          if n!=1: raise SystemExit(f'latest ENE: {n} coincidencias')
+
+          old_else='''    } else {
+              Object.keys(latest).forEach((k) => {
+                if (
+                  !d.series[k].some((p) => p.year === 2026 && p.quarter === "Mar - May")
+                )
+                  d.series[k].push(latest[k]);
+              });
+            }'''
+          # El archivo está formateado con cuatro espacios menos que el bloque de referencia anterior.
+          if old_else not in text:
+              old_else='''    } else {
+              Object.keys(latest).forEach((k) => {
+                if (
+                  !d.series[k].some((p) => p.year === 2026 && p.quarter === "Mar - May")
+                )
+                  d.series[k].push(latest[k]);
+              });
+            }'''
+          if old_else not in text:
+              # Reemplazo estructural tolerante a la indentación de prettier.
+              text,n=re.subn(r'''\s*\} else \{\s*Object\.keys\(latest\)\.forEach\(\(k\) => \{\s*if \(\s*!d\.series\[k\]\.some\(\(p\) => p\.year === 2026 && p\.quarter === "Mar - May"\)\s*\)\s*d\.series\[k\]\.push\(latest\[k\]\);\s*\}\);\s*\}''','\n    }',text,count=1,flags=re.S)
+              if n!=1: raise SystemExit(f'else ENE: {n} coincidencias')
+          else:
+              text=text.replace(old_else,'    }',1)
+
+          text=replace_once(text,'  const [year, setYear] = useState(2026);\n  const [quarter, setQuarter] = useState("Mar - May");','  const [year, setYear] = useState(latest.Total.year);\n  const [quarter, setQuarter] = useState(latest.Total.quarter);','periodo inicial ENE')
+
+          range_effect='''  useEffect(() => {
+            setRangeStart(Math.max(0, available.length - defaultLength));
+            setRangeEnd(Math.max(0, available.length - 1));
+          }, [available.length, defaultLength]);
+          '''
+          text=replace_once(text,range_effect,'','rango IPP')
+          text=replace_once(text,
+            '  const visibleStart = !customRange ? quickStart : rangeStart;',
+            '  const visibleStart = !customRange\n    ? quickStart\n    : Math.min(rangeStart, Math.max(0, available.length - 1));',
+            'clamp rango IPP')
+          text=replace_once(text,'if ((refreshed as any).cache?.status === "updated") apply(refreshed);','if ((refreshed as { cache?: { status?: string } }).cache?.status === "updated") apply(refreshed);','tipo IPP refresh')
+          text=replace_once(text,'    setDisplayYear(data[0].year);\n    const timer = setInterval(','    const timer = setInterval(','reproducción nacimientos effect')
+          text=replace_once(text,
+            '            onClick={() => setPlaying((value) => !value)}',
+            '''            onClick={() => {
+              if (playing) setPlaying(false);
+              else {
+                setDisplayYear(data[0].year);
+                setPlaying(true);
+              }
+            }}''',
+            'reproducción nacimientos botón')
+
+          enusc_effects='''  useEffect(() => {
+            const next = data.metadata.find((item) => item.theme === theme)!;
+            setVariable(next.variable);
+            setRegion("TOTAL NACIONAL");
+            setGroup("Total");
+          }, [theme, data.metadata]);
+          useEffect(() => {
+            setRegion("TOTAL NACIONAL");
+            setGroup("Total");
+          }, [variable]);
+          '''
+          text=replace_once(text,enusc_effects,'','effects ENUSC')
+          text=replace_once(text,
+            '            onChange={(event) => setTheme(event.target.value)}',
+            '''            onChange={(event) => {
+              const nextTheme = event.target.value;
+              const next = data.metadata.find((item) => item.theme === nextTheme)!;
+              setTheme(nextTheme);
+              setVariable(next.variable);
+              setRegion("TOTAL NACIONAL");
+              setGroup("Total");
+            }}''',
+            'selector tema ENUSC')
+          text=replace_once(text,
+            '            onChange={(event) => setVariable(event.target.value)}',
+            '''            onChange={(event) => {
+              setVariable(event.target.value);
+              setRegion("TOTAL NACIONAL");
+              setGroup("Total");
+            }}''',
+            'selector indicador ENUSC')
+          page.write_text(text)
+
+          econ=Path('app/EconomicPage.tsx')
+          text=econ.read_text()
+          old='''  useEffect(() => {
+            let alive = true;
+            setData(kind === "commerce" ? peekDataset("commerce") : fallbackData[kind]);
+            setError("");
+            setMetric(kind === "permits" ? "value" : "index");
+            const initialRequest ='''
+          new='''  useEffect(() => {
+            let alive = true;
+            queueMicrotask(() => {
+              if (!alive) return;
+              setData(kind === "commerce" ? peekDataset("commerce") : fallbackData[kind]);
+              setError("");
+              setMetric(kind === "permits" ? "value" : "index");
+            });
+            const initialRequest ='''
+          text=replace_once(text,old,new,'EconomicPage effect')
+          econ.write_text(text)
+
+          for filename in ['lib/labor-sdmx.ts','lib/price-sdmx.ts']:
+              path=Path(filename); text=path.read_text()
+              text=replace_once(text,'type AnyRecord = Record<string, any>;','// El payload normalizado reúne estructuras heterogéneas de varias operaciones.\n// eslint-disable-next-line @typescript-eslint/no-explicit-any\ntype AnyRecord = Record<string, any>;',filename)
+              path.write_text(text)
+
+          eslint=Path('eslint.config.mjs'); text=eslint.read_text()
+          text=replace_once(text,'    "build/**",\n    "next-env.d.ts",','    "build/**",\n    "public/worker/vendor/**",\n    "next-env.d.ts",','ignorar vendor')
+          eslint.write_text(text)
+          PY
+
+      - name: Formatear y validar lint
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci --ignore-scripts
+          npx prettier --write app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs
+          npm run lint
+
+      - name: Pruebas e integridad
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm test
+          python3 scripts/check-repository-integrity.py
+
+      - name: Convertir lint en control obligatorio y versionar
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 <<'PY'
+          from pathlib import Path
+          path=Path('.github/workflows/ci.yml')
+          text=path.read_text()
+          old='''      # El análisis estático queda temporalmente informativo mientras se
+                # resuelven las observaciones heredadas documentadas en TECHNICAL_DEBT.md.
+                - name: Auditar lint
+                  continue-on-error: true
+                  run: npm run lint
+          '''
+          new='''      # El análisis estático es una condición obligatoria del CI.
+                - name: Auditar lint
+                  run: npm run lint
+          '''
+          if old not in text:
+              raise SystemExit('No se encontró el bloque informativo de lint en ci.yml')
+          path.write_text(text.replace(old,new,1))
+          PY
+          npx prettier --write .github/workflows/ci.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs .github/workflows/ci.yml
+          git commit -m 'Elimina hardcodes ENE y hace obligatorio el lint'
+          git push origin HEAD:main
