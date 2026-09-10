@@ -23,7 +23,17 @@ export async function GET(request: NextRequest) {
     .bind("vital-statistics")
     .first<Record<string, string>>();
   if (cached && request.nextUrl.searchParams.get("refresh") !== "1")
-    return NextResponse.json({ ...JSON.parse(cached.payload_json), cache: { status: "cached", checkedAt: cached.checked_at, updatedAt: cached.updated_at } }, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json(
+      {
+        ...JSON.parse(cached.payload_json),
+        cache: {
+          status: "cached",
+          checkedAt: cached.checked_at,
+          updatedAt: cached.updated_at,
+        },
+      },
+      { headers: { "Cache-Control": "no-store" } },
+    );
   try {
     const now = new Date().toISOString();
     const download = await fetch(source, {
@@ -35,8 +45,24 @@ export async function GET(request: NextRequest) {
     const hash = await sha256(bytes);
     const metadata = { url: source, hash };
     if (cached?.source_last_modified === hash) {
-      await db.prepare("UPDATE economic_source_cache SET checked_at = ? WHERE kind = ?").bind(now, "vital-statistics").run();
-      return NextResponse.json({ ...JSON.parse(cached.payload_json), source: metadata, cache: { status: "shared", checkedAt: now, updatedAt: cached.updated_at } }, { headers: { "Cache-Control": "no-store" } });
+      await db
+        .prepare(
+          "UPDATE economic_source_cache SET checked_at = ? WHERE kind = ?",
+        )
+        .bind(now, "vital-statistics")
+        .run();
+      return NextResponse.json(
+        {
+          ...JSON.parse(cached.payload_json),
+          source: metadata,
+          cache: {
+            status: "shared",
+            checkedAt: now,
+            updatedAt: cached.updated_at,
+          },
+        },
+        { headers: { "Cache-Control": "no-store" } },
+      );
     }
     const payload = parseVitalStatistics(bytes);
     await db
@@ -46,9 +72,9 @@ export async function GET(request: NextRequest) {
       .bind(
         "vital-statistics",
         source,
-        signature,
         hash,
         null,
+        String(bytes.byteLength),
         JSON.stringify(payload),
         now,
         now,
