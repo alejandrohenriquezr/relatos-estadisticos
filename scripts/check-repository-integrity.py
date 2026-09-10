@@ -2,13 +2,15 @@
 """Valida integridad y portabilidad básica de los archivos versionados.
 
 Detecta texto no UTF-8, JSON inválido, HTML sin estructura reconocible,
-firmas incorrectas de XLSX/PDF y rutas absolutas propias de una máquina de
-trabajo en código ejecutable. El objetivo es impedir que una sincronización
-vuelva a introducir archivos dañados o dependencias de una sesión local.
+firmas incorrectas de XLSX/PDF, rutas absolutas propias de una máquina de
+trabajo y tablas D1 declaradas en Drizzle sin una migración versionada.
+El objetivo es impedir que una sincronización vuelva a introducir archivos
+dañados, dependencias de una sesión local o esquemas imposibles de reconstruir.
 """
 
 from pathlib import Path
 import json
+import re
 import subprocess
 import sys
 
@@ -52,6 +54,27 @@ def check_machine_paths(rel: str, suffix: str, text: str, errors: list[str]) -> 
             errors.append(f"ABSOLUTE_MACHINE_PATH {rel}: contiene {forbidden}")
 
 
+def check_drizzle_migrations(errors: list[str]) -> None:
+    """Exige que todas las tablas declaradas en el esquema tengan migración SQL."""
+    schema_path = Path("db/schema.ts")
+    if not schema_path.is_file():
+        return
+
+    schema = schema_path.read_text(encoding="utf-8")
+    tables = set(re.findall(r'sqliteTable\("([^"]+)"', schema))
+    migration_paths = sorted(Path("drizzle").glob("*.sql"))
+    migrations = "\n".join(
+        path.read_text(encoding="utf-8") for path in migration_paths
+    )
+
+    for table in sorted(tables):
+        pattern = rf"CREATE\s+TABLE\s+[`\"']?{re.escape(table)}[`\"']?"
+        if not re.search(pattern, migrations, flags=re.IGNORECASE):
+            errors.append(
+                f"MISSING_DRIZZLE_MIGRATION db/schema.ts: tabla {table} sin CREATE TABLE en drizzle/*.sql"
+            )
+
+
 def main() -> int:
     errors: list[str] = []
     checked = 0
@@ -93,6 +116,8 @@ def main() -> int:
 
         if suffix == ".pdf" and not data.startswith(b"%PDF-"):
             errors.append(f"INVALID_PDF_SIGNATURE {rel}")
+
+    check_drizzle_migrations(errors)
 
     print(f"Archivos versionados revisados: {checked}")
     if errors:
