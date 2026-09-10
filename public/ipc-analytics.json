@@ -1,1 +1,3077 @@
-{"base":"2023=100","series":[{"year":2024,"month":1,"label":"Alimentos","index":103.26,"monthly":1,"accumulated":1},{"year":2024,"month":1,"label":"Bienes","index":101.24,"monthly":0.9,"accumulated":0.9},{"year":2024,"month":1,"label":"Energía","index":102.03,"monthly":-0.4,"accumulated":-0.4},{"year":2024,"month":1,"label":"Frutas y verduras frescas","index":109.03,"monthly":-0.8,"accumulated":-0.8},{"year":2024,"month":1,"label":"IPC General menos alimentos y energía","index":101.19,"monthly":0.7,"accumulated":0.7},{"year":2024,"month":1,"label":"IPC Sin volátiles","index":101.62,"monthly":0.7,"accumulated":0.7},{"year":2024,"month":1,"label":"IPC volátiles","index":101.87,"monthly":0.6,"accumulated":0.6},{"year":2024,"month":1,"label":"No transables","index":102.23,"monthly":0.3,"accumulated":0.3},{"year":2024,"month":1,"label":"Servicios","index":102.31,"monthly":0.4,"accumulated":0.4},{"year":2024,"month":1,"label":"Servicios menos Vivienda","index":102.21,"monthly":0.5,"accumulated":0.5},{"year":2024,"month":1,"label":"Transables","index":101.35,"monthly":0.9,"accumulated":0.9},{"year":2024,"month":1,"label":"Vivienda","index":102.62,"monthly":0.5,"accumulated":0.5},{"year":2024,"month":2,"label":"Alimentos","index":103.48,"monthly":0.2,"accumulated":1.2},{"year":2024,"month":2,"label":"Bienes","index":101.56,"monthly":0.3,"accumulated":1.2},{"year":2024,"month":2,"label":"Energía","index":103.15,"monthly":1.1,"accumulated":0.7},{"year":2024,"month":2,"label":"Frutas y verduras frescas","index":104.65,"monthly":-4,"accumulated":-4.7},{"year":2024,"month":2,"label":"IPC General menos alimentos y energía","index":101.84,"monthly":0.6,"accumulated":1.4},{"year":2024,"month":2,"label":"IPC Sin volátiles","index":102.24,"monthly":0.6,"accumulated":1.3},{"year":2024,"month":2,"label":"IPC volátiles","index":102.44,"monthly":0.6,"accumulated":1.1},{"year":2024,"month":2,"label":"No transables","index":103.24,"monthly":1,"accumulated":1.3},{"year":2024,"month":2,"label":"Servicios","index":103.25,"monthly":0.9,"accumulated":1.4},{"year":2024,"month":2,"label":"Servicios menos Vivienda","index":103,"monthly":0.8,"accumulated":1.2},{"year":2024,"month":2,"label":"Transables","index":101.66,"monthly":0.3,"accumulated":1.2},{"year":2024,"month":2,"label":"Vivienda","index":104.21,"monthly":1.6,"accumulated":2.1},{"year":2024,"month":3,"label":"Alimentos","index":102.55,"monthly":-0.9,"accumulated":0.3},{"year":2024,"month":3,"label":"Bienes","index":101.71,"monthly":0.1,"accumulated":1.3},{"year":2024,"month":3,"label":"Energía","index":105.69,"monthly":2.5,"accumulated":3.2},{"year":2024,"month":3,"label":"Frutas y verduras frescas","index":104.18,"monthly":-0.4,"accumulated":-5.2},{"year":2024,"month":3,"label":"IPC General menos alimentos y energía","index":102.38,"monthly":0.5,"accumulated":1.9},{"year":2024,"month":3,"label":"IPC Sin volátiles","index":102.88,"monthly":0.6,"accumulated":2},{"year":2024,"month":3,"label":"IPC volátiles","index":102.42,"monthly":0,"accumulated":1.1},{"year":2024,"month":3,"label":"No transables","index":103.96,"monthly":0.7,"accumulated":2},{"year":2024,"month":3,"label":"Servicios","index":103.92,"monthly":0.7,"accumulated":2},{"year":2024,"month":3,"label":"Servicios menos Vivienda","index":103.7,"monthly":0.7,"accumulated":1.9},{"year":2024,"month":3,"label":"Transables","index":101.8,"monthly":0.1,"accumulated":1.4},{"year":2024,"month":3,"label":"Vivienda","index":104.71,"monthly":0.5,"accumulated":2.5},{"year":2024,"month":4,"label":"Alimentos","index":103.27,"monthly":0.7,"accumulated":1},{"year":2024,"month":4,"label":"Bienes","index":102.38,"monthly":0.7,"accumulated":2},{"year":2024,"month":4,"label":"Energía","index":107.65,"monthly":1.9,"accumulated":5.1},{"year":2024,"month":4,"label":"Frutas y verduras frescas","index":102.89,"monthly":-1.2,"accumulated":-6.4},{"year":2024,"month":4,"label":"IPC General menos alimentos y energía","index":102.69,"monthly":0.3,"accumulated":2.2},{"year":2024,"month":4,"label":"IPC Sin volátiles","index":103.43,"monthly":0.5,"accumulated":2.5},{"year":2024,"month":4,"label":"IPC volátiles","index":102.94,"monthly":0.5,"accumulated":1.6},{"year":2024,"month":4,"label":"No transables","index":104.28,"monthly":0.3,"accumulated":2.3},{"year":2024,"month":4,"label":"Servicios","index":104.31,"monthly":0.4,"accumulated":2.4},{"year":2024,"month":4,"label":"Servicios menos Vivienda","index":104.07,"monthly":0.4,"accumulated":2.3},{"year":2024,"month":4,"label":"Transables","index":102.5,"monthly":0.7,"accumulated":2.1},{"year":2024,"month":4,"label":"Vivienda","index":105.17,"monthly":0.4,"accumulated":3},{"year":2024,"month":5,"label":"Alimentos","index":103.35,"monthly":0.1,"accumulated":1},{"year":2024,"month":5,"label":"Bienes","index":102.83,"monthly":0.4,"accumulated":2.4},{"year":2024,"month":5,"label":"Energía","index":108.12,"monthly":0.4,"accumulated":5.5},{"year":2024,"month":5,"label":"Frutas y verduras frescas","index":101.96,"monthly":-0.9,"accumulated":-7.2},{"year":2024,"month":5,"label":"IPC General menos alimentos y energía","index":103,"monthly":0.3,"accumulated":2.5},{"year":2024,"month":5,"label":"IPC Sin volátiles","index":103.85,"monthly":0.4,"accumulated":2.9},{"year":2024,"month":5,"label":"IPC volátiles","index":102.98,"monthly":0,"accumulated":1.7},{"year":2024,"month":5,"label":"No transables","index":104.37,"monthly":0.1,"accumulated":2.4},{"year":2024,"month":5,"label":"Servicios","index":104.36,"monthly":0,"accumulated":2.5},{"year":2024,"month":5,"label":"Servicios menos Vivienda","index":104.04,"monthly":0,"accumulated":2.2},{"year":2024,"month":5,"label":"Transables","index":102.9,"monthly":0.4,"accumulated":2.5},{"year":2024,"month":5,"label":"Vivienda","index":105.46,"monthly":0.3,"accumulated":3.3},{"year":2024,"month":6,"label":"Alimentos","index":104.69,"monthly":1.3,"accumulated":2.4},{"year":2024,"month":6,"label":"Bienes","index":102.26,"monthly":-0.6,"accumulated":1.9},{"year":2024,"month":6,"label":"Energía","index":108.17,"monthly":0,"accumulated":5.6},{"year":2024,"month":6,"label":"Frutas y verduras frescas","index":105.5,"monthly":3.5,"accumulated":-4},{"year":2024,"month":6,"label":"IPC General menos alimentos y energía","index":102.43,"monthly":-0.6,"accumulated":2},{"year":2024,"month":6,"label":"IPC Sin volátiles","index":103.6,"monthly":-0.2,"accumulated":2.7},{"year":2024,"month":6,"label":"IPC volátiles","index":103.15,"monthly":0.2,"accumulated":1.8},{"year":2024,"month":6,"label":"No transables","index":104.61,"monthly":0.2,"accumulated":2.7},{"year":2024,"month":6,"label":"Servicios","index":104.86,"monthly":0.5,"accumulated":2.9},{"year":2024,"month":6,"label":"Servicios menos Vivienda","index":104.64,"monthly":0.6,"accumulated":2.8},{"year":2024,"month":6,"label":"Transables","index":102.58,"monthly":-0.3,"accumulated":2.1},{"year":2024,"month":6,"label":"Vivienda","index":105.31,"monthly":-0.2,"accumulated":3.1},{"year":2024,"month":7,"label":"Alimentos","index":104.75,"monthly":0.1,"accumulated":2.4},{"year":2024,"month":7,"label":"Bienes","index":102.77,"monthly":0.5,"accumulated":2.4},{"year":2024,"month":7,"label":"Energía","index":110.88,"monthly":2.5,"accumulated":8.2},{"year":2024,"month":7,"label":"Frutas y verduras frescas","index":106.79,"monthly":1.2,"accumulated":-2.8},{"year":2024,"month":7,"label":"IPC General menos alimentos y energía","index":103.17,"monthly":0.7,"accumulated":2.7},{"year":2024,"month":7,"label":"IPC Sin volátiles","index":104.07,"monthly":0.5,"accumulated":3.1},{"year":2024,"month":7,"label":"IPC volátiles","index":104.38,"monthly":1.2,"accumulated":3.1},{"year":2024,"month":7,"label":"No transables","index":105.14,"monthly":0.5,"accumulated":3.2},{"year":2024,"month":7,"label":"Servicios","index":105.92,"monthly":1,"accumulated":4},{"year":2024,"month":7,"label":"Servicios menos Vivienda","index":105.87,"monthly":1.2,"accumulated":4},{"year":2024,"month":7,"label":"Transables","index":103.5,"monthly":0.9,"accumulated":3.1},{"year":2024,"month":7,"label":"Vivienda","index":105.92,"monthly":0.6,"accumulated":3.7},{"year":2024,"month":8,"label":"Alimentos","index":105.28,"monthly":0.5,"accumulated":2.9},{"year":2024,"month":8,"label":"Bienes","index":103,"monthly":0.2,"accumulated":2.6},{"year":2024,"month":8,"label":"Energía","index":110.99,"monthly":0.1,"accumulated":8.3},{"year":2024,"month":8,"label":"Frutas y verduras frescas","index":108.55,"monthly":1.6,"accumulated":-1.2},{"year":2024,"month":8,"label":"IPC General menos alimentos y energía","index":103.38,"monthly":0.2,"accumulated":2.9},{"year":2024,"month":8,"label":"IPC Sin volátiles","index":104.17,"monthly":0.1,"accumulated":3.2},{"year":2024,"month":8,"label":"IPC volátiles","index":104.92,"monthly":0.5,"accumulated":3.6},{"year":2024,"month":8,"label":"No transables","index":105.48,"monthly":0.3,"accumulated":3.5},{"year":2024,"month":8,"label":"Servicios","index":106.24,"monthly":0.3,"accumulated":4.3},{"year":2024,"month":8,"label":"Servicios menos Vivienda","index":106.16,"monthly":0.3,"accumulated":4.3},{"year":2024,"month":8,"label":"Transables","index":103.72,"monthly":0.2,"accumulated":3.3},{"year":2024,"month":8,"label":"Vivienda","index":106.41,"monthly":0.5,"accumulated":4.2},{"year":2024,"month":9,"label":"Alimentos","index":104.76,"monthly":-0.5,"accumulated":2.4},{"year":2024,"month":9,"label":"Bienes","index":102.98,"monthly":0,"accumulated":2.6},{"year":2024,"month":9,"label":"Energía","index":109.48,"monthly":-1.4,"accumulated":6.8},{"year":2024,"month":9,"label":"Frutas y verduras frescas","index":107.67,"monthly":-0.8,"accumulated":-2},{"year":2024,"month":9,"label":"IPC General menos alimentos y energía","index":103.86,"monthly":0.5,"accumulated":3.4},{"year":2024,"month":9,"label":"IPC Sin volátiles","index":104.52,"monthly":0.3,"accumulated":3.6},{"year":2024,"month":9,"label":"IPC volátiles","index":104.58,"monthly":-0.3,"accumulated":3.2},{"year":2024,"month":9,"label":"No transables","index":105.76,"monthly":0.3,"accumulated":3.8},{"year":2024,"month":9,"label":"Servicios","index":106.47,"monthly":0.2,"accumulated":4.5},{"year":2024,"month":9,"label":"Servicios menos Vivienda","index":106.38,"monthly":0.2,"accumulated":4.5},{"year":2024,"month":9,"label":"Transables","index":103.67,"monthly":0,"accumulated":3.2},{"year":2024,"month":9,"label":"Vivienda","index":106.69,"monthly":0.3,"accumulated":4.5},{"year":2024,"month":10,"label":"Alimentos","index":107.1,"monthly":2.2,"accumulated":4.7},{"year":2024,"month":10,"label":"Bienes","index":103.44,"monthly":0.5,"accumulated":3.1},{"year":2024,"month":10,"label":"Energía","index":113.58,"monthly":3.7,"accumulated":10.9},{"year":2024,"month":10,"label":"Frutas y verduras frescas","index":110.49,"monthly":2.6,"accumulated":0.6},{"year":2024,"month":10,"label":"IPC General menos alimentos y energía","index":104.08,"monthly":0.2,"accumulated":3.6},{"year":2024,"month":10,"label":"IPC Sin volátiles","index":104.95,"monthly":0.4,"accumulated":4},{"year":2024,"month":10,"label":"IPC volátiles","index":106.56,"monthly":1.9,"accumulated":5.2},{"year":2024,"month":10,"label":"No transables","index":106.32,"monthly":0.5,"accumulated":4.3},{"year":2024,"month":10,"label":"Servicios","index":108.16,"monthly":1.6,"accumulated":6.2},{"year":2024,"month":10,"label":"Servicios menos Vivienda","index":108.41,"monthly":1.9,"accumulated":6.5},{"year":2024,"month":10,"label":"Transables","index":105.02,"monthly":1.3,"accumulated":4.6},{"year":2024,"month":10,"label":"Vivienda","index":106.84,"monthly":0.1,"accumulated":4.6},{"year":2024,"month":11,"label":"Alimentos","index":106.83,"monthly":-0.3,"accumulated":4.4},{"year":2024,"month":11,"label":"Bienes","index":103.48,"monthly":0,"accumulated":3.1},{"year":2024,"month":11,"label":"Energía","index":112.94,"monthly":-0.6,"accumulated":10.2},{"year":2024,"month":11,"label":"Frutas y verduras frescas","index":109.26,"monthly":-1.1,"accumulated":-0.6},{"year":2024,"month":11,"label":"IPC General menos alimentos y energía","index":104.62,"monthly":0.5,"accumulated":4.1},{"year":2024,"month":11,"label":"IPC Sin volátiles","index":105.24,"monthly":0.3,"accumulated":4.3},{"year":2024,"month":11,"label":"IPC volátiles","index":106.79,"monthly":0.2,"accumulated":5.4},{"year":2024,"month":11,"label":"No transables","index":106.8,"monthly":0.5,"accumulated":4.8},{"year":2024,"month":11,"label":"Servicios","index":108.71,"monthly":0.5,"accumulated":6.7},{"year":2024,"month":11,"label":"Servicios menos Vivienda","index":109.03,"monthly":0.6,"accumulated":7.1},{"year":2024,"month":11,"label":"Transables","index":105.13,"monthly":0.1,"accumulated":4.7},{"year":2024,"month":11,"label":"Vivienda","index":107.17,"monthly":0.3,"accumulated":5},{"year":2024,"month":12,"label":"Alimentos","index":105.9,"monthly":-0.9,"accumulated":3.5},{"year":2024,"month":12,"label":"Bienes","index":102.87,"monthly":-0.6,"accumulated":2.5},{"year":2024,"month":12,"label":"Energía","index":113.75,"monthly":0.7,"accumulated":11},{"year":2024,"month":12,"label":"Frutas y verduras frescas","index":104.06,"monthly":-4.8,"accumulated":-5.3},{"year":2024,"month":12,"label":"IPC General menos alimentos y energía","index":104.52,"monthly":-0.1,"accumulated":4},{"year":2024,"month":12,"label":"IPC Sin volátiles","index":105.25,"monthly":0,"accumulated":4.3},{"year":2024,"month":12,"label":"IPC volátiles","index":106.22,"monthly":-0.5,"accumulated":4.9},{"year":2024,"month":12,"label":"No transables","index":106.98,"monthly":0.2,"accumulated":5},{"year":2024,"month":12,"label":"Servicios","index":108.99,"monthly":0.3,"accumulated":7},{"year":2024,"month":12,"label":"Servicios menos Vivienda","index":109.33,"monthly":0.3,"accumulated":7.4},{"year":2024,"month":12,"label":"Transables","index":104.64,"monthly":-0.5,"accumulated":4.2},{"year":2024,"month":12,"label":"Vivienda","index":107.31,"monthly":0.1,"accumulated":5.1},{"year":2025,"month":1,"label":"Alimentos","index":106.35,"monthly":0.4,"accumulated":0.4},{"year":2025,"month":1,"label":"Bienes","index":103.81,"monthly":0.9,"accumulated":0.9},{"year":2025,"month":1,"label":"Energía","index":118.99,"monthly":4.6,"accumulated":4.6},{"year":2025,"month":1,"label":"Frutas y verduras frescas","index":102.13,"monthly":-1.9,"accumulated":-1.9},{"year":2025,"month":1,"label":"IPC General menos alimentos y energía","index":105.35,"monthly":0.8,"accumulated":0.8},{"year":2025,"month":1,"label":"IPC Sin volátiles","index":105.9,"monthly":0.6,"accumulated":0.6},{"year":2025,"month":1,"label":"IPC volátiles","index":108.12,"monthly":1.8,"accumulated":1.8},{"year":2025,"month":1,"label":"No transables","index":107.52,"monthly":0.5,"accumulated":0.5},{"year":2025,"month":1,"label":"Servicios","index":110.35,"monthly":1.2,"accumulated":1.2},{"year":2025,"month":1,"label":"Servicios menos Vivienda","index":110.85,"monthly":1.4,"accumulated":1.4},{"year":2025,"month":1,"label":"Transables","index":106.19,"monthly":1.5,"accumulated":1.5},{"year":2025,"month":1,"label":"Vivienda","index":107.92,"monthly":0.6,"accumulated":0.6},{"year":2025,"month":2,"label":"Alimentos","index":106.5,"monthly":0.1,"accumulated":0.6},{"year":2025,"month":2,"label":"Bienes","index":104.27,"monthly":0.4,"accumulated":1.4},{"year":2025,"month":2,"label":"Energía","index":120.58,"monthly":1.3,"accumulated":6},{"year":2025,"month":2,"label":"Frutas y verduras frescas","index":101.88,"monthly":-0.2,"accumulated":-2.1},{"year":2025,"month":2,"label":"IPC General menos alimentos y energía","index":105.71,"monthly":0.3,"accumulated":1.1},{"year":2025,"month":2,"label":"IPC Sin volátiles","index":106.19,"monthly":0.3,"accumulated":0.9},{"year":2025,"month":2,"label":"IPC volátiles","index":108.76,"monthly":0.6,"accumulated":2.4},{"year":2025,"month":2,"label":"No transables","index":107.86,"monthly":0.3,"accumulated":0.8},{"year":2025,"month":2,"label":"Servicios","index":110.72,"monthly":0.3,"accumulated":1.6},{"year":2025,"month":2,"label":"Servicios menos Vivienda","index":111.08,"monthly":0.2,"accumulated":1.6},{"year":2025,"month":2,"label":"Transables","index":106.67,"monthly":0.4,"accumulated":1.9},{"year":2025,"month":2,"label":"Vivienda","index":108.8,"monthly":0.8,"accumulated":1.4},{"year":2025,"month":3,"label":"Alimentos","index":107.8,"monthly":1.2,"accumulated":1.8},{"year":2025,"month":3,"label":"Bienes","index":104.72,"monthly":0.4,"accumulated":1.8},{"year":2025,"month":3,"label":"Energía","index":120.26,"monthly":-0.3,"accumulated":5.7},{"year":2025,"month":3,"label":"Frutas y verduras frescas","index":106.2,"monthly":4.2,"accumulated":2},{"year":2025,"month":3,"label":"IPC General menos alimentos y energía","index":106.11,"monthly":0.4,"accumulated":1.5},{"year":2025,"month":3,"label":"IPC Sin volátiles","index":106.64,"monthly":0.4,"accumulated":1.3},{"year":2025,"month":3,"label":"IPC volátiles","index":109.43,"monthly":0.6,"accumulated":3},{"year":2025,"month":3,"label":"No transables","index":108.62,"monthly":0.7,"accumulated":1.5},{"year":2025,"month":3,"label":"Servicios","index":111.36,"monthly":0.6,"accumulated":2.2},{"year":2025,"month":3,"label":"Servicios menos Vivienda","index":111.82,"monthly":0.7,"accumulated":2.3},{"year":2025,"month":3,"label":"Transables","index":107.05,"monthly":0.4,"accumulated":2.3},{"year":2025,"month":3,"label":"Vivienda","index":108.98,"monthly":0.2,"accumulated":1.6},{"year":2025,"month":4,"label":"Alimentos","index":107.77,"monthly":0,"accumulated":1.8},{"year":2025,"month":4,"label":"Bienes","index":104.78,"monthly":0.1,"accumulated":1.9},{"year":2025,"month":4,"label":"Energía","index":119.42,"monthly":-0.7,"accumulated":5},{"year":2025,"month":4,"label":"Frutas y verduras frescas","index":104.56,"monthly":-1.5,"accumulated":0.5},{"year":2025,"month":4,"label":"IPC General menos alimentos y energía","index":106.53,"monthly":0.4,"accumulated":1.9},{"year":2025,"month":4,"label":"IPC Sin volátiles","index":107.1,"monthly":0.4,"accumulated":1.8},{"year":2025,"month":4,"label":"IPC volátiles","index":109.24,"monthly":-0.2,"accumulated":2.8},{"year":2025,"month":4,"label":"No transables","index":108.99,"monthly":0.3,"accumulated":1.9},{"year":2025,"month":4,"label":"Servicios","index":111.75,"monthly":0.4,"accumulated":2.5},{"year":2025,"month":4,"label":"Servicios menos Vivienda","index":112.2,"monthly":0.3,"accumulated":2.6},{"year":2025,"month":4,"label":"Transables","index":107.13,"monthly":0.1,"accumulated":2.4},{"year":2025,"month":4,"label":"Vivienda","index":109.51,"monthly":0.5,"accumulated":2.1},{"year":2025,"month":5,"label":"Alimentos","index":108.07,"monthly":0.3,"accumulated":2},{"year":2025,"month":5,"label":"Bienes","index":105.01,"monthly":0.2,"accumulated":2.1},{"year":2025,"month":5,"label":"Energía","index":118.78,"monthly":-0.5,"accumulated":4.4},{"year":2025,"month":5,"label":"Frutas y verduras frescas","index":102.94,"monthly":-1.6,"accumulated":-1.1},{"year":2025,"month":5,"label":"IPC General menos alimentos y energía","index":106.82,"monthly":0.3,"accumulated":2.2},{"year":2025,"month":5,"label":"IPC Sin volátiles","index":107.54,"monthly":0.4,"accumulated":2.2},{"year":2025,"month":5,"label":"IPC volátiles","index":109.07,"monthly":-0.2,"accumulated":2.7},{"year":2025,"month":5,"label":"No transables","index":109.22,"monthly":0.2,"accumulated":2.1},{"year":2025,"month":5,"label":"Servicios","index":111.95,"monthly":0.2,"accumulated":2.7},{"year":2025,"month":5,"label":"Servicios menos Vivienda","index":112.38,"monthly":0.2,"accumulated":2.8},{"year":2025,"month":5,"label":"Transables","index":107.34,"monthly":0.2,"accumulated":2.6},{"year":2025,"month":5,"label":"Vivienda","index":109.74,"monthly":0.2,"accumulated":2.3},{"year":2025,"month":6,"label":"Alimentos","index":107.14,"monthly":-0.9,"accumulated":1.2},{"year":2025,"month":6,"label":"Bienes","index":103.84,"monthly":-1.1,"accumulated":0.9},{"year":2025,"month":6,"label":"Energía","index":118.61,"monthly":-0.1,"accumulated":4.3},{"year":2025,"month":6,"label":"Frutas y verduras frescas","index":97.99,"monthly":-4.8,"accumulated":-5.8},{"year":2025,"month":6,"label":"IPC General menos alimentos y energía","index":106.49,"monthly":-0.3,"accumulated":1.9},{"year":2025,"month":6,"label":"IPC Sin volátiles","index":107.52,"monthly":0,"accumulated":2.2},{"year":2025,"month":6,"label":"IPC volátiles","index":107.93,"monthly":-1.1,"accumulated":1.6},{"year":2025,"month":6,"label":"No transables","index":109.67,"monthly":0.4,"accumulated":2.5},{"year":2025,"month":6,"label":"Servicios","index":112.39,"monthly":0.4,"accumulated":3.1},{"year":2025,"month":6,"label":"Servicios menos Vivienda","index":112.86,"monthly":0.4,"accumulated":3.2},{"year":2025,"month":6,"label":"Transables","index":106.25,"monthly":-1,"accumulated":1.5},{"year":2025,"month":6,"label":"Vivienda","index":110.01,"monthly":0.2,"accumulated":2.5},{"year":2025,"month":7,"label":"Alimentos","index":108.07,"monthly":0.9,"accumulated":2.1},{"year":2025,"month":7,"label":"Bienes","index":104.77,"monthly":0.9,"accumulated":1.8},{"year":2025,"month":7,"label":"Energía","index":122.36,"monthly":3.2,"accumulated":7.6},{"year":2025,"month":7,"label":"Frutas y verduras frescas","index":95.25,"monthly":-2.8,"accumulated":-8.5},{"year":2025,"month":7,"label":"IPC General menos alimentos y energía","index":107.1,"monthly":0.6,"accumulated":2.5},{"year":2025,"month":7,"label":"IPC Sin volátiles","index":108.21,"monthly":0.6,"accumulated":2.8},{"year":2025,"month":7,"label":"IPC volátiles","index":109.3,"monthly":1.3,"accumulated":2.9},{"year":2025,"month":7,"label":"No transables","index":110.09,"monthly":0.4,"accumulated":2.9},{"year":2025,"month":7,"label":"Servicios","index":113.36,"monthly":0.9,"accumulated":4},{"year":2025,"month":7,"label":"Servicios menos Vivienda","index":113.99,"monthly":1,"accumulated":4.3},{"year":2025,"month":7,"label":"Transables","index":107.57,"monthly":1.2,"accumulated":2.8},{"year":2025,"month":7,"label":"Vivienda","index":110.36,"monthly":0.3,"accumulated":2.8},{"year":2025,"month":8,"label":"Alimentos","index":109.01,"monthly":0.9,"accumulated":2.9},{"year":2025,"month":8,"label":"Bienes","index":104.72,"monthly":0,"accumulated":1.8},{"year":2025,"month":8,"label":"Energía","index":121.79,"monthly":-0.5,"accumulated":7.1},{"year":2025,"month":8,"label":"Frutas y verduras frescas","index":95.95,"monthly":0.7,"accumulated":-7.8},{"year":2025,"month":8,"label":"IPC General menos alimentos y energía","index":106.92,"monthly":-0.2,"accumulated":2.3},{"year":2025,"month":8,"label":"IPC Sin volátiles","index":108.21,"monthly":0,"accumulated":2.8},{"year":2025,"month":8,"label":"IPC volátiles","index":109.39,"monthly":0.1,"accumulated":3},{"year":2025,"month":8,"label":"No transables","index":110.31,"monthly":0.2,"accumulated":3.1},{"year":2025,"month":8,"label":"Servicios","index":113.5,"monthly":0.1,"accumulated":4.1},{"year":2025,"month":8,"label":"Servicios menos Vivienda","index":114.13,"monthly":0.1,"accumulated":4.4},{"year":2025,"month":8,"label":"Transables","index":107.48,"monthly":-0.1,"accumulated":2.7},{"year":2025,"month":8,"label":"Vivienda","index":110.52,"monthly":0.1,"accumulated":3},{"year":2025,"month":9,"label":"Alimentos","index":109.92,"monthly":0.8,"accumulated":3.8},{"year":2025,"month":9,"label":"Bienes","index":105.32,"monthly":0.6,"accumulated":2.4},{"year":2025,"month":9,"label":"Energía","index":121.59,"monthly":-0.2,"accumulated":6.9},{"year":2025,"month":9,"label":"Frutas y verduras frescas","index":99.7,"monthly":3.9,"accumulated":-4.2},{"year":2025,"month":9,"label":"IPC General menos alimentos y energía","index":107.35,"monthly":0.4,"accumulated":2.7},{"year":2025,"month":9,"label":"IPC Sin volátiles","index":108.64,"monthly":0.4,"accumulated":3.2},{"year":2025,"month":9,"label":"IPC volátiles","index":109.96,"monthly":0.5,"accumulated":3.5},{"year":2025,"month":9,"label":"No transables","index":110.61,"monthly":0.3,"accumulated":3.4},{"year":2025,"month":9,"label":"Servicios","index":113.84,"monthly":0.3,"accumulated":4.4},{"year":2025,"month":9,"label":"Servicios menos Vivienda","index":114.47,"monthly":0.3,"accumulated":4.7},{"year":2025,"month":9,"label":"Transables","index":108.09,"monthly":0.6,"accumulated":3.3},{"year":2025,"month":9,"label":"Vivienda","index":110.82,"monthly":0.3,"accumulated":3.3},{"year":2025,"month":10,"label":"Alimentos","index":110.44,"monthly":0.5,"accumulated":4.3},{"year":2025,"month":10,"label":"Bienes","index":105.16,"monthly":-0.1,"accumulated":2.2},{"year":2025,"month":10,"label":"Energía","index":122.04,"monthly":0.4,"accumulated":7.3},{"year":2025,"month":10,"label":"Frutas y verduras frescas","index":101.31,"monthly":1.6,"accumulated":-2.6},{"year":2025,"month":10,"label":"IPC General menos alimentos y energía","index":107.19,"monthly":-0.1,"accumulated":2.6},{"year":2025,"month":10,"label":"IPC Sin volátiles","index":108.56,"monthly":-0.1,"accumulated":3.2},{"year":2025,"month":10,"label":"IPC volátiles","index":110.21,"monthly":0.2,"accumulated":3.8},{"year":2025,"month":10,"label":"No transables","index":110.87,"monthly":0.2,"accumulated":3.6},{"year":2025,"month":10,"label":"Servicios","index":114.13,"monthly":0.3,"accumulated":4.7},{"year":2025,"month":10,"label":"Servicios menos Vivienda","index":114.83,"monthly":0.3,"accumulated":5},{"year":2025,"month":10,"label":"Transables","index":107.98,"monthly":-0.1,"accumulated":3.2},{"year":2025,"month":10,"label":"Vivienda","index":110.69,"monthly":-0.1,"accumulated":3.2},{"year":2025,"month":11,"label":"Alimentos","index":110.7,"monthly":0.2,"accumulated":4.5},{"year":2025,"month":11,"label":"Bienes","index":105.16,"monthly":0,"accumulated":2.2},{"year":2025,"month":11,"label":"Energía","index":121.27,"monthly":-0.6,"accumulated":6.6},{"year":2025,"month":11,"label":"Frutas y verduras frescas","index":101.92,"monthly":0.6,"accumulated":-2.1},{"year":2025,"month":11,"label":"IPC General menos alimentos y energía","index":107.62,"monthly":0.4,"accumulated":3},{"year":2025,"month":11,"label":"IPC Sin volátiles","index":108.82,"monthly":0.2,"accumulated":3.4},{"year":2025,"month":11,"label":"IPC volátiles","index":110.54,"monthly":0.3,"accumulated":4.1},{"year":2025,"month":11,"label":"No transables","index":111.61,"monthly":0.7,"accumulated":4.3},{"year":2025,"month":11,"label":"Servicios","index":114.77,"monthly":0.6,"accumulated":5.3},{"year":2025,"month":11,"label":"Servicios menos Vivienda","index":115.54,"monthly":0.6,"accumulated":5.7},{"year":2025,"month":11,"label":"Transables","index":107.94,"monthly":0,"accumulated":3.2},{"year":2025,"month":11,"label":"Vivienda","index":111.02,"monthly":0.3,"accumulated":3.5},{"year":2025,"month":12,"label":"Alimentos","index":110.31,"monthly":-0.4,"accumulated":4.2},{"year":2025,"month":12,"label":"Bienes","index":104.66,"monthly":-0.5,"accumulated":1.7},{"year":2025,"month":12,"label":"Energía","index":120.83,"monthly":-0.4,"accumulated":6.2},{"year":2025,"month":12,"label":"Frutas y verduras frescas","index":100.14,"monthly":-1.7,"accumulated":-3.8},{"year":2025,"month":12,"label":"IPC General menos alimentos y energía","index":107.49,"monthly":-0.1,"accumulated":2.8},{"year":2025,"month":12,"label":"IPC Sin volátiles","index":108.75,"monthly":-0.1,"accumulated":3.3},{"year":2025,"month":12,"label":"IPC volátiles","index":110.1,"monthly":-0.4,"accumulated":3.6},{"year":2025,"month":12,"label":"No transables","index":111.71,"monthly":0.1,"accumulated":4.4},{"year":2025,"month":12,"label":"Servicios","index":114.92,"monthly":0.1,"accumulated":5.4},{"year":2025,"month":12,"label":"Servicios menos Vivienda","index":115.7,"monthly":0.1,"accumulated":5.8},{"year":2025,"month":12,"label":"Transables","index":107.51,"monthly":-0.4,"accumulated":2.7},{"year":2025,"month":12,"label":"Vivienda","index":111.11,"monthly":0.1,"accumulated":3.5},{"year":2026,"month":1,"label":"Alimentos","index":110.74,"monthly":0.4,"accumulated":0.4},{"year":2026,"month":1,"label":"Bienes","index":105.27,"monthly":0.6,"accumulated":0.6},{"year":2026,"month":1,"label":"Energía","index":119.18,"monthly":-1.4,"accumulated":-1.4},{"year":2026,"month":1,"label":"Frutas y verduras frescas","index":101.25,"monthly":1.1,"accumulated":1.1},{"year":2026,"month":1,"label":"IPC General menos alimentos y energía","index":108.21,"monthly":0.7,"accumulated":0.7},{"year":2026,"month":1,"label":"IPC Sin volátiles","index":109.55,"monthly":0.7,"accumulated":0.7},{"year":2026,"month":1,"label":"IPC volátiles","index":109.98,"monthly":-0.1,"accumulated":-0.1},{"year":2026,"month":1,"label":"No transables","index":111.98,"monthly":0.2,"accumulated":0.2},{"year":2026,"month":1,"label":"Servicios","index":115.18,"monthly":0.2,"accumulated":0.2},{"year":2026,"month":1,"label":"Servicios menos Vivienda","index":115.98,"monthly":0.2,"accumulated":0.2},{"year":2026,"month":1,"label":"Transables","index":108.09,"monthly":0.5,"accumulated":0.5},{"year":2026,"month":1,"label":"Vivienda","index":111.29,"monthly":0.2,"accumulated":0.2},{"year":2026,"month":2,"label":"Alimentos","index":110.94,"monthly":0.2,"accumulated":0.6},{"year":2026,"month":2,"label":"Bienes","index":105.27,"monthly":0,"accumulated":0.6},{"year":2026,"month":2,"label":"Energía","index":117.65,"monthly":-1.3,"accumulated":-2.6},{"year":2026,"month":2,"label":"Frutas y verduras frescas","index":100.64,"monthly":-0.6,"accumulated":0.5},{"year":2026,"month":2,"label":"IPC General menos alimentos y energía","index":108.32,"monthly":0.1,"accumulated":0.8},{"year":2026,"month":2,"label":"IPC Sin volátiles","index":109.74,"monthly":0.2,"accumulated":0.9},{"year":2026,"month":2,"label":"IPC volátiles","index":109.64,"monthly":-0.3,"accumulated":-0.4},{"year":2026,"month":2,"label":"No transables","index":112.11,"monthly":0.1,"accumulated":0.4},{"year":2026,"month":2,"label":"Servicios","index":115.15,"monthly":0,"accumulated":0.2},{"year":2026,"month":2,"label":"Servicios menos Vivienda","index":115.84,"monthly":-0.1,"accumulated":0.1},{"year":2026,"month":2,"label":"Transables","index":107.97,"monthly":-0.1,"accumulated":0.4},{"year":2026,"month":2,"label":"Vivienda","index":111.79,"monthly":0.4,"accumulated":0.6},{"year":2026,"month":3,"label":"Alimentos","index":111.59,"monthly":0.6,"accumulated":1.2},{"year":2026,"month":3,"label":"Bienes","index":106.36,"monthly":1,"accumulated":1.6},{"year":2026,"month":3,"label":"Energía","index":121.22,"monthly":3,"accumulated":0.3},{"year":2026,"month":3,"label":"Frutas y verduras frescas","index":106.81,"monthly":6.1,"accumulated":6.7},{"year":2026,"month":3,"label":"IPC General menos alimentos y energía","index":109.19,"monthly":0.8,"accumulated":1.6},{"year":2026,"month":3,"label":"IPC Sin volátiles","index":110.28,"monthly":0.5,"accumulated":1.4},{"year":2026,"month":3,"label":"IPC volátiles","index":111.53,"monthly":1.7,"accumulated":1.3},{"year":2026,"month":3,"label":"No transables","index":113.2,"monthly":1,"accumulated":1.3},{"year":2026,"month":3,"label":"Servicios","index":116.15,"monthly":0.9,"accumulated":1.1},{"year":2026,"month":3,"label":"Servicios menos Vivienda","index":117,"monthly":1,"accumulated":1.1},{"year":2026,"month":3,"label":"Transables","index":109,"monthly":0.9,"accumulated":1.4},{"year":2026,"month":3,"label":"Vivienda","index":112.02,"monthly":0.2,"accumulated":0.8},{"year":2026,"month":4,"label":"Alimentos","index":111.64,"monthly":0,"accumulated":1.2},{"year":2026,"month":4,"label":"Bienes","index":108.46,"monthly":2,"accumulated":3.6},{"year":2026,"month":4,"label":"Energía","index":135.01,"monthly":11.4,"accumulated":11.7},{"year":2026,"month":4,"label":"Frutas y verduras frescas","index":104.94,"monthly":-1.8,"accumulated":4.8},{"year":2026,"month":4,"label":"IPC General menos alimentos y energía","index":109.51,"monthly":0.3,"accumulated":1.9},{"year":2026,"month":4,"label":"IPC Sin volátiles","index":110.78,"monthly":0.5,"accumulated":1.9},{"year":2026,"month":4,"label":"IPC volátiles","index":114.46,"monthly":2.6,"accumulated":4},{"year":2026,"month":4,"label":"No transables","index":113.67,"monthly":0.4,"accumulated":1.8},{"year":2026,"month":4,"label":"Servicios","index":116.74,"monthly":0.5,"accumulated":1.6},{"year":2026,"month":4,"label":"Servicios menos Vivienda","index":117.5,"monthly":0.4,"accumulated":1.6},{"year":2026,"month":4,"label":"Transables","index":111.11,"monthly":1.9,"accumulated":3.3},{"year":2026,"month":4,"label":"Vivienda","index":112.79,"monthly":0.7,"accumulated":1.5},{"year":2026,"month":5,"label":"Alimentos","index":110.74,"monthly":-0.8,"accumulated":0.4},{"year":2026,"month":5,"label":"Bienes","index":108.41,"monthly":0,"accumulated":3.6},{"year":2026,"month":5,"label":"Energía","index":136.36,"monthly":1,"accumulated":12.9},{"year":2026,"month":5,"label":"Frutas y verduras frescas","index":101.49,"monthly":-3.3,"accumulated":1.3},{"year":2026,"month":5,"label":"IPC General menos alimentos y energía","index":109.91,"monthly":0.4,"accumulated":2.3},{"year":2026,"month":5,"label":"IPC Sin volátiles","index":110.99,"monthly":0.2,"accumulated":2.1},{"year":2026,"month":5,"label":"IPC volátiles","index":114.62,"monthly":0.1,"accumulated":4.1},{"year":2026,"month":5,"label":"No transables","index":114.09,"monthly":0.4,"accumulated":2.1},{"year":2026,"month":5,"label":"Servicios","index":117.23,"monthly":0.4,"accumulated":2},{"year":2026,"month":5,"label":"Servicios menos Vivienda","index":118.01,"monthly":0.4,"accumulated":2},{"year":2026,"month":5,"label":"Transables","index":111.14,"monthly":0,"accumulated":3.4},{"year":2026,"month":5,"label":"Vivienda","index":113.16,"monthly":0.3,"accumulated":1.8},{"year":2026,"month":6,"label":"Alimentos","index":111.6,"monthly":0.8,"accumulated":1.2},{"year":2026,"month":6,"label":"Bienes","index":108,"monthly":-0.4,"accumulated":3.2},{"year":2026,"month":6,"label":"Energía","index":134.85,"monthly":-1.1,"accumulated":11.6},{"year":2026,"month":6,"label":"Frutas y verduras frescas","index":100.77,"monthly":-0.7,"accumulated":0.6},{"year":2026,"month":6,"label":"IPC General menos alimentos y energía","index":109.79,"monthly":-0.1,"accumulated":2.1},{"year":2026,"month":6,"label":"IPC Sin volátiles","index":111.17,"monthly":0.2,"accumulated":2.2},{"year":2026,"month":6,"label":"IPC volátiles","index":114.27,"monthly":-0.3,"accumulated":3.8},{"year":2026,"month":6,"label":"No transables","index":114.47,"monthly":0.3,"accumulated":2.5},{"year":2026,"month":6,"label":"Servicios","index":117.68,"monthly":0.4,"accumulated":2.4},{"year":2026,"month":6,"label":"Servicios menos Vivienda","index":118.55,"monthly":0.5,"accumulated":2.5},{"year":2026,"month":6,"label":"Transables","index":110.83,"monthly":-0.3,"accumulated":3.1},{"year":2026,"month":6,"label":"Vivienda","index":113.16,"monthly":0,"accumulated":1.8}]}
+{
+  "base": "2023=100",
+  "series": [
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "Alimentos",
+      "index": 103.26,
+      "monthly": 1,
+      "accumulated": 1
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "Bienes",
+      "index": 101.24,
+      "monthly": 0.9,
+      "accumulated": 0.9
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "Energía",
+      "index": 102.03,
+      "monthly": -0.4,
+      "accumulated": -0.4
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "Frutas y verduras frescas",
+      "index": 109.03,
+      "monthly": -0.8,
+      "accumulated": -0.8
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "IPC General menos alimentos y energía",
+      "index": 101.19,
+      "monthly": 0.7,
+      "accumulated": 0.7
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "IPC Sin volátiles",
+      "index": 101.62,
+      "monthly": 0.7,
+      "accumulated": 0.7
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "IPC volátiles",
+      "index": 101.87,
+      "monthly": 0.6,
+      "accumulated": 0.6
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "No transables",
+      "index": 102.23,
+      "monthly": 0.3,
+      "accumulated": 0.3
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "Servicios",
+      "index": 102.31,
+      "monthly": 0.4,
+      "accumulated": 0.4
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "Servicios menos Vivienda",
+      "index": 102.21,
+      "monthly": 0.5,
+      "accumulated": 0.5
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "Transables",
+      "index": 101.35,
+      "monthly": 0.9,
+      "accumulated": 0.9
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "label": "Vivienda",
+      "index": 102.62,
+      "monthly": 0.5,
+      "accumulated": 0.5
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "Alimentos",
+      "index": 103.48,
+      "monthly": 0.2,
+      "accumulated": 1.2
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "Bienes",
+      "index": 101.56,
+      "monthly": 0.3,
+      "accumulated": 1.2
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "Energía",
+      "index": 103.15,
+      "monthly": 1.1,
+      "accumulated": 0.7
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "Frutas y verduras frescas",
+      "index": 104.65,
+      "monthly": -4,
+      "accumulated": -4.7
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "IPC General menos alimentos y energía",
+      "index": 101.84,
+      "monthly": 0.6,
+      "accumulated": 1.4
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "IPC Sin volátiles",
+      "index": 102.24,
+      "monthly": 0.6,
+      "accumulated": 1.3
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "IPC volátiles",
+      "index": 102.44,
+      "monthly": 0.6,
+      "accumulated": 1.1
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "No transables",
+      "index": 103.24,
+      "monthly": 1,
+      "accumulated": 1.3
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "Servicios",
+      "index": 103.25,
+      "monthly": 0.9,
+      "accumulated": 1.4
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "Servicios menos Vivienda",
+      "index": 103,
+      "monthly": 0.8,
+      "accumulated": 1.2
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "Transables",
+      "index": 101.66,
+      "monthly": 0.3,
+      "accumulated": 1.2
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "label": "Vivienda",
+      "index": 104.21,
+      "monthly": 1.6,
+      "accumulated": 2.1
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "Alimentos",
+      "index": 102.55,
+      "monthly": -0.9,
+      "accumulated": 0.3
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "Bienes",
+      "index": 101.71,
+      "monthly": 0.1,
+      "accumulated": 1.3
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "Energía",
+      "index": 105.69,
+      "monthly": 2.5,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "Frutas y verduras frescas",
+      "index": 104.18,
+      "monthly": -0.4,
+      "accumulated": -5.2
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "IPC General menos alimentos y energía",
+      "index": 102.38,
+      "monthly": 0.5,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "IPC Sin volátiles",
+      "index": 102.88,
+      "monthly": 0.6,
+      "accumulated": 2
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "IPC volátiles",
+      "index": 102.42,
+      "monthly": 0,
+      "accumulated": 1.1
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "No transables",
+      "index": 103.96,
+      "monthly": 0.7,
+      "accumulated": 2
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "Servicios",
+      "index": 103.92,
+      "monthly": 0.7,
+      "accumulated": 2
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "Servicios menos Vivienda",
+      "index": 103.7,
+      "monthly": 0.7,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "Transables",
+      "index": 101.8,
+      "monthly": 0.1,
+      "accumulated": 1.4
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "label": "Vivienda",
+      "index": 104.71,
+      "monthly": 0.5,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "Alimentos",
+      "index": 103.27,
+      "monthly": 0.7,
+      "accumulated": 1
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "Bienes",
+      "index": 102.38,
+      "monthly": 0.7,
+      "accumulated": 2
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "Energía",
+      "index": 107.65,
+      "monthly": 1.9,
+      "accumulated": 5.1
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "Frutas y verduras frescas",
+      "index": 102.89,
+      "monthly": -1.2,
+      "accumulated": -6.4
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "IPC General menos alimentos y energía",
+      "index": 102.69,
+      "monthly": 0.3,
+      "accumulated": 2.2
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "IPC Sin volátiles",
+      "index": 103.43,
+      "monthly": 0.5,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "IPC volátiles",
+      "index": 102.94,
+      "monthly": 0.5,
+      "accumulated": 1.6
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "No transables",
+      "index": 104.28,
+      "monthly": 0.3,
+      "accumulated": 2.3
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "Servicios",
+      "index": 104.31,
+      "monthly": 0.4,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "Servicios menos Vivienda",
+      "index": 104.07,
+      "monthly": 0.4,
+      "accumulated": 2.3
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "Transables",
+      "index": 102.5,
+      "monthly": 0.7,
+      "accumulated": 2.1
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "label": "Vivienda",
+      "index": 105.17,
+      "monthly": 0.4,
+      "accumulated": 3
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "Alimentos",
+      "index": 103.35,
+      "monthly": 0.1,
+      "accumulated": 1
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "Bienes",
+      "index": 102.83,
+      "monthly": 0.4,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "Energía",
+      "index": 108.12,
+      "monthly": 0.4,
+      "accumulated": 5.5
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "Frutas y verduras frescas",
+      "index": 101.96,
+      "monthly": -0.9,
+      "accumulated": -7.2
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "IPC General menos alimentos y energía",
+      "index": 103,
+      "monthly": 0.3,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "IPC Sin volátiles",
+      "index": 103.85,
+      "monthly": 0.4,
+      "accumulated": 2.9
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "IPC volátiles",
+      "index": 102.98,
+      "monthly": 0,
+      "accumulated": 1.7
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "No transables",
+      "index": 104.37,
+      "monthly": 0.1,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "Servicios",
+      "index": 104.36,
+      "monthly": 0,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "Servicios menos Vivienda",
+      "index": 104.04,
+      "monthly": 0,
+      "accumulated": 2.2
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "Transables",
+      "index": 102.9,
+      "monthly": 0.4,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "label": "Vivienda",
+      "index": 105.46,
+      "monthly": 0.3,
+      "accumulated": 3.3
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "Alimentos",
+      "index": 104.69,
+      "monthly": 1.3,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "Bienes",
+      "index": 102.26,
+      "monthly": -0.6,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "Energía",
+      "index": 108.17,
+      "monthly": 0,
+      "accumulated": 5.6
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "Frutas y verduras frescas",
+      "index": 105.5,
+      "monthly": 3.5,
+      "accumulated": -4
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "IPC General menos alimentos y energía",
+      "index": 102.43,
+      "monthly": -0.6,
+      "accumulated": 2
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "IPC Sin volátiles",
+      "index": 103.6,
+      "monthly": -0.2,
+      "accumulated": 2.7
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "IPC volátiles",
+      "index": 103.15,
+      "monthly": 0.2,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "No transables",
+      "index": 104.61,
+      "monthly": 0.2,
+      "accumulated": 2.7
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "Servicios",
+      "index": 104.86,
+      "monthly": 0.5,
+      "accumulated": 2.9
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "Servicios menos Vivienda",
+      "index": 104.64,
+      "monthly": 0.6,
+      "accumulated": 2.8
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "Transables",
+      "index": 102.58,
+      "monthly": -0.3,
+      "accumulated": 2.1
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "label": "Vivienda",
+      "index": 105.31,
+      "monthly": -0.2,
+      "accumulated": 3.1
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "Alimentos",
+      "index": 104.75,
+      "monthly": 0.1,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "Bienes",
+      "index": 102.77,
+      "monthly": 0.5,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "Energía",
+      "index": 110.88,
+      "monthly": 2.5,
+      "accumulated": 8.2
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "Frutas y verduras frescas",
+      "index": 106.79,
+      "monthly": 1.2,
+      "accumulated": -2.8
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "IPC General menos alimentos y energía",
+      "index": 103.17,
+      "monthly": 0.7,
+      "accumulated": 2.7
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "IPC Sin volátiles",
+      "index": 104.07,
+      "monthly": 0.5,
+      "accumulated": 3.1
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "IPC volátiles",
+      "index": 104.38,
+      "monthly": 1.2,
+      "accumulated": 3.1
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "No transables",
+      "index": 105.14,
+      "monthly": 0.5,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "Servicios",
+      "index": 105.92,
+      "monthly": 1,
+      "accumulated": 4
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "Servicios menos Vivienda",
+      "index": 105.87,
+      "monthly": 1.2,
+      "accumulated": 4
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "Transables",
+      "index": 103.5,
+      "monthly": 0.9,
+      "accumulated": 3.1
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "label": "Vivienda",
+      "index": 105.92,
+      "monthly": 0.6,
+      "accumulated": 3.7
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "Alimentos",
+      "index": 105.28,
+      "monthly": 0.5,
+      "accumulated": 2.9
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "Bienes",
+      "index": 103,
+      "monthly": 0.2,
+      "accumulated": 2.6
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "Energía",
+      "index": 110.99,
+      "monthly": 0.1,
+      "accumulated": 8.3
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "Frutas y verduras frescas",
+      "index": 108.55,
+      "monthly": 1.6,
+      "accumulated": -1.2
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "IPC General menos alimentos y energía",
+      "index": 103.38,
+      "monthly": 0.2,
+      "accumulated": 2.9
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "IPC Sin volátiles",
+      "index": 104.17,
+      "monthly": 0.1,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "IPC volátiles",
+      "index": 104.92,
+      "monthly": 0.5,
+      "accumulated": 3.6
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "No transables",
+      "index": 105.48,
+      "monthly": 0.3,
+      "accumulated": 3.5
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "Servicios",
+      "index": 106.24,
+      "monthly": 0.3,
+      "accumulated": 4.3
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "Servicios menos Vivienda",
+      "index": 106.16,
+      "monthly": 0.3,
+      "accumulated": 4.3
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "Transables",
+      "index": 103.72,
+      "monthly": 0.2,
+      "accumulated": 3.3
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "label": "Vivienda",
+      "index": 106.41,
+      "monthly": 0.5,
+      "accumulated": 4.2
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "Alimentos",
+      "index": 104.76,
+      "monthly": -0.5,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "Bienes",
+      "index": 102.98,
+      "monthly": 0,
+      "accumulated": 2.6
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "Energía",
+      "index": 109.48,
+      "monthly": -1.4,
+      "accumulated": 6.8
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "Frutas y verduras frescas",
+      "index": 107.67,
+      "monthly": -0.8,
+      "accumulated": -2
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "IPC General menos alimentos y energía",
+      "index": 103.86,
+      "monthly": 0.5,
+      "accumulated": 3.4
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "IPC Sin volátiles",
+      "index": 104.52,
+      "monthly": 0.3,
+      "accumulated": 3.6
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "IPC volátiles",
+      "index": 104.58,
+      "monthly": -0.3,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "No transables",
+      "index": 105.76,
+      "monthly": 0.3,
+      "accumulated": 3.8
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "Servicios",
+      "index": 106.47,
+      "monthly": 0.2,
+      "accumulated": 4.5
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "Servicios menos Vivienda",
+      "index": 106.38,
+      "monthly": 0.2,
+      "accumulated": 4.5
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "Transables",
+      "index": 103.67,
+      "monthly": 0,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "label": "Vivienda",
+      "index": 106.69,
+      "monthly": 0.3,
+      "accumulated": 4.5
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "Alimentos",
+      "index": 107.1,
+      "monthly": 2.2,
+      "accumulated": 4.7
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "Bienes",
+      "index": 103.44,
+      "monthly": 0.5,
+      "accumulated": 3.1
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "Energía",
+      "index": 113.58,
+      "monthly": 3.7,
+      "accumulated": 10.9
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "Frutas y verduras frescas",
+      "index": 110.49,
+      "monthly": 2.6,
+      "accumulated": 0.6
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "IPC General menos alimentos y energía",
+      "index": 104.08,
+      "monthly": 0.2,
+      "accumulated": 3.6
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "IPC Sin volátiles",
+      "index": 104.95,
+      "monthly": 0.4,
+      "accumulated": 4
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "IPC volátiles",
+      "index": 106.56,
+      "monthly": 1.9,
+      "accumulated": 5.2
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "No transables",
+      "index": 106.32,
+      "monthly": 0.5,
+      "accumulated": 4.3
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "Servicios",
+      "index": 108.16,
+      "monthly": 1.6,
+      "accumulated": 6.2
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "Servicios menos Vivienda",
+      "index": 108.41,
+      "monthly": 1.9,
+      "accumulated": 6.5
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "Transables",
+      "index": 105.02,
+      "monthly": 1.3,
+      "accumulated": 4.6
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "label": "Vivienda",
+      "index": 106.84,
+      "monthly": 0.1,
+      "accumulated": 4.6
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "Alimentos",
+      "index": 106.83,
+      "monthly": -0.3,
+      "accumulated": 4.4
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "Bienes",
+      "index": 103.48,
+      "monthly": 0,
+      "accumulated": 3.1
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "Energía",
+      "index": 112.94,
+      "monthly": -0.6,
+      "accumulated": 10.2
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "Frutas y verduras frescas",
+      "index": 109.26,
+      "monthly": -1.1,
+      "accumulated": -0.6
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "IPC General menos alimentos y energía",
+      "index": 104.62,
+      "monthly": 0.5,
+      "accumulated": 4.1
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "IPC Sin volátiles",
+      "index": 105.24,
+      "monthly": 0.3,
+      "accumulated": 4.3
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "IPC volátiles",
+      "index": 106.79,
+      "monthly": 0.2,
+      "accumulated": 5.4
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "No transables",
+      "index": 106.8,
+      "monthly": 0.5,
+      "accumulated": 4.8
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "Servicios",
+      "index": 108.71,
+      "monthly": 0.5,
+      "accumulated": 6.7
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "Servicios menos Vivienda",
+      "index": 109.03,
+      "monthly": 0.6,
+      "accumulated": 7.1
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "Transables",
+      "index": 105.13,
+      "monthly": 0.1,
+      "accumulated": 4.7
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "label": "Vivienda",
+      "index": 107.17,
+      "monthly": 0.3,
+      "accumulated": 5
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "Alimentos",
+      "index": 105.9,
+      "monthly": -0.9,
+      "accumulated": 3.5
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "Bienes",
+      "index": 102.87,
+      "monthly": -0.6,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "Energía",
+      "index": 113.75,
+      "monthly": 0.7,
+      "accumulated": 11
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "Frutas y verduras frescas",
+      "index": 104.06,
+      "monthly": -4.8,
+      "accumulated": -5.3
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "IPC General menos alimentos y energía",
+      "index": 104.52,
+      "monthly": -0.1,
+      "accumulated": 4
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "IPC Sin volátiles",
+      "index": 105.25,
+      "monthly": 0,
+      "accumulated": 4.3
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "IPC volátiles",
+      "index": 106.22,
+      "monthly": -0.5,
+      "accumulated": 4.9
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "No transables",
+      "index": 106.98,
+      "monthly": 0.2,
+      "accumulated": 5
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "Servicios",
+      "index": 108.99,
+      "monthly": 0.3,
+      "accumulated": 7
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "Servicios menos Vivienda",
+      "index": 109.33,
+      "monthly": 0.3,
+      "accumulated": 7.4
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "Transables",
+      "index": 104.64,
+      "monthly": -0.5,
+      "accumulated": 4.2
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "label": "Vivienda",
+      "index": 107.31,
+      "monthly": 0.1,
+      "accumulated": 5.1
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "Alimentos",
+      "index": 106.35,
+      "monthly": 0.4,
+      "accumulated": 0.4
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "Bienes",
+      "index": 103.81,
+      "monthly": 0.9,
+      "accumulated": 0.9
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "Energía",
+      "index": 118.99,
+      "monthly": 4.6,
+      "accumulated": 4.6
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "Frutas y verduras frescas",
+      "index": 102.13,
+      "monthly": -1.9,
+      "accumulated": -1.9
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "IPC General menos alimentos y energía",
+      "index": 105.35,
+      "monthly": 0.8,
+      "accumulated": 0.8
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "IPC Sin volátiles",
+      "index": 105.9,
+      "monthly": 0.6,
+      "accumulated": 0.6
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "IPC volátiles",
+      "index": 108.12,
+      "monthly": 1.8,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "No transables",
+      "index": 107.52,
+      "monthly": 0.5,
+      "accumulated": 0.5
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "Servicios",
+      "index": 110.35,
+      "monthly": 1.2,
+      "accumulated": 1.2
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "Servicios menos Vivienda",
+      "index": 110.85,
+      "monthly": 1.4,
+      "accumulated": 1.4
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "Transables",
+      "index": 106.19,
+      "monthly": 1.5,
+      "accumulated": 1.5
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "label": "Vivienda",
+      "index": 107.92,
+      "monthly": 0.6,
+      "accumulated": 0.6
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "Alimentos",
+      "index": 106.5,
+      "monthly": 0.1,
+      "accumulated": 0.6
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "Bienes",
+      "index": 104.27,
+      "monthly": 0.4,
+      "accumulated": 1.4
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "Energía",
+      "index": 120.58,
+      "monthly": 1.3,
+      "accumulated": 6
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "Frutas y verduras frescas",
+      "index": 101.88,
+      "monthly": -0.2,
+      "accumulated": -2.1
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "IPC General menos alimentos y energía",
+      "index": 105.71,
+      "monthly": 0.3,
+      "accumulated": 1.1
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "IPC Sin volátiles",
+      "index": 106.19,
+      "monthly": 0.3,
+      "accumulated": 0.9
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "IPC volátiles",
+      "index": 108.76,
+      "monthly": 0.6,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "No transables",
+      "index": 107.86,
+      "monthly": 0.3,
+      "accumulated": 0.8
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "Servicios",
+      "index": 110.72,
+      "monthly": 0.3,
+      "accumulated": 1.6
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "Servicios menos Vivienda",
+      "index": 111.08,
+      "monthly": 0.2,
+      "accumulated": 1.6
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "Transables",
+      "index": 106.67,
+      "monthly": 0.4,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "label": "Vivienda",
+      "index": 108.8,
+      "monthly": 0.8,
+      "accumulated": 1.4
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "Alimentos",
+      "index": 107.8,
+      "monthly": 1.2,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "Bienes",
+      "index": 104.72,
+      "monthly": 0.4,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "Energía",
+      "index": 120.26,
+      "monthly": -0.3,
+      "accumulated": 5.7
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "Frutas y verduras frescas",
+      "index": 106.2,
+      "monthly": 4.2,
+      "accumulated": 2
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "IPC General menos alimentos y energía",
+      "index": 106.11,
+      "monthly": 0.4,
+      "accumulated": 1.5
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "IPC Sin volátiles",
+      "index": 106.64,
+      "monthly": 0.4,
+      "accumulated": 1.3
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "IPC volátiles",
+      "index": 109.43,
+      "monthly": 0.6,
+      "accumulated": 3
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "No transables",
+      "index": 108.62,
+      "monthly": 0.7,
+      "accumulated": 1.5
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "Servicios",
+      "index": 111.36,
+      "monthly": 0.6,
+      "accumulated": 2.2
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "Servicios menos Vivienda",
+      "index": 111.82,
+      "monthly": 0.7,
+      "accumulated": 2.3
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "Transables",
+      "index": 107.05,
+      "monthly": 0.4,
+      "accumulated": 2.3
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "label": "Vivienda",
+      "index": 108.98,
+      "monthly": 0.2,
+      "accumulated": 1.6
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "Alimentos",
+      "index": 107.77,
+      "monthly": 0,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "Bienes",
+      "index": 104.78,
+      "monthly": 0.1,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "Energía",
+      "index": 119.42,
+      "monthly": -0.7,
+      "accumulated": 5
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "Frutas y verduras frescas",
+      "index": 104.56,
+      "monthly": -1.5,
+      "accumulated": 0.5
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "IPC General menos alimentos y energía",
+      "index": 106.53,
+      "monthly": 0.4,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "IPC Sin volátiles",
+      "index": 107.1,
+      "monthly": 0.4,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "IPC volátiles",
+      "index": 109.24,
+      "monthly": -0.2,
+      "accumulated": 2.8
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "No transables",
+      "index": 108.99,
+      "monthly": 0.3,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "Servicios",
+      "index": 111.75,
+      "monthly": 0.4,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "Servicios menos Vivienda",
+      "index": 112.2,
+      "monthly": 0.3,
+      "accumulated": 2.6
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "Transables",
+      "index": 107.13,
+      "monthly": 0.1,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "label": "Vivienda",
+      "index": 109.51,
+      "monthly": 0.5,
+      "accumulated": 2.1
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "Alimentos",
+      "index": 108.07,
+      "monthly": 0.3,
+      "accumulated": 2
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "Bienes",
+      "index": 105.01,
+      "monthly": 0.2,
+      "accumulated": 2.1
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "Energía",
+      "index": 118.78,
+      "monthly": -0.5,
+      "accumulated": 4.4
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "Frutas y verduras frescas",
+      "index": 102.94,
+      "monthly": -1.6,
+      "accumulated": -1.1
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "IPC General menos alimentos y energía",
+      "index": 106.82,
+      "monthly": 0.3,
+      "accumulated": 2.2
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "IPC Sin volátiles",
+      "index": 107.54,
+      "monthly": 0.4,
+      "accumulated": 2.2
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "IPC volátiles",
+      "index": 109.07,
+      "monthly": -0.2,
+      "accumulated": 2.7
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "No transables",
+      "index": 109.22,
+      "monthly": 0.2,
+      "accumulated": 2.1
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "Servicios",
+      "index": 111.95,
+      "monthly": 0.2,
+      "accumulated": 2.7
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "Servicios menos Vivienda",
+      "index": 112.38,
+      "monthly": 0.2,
+      "accumulated": 2.8
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "Transables",
+      "index": 107.34,
+      "monthly": 0.2,
+      "accumulated": 2.6
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "label": "Vivienda",
+      "index": 109.74,
+      "monthly": 0.2,
+      "accumulated": 2.3
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "Alimentos",
+      "index": 107.14,
+      "monthly": -0.9,
+      "accumulated": 1.2
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "Bienes",
+      "index": 103.84,
+      "monthly": -1.1,
+      "accumulated": 0.9
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "Energía",
+      "index": 118.61,
+      "monthly": -0.1,
+      "accumulated": 4.3
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "Frutas y verduras frescas",
+      "index": 97.99,
+      "monthly": -4.8,
+      "accumulated": -5.8
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "IPC General menos alimentos y energía",
+      "index": 106.49,
+      "monthly": -0.3,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "IPC Sin volátiles",
+      "index": 107.52,
+      "monthly": 0,
+      "accumulated": 2.2
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "IPC volátiles",
+      "index": 107.93,
+      "monthly": -1.1,
+      "accumulated": 1.6
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "No transables",
+      "index": 109.67,
+      "monthly": 0.4,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "Servicios",
+      "index": 112.39,
+      "monthly": 0.4,
+      "accumulated": 3.1
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "Servicios menos Vivienda",
+      "index": 112.86,
+      "monthly": 0.4,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "Transables",
+      "index": 106.25,
+      "monthly": -1,
+      "accumulated": 1.5
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "label": "Vivienda",
+      "index": 110.01,
+      "monthly": 0.2,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "Alimentos",
+      "index": 108.07,
+      "monthly": 0.9,
+      "accumulated": 2.1
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "Bienes",
+      "index": 104.77,
+      "monthly": 0.9,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "Energía",
+      "index": 122.36,
+      "monthly": 3.2,
+      "accumulated": 7.6
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "Frutas y verduras frescas",
+      "index": 95.25,
+      "monthly": -2.8,
+      "accumulated": -8.5
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "IPC General menos alimentos y energía",
+      "index": 107.1,
+      "monthly": 0.6,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "IPC Sin volátiles",
+      "index": 108.21,
+      "monthly": 0.6,
+      "accumulated": 2.8
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "IPC volátiles",
+      "index": 109.3,
+      "monthly": 1.3,
+      "accumulated": 2.9
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "No transables",
+      "index": 110.09,
+      "monthly": 0.4,
+      "accumulated": 2.9
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "Servicios",
+      "index": 113.36,
+      "monthly": 0.9,
+      "accumulated": 4
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "Servicios menos Vivienda",
+      "index": 113.99,
+      "monthly": 1,
+      "accumulated": 4.3
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "Transables",
+      "index": 107.57,
+      "monthly": 1.2,
+      "accumulated": 2.8
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "label": "Vivienda",
+      "index": 110.36,
+      "monthly": 0.3,
+      "accumulated": 2.8
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "Alimentos",
+      "index": 109.01,
+      "monthly": 0.9,
+      "accumulated": 2.9
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "Bienes",
+      "index": 104.72,
+      "monthly": 0,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "Energía",
+      "index": 121.79,
+      "monthly": -0.5,
+      "accumulated": 7.1
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "Frutas y verduras frescas",
+      "index": 95.95,
+      "monthly": 0.7,
+      "accumulated": -7.8
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "IPC General menos alimentos y energía",
+      "index": 106.92,
+      "monthly": -0.2,
+      "accumulated": 2.3
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "IPC Sin volátiles",
+      "index": 108.21,
+      "monthly": 0,
+      "accumulated": 2.8
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "IPC volátiles",
+      "index": 109.39,
+      "monthly": 0.1,
+      "accumulated": 3
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "No transables",
+      "index": 110.31,
+      "monthly": 0.2,
+      "accumulated": 3.1
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "Servicios",
+      "index": 113.5,
+      "monthly": 0.1,
+      "accumulated": 4.1
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "Servicios menos Vivienda",
+      "index": 114.13,
+      "monthly": 0.1,
+      "accumulated": 4.4
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "Transables",
+      "index": 107.48,
+      "monthly": -0.1,
+      "accumulated": 2.7
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "label": "Vivienda",
+      "index": 110.52,
+      "monthly": 0.1,
+      "accumulated": 3
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "Alimentos",
+      "index": 109.92,
+      "monthly": 0.8,
+      "accumulated": 3.8
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "Bienes",
+      "index": 105.32,
+      "monthly": 0.6,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "Energía",
+      "index": 121.59,
+      "monthly": -0.2,
+      "accumulated": 6.9
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "Frutas y verduras frescas",
+      "index": 99.7,
+      "monthly": 3.9,
+      "accumulated": -4.2
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "IPC General menos alimentos y energía",
+      "index": 107.35,
+      "monthly": 0.4,
+      "accumulated": 2.7
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "IPC Sin volátiles",
+      "index": 108.64,
+      "monthly": 0.4,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "IPC volátiles",
+      "index": 109.96,
+      "monthly": 0.5,
+      "accumulated": 3.5
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "No transables",
+      "index": 110.61,
+      "monthly": 0.3,
+      "accumulated": 3.4
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "Servicios",
+      "index": 113.84,
+      "monthly": 0.3,
+      "accumulated": 4.4
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "Servicios menos Vivienda",
+      "index": 114.47,
+      "monthly": 0.3,
+      "accumulated": 4.7
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "Transables",
+      "index": 108.09,
+      "monthly": 0.6,
+      "accumulated": 3.3
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "label": "Vivienda",
+      "index": 110.82,
+      "monthly": 0.3,
+      "accumulated": 3.3
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "Alimentos",
+      "index": 110.44,
+      "monthly": 0.5,
+      "accumulated": 4.3
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "Bienes",
+      "index": 105.16,
+      "monthly": -0.1,
+      "accumulated": 2.2
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "Energía",
+      "index": 122.04,
+      "monthly": 0.4,
+      "accumulated": 7.3
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "Frutas y verduras frescas",
+      "index": 101.31,
+      "monthly": 1.6,
+      "accumulated": -2.6
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "IPC General menos alimentos y energía",
+      "index": 107.19,
+      "monthly": -0.1,
+      "accumulated": 2.6
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "IPC Sin volátiles",
+      "index": 108.56,
+      "monthly": -0.1,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "IPC volátiles",
+      "index": 110.21,
+      "monthly": 0.2,
+      "accumulated": 3.8
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "No transables",
+      "index": 110.87,
+      "monthly": 0.2,
+      "accumulated": 3.6
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "Servicios",
+      "index": 114.13,
+      "monthly": 0.3,
+      "accumulated": 4.7
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "Servicios menos Vivienda",
+      "index": 114.83,
+      "monthly": 0.3,
+      "accumulated": 5
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "Transables",
+      "index": 107.98,
+      "monthly": -0.1,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "label": "Vivienda",
+      "index": 110.69,
+      "monthly": -0.1,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "Alimentos",
+      "index": 110.7,
+      "monthly": 0.2,
+      "accumulated": 4.5
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "Bienes",
+      "index": 105.16,
+      "monthly": 0,
+      "accumulated": 2.2
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "Energía",
+      "index": 121.27,
+      "monthly": -0.6,
+      "accumulated": 6.6
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "Frutas y verduras frescas",
+      "index": 101.92,
+      "monthly": 0.6,
+      "accumulated": -2.1
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "IPC General menos alimentos y energía",
+      "index": 107.62,
+      "monthly": 0.4,
+      "accumulated": 3
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "IPC Sin volátiles",
+      "index": 108.82,
+      "monthly": 0.2,
+      "accumulated": 3.4
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "IPC volátiles",
+      "index": 110.54,
+      "monthly": 0.3,
+      "accumulated": 4.1
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "No transables",
+      "index": 111.61,
+      "monthly": 0.7,
+      "accumulated": 4.3
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "Servicios",
+      "index": 114.77,
+      "monthly": 0.6,
+      "accumulated": 5.3
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "Servicios menos Vivienda",
+      "index": 115.54,
+      "monthly": 0.6,
+      "accumulated": 5.7
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "Transables",
+      "index": 107.94,
+      "monthly": 0,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "label": "Vivienda",
+      "index": 111.02,
+      "monthly": 0.3,
+      "accumulated": 3.5
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "Alimentos",
+      "index": 110.31,
+      "monthly": -0.4,
+      "accumulated": 4.2
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "Bienes",
+      "index": 104.66,
+      "monthly": -0.5,
+      "accumulated": 1.7
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "Energía",
+      "index": 120.83,
+      "monthly": -0.4,
+      "accumulated": 6.2
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "Frutas y verduras frescas",
+      "index": 100.14,
+      "monthly": -1.7,
+      "accumulated": -3.8
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "IPC General menos alimentos y energía",
+      "index": 107.49,
+      "monthly": -0.1,
+      "accumulated": 2.8
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "IPC Sin volátiles",
+      "index": 108.75,
+      "monthly": -0.1,
+      "accumulated": 3.3
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "IPC volátiles",
+      "index": 110.1,
+      "monthly": -0.4,
+      "accumulated": 3.6
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "No transables",
+      "index": 111.71,
+      "monthly": 0.1,
+      "accumulated": 4.4
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "Servicios",
+      "index": 114.92,
+      "monthly": 0.1,
+      "accumulated": 5.4
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "Servicios menos Vivienda",
+      "index": 115.7,
+      "monthly": 0.1,
+      "accumulated": 5.8
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "Transables",
+      "index": 107.51,
+      "monthly": -0.4,
+      "accumulated": 2.7
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "label": "Vivienda",
+      "index": 111.11,
+      "monthly": 0.1,
+      "accumulated": 3.5
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "Alimentos",
+      "index": 110.74,
+      "monthly": 0.4,
+      "accumulated": 0.4
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "Bienes",
+      "index": 105.27,
+      "monthly": 0.6,
+      "accumulated": 0.6
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "Energía",
+      "index": 119.18,
+      "monthly": -1.4,
+      "accumulated": -1.4
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "Frutas y verduras frescas",
+      "index": 101.25,
+      "monthly": 1.1,
+      "accumulated": 1.1
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "IPC General menos alimentos y energía",
+      "index": 108.21,
+      "monthly": 0.7,
+      "accumulated": 0.7
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "IPC Sin volátiles",
+      "index": 109.55,
+      "monthly": 0.7,
+      "accumulated": 0.7
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "IPC volátiles",
+      "index": 109.98,
+      "monthly": -0.1,
+      "accumulated": -0.1
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "No transables",
+      "index": 111.98,
+      "monthly": 0.2,
+      "accumulated": 0.2
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "Servicios",
+      "index": 115.18,
+      "monthly": 0.2,
+      "accumulated": 0.2
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "Servicios menos Vivienda",
+      "index": 115.98,
+      "monthly": 0.2,
+      "accumulated": 0.2
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "Transables",
+      "index": 108.09,
+      "monthly": 0.5,
+      "accumulated": 0.5
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "label": "Vivienda",
+      "index": 111.29,
+      "monthly": 0.2,
+      "accumulated": 0.2
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "Alimentos",
+      "index": 110.94,
+      "monthly": 0.2,
+      "accumulated": 0.6
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "Bienes",
+      "index": 105.27,
+      "monthly": 0,
+      "accumulated": 0.6
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "Energía",
+      "index": 117.65,
+      "monthly": -1.3,
+      "accumulated": -2.6
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "Frutas y verduras frescas",
+      "index": 100.64,
+      "monthly": -0.6,
+      "accumulated": 0.5
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "IPC General menos alimentos y energía",
+      "index": 108.32,
+      "monthly": 0.1,
+      "accumulated": 0.8
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "IPC Sin volátiles",
+      "index": 109.74,
+      "monthly": 0.2,
+      "accumulated": 0.9
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "IPC volátiles",
+      "index": 109.64,
+      "monthly": -0.3,
+      "accumulated": -0.4
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "No transables",
+      "index": 112.11,
+      "monthly": 0.1,
+      "accumulated": 0.4
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "Servicios",
+      "index": 115.15,
+      "monthly": 0,
+      "accumulated": 0.2
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "Servicios menos Vivienda",
+      "index": 115.84,
+      "monthly": -0.1,
+      "accumulated": 0.1
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "Transables",
+      "index": 107.97,
+      "monthly": -0.1,
+      "accumulated": 0.4
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "label": "Vivienda",
+      "index": 111.79,
+      "monthly": 0.4,
+      "accumulated": 0.6
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "Alimentos",
+      "index": 111.59,
+      "monthly": 0.6,
+      "accumulated": 1.2
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "Bienes",
+      "index": 106.36,
+      "monthly": 1,
+      "accumulated": 1.6
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "Energía",
+      "index": 121.22,
+      "monthly": 3,
+      "accumulated": 0.3
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "Frutas y verduras frescas",
+      "index": 106.81,
+      "monthly": 6.1,
+      "accumulated": 6.7
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "IPC General menos alimentos y energía",
+      "index": 109.19,
+      "monthly": 0.8,
+      "accumulated": 1.6
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "IPC Sin volátiles",
+      "index": 110.28,
+      "monthly": 0.5,
+      "accumulated": 1.4
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "IPC volátiles",
+      "index": 111.53,
+      "monthly": 1.7,
+      "accumulated": 1.3
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "No transables",
+      "index": 113.2,
+      "monthly": 1,
+      "accumulated": 1.3
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "Servicios",
+      "index": 116.15,
+      "monthly": 0.9,
+      "accumulated": 1.1
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "Servicios menos Vivienda",
+      "index": 117,
+      "monthly": 1,
+      "accumulated": 1.1
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "Transables",
+      "index": 109,
+      "monthly": 0.9,
+      "accumulated": 1.4
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "label": "Vivienda",
+      "index": 112.02,
+      "monthly": 0.2,
+      "accumulated": 0.8
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "Alimentos",
+      "index": 111.64,
+      "monthly": 0,
+      "accumulated": 1.2
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "Bienes",
+      "index": 108.46,
+      "monthly": 2,
+      "accumulated": 3.6
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "Energía",
+      "index": 135.01,
+      "monthly": 11.4,
+      "accumulated": 11.7
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "Frutas y verduras frescas",
+      "index": 104.94,
+      "monthly": -1.8,
+      "accumulated": 4.8
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "IPC General menos alimentos y energía",
+      "index": 109.51,
+      "monthly": 0.3,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "IPC Sin volátiles",
+      "index": 110.78,
+      "monthly": 0.5,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "IPC volátiles",
+      "index": 114.46,
+      "monthly": 2.6,
+      "accumulated": 4
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "No transables",
+      "index": 113.67,
+      "monthly": 0.4,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "Servicios",
+      "index": 116.74,
+      "monthly": 0.5,
+      "accumulated": 1.6
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "Servicios menos Vivienda",
+      "index": 117.5,
+      "monthly": 0.4,
+      "accumulated": 1.6
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "Transables",
+      "index": 111.11,
+      "monthly": 1.9,
+      "accumulated": 3.3
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "label": "Vivienda",
+      "index": 112.79,
+      "monthly": 0.7,
+      "accumulated": 1.5
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "Alimentos",
+      "index": 110.74,
+      "monthly": -0.8,
+      "accumulated": 0.4
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "Bienes",
+      "index": 108.41,
+      "monthly": 0,
+      "accumulated": 3.6
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "Energía",
+      "index": 136.36,
+      "monthly": 1,
+      "accumulated": 12.9
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "Frutas y verduras frescas",
+      "index": 101.49,
+      "monthly": -3.3,
+      "accumulated": 1.3
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "IPC General menos alimentos y energía",
+      "index": 109.91,
+      "monthly": 0.4,
+      "accumulated": 2.3
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "IPC Sin volátiles",
+      "index": 110.99,
+      "monthly": 0.2,
+      "accumulated": 2.1
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "IPC volátiles",
+      "index": 114.62,
+      "monthly": 0.1,
+      "accumulated": 4.1
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "No transables",
+      "index": 114.09,
+      "monthly": 0.4,
+      "accumulated": 2.1
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "Servicios",
+      "index": 117.23,
+      "monthly": 0.4,
+      "accumulated": 2
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "Servicios menos Vivienda",
+      "index": 118.01,
+      "monthly": 0.4,
+      "accumulated": 2
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "Transables",
+      "index": 111.14,
+      "monthly": 0,
+      "accumulated": 3.4
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "label": "Vivienda",
+      "index": 113.16,
+      "monthly": 0.3,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "Alimentos",
+      "index": 111.6,
+      "monthly": 0.8,
+      "accumulated": 1.2
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "Bienes",
+      "index": 108,
+      "monthly": -0.4,
+      "accumulated": 3.2
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "Energía",
+      "index": 134.85,
+      "monthly": -1.1,
+      "accumulated": 11.6
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "Frutas y verduras frescas",
+      "index": 100.77,
+      "monthly": -0.7,
+      "accumulated": 0.6
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "IPC General menos alimentos y energía",
+      "index": 109.79,
+      "monthly": -0.1,
+      "accumulated": 2.1
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "IPC Sin volátiles",
+      "index": 111.17,
+      "monthly": 0.2,
+      "accumulated": 2.2
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "IPC volátiles",
+      "index": 114.27,
+      "monthly": -0.3,
+      "accumulated": 3.8
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "No transables",
+      "index": 114.47,
+      "monthly": 0.3,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "Servicios",
+      "index": 117.68,
+      "monthly": 0.4,
+      "accumulated": 2.4
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "Servicios menos Vivienda",
+      "index": 118.55,
+      "monthly": 0.5,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "Transables",
+      "index": 110.83,
+      "monthly": -0.3,
+      "accumulated": 3.1
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "label": "Vivienda",
+      "index": 113.16,
+      "monthly": 0,
+      "accumulated": 1.8
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "Alimentos",
+      "index": 112.37,
+      "monthly": 0.7,
+      "accumulated": 1.9
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "Bienes",
+      "index": 107.78,
+      "monthly": -0.2,
+      "accumulated": 3
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "Energía",
+      "index": 130.87,
+      "monthly": -3,
+      "accumulated": 8.3
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "Frutas y verduras frescas",
+      "index": 101.86,
+      "monthly": 1.1,
+      "accumulated": 1.7
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "IPC General menos alimentos y energía",
+      "index": 110.19,
+      "monthly": 0.4,
+      "accumulated": 2.5
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "IPC Sin volátiles",
+      "index": 111.68,
+      "monthly": 0.5,
+      "accumulated": 2.7
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "IPC volátiles",
+      "index": 113.7,
+      "monthly": -0.5,
+      "accumulated": 3.3
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "No transables",
+      "index": 114.77,
+      "monthly": 0.3,
+      "accumulated": 2.7
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "Servicios",
+      "index": 118.18,
+      "monthly": 0.4,
+      "accumulated": 2.8
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "Servicios menos Vivienda",
+      "index": 119.05,
+      "monthly": 0.4,
+      "accumulated": 2.9
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "Transables",
+      "index": 110.78,
+      "monthly": 0,
+      "accumulated": 3
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "label": "Vivienda",
+      "index": 113.69,
+      "monthly": 0.5,
+      "accumulated": 2.3
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "Alimentos",
+      "index": 113.98,
+      "monthly": 1.4,
+      "accumulated": 3.3
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "Bienes",
+      "index": 108.52,
+      "monthly": 0.7,
+      "accumulated": 3.7
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "Energía",
+      "index": 131.34,
+      "monthly": 0.4,
+      "accumulated": 8.7
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "Frutas y verduras frescas",
+      "index": 107.95,
+      "monthly": 6,
+      "accumulated": 7.8
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "IPC General menos alimentos y energía",
+      "index": 110.62,
+      "monthly": 0.4,
+      "accumulated": 2.9
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "IPC Sin volátiles",
+      "index": 111.78,
+      "monthly": 0.1,
+      "accumulated": 2.8
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "IPC volátiles",
+      "index": 115.38,
+      "monthly": 1.5,
+      "accumulated": 4.8
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "No transables",
+      "index": 115.46,
+      "monthly": 0.6,
+      "accumulated": 3.4
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "Servicios",
+      "index": 118.84,
+      "monthly": 0.6,
+      "accumulated": 3.4
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "Servicios menos Vivienda",
+      "index": 119.78,
+      "monthly": 0.6,
+      "accumulated": 3.5
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "Transables",
+      "index": 111.49,
+      "monthly": 0.6,
+      "accumulated": 3.7
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "label": "Vivienda",
+      "index": 113.93,
+      "monthly": 0.2,
+      "accumulated": 2.5
+    }
+  ]
+}
