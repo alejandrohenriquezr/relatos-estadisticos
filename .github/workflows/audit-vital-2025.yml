@@ -13,95 +13,56 @@ permissions:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
-      - name: Localizar tabulados 2025 desde el widget oficial
+      - name: Obtener repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar dependencias
+        run: npm ci --ignore-scripts
+
+      - name: Descargar la nueva serie histórica oficial
         shell: bash
         run: |
           set -euo pipefail
-          page='https://www.ine.gob.cl/estadisticas-por-tema/demografia-y-poblacion/estadisticas-vitales'
+          url='https://www.ine.gob.cl/docs/default-source/nacimientos-matrimonios-y-defunciones/cuadros-estadisticos/series-hist%C3%B3ricas/series-vitales-1992-2025(p).xlsx?sfvrsn=bfbe614_4'
           curl -L --fail --max-time 60 --retry 2 \
-            -c /tmp/ine.cookies \
             --user-agent 'Mozilla/5.0 INE-Relatos-source-audit/1.0' \
-            "$page" -o /tmp/vital.html
+            "$url" -o /tmp/series-vitales-1992-2025p.xlsx
+          test "$(xxd -p -l 4 /tmp/series-vitales-1992-2025p.xlsx)" = '504b0304'
+          echo "XLSX_BYTES $(wc -c < /tmp/series-vitales-1992-2025p.xlsx)"
 
-          python3 - <<'PY'
-          import json
-          import re
-          import subprocess
-          from pathlib import Path
+      - name: Probar el parser productivo sin modificaciones
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --import tsx --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { parseVitalStatistics } from './lib/vital-statistics-data.ts';
 
-          page = 'https://www.ine.gob.cl/estadisticas-por-tema/demografia-y-poblacion/estadisticas-vitales'
-          html = Path('/tmp/vital.html').read_text(encoding='utf-8', errors='replace')
-          roots = []
-          for match in re.finditer(r'data-folder=["\']([^"\']+)', html, re.I):
-              value = match.group(1).strip()
-              if re.fullmatch(r'[0-9a-fA-F-]{36}', value) and value not in roots:
-                  roots.append(value)
-          print('ROOT_FOLDERS', json.dumps(roots, ensure_ascii=False))
+          const bytes = fs.readFileSync('/tmp/series-vitales-1992-2025p.xlsx');
+          const input = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+          const payload = parseVitalStatistics(input);
 
-          def post(endpoint, folder_id):
-              command = [
-                  'curl', '-L', '-sS', '--fail', '--max-time', '30',
-                  '-b', '/tmp/ine.cookies', '-c', '/tmp/ine.cookies',
-                  '--user-agent', 'Mozilla/5.0 INE-Relatos-source-audit/1.0',
-                  '-H', f'Referer: {page}',
-                  '-H', 'X-Requested-With: XMLHttpRequest',
-                  '-H', 'Accept: application/json, text/javascript, */*; q=0.01',
-                  '-H', 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8',
-                  '--data-urlencode', f'idFolder={folder_id}',
-                  f'{page}/{endpoint}/',
-              ]
-              raw = subprocess.check_output(command, text=True)
-              return json.loads(raw)
+          const summary = {
+            births: payload.births.series.at(-1),
+            fertility: payload.fertility.series.at(-1),
+            deaths: payload.deaths.series.at(-1),
+            mortality: payload.mortality.series.at(-1),
+            marriages: payload.unions.marriages.at(-1),
+            auc: payload.unions.auc.at(-1),
+          };
+          console.log('PARSER_SUMMARY', JSON.stringify(summary));
 
-          queue = [(root, [f'ROOT:{root}']) for root in roots]
-          seen = set()
-          documents = []
-          while queue:
-              folder_id, trail = queue.pop(0)
-              if folder_id in seen:
-                  continue
-              seen.add(folder_id)
-              try:
-                  children = post('hijosCarpeta', folder_id).get('folder') or []
-              except Exception as exc:
-                  print('CHILDREN_ERROR', folder_id, repr(exc))
-                  continue
-              if children:
-                  for child in children:
-                      queue.append((child['Id'], trail + [child.get('Titulo', '')]))
-              try:
-                  data = post('getArchivos', folder_id)
-              except Exception:
-                  data = {}
-              for document in data.get('documento') or []:
-                  documents.append({
-                      'path': ' > '.join(part for part in trail if part),
-                      'title': document.get('Titulo'),
-                      'type': document.get('Tipo'),
-                      'size': document.get('Peso'),
-                      'url': str(document.get('Url', '')).replace('http:', 'https:'),
-                  })
-
-          print('DOCUMENT_COUNT', len(documents))
-          print('=== 2025 TABULAR CANDIDATES ===')
-          candidates = []
-          for item in documents:
-              title = str(item.get('title') or '')
-              url = str(item.get('url') or '')
-              type_ = str(item.get('type') or '').lower()
-              if ('2025' in title or '2025' in url) and (
-                  type_.endswith(('xlsx', 'xls', 'csv'))
-                  or re.search(r'\.(xlsx|xls|csv)(?:\?|$)', url, re.I)
-              ):
-                  candidates.append(item)
-          for item in candidates:
-              print(json.dumps(item, ensure_ascii=False))
-
-          print('=== SERIES / PROVISIONAL / COYUNTURAL TABULAR ===')
-          for item in documents:
-              text = f"{item.get('path','')} {item.get('title','')} {item.get('url','')}"
-              if re.search(r'(serie|provisional|coyunt|nacim|defunc|matrimon|uni[oó]n civil)', text, re.I) and re.search(r'\.(xlsx|xls|csv)(?:\?|$)', str(item.get('url','')), re.I):
-                  print(json.dumps(item, ensure_ascii=False))
-          PY
+          for (const [name, last] of Object.entries(summary)) {
+            if (!last || last.year !== 2025)
+              throw new Error(`${name} no termina en 2025: ${JSON.stringify(last)}`);
+          }
+          if (summary.births.observed !== 146446)
+            throw new Error(`Nacimientos 2025 inesperados: ${summary.births.observed}`);
+          if (Math.abs(summary.fertility.tgf - 0.99) > 0.001)
+            throw new Error(`TGF 2025 inesperada: ${summary.fertility.tgf}`);
+          if (Math.abs(summary.mortality.crude - 6.3) > 0.01)
+            throw new Error(`Mortalidad 2025 inesperada: ${summary.mortality.crude}`);
+          console.log('VITAL_2025_PARSER_COMPATIBLE');
+          NODE
