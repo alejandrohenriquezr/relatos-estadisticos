@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Extrae IPC general y divisiones desde el Excel oficial del INE.
 
-Acepta una ruta local o una URL. Si no se indica origen, usa la URL estable del
-cuadro IPC base 2023=100. El período de actualización se calcula desde la última
+Acepta una ruta local o una URL. Si no se indica origen, usa exactamente la
+misma fuente estable que `app/api/ipc-data/route.ts`: IPC base anual 2023=100,
+series de tiempo. El período de actualización se calcula desde la última
 observación del archivo y no queda fijado manualmente en el código.
 """
 
@@ -20,8 +21,8 @@ import openpyxl
 
 
 DEFAULT_SOURCE = (
-    "https://www.ine.gob.cl/docs/default-source/indice-de-precios-al-consumidor/"
-    "cuadros-estadisticos/base-2023-100/01-ipc-xls.xlsx"
+    "https://www.ine.gob.cl/docs/default-source/%C3%ADndice-de-precios-al-consumidor/"
+    "cuadros-estadisticos/base-anual-2023_100/series-de-tiempo/ipc-xls.xlsx"
 )
 DEFAULT_OUTPUT = Path(__file__).resolve().parents[1] / "public" / "ipc-data.json"
 MONTHS = {
