@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Valida que los archivos versionados tengan un formato básico coherente.
+"""Valida la integridad básica de los archivos versionados.
 
-El control detecta texto no UTF-8 en extensiones que deben ser texto y firmas
-incorrectas en XLSX/PDF. Se usa en CI para evitar que una sincronización
-vuelva a introducir archivos dañados.
+Detecta texto no UTF-8, JSON inválido, HTML sin estructura reconocible y
+firmas incorrectas de XLSX/PDF. El objetivo es impedir que una sincronización
+de archivos vuelva a introducir contenido binario o texto recodificado.
 """
 from pathlib import Path
+import json
 import subprocess
 import sys
 
@@ -32,17 +33,31 @@ def main() -> int:
             continue
         checked += 1
         data = path.read_bytes()
+        suffix = path.suffix.lower()
+        text: str | None = None
 
-        if path.suffix.lower() in TEXT_EXTENSIONS:
+        if suffix in TEXT_EXTENSIONS:
             try:
-                data.decode("utf-8")
+                text = data.decode("utf-8")
             except UnicodeDecodeError as exc:
                 errors.append(f"TEXT_NOT_UTF8 {rel}: {exc}")
+                continue
 
-        if path.suffix.lower() == ".xlsx" and not data.startswith(b"PK\x03\x04"):
+        if suffix == ".json" and text is not None:
+            try:
+                json.loads(text)
+            except json.JSONDecodeError as exc:
+                errors.append(f"INVALID_JSON {rel}: line {exc.lineno}, column {exc.colno}: {exc.msg}")
+
+        if suffix == ".html" and text is not None:
+            head = text.lstrip().lower()[:1000]
+            if not (head.startswith("<!doctype html") or head.startswith("<html")):
+                errors.append(f"INVALID_HTML_HEADER {rel}")
+
+        if suffix == ".xlsx" and not data.startswith(b"PK\x03\x04"):
             errors.append(f"INVALID_XLSX_SIGNATURE {rel}")
 
-        if path.suffix.lower() == ".pdf" and not data.startswith(b"%PDF-"):
+        if suffix == ".pdf" and not data.startswith(b"%PDF-"):
             errors.append(f"INVALID_PDF_SIGNATURE {rel}")
 
     print(f"Archivos versionados revisados: {checked}")
