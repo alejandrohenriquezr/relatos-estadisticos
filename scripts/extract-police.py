@@ -27,13 +27,13 @@ import openpyxl
 
 
 DEFAULT_OUTPUT = Path(__file__).resolve().parents[1] / "public" / "police-data.json"
-REGION_ALIASES = {"Metropolitana": "METROPOLITANA", "O'Higgins": "O'HIGGINS"}
 
 
 def clean_region(value: object) -> str:
-    """Normaliza la glosa territorial manteniendo los nombres usados por la web."""
-    label = str(value).strip()
-    return REGION_ALIASES.get(label, label.upper())
+    """Normaliza glosas territoriales y elimina marcas de nota al pie."""
+    label = str(value or "").replace("\u00a0", " ").strip()
+    label = re.sub(r"/\d+$", "", label).strip()
+    return label.upper()
 
 
 def numeric(value: object) -> int | float | None:
@@ -71,31 +71,36 @@ def source_path(source: str) -> Iterator[Path]:
 
 
 def extract_sheet(workbook, sheet_name: str, combined: bool = False) -> list[dict]:
-    """Extrae una serie anual total y regional desde una hoja conocida."""
+    """Extrae una serie anual total y regional desde una hoja histórica."""
     if sheet_name not in workbook.sheetnames:
         raise ValueError(f"El libro no contiene la hoja requerida: {sheet_name}")
 
     sheet = workbook[sheet_name]
-    headers = [clean_region(cell.value) for cell in sheet[4][1:]]
+    # Fila 4: Año/Caso, Total, Variación y luego las regiones. La columna de
+    # variación se excluye explícitamente para que nunca aparezca como región.
+    region_headers = [clean_region(cell.value) for cell in sheet[4][3:]]
     records: list[dict] = []
 
     for row in sheet.iter_rows(min_row=5, values_only=True):
         label = row[0]
-        if combined and (not isinstance(label, str) or not label.startswith("Denuncias ")):
+        if combined and (
+            not isinstance(label, str) or not label.strip().startswith("Denuncias ")
+        ):
             continue
         match = re.search(r"(20\d{2})", str(label))
         if not match:
             continue
         year = int(match.group(1))
+        regional = {
+            region: numeric(value)
+            for region, value in zip(region_headers, row[3:])
+            if region and region != "NONE" and not region.startswith("VARIACIÓN")
+        }
         records.append(
             {
                 "year": year,
                 "total": numeric(row[1]),
-                "regions": {
-                    region: numeric(value)
-                    for region, value in zip(headers[1:], row[2:])
-                    if region != "NONE"
-                },
+                "regions": regional,
             }
         )
     return records
@@ -129,11 +134,18 @@ def build_payload(workbook) -> dict:
     ]
     if not years:
         raise ValueError("No se encontraron observaciones anuales en el libro")
-    return {"updated": max(years), "institutions": institutions}
+    updated = max(years)
+    for institution in institutions.values():
+        for series in institution["series"].values():
+            if not any(record["year"] == updated for record in series):
+                raise ValueError(
+                    f"La serie policial no contiene el último año esperado: {updated}"
+                )
+    return {"updated": updated, "institutions": institutions}
 
 
 def main() -> None:
-    """Lee el libro, valida que existan observaciones y escribe el snapshot."""
+    """Lee el libro, valida las seis series y escribe el snapshot."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", help="Ruta local o URL directa al XLSX oficial")
     parser.add_argument(
