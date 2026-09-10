@@ -1,0 +1,89 @@
+name: Regenerar fallbacks de servicios
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/regenerate-services-fallbacks.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Preparar dependencias
+        run: npm ci --ignore-scripts
+      - name: Descargar fuentes oficiales con reintentos
+        shell: bash
+        run: |
+          set -euo pipefail
+          download() {
+            local url="$1" output="$2"
+            curl -L --fail --retry 5 --retry-all-errors --retry-delay 3 \
+              --connect-timeout 30 --max-time 240 \
+              --user-agent 'Mozilla/5.0 INE-Relatos-source-regenerator/1.0' \
+              "$url" -o "$output"
+            sig="$(xxd -p -l 4 "$output")"
+            test "$sig" = '504b0304' -o "$sig" = 'd0cf11e0'
+          }
+          download 'https://www.ine.gob.cl/docs/default-source/actividad-mensual-del-comercio/cuadros-estadisticos/base-promedio-año-2018-100/series-empalmadas-históricas.xlsx' /tmp/commerce.xlsx
+          download 'https://www.ine.gob.cl/docs/default-source/actividad-del-turismo/cuadros-estadisticos-dos/serie-histórica-metodología-2017/series-mensuales-de-julio-2016-a-la-fecha.xlsx' /tmp/tourism.xlsx
+          download 'https://www.ine.gob.cl/docs/default-source/ventas-de-supermercados/cuadros-estadisticos/base-promedio-a%C3%B1o-2018-100/series-mensuales-desde-enero-de-2018-a-la-fecha.xls' /tmp/supermarkets.xls
+      - name: Regenerar y validar julio de 2026
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --import tsx --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { parseEconomicWorkbook } from './lib/economic-data.ts';
+          import { parseTourismWorkbook } from './lib/tourism-data.ts';
+          import { parseSupermarketsWorkbook } from './lib/supermarkets-data.ts';
+          const bytes = path => {
+            const data=fs.readFileSync(path);
+            return data.buffer.slice(data.byteOffset,data.byteOffset+data.byteLength);
+          };
+          const close=(a,b,t=0.051)=>Math.abs(Number(a)-Number(b))<=t;
+
+          const commerce=parseEconomicWorkbook(bytes('/tmp/commerce.xlsx'),'commerce');
+          const commerceLatest=commerce.divisions.general.series.at(-1);
+          if(!commerceLatest||commerceLatest.year!==2026||commerceLatest.month!==7||!close(commerceLatest.annual,-0.2))
+            throw new Error(`Comercio inesperado: ${JSON.stringify(commerceLatest)}`);
+          fs.writeFileSync('public/commerce-data.json',JSON.stringify(commerce,null,2)+'\n');
+          console.log('COMMERCE_OK',JSON.stringify(commerceLatest));
+
+          const tourism=parseTourismWorkbook(bytes('/tmp/tourism.xlsx'));
+          const tourismLatest=tourism.tables['1'].seriesByRegion['Total nacional'].at(-1);
+          if(!tourismLatest||tourismLatest.year!==2026||tourismLatest.month!==7||Number(tourismLatest.value)!==1695480||!close(tourismLatest.annual,-7.3))
+            throw new Error(`Turismo inesperado: ${JSON.stringify(tourismLatest)}`);
+          fs.writeFileSync('public/tourism-data.json',JSON.stringify(tourism,null,2)+'\n');
+          console.log('TOURISM_OK',JSON.stringify(tourismLatest));
+
+          const supermarkets=parseSupermarketsWorkbook(bytes('/tmp/supermarkets.xls'));
+          const supermarketLatest=supermarkets.indexByTerritory.Nacional.at(-1);
+          if(!supermarketLatest||supermarketLatest.year!==2026||supermarketLatest.month!==7||!close(supermarketLatest.current?.annual,2.1))
+            throw new Error(`Supermercados inesperado: ${JSON.stringify(supermarketLatest)}`);
+          fs.writeFileSync('public/supermarkets-data.json',JSON.stringify(supermarkets,null,2)+'\n');
+          console.log('SUPERMARKETS_OK',JSON.stringify(supermarketLatest));
+          NODE
+          python3 scripts/check-repository-integrity.py
+      - name: Versionar snapshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(public/commerce-data.json public/tourism-data.json public/supermarkets-data.json)
+          if git diff --quiet -- "${files[@]}"; then
+            echo SERVICES_FALLBACKS_ALREADY_CURRENT
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "${files[@]}"
+          git commit -m 'Añade fallbacks de servicios a julio de 2026'
+          git push origin HEAD:main
