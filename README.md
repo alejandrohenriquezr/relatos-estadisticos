@@ -1,176 +1,161 @@
-# vinext-starter
+# INE | Relatos Estadísticos
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+Repositorio del sitio **Relatos Estadísticos**, una aplicación web para difundir resultados de operaciones estadísticas del Instituto Nacional de Estadísticas de Chile mediante relatos, visualizaciones, publicaciones, documentación, bases de datos y recursos asociados.
 
-## Prerequisites
+El proyecto integra páginas temáticas, rutas API, caché de fuentes oficiales, un CMS de configuración por operación y endpoints SDMX. También incorpora el análisis de **Demografía de empresas**, basado en las estadísticas experimentales del RUE.
 
-- Node.js `>=22.13.0`
-- Linux with `flock`, `curl`, and GNU `timeout`
+## Tecnologías
 
-## Sites Lifecycle
+- React 19 y TypeScript para la interfaz.
+- Vinext/Vite para construir la aplicación compatible con el runtime de Sites/Cloudflare Workers.
+- Cloudflare D1 y Drizzle para persistencia y migraciones.
+- XLSX y transformadores específicos para leer planillas estadísticas.
+- Python para extractores y validaciones reproducibles de algunos productos.
+- GitHub Actions para controles de integridad, pruebas, construcción y revisión de secretos.
 
-The Sites lifecycle CLI runs the locked dependency install before returning this checkout. Edit the source under `app/`, then checkpoint when a coherent milestone is ready to inspect or share. The remote Sites builder runs `npm run build` against the pushed commit. Do not repeat install or build as a normal pre-checkpoint step.
+La versión mínima de Node.js declarada por el proyecto es `22.13.0`.
 
-This starter does not use `wrangler.jsonc`.
+## Estructura del repositorio
 
-`install:ci` is intentionally a single, non-retrying `npm ci`. It refuses a concurrent install for the same project, consumes a matching image-seeded npm cache with `--prefer-offline` while retaining registry fallback for a missing cache object, otherwise downloads and verifies the complete vinext tarball recorded in `package-lock.json`, limits npm to one socket, and terminates a stalled install. `build` applies a short timeout and then validates the Sites artifact. These helpers target Linux and use GNU `timeout`; they are not native macOS scripts.
-
-Scripts that need writable project-scoped home, npm, XDG, and temporary paths use `scripts/sites-env.sh`. The `dev` and `start` scripts honor the caller's runtime environment and keep Wrangler logs inside the checkout. The generated `.sites-runtime/` directory is disposable and ignored by Git.
-
-## Included Shape
-
-- edit site code under `app/`
-- `app/chatgpt-auth.ts` provides optional dispatch-owned ChatGPT sign-in helpers
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/index.ts` reads the D1 binding from the Cloudflare Worker environment
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
-
-## Workspace Auth Headers
-
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
-
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
+```text
+app/                     páginas, componentes y rutas API
+lib/                     transformadores, modelos y utilidades de datos
+db/                      acceso y esquema de persistencia
+drizzle/                 migraciones de base de datos
+docs/                    documentación técnica y contratos SDMX
+public/                   activos públicos y snapshots estadísticos iniciales
+public/datos_OE/          insumos de Demografía de empresas
+public/sdmx/              estructuras, salidas y documentación SDMX
+scripts/                  extractores, regeneradores y validadores
+worker/                   punto de entrada del Worker y soporte del runtime
+tests/                    pruebas automatizadas
+.github/workflows/        controles de calidad y reparación reproducible
+.openai/hosting.json      bindings y configuración del proyecto Sites
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+## Instalación local
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+Clonar el repositorio e instalar exactamente las dependencias registradas en `package-lock.json`:
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+```bash
+git clone https://github.com/alejandrohenriquezr/relatos-estadisticos.git
+cd relatos-estadisticos
+npm ci
+```
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+Comandos principales:
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+```bash
+npm run dev                  # servidor de desarrollo
+npm run build                # construcción del artefacto desplegable
+npm test                     # construcción y pruebas de regresión
+npm run lint                 # análisis estático
+npm run validate:artifact    # validación de un artefacto ya construido
+python3 scripts/check-repository-integrity.py
+```
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
+El control de integridad revisa que los archivos de texto versionados sean UTF-8, que los JSON sean válidos, que los HTML tengan una estructura reconocible y que XLSX/PDF tengan firmas de archivo coherentes.
 
-## Diagnostic Commands
+## Datos y actualización
 
-- `npm run install:ci`: perform the one bounded lockfile install
-- `npm run dev`: start the Vite/Vinext development server
-- `npm run build`: build and validate the deployable Sites artifact
-- `npm run start`: start the built Vinext application
-- `npm test`: build, validate, and verify the rendered development-preview metadata
-- `npm run validate:artifact`: recheck an existing artifact's manifest and ESM `default.fetch` export
-- `npm run db:generate`: generate Drizzle migrations after schema changes
+Las cifras publicadas proceden de fuentes oficiales del INE o de archivos estadísticos incluidos expresamente para una operación. La aplicación combina tres mecanismos:
 
-Use build and validation commands for targeted diagnosis after a remote failure, not as part of the normal checkpoint path.
+1. snapshots versionados en `public/` para disponer de una revisión inicial reproducible;
+2. caché compartida D1 para reutilizar la última revisión validada;
+3. verificación de la fuente oficial mediante hash y, cuando corresponde, ETag, `Last-Modified` o tamaño.
 
-The timeout defaults can be overridden for a controlled canary with `SITES_INSTALL_TIMEOUT`, `SITES_INSTALL_KILL_AFTER`, `SITES_BUILD_TIMEOUT`, and `SITES_BUILD_KILL_AFTER`. A timeout fails the command; the helpers never retry an unchanged install or build.
+Si una fuente cambia, el transformador asociado descarga y valida la nueva revisión antes de sustituir la caché. Si la fuente no está disponible, las rutas preparadas para ello conservan la última revisión válida.
 
-## Relatos Estadísticos
+La trazabilidad de fuentes y transformaciones se documenta en [`DATA_SOURCES.md`](DATA_SOURCES.md). Los criterios de gobierno están en [`DATA_GOVERNANCE.md`](DATA_GOVERNANCE.md).
 
-Este repositorio contiene el sitio de difusión de resultados estadísticos del
-INE de Chile. La interfaz usa React 19, TypeScript y Vinext sobre Cloudflare
-Workers. D1 almacena la caché pública, las firmas de las fuentes y la
-configuración editorial del CMS. Las planillas oficiales se transforman con
-XLSX y los snapshots incluidos en `public/` permiten una respuesta inicial
-estable.
+### Regeneradores reproducibles
 
-La aplicación se organiza así: `app/` contiene vistas y rutas API; `lib/`
-contiene transformadores y modelos; `public/` contiene activos, datos iniciales
-y el análisis migrado de Demografía de empresas; `db/` y `drizzle/` contienen
-persistencia y migraciones; `docs/` contiene contratos SDMX; `scripts/` contiene
-extractores y validadores; `worker/` es el punto de entrada del Worker.
+Entre los scripts versionados se incluyen:
 
-### Caché, hash y actualización
+- `scripts/extract-enusc.py`: genera el snapshot ENUSC a partir del tabulado regional oficial.
+- `public/sdmx/transformar_ene_sdmx.py`: transforma `indicadores_principales.xlsx` de la ENE a SDMX-CSV y valida la salida.
+- `scripts/build-business-demography-snapshot.mjs`: reconstruye el snapshot SDMX de Demografía de empresas desde su HTML fuente.
+- `scripts/check-repository-integrity.py`: detecta archivos dañados o recodificados antes del build.
 
-Las rutas de datos responden primero con la revisión válida almacenada en D1.
-Después consultan la firma de la fuente en `ine.gob.cl` mediante hash, ETag,
-`Last-Modified` o tamaño, según la operación. Si la firma cambió, descargan,
-validan y transforman la nueva fuente, guardan el payload y actualizan sus
-metadatos. Si la fuente falla, se conserva la última revisión válida.
+El workflow `.github/workflows/repair-assets.yml` documenta y automatiza la recuperación de los artefactos que dependen de esas fuentes.
 
-### CMS
+## Demografía de empresas
 
-`/admin` configura por operación las secciones de análisis de resultados,
-publicaciones, documentación, bases de datos y centro de recursos. La tabla
-`statistical_operation_config` guarda esos estados y
-`GET /api/operation-config` entrega la configuración pública. El análisis de
-resultados queda activo por defecto.
+El análisis integrado permite consultar resultados por territorio, actividad económica y tamaño de empresa. Los cuadros estadísticos se almacenan bajo:
 
-### API SDMX
+```text
+public/datos_OE/cuadros_estadisticos/
+```
 
-Rutas principales:
+La estructura SDMX propuesta y sus dimensiones están documentadas en [`docs/sdmx/DEMOGRAFIA_EMPRESAS.md`](docs/sdmx/DEMOGRAFIA_EMPRESAS.md). El proyecto fuente independiente utilizado para recuperar el HTML integrado está en `alejandrohenriquezr/demografia-de-empresas`.
+
+## CMS
+
+La ruta `/admin` administra la configuración de secciones por operación. La persistencia se realiza en D1 y la configuración pública se expone mediante `GET /api/operation-config`.
+
+Las secciones contempladas por el modelo incluyen análisis de resultados, publicaciones, documentación, bases de datos y centro de recursos. La lógica exacta de tablas y migraciones está en `db/` y `drizzle/`.
+
+## API SDMX
+
+El catálogo descubrible se obtiene con:
 
 ```text
 GET /api/sdmx/catalog
+```
+
+Cada elemento del catálogo entrega su `data_endpoint`, `metadata_endpoint` y documentación. Por ejemplo, para Demografía de empresas:
+
+```text
 GET /api/sdmx/metadata?dataset=DEMOGRAFIA_EMPRESAS
-GET /api/sdmx/data/DEMOGRAFIA_EMPRESAS/CL....?format=sdmx-json
-GET /api/sdmx/documentation
+GET /api/sdmx/documentation?dataset=DEMOGRAFIA_EMPRESAS
+GET /api/sdmx/data/INE.GOB.CL,DF_DEMOGRAFIA_EMPRESAS,1.0/all
 ```
 
-Ejemplos:
+Ejemplos contra el sitio publicado:
 
 ```bash
-curl https://relatos-estadisticos.alhen1970.chatgpt.site/api/sdmx/catalog
+curl 'https://relatos-estadisticos.alhen1970.chatgpt.site/api/sdmx/catalog'
 curl 'https://relatos-estadisticos.alhen1970.chatgpt.site/api/sdmx/metadata?dataset=DEMOGRAFIA_EMPRESAS'
-curl 'https://relatos-estadisticos.alhen1970.chatgpt.site/api/sdmx/data/DEMOGRAFIA_EMPRESAS/CL....?format=sdmx-json' -o datos.json
+curl 'https://relatos-estadisticos.alhen1970.chatgpt.site/api/sdmx/data/INE.GOB.CL,DF_DEMOGRAFIA_EMPRESAS,1.0/all' -o demografia_empresas.csv
 ```
 
-El contrato de dimensiones, códigos, observaciones y ejemplos está en
-[`docs/sdmx/README.md`](docs/sdmx/README.md) y
-[`docs/sdmx/DEMOGRAFIA_EMPRESAS.md`](docs/sdmx/DEMOGRAFIA_EMPRESAS.md).
+La convención común y las estructuras documentadas están en [`docs/sdmx/README.md`](docs/sdmx/README.md).
 
-### Instalación y despliegue
+## Base de datos
 
-```bash
-npm ci
-npm run build
-npm test
-npm run lint
-```
+La aplicación usa el binding lógico D1 `DB`. El repositorio contiene esquema, acceso y migraciones, pero no una copia de la base productiva. El contenido de caché se puede reconstruir desde las fuentes y snapshots versionados.
 
-El despliegue requiere el proyecto Sites indicado en `.openai/hosting.json`,
-la vinculación D1 `DB` y el Worker `worker/index.ts`. No se incluyen
-credenciales ni la base D1 productiva. Las fuentes y rutas de reconstrucción se
-describen en `DATA_SOURCES.md`, `DATA_GOVERNANCE.md` y `DEPLOYMENT.md`.
+Los cambios de esquema deben registrarse mediante migraciones y probarse antes del despliegue.
 
-## Learn More
+## Validación continua
 
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+`.github/workflows/ci.yml` ejecuta:
+
+1. control de integridad del repositorio;
+2. instalación reproducible con `npm ci`;
+3. lint, actualmente informativo mientras se resuelve la deuda técnica documentada;
+4. `npm test`, que bloquea el flujo si las pruebas o la construcción fallan;
+5. conservación temporal del artefacto de construcción;
+6. revisión de secretos con Gitleaks.
+
+No deben incorporarse credenciales, archivos `.env` ni datos personales al repositorio.
+
+## Despliegue y recuperación
+
+La configuración del proyecto Sites está en `.openai/hosting.json`. El despliegue requiere conservar el binding D1 `DB` y validar previamente el artefacto construido.
+
+El procedimiento de clonación, despliegue, recuperación y reversión está en [`DEPLOYMENT.md`](DEPLOYMENT.md). La arquitectura está descrita en [`ARCHITECTURE.md`](ARCHITECTURE.md) y las reglas de contribución en [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## Documentación técnica
+
+- [`ARCHITECTURE.md`](ARCHITECTURE.md): componentes y flujo de datos.
+- [`DATA_SOURCES.md`](DATA_SOURCES.md): fuentes y transformaciones.
+- [`DATA_GOVERNANCE.md`](DATA_GOVERNANCE.md): roles y controles de datos.
+- [`DEPLOYMENT.md`](DEPLOYMENT.md): despliegue y recuperación.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md): flujo de cambios y criterios de aceptación.
+- [`TECHNICAL_DEBT.md`](TECHNICAL_DEBT.md): observaciones técnicas pendientes.
+- [`docs/sdmx/`](docs/sdmx/): contratos y documentación SDMX.
+
+## Estado de sincronización
+
+El estado técnico de la última sincronización validada, sus fuentes, conteos y controles se registra en `SYNC_STATUS.md` para que una clonación pueda distinguir entre archivos simplemente versionados y artefactos efectivamente reconstruidos y comprobados.
