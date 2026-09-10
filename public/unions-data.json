@@ -1,1 +1,3923 @@
-{"source":"series-vitales.xlsx","marriages":[{"year":1992,"provisional":false,"total":89370,"rate":6.505757926986135,"menAge":{"groups":[{"label":"Menores de 15","value":1},{"label":"15-19","value":4038},{"label":"20-24","value":33194},{"label":"25-29","value":30227},{"label":"30-34","value":11805},{"label":"35-39","value":4245},{"label":"40-44","value":1903},{"label":"45-49","value":1085},{"label":"50-54","value":732},{"label":"55-59","value":554},{"label":"60-64","value":551},{"label":"65-69","value":377},{"label":"70 y más","value":658}],"modalGroup":"20-24","approxMean":27.49515497370482},"womenAge":{"groups":[{"label":"Menores de 15","value":343},{"label":"15-19","value":16501},{"label":"20-24","value":36345},{"label":"25-29","value":21332},{"label":"30-34","value":7853},{"label":"35-39","value":3166},{"label":"40-44","value":1414},{"label":"45-49","value":847},{"label":"50-54","value":526},{"label":"55-59","value":347},{"label":"60-64","value":341},{"label":"65-69","value":167},{"label":"70 y más","value":188}],"modalGroup":"20-24","approxMean":24.85740181268882}},{"year":1993,"provisional":false,"total":92821,"rate":6.650609460673053,"menAge":{"groups":[{"label":"Menores de 15","value":5},{"label":"15-19","value":5093},{"label":"20-24","value":34986},{"label":"25-29","value":30216},{"label":"30-34","value":12341},{"label":"35-39","value":4315},{"label":"40-44","value":1862},{"label":"45-49","value":1099},{"label":"50-54","value":700},{"label":"55-59","value":543},{"label":"60-64","value":569},{"label":"65-69","value":425},{"label":"70 y más","value":667}],"modalGroup":"20-24","approxMean":27.318462416909966},"womenAge":{"groups":[{"label":"Menores de 15","value":351},{"label":"15-19","value":18320},{"label":"20-24","value":37632},{"label":"25-29","value":21176},{"label":"30-34","value":8102},{"label":"35-39","value":3222},{"label":"40-44","value":1445},{"label":"45-49","value":895},{"label":"50-54","value":582},{"label":"55-59","value":350},{"label":"60-64","value":330},{"label":"65-69","value":206},{"label":"70 y más","value":210}],"modalGroup":"20-24","approxMean":24.744820676355566}},{"year":1994,"provisional":false,"total":91555,"rate":6.460355377054227,"menAge":{"groups":[{"label":"Menores de 15","value":7},{"label":"15-19","value":5274},{"label":"20-24","value":33785},{"label":"25-29","value":29244},{"label":"30-34","value":12570},{"label":"35-39","value":4610},{"label":"40-44","value":1971},{"label":"45-49","value":1122},{"label":"50-54","value":768},{"label":"55-59","value":515},{"label":"60-64","value":534},{"label":"65-69","value":465},{"label":"70 y más","value":690}],"modalGroup":"20-24","approxMean":27.460804980612746},"womenAge":{"groups":[{"label":"Menores de 15","value":374},{"label":"15-19","value":17884},{"label":"20-24","value":36431},{"label":"25-29","value":20715},{"label":"30-34","value":8549},{"label":"35-39","value":3388},{"label":"40-44","value":1549},{"label":"45-49","value":901},{"label":"50-54","value":625},{"label":"55-59","value":383},{"label":"60-64","value":320},{"label":"65-69","value":211},{"label":"70 y más","value":225}],"modalGroup":"20-24","approxMean":24.912762820162744}},{"year":1995,"provisional":false,"total":87205,"rate":6.0637987701902665,"menAge":{"groups":[{"label":"Menores de 15","value":1},{"label":"15-19","value":4399},{"label":"20-24","value":31780},{"label":"25-29","value":27945},{"label":"30-34","value":12582},{"label":"35-39","value":4632},{"label":"40-44","value":1959},{"label":"45-49","value":1068},{"label":"50-54","value":759},{"label":"55-59","value":537},{"label":"60-64","value":489},{"label":"65-69","value":438},{"label":"70 y más","value":616}],"modalGroup":"20-24","approxMean":27.625101771687405},"womenAge":{"groups":[{"label":"Menores de 15","value":317},{"label":"15-19","value":16433},{"label":"20-24","value":34276},{"label":"25-29","value":20231},{"label":"30-34","value":8288},{"label":"35-39","value":3450},{"label":"40-44","value":1579},{"label":"45-49","value":922},{"label":"50-54","value":622},{"label":"55-59","value":362},{"label":"60-64","value":295},{"label":"65-69","value":230},{"label":"70 y más","value":200}],"modalGroup":"20-24","approxMean":25.086910154234275}},{"year":1996,"provisional":false,"total":83547,"rate":5.728303297913938,"menAge":{"groups":[{"label":"Menores de 15","value":1},{"label":"15-19","value":3955},{"label":"20-24","value":29264},{"label":"25-29","value":27073},{"label":"30-34","value":12490},{"label":"35-39","value":4688},{"label":"40-44","value":2062},{"label":"45-49","value":1072},{"label":"50-54","value":774},{"label":"55-59","value":584},{"label":"60-64","value":513},{"label":"65-69","value":444},{"label":"70 y más","value":627}],"modalGroup":"20-24","approxMean":27.917052676936336},"womenAge":{"groups":[{"label":"Menores de 15","value":328},{"label":"15-19","value":15209},{"label":"20-24","value":31843},{"label":"25-29","value":20106},{"label":"30-34","value":8247},{"label":"35-39","value":3535},{"label":"40-44","value":1585},{"label":"45-49","value":979},{"label":"50-54","value":585},{"label":"55-59","value":406},{"label":"60-64","value":282},{"label":"65-69","value":218},{"label":"70 y más","value":224}],"modalGroup":"20-24","approxMean":25.322453229918487}},{"year":1997,"provisional":false,"total":78077,"rate":5.281644646115535,"menAge":{"groups":[{"label":"Menores de 15","value":1},{"label":"15-19","value":3477},{"label":"20-24","value":25943},{"label":"25-29","value":25978},{"label":"30-34","value":12296},{"label":"35-39","value":4527},{"label":"40-44","value":2055},{"label":"45-49","value":1068},{"label":"50-54","value":717},{"label":"55-59","value":552},{"label":"60-64","value":419},{"label":"65-69","value":418},{"label":"70 y más","value":626}],"modalGroup":"25-29","approxMean":28.13320183921001},"womenAge":{"groups":[{"label":"Menores de 15","value":259},{"label":"15-19","value":13392},{"label":"20-24","value":29120},{"label":"25-29","value":19932},{"label":"30-34","value":7860},{"label":"35-39","value":3424},{"label":"40-44","value":1579},{"label":"45-49","value":842},{"label":"50-54","value":596},{"label":"55-59","value":378},{"label":"60-64","value":277},{"label":"65-69","value":203},{"label":"70 y más","value":215}],"modalGroup":"20-24","approxMean":25.525916723234754}},{"year":1998,"provisional":false,"total":73456,"rate":4.905275481676068,"menAge":{"groups":[{"label":"Menores de 15","value":1},{"label":"15-19","value":3076},{"label":"20-24","value":22874},{"label":"25-29","value":24867},{"label":"30-34","value":11977},{"label":"35-39","value":4784},{"label":"40-44","value":2100},{"label":"45-49","value":1037},{"label":"50-54","value":703},{"label":"55-59","value":557},{"label":"60-64","value":437},{"label":"65-69","value":417},{"label":"70 y más","value":626}],"modalGroup":"25-29","approxMean":28.487312132433022},"womenAge":{"groups":[{"label":"Menores de 15","value":210},{"label":"15-19","value":12042},{"label":"20-24","value":26043},{"label":"25-29","value":19772},{"label":"30-34","value":7832},{"label":"35-39","value":3468},{"label":"40-44","value":1558},{"label":"45-49","value":898},{"label":"50-54","value":573},{"label":"55-59","value":384},{"label":"60-64","value":288},{"label":"65-69","value":210},{"label":"70 y más","value":178}],"modalGroup":"20-24","approxMean":25.831137007187976}},{"year":1999,"provisional":false,"total":69765,"rate":4.601198771720986,"menAge":{"groups":[{"label":"Menores de 15","value":2},{"label":"15-19","value":2687},{"label":"20-24","value":20200},{"label":"25-29","value":24430},{"label":"30-34","value":11648},{"label":"35-39","value":4748},{"label":"40-44","value":2165},{"label":"45-49","value":1067},{"label":"50-54","value":743},{"label":"55-59","value":547},{"label":"60-64","value":443},{"label":"65-69","value":417},{"label":"70 y más","value":668}],"modalGroup":"25-29","approxMean":28.847186984877805},"womenAge":{"groups":[{"label":"Menores de 15","value":178},{"label":"15-19","value":10607},{"label":"20-24","value":23817},{"label":"25-29","value":19675},{"label":"30-34","value":7712},{"label":"35-39","value":3493},{"label":"40-44","value":1670},{"label":"45-49","value":905},{"label":"50-54","value":603},{"label":"55-59","value":414},{"label":"60-64","value":291},{"label":"65-69","value":184},{"label":"70 y más","value":216}],"modalGroup":"20-24","approxMean":26.19631620440049}},{"year":2000,"provisional":false,"total":66607,"rate":4.341105702896491,"menAge":{"groups":[{"label":"Menores de 15","value":1},{"label":"15-19","value":2570},{"label":"20-24","value":18264},{"label":"25-29","value":23733},{"label":"30-34","value":11364},{"label":"35-39","value":4857},{"label":"40-44","value":2087},{"label":"45-49","value":1081},{"label":"50-54","value":710},{"label":"55-59","value":526},{"label":"60-64","value":398},{"label":"65-69","value":369},{"label":"70 y más","value":647}],"modalGroup":"25-29","approxMean":28.991036978095394},"womenAge":{"groups":[{"label":"Menores de 15","value":159},{"label":"15-19","value":9706},{"label":"20-24","value":22226},{"label":"25-29","value":19255},{"label":"30-34","value":7691},{"label":"35-39","value":3346},{"label":"40-44","value":1662},{"label":"45-49","value":929},{"label":"50-54","value":583},{"label":"55-59","value":368},{"label":"60-64","value":294},{"label":"65-69","value":182},{"label":"70 y más","value":206}],"modalGroup":"20-24","approxMean":26.363775579143333}},{"year":2001,"provisional":false,"total":64088,"rate":4.129368405988925,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":2262},{"label":"20-24","value":16638},{"label":"25-29","value":22788},{"label":"30-34","value":11571},{"label":"35-39","value":4920},{"label":"40-44","value":2129},{"label":"45-49","value":1071},{"label":"50-54","value":708},{"label":"55-59","value":506},{"label":"60-64","value":419},{"label":"65-69","value":389},{"label":"70 y más","value":687}],"modalGroup":"25-29","approxMean":29.31899887654475},"womenAge":{"groups":[{"label":"Menores de 15","value":94},{"label":"15-19","value":8781},{"label":"20-24","value":20837},{"label":"25-29","value":18679},{"label":"30-34","value":7916},{"label":"35-39","value":3458},{"label":"40-44","value":1674},{"label":"45-49","value":970},{"label":"50-54","value":612},{"label":"55-59","value":400},{"label":"60-64","value":264},{"label":"65-69","value":185},{"label":"70 y más","value":218}],"modalGroup":"20-24","approxMean":26.675493072025965}},{"year":2002,"provisional":false,"total":60971,"rate":3.885557085238879,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1757},{"label":"20-24","value":14876},{"label":"25-29","value":21636},{"label":"30-34","value":11669},{"label":"35-39","value":4797},{"label":"40-44","value":2209},{"label":"45-49","value":1151},{"label":"50-54","value":758},{"label":"55-59","value":550},{"label":"60-64","value":442},{"label":"65-69","value":375},{"label":"70 y más","value":751}],"modalGroup":"25-29","approxMean":29.792065080120057},"womenAge":{"groups":[{"label":"Menores de 15","value":91},{"label":"15-19","value":7169},{"label":"20-24","value":19574},{"label":"25-29","value":18399},{"label":"30-34","value":7767},{"label":"35-39","value":3365},{"label":"40-44","value":1806},{"label":"45-49","value":972},{"label":"50-54","value":671},{"label":"55-59","value":441},{"label":"60-64","value":297},{"label":"65-69","value":193},{"label":"70 y más","value":226}],"modalGroup":"20-24","approxMean":27.107624936445195}},{"year":2003,"provisional":false,"total":56659,"rate":3.573127463071933,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1445},{"label":"20-24","value":13323},{"label":"25-29","value":19540},{"label":"30-34","value":11520},{"label":"35-39","value":4615},{"label":"40-44","value":2199},{"label":"45-49","value":1210},{"label":"50-54","value":717},{"label":"55-59","value":543},{"label":"60-64","value":463},{"label":"65-69","value":361},{"label":"70 y más","value":723}],"modalGroup":"25-29","approxMean":30.128629167475598},"womenAge":{"groups":[{"label":"Menores de 15","value":66},{"label":"15-19","value":5905},{"label":"20-24","value":18150},{"label":"25-29","value":17082},{"label":"30-34","value":7735},{"label":"35-39","value":3191},{"label":"40-44","value":1723},{"label":"45-49","value":1037},{"label":"50-54","value":590},{"label":"55-59","value":455},{"label":"60-64","value":308},{"label":"65-69","value":188},{"label":"70 y más","value":229}],"modalGroup":"20-24","approxMean":27.415062037805114}},{"year":2004,"provisional":false,"total":53403,"rate":3.333076813180867,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1205},{"label":"20-24","value":12004},{"label":"25-29","value":18145},{"label":"30-34","value":11399},{"label":"35-39","value":4618},{"label":"40-44","value":2140},{"label":"45-49","value":1170},{"label":"50-54","value":693},{"label":"55-59","value":576},{"label":"60-64","value":419},{"label":"65-69","value":344},{"label":"70 y más","value":690}],"modalGroup":"25-29","approxMean":30.383424152201187},"womenAge":{"groups":[{"label":"Menores de 15","value":44},{"label":"15-19","value":5009},{"label":"20-24","value":16785},{"label":"25-29","value":16354},{"label":"30-34","value":7803},{"label":"35-39","value":3048},{"label":"40-44","value":1621},{"label":"45-49","value":1038},{"label":"50-54","value":633},{"label":"55-59","value":392},{"label":"60-64","value":297},{"label":"65-69","value":197},{"label":"70 y más","value":182}],"modalGroup":"20-24","approxMean":27.637286294777446}},{"year":2005,"provisional":false,"total":53842,"rate":3.3269710876313505,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1075},{"label":"20-24","value":11486},{"label":"25-29","value":18326},{"label":"30-34","value":11898},{"label":"35-39","value":4775},{"label":"40-44","value":2335},{"label":"45-49","value":1205},{"label":"50-54","value":673},{"label":"55-59","value":542},{"label":"60-64","value":443},{"label":"65-69","value":354},{"label":"70 y más","value":730}],"modalGroup":"25-29","approxMean":30.599141933806322},"womenAge":{"groups":[{"label":"Menores de 15","value":1},{"label":"15-19","value":4690},{"label":"20-24","value":16227},{"label":"25-29","value":16893},{"label":"30-34","value":8262},{"label":"35-39","value":3340},{"label":"40-44","value":1600},{"label":"45-49","value":1030},{"label":"50-54","value":629},{"label":"55-59","value":431},{"label":"60-64","value":306},{"label":"65-69","value":196},{"label":"70 y más","value":237}],"modalGroup":"25-29","approxMean":27.91252182311207}},{"year":2006,"provisional":false,"total":58155,"rate":3.5573398157193377,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1152},{"label":"20-24","value":11884},{"label":"25-29","value":19373},{"label":"30-34","value":12702},{"label":"35-39","value":5946},{"label":"40-44","value":2402},{"label":"45-49","value":1378},{"label":"50-54","value":871},{"label":"55-59","value":649},{"label":"60-64","value":528},{"label":"65-69","value":436},{"label":"70 y más","value":834}],"modalGroup":"25-29","approxMean":30.960364543031552},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":4523},{"label":"20-24","value":16875},{"label":"25-29","value":18348},{"label":"30-34","value":8929},{"label":"35-39","value":4297},{"label":"40-44","value":1882},{"label":"45-49","value":1159},{"label":"50-54","value":800},{"label":"55-59","value":502},{"label":"60-64","value":355},{"label":"65-69","value":239},{"label":"70 y más","value":246}],"modalGroup":"25-29","approxMean":28.33324735620325}},{"year":2007,"provisional":false,"total":57792,"rate":3.4987428511787764,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1099},{"label":"20-24","value":10867},{"label":"25-29","value":19267},{"label":"30-34","value":12739},{"label":"35-39","value":5488},{"label":"40-44","value":2747},{"label":"45-49","value":1582},{"label":"50-54","value":1047},{"label":"55-59","value":823},{"label":"60-64","value":660},{"label":"65-69","value":552},{"label":"70 y más","value":921}],"modalGroup":"25-29","approxMean":31.5609253875969},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":4186},{"label":"20-24","value":15611},{"label":"25-29","value":18878},{"label":"30-34","value":9111},{"label":"35-39","value":3793},{"label":"40-44","value":2037},{"label":"45-49","value":1483},{"label":"50-54","value":1024},{"label":"55-59","value":672},{"label":"60-64","value":450},{"label":"65-69","value":299},{"label":"70 y más","value":248}],"modalGroup":"25-29","approxMean":28.87595168881506}},{"year":2008,"provisional":false,"total":56112,"rate":3.360451950603656,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1011},{"label":"20-24","value":9803},{"label":"25-29","value":18500},{"label":"30-34","value":12338},{"label":"35-39","value":5684},{"label":"40-44","value":2873},{"label":"45-49","value":1671},{"label":"50-54","value":1138},{"label":"55-59","value":882},{"label":"60-64","value":734},{"label":"65-69","value":522},{"label":"70 y más","value":956}],"modalGroup":"25-29","approxMean":31.99750499001996},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":3615},{"label":"20-24","value":14286},{"label":"25-29","value":18567},{"label":"30-34","value":9133},{"label":"35-39","value":3957},{"label":"40-44","value":2160},{"label":"45-49","value":1583},{"label":"50-54","value":1101},{"label":"55-59","value":709},{"label":"60-64","value":467},{"label":"65-69","value":250},{"label":"70 y más","value":284}],"modalGroup":"25-29","approxMean":29.31029013401768}},{"year":2009,"provisional":false,"total":56127,"rate":3.3248469084734995,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":937},{"label":"20-24","value":8619},{"label":"25-29","value":17060},{"label":"30-34","value":12015},{"label":"35-39","value":6021},{"label":"40-44","value":3224},{"label":"45-49","value":2211},{"label":"50-54","value":1647},{"label":"55-59","value":1325},{"label":"60-64","value":1030},{"label":"65-69","value":815},{"label":"70 y más","value":1223}],"modalGroup":"25-29","approxMean":33.50328718798439},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":3080},{"label":"20-24","value":12904},{"label":"25-29","value":17284},{"label":"30-34","value":9306},{"label":"35-39","value":4651},{"label":"40-44","value":2658},{"label":"45-49","value":2184},{"label":"50-54","value":1603},{"label":"55-59","value":1073},{"label":"60-64","value":625},{"label":"65-69","value":402},{"label":"70 y más","value":357}],"modalGroup":"25-29","approxMean":30.697952856913783}},{"year":2010,"provisional":false,"total":60362,"rate":3.537403787533784,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":759},{"label":"20-24","value":8605},{"label":"25-29","value":17040},{"label":"30-34","value":12783},{"label":"35-39","value":7234},{"label":"40-44","value":3956},{"label":"45-49","value":2799},{"label":"50-54","value":2104},{"label":"55-59","value":1594},{"label":"60-64","value":1240},{"label":"65-69","value":949},{"label":"70 y más","value":1299}],"modalGroup":"25-29","approxMean":34.309151452900835},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":2709},{"label":"20-24","value":12721},{"label":"25-29","value":18168},{"label":"30-34","value":10331},{"label":"35-39","value":5583},{"label":"40-44","value":3296},{"label":"45-49","value":2755},{"label":"50-54","value":1964},{"label":"55-59","value":1233},{"label":"60-64","value":798},{"label":"65-69","value":427},{"label":"70 y más","value":377}],"modalGroup":"25-29","approxMean":31.46298996057122}},{"year":2011,"provisional":false,"total":64768,"rate":3.7537616292976086,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":446},{"label":"20-24","value":7736},{"label":"25-29","value":17155},{"label":"30-34","value":14945},{"label":"35-39","value":8437},{"label":"40-44","value":4768},{"label":"45-49","value":3270},{"label":"50-54","value":2421},{"label":"55-59","value":1824},{"label":"60-64","value":1412},{"label":"65-69","value":1002},{"label":"70 y más","value":1352}],"modalGroup":"25-29","approxMean":35.00487895256917},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1884},{"label":"20-24","value":12013},{"label":"25-29","value":19085},{"label":"30-34","value":12679},{"label":"35-39","value":6714},{"label":"40-44","value":3876},{"label":"45-49","value":2954},{"label":"50-54","value":2293},{"label":"55-59","value":1463},{"label":"60-64","value":891},{"label":"65-69","value":478},{"label":"70 y más","value":438}],"modalGroup":"25-29","approxMean":32.25074110671937}},{"year":2012,"provisional":false,"total":63736,"rate":3.653855756281813,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":673},{"label":"20-24","value":8245},{"label":"25-29","value":16431},{"label":"30-34","value":14022},{"label":"35-39","value":8079},{"label":"40-44","value":4645},{"label":"45-49","value":3438},{"label":"50-54","value":2593},{"label":"55-59","value":1979},{"label":"60-64","value":1428},{"label":"65-69","value":951},{"label":"70 y más","value":1252}],"modalGroup":"25-29","approxMean":35.00073741684449},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":2374},{"label":"20-24","value":12098},{"label":"25-29","value":18087},{"label":"30-34","value":12004},{"label":"35-39","value":6392},{"label":"40-44","value":4013},{"label":"45-49","value":3101},{"label":"50-54","value":2313},{"label":"55-59","value":1571},{"label":"60-64","value":873},{"label":"65-69","value":500},{"label":"70 y más","value":410}],"modalGroup":"25-29","approxMean":32.26994163424124}},{"year":2013,"provisional":false,"total":61446,"rate":3.4888906377062514,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":601},{"label":"20-24","value":7339},{"label":"25-29","value":15418},{"label":"30-34","value":13921},{"label":"35-39","value":7886},{"label":"40-44","value":4758},{"label":"45-49","value":3436},{"label":"50-54","value":2611},{"label":"55-59","value":1842},{"label":"60-64","value":1428},{"label":"65-69","value":1007},{"label":"70 y más","value":1199}],"modalGroup":"25-29","approxMean":35.30973537740455},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1912},{"label":"20-24","value":10998},{"label":"25-29","value":17115},{"label":"30-34","value":12242},{"label":"35-39","value":6399},{"label":"40-44","value":4047},{"label":"45-49","value":3061},{"label":"50-54","value":2358},{"label":"55-59","value":1557},{"label":"60-64","value":879},{"label":"65-69","value":476},{"label":"70 y más","value":402}],"modalGroup":"25-29","approxMean":32.64023695602643}},{"year":2014,"provisional":false,"total":64868,"rate":3.6468066520658726,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":485},{"label":"20-24","value":7203},{"label":"25-29","value":16059},{"label":"30-34","value":14342},{"label":"35-39","value":8471},{"label":"40-44","value":5292},{"label":"45-49","value":3611},{"label":"50-54","value":2959},{"label":"55-59","value":2243},{"label":"60-64","value":1736},{"label":"65-69","value":1091},{"label":"70 y más","value":1376}],"modalGroup":"25-29","approxMean":35.86014675957329},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1670},{"label":"20-24","value":10588},{"label":"25-29","value":18341},{"label":"30-34","value":12968},{"label":"35-39","value":6781},{"label":"40-44","value":4480},{"label":"45-49","value":3376},{"label":"50-54","value":2748},{"label":"55-59","value":1745},{"label":"60-64","value":1134},{"label":"65-69","value":589},{"label":"70 y más","value":448}],"modalGroup":"25-29","approxMean":33.20012949374114}},{"year":2015,"provisional":false,"total":61744,"rate":3.4356767407900866,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":384},{"label":"20-24","value":6368},{"label":"25-29","value":15277},{"label":"30-34","value":14014},{"label":"35-39","value":8094},{"label":"40-44","value":5221},{"label":"45-49","value":3534},{"label":"50-54","value":2821},{"label":"55-59","value":2137},{"label":"60-64","value":1543},{"label":"65-69","value":1117},{"label":"70 y más","value":1234}],"modalGroup":"25-29","approxMean":35.959170121793214},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1423},{"label":"20-24","value":9550},{"label":"25-29","value":17368},{"label":"30-34","value":12639},{"label":"35-39","value":6703},{"label":"40-44","value":4430},{"label":"45-49","value":3382},{"label":"50-54","value":2529},{"label":"55-59","value":1696},{"label":"60-64","value":1013},{"label":"65-69","value":548},{"label":"70 y más","value":463}],"modalGroup":"25-29","approxMean":33.39171417465665}},{"year":2016,"provisional":false,"total":62464,"rate":3.4382944113349225,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":349},{"label":"20-24","value":5741},{"label":"25-29","value":14963},{"label":"30-34","value":13908},{"label":"35-39","value":8289},{"label":"40-44","value":5450},{"label":"45-49","value":3804},{"label":"50-54","value":3076},{"label":"55-59","value":2336},{"label":"60-64","value":1818},{"label":"65-69","value":1220},{"label":"70 y más","value":1510}],"modalGroup":"25-29","approxMean":36.6923828125},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1217},{"label":"20-24","value":8796},{"label":"25-29","value":17161},{"label":"30-34","value":12785},{"label":"35-39","value":7056},{"label":"40-44","value":4703},{"label":"45-49","value":3481},{"label":"50-54","value":2925},{"label":"55-59","value":1960},{"label":"60-64","value":1229},{"label":"65-69","value":606},{"label":"70 y más","value":545}],"modalGroup":"25-29","approxMean":34.07935771004098}},{"year":2017,"provisional":false,"total":61320,"rate":3.329136261786076,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":344},{"label":"20-24","value":5209},{"label":"25-29","value":14123},{"label":"30-34","value":13447},{"label":"35-39","value":8820},{"label":"40-44","value":5506},{"label":"45-49","value":3937},{"label":"50-54","value":3141},{"label":"55-59","value":2392},{"label":"60-64","value":1802},{"label":"65-69","value":1191},{"label":"70 y más","value":1408}],"modalGroup":"25-29","approxMean":36.974478147423355},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":1121},{"label":"20-24","value":8189},{"label":"25-29","value":16368},{"label":"30-34","value":12664},{"label":"35-39","value":7296},{"label":"40-44","value":4767},{"label":"45-49","value":3619},{"label":"50-54","value":2910},{"label":"55-59","value":1952},{"label":"60-64","value":1247},{"label":"65-69","value":644},{"label":"70 y más","value":543}],"modalGroup":"25-29","approxMean":34.390084801043706}},{"year":2018,"provisional":false,"total":63187,"rate":3.36972082891922,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":276},{"label":"20-24","value":4882},{"label":"25-29","value":14140},{"label":"30-34","value":14493},{"label":"35-39","value":9361},{"label":"40-44","value":5797},{"label":"45-49","value":4038},{"label":"50-54","value":3163},{"label":"55-59","value":2516},{"label":"60-64","value":1826},{"label":"65-69","value":1279},{"label":"70 y más","value":1416}],"modalGroup":"30-34","approxMean":37.12811179514774},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":920},{"label":"20-24","value":7813},{"label":"25-29","value":16842},{"label":"30-34","value":13394},{"label":"35-39","value":7895},{"label":"40-44","value":4991},{"label":"45-49","value":3829},{"label":"50-54","value":2883},{"label":"55-59","value":2113},{"label":"60-64","value":1251},{"label":"65-69","value":665},{"label":"70 y más","value":591}],"modalGroup":"25-29","approxMean":34.6209505119724}},{"year":2019,"provisional":false,"total":61596,"rate":3.2237035473927755,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":235},{"label":"20-24","value":4190},{"label":"25-29","value":13191},{"label":"30-34","value":14416},{"label":"35-39","value":9441},{"label":"40-44","value":5839},{"label":"45-49","value":4124},{"label":"50-54","value":3110},{"label":"55-59","value":2522},{"label":"60-64","value":1821},{"label":"65-69","value":1313},{"label":"70 y más","value":1394}],"modalGroup":"30-34","approxMean":37.48201181894928},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":714},{"label":"20-24","value":7346},{"label":"25-29","value":15398},{"label":"30-34","value":13618},{"label":"35-39","value":8284},{"label":"40-44","value":4978},{"label":"45-49","value":3849},{"label":"50-54","value":2788},{"label":"55-59","value":2076},{"label":"60-64","value":1289},{"label":"65-69","value":674},{"label":"70 y más","value":582}],"modalGroup":"25-29","approxMean":34.93809662965128}},{"year":2020,"provisional":false,"total":37647,"rate":1.934751784713061,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":146},{"label":"20-24","value":2656},{"label":"25-29","value":8072},{"label":"30-34","value":8887},{"label":"35-39","value":5593},{"label":"40-44","value":3447},{"label":"45-49","value":2559},{"label":"50-54","value":1829},{"label":"55-59","value":1533},{"label":"60-64","value":1200},{"label":"65-69","value":837},{"label":"70 y más","value":888}],"modalGroup":"30-34","approxMean":37.50986798416873},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":487},{"label":"20-24","value":4190},{"label":"25-29","value":9383},{"label":"30-34","value":8510},{"label":"35-39","value":5079},{"label":"40-44","value":3011},{"label":"45-49","value":2404},{"label":"50-54","value":1751},{"label":"55-59","value":1247},{"label":"60-64","value":819},{"label":"65-69","value":406},{"label":"70 y más","value":360}],"modalGroup":"25-29","approxMean":35.04991101548596}},{"year":2021,"provisional":false,"total":53255,"rate":2.706271858080878,"menAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":141},{"label":"20-24","value":3023},{"label":"25-29","value":10320},{"label":"30-34","value":13315},{"label":"35-39","value":8709},{"label":"40-44","value":5273},{"label":"45-49","value":3774},{"label":"50-54","value":2622},{"label":"55-59","value":2250},{"label":"60-64","value":1593},{"label":"65-69","value":1114},{"label":"70 y más","value":1121}],"modalGroup":"30-34","approxMean":37.80696648202047},"womenAge":{"groups":[{"label":"Menores de 15","value":0},{"label":"15-19","value":439},{"label":"20-24","value":4871},{"label":"25-29","value":12536},{"label":"30-34","value":13225},{"label":"35-39","value":7750},{"label":"40-44","value":4610},{"label":"45-49","value":3358},{"label":"50-54","value":2438},{"label":"55-59","value":1840},{"label":"60-64","value":1120},{"label":"65-69","value":615},{"label":"70 y más","value":453}],"modalGroup":"30-34","approxMean":35.47854661534128}},{"year":2022,"provisional":true,"total":68482,"rate":3.4537046381021157,"menAge":null,"womenAge":null},{"year":2023,"provisional":true,"total":64285,"rate":3.2205479425290124,"menAge":null,"womenAge":null},{"year":2024,"provisional":true,"total":61119,"rate":3.0,"menAge":null,"womenAge":null}],"auc":[{"year":2017,"provisional":false,"total":6222,"rate":3.3779983399923297,"differentSex":4947,"sameSex":1275,"sameSexMen":613,"sameSexWomen":662},{"year":2018,"provisional":false,"total":7256,"rate":3.8695767063854682,"differentSex":5773,"sameSex":1483,"sameSexMen":743,"sameSexWomen":740},{"year":2019,"provisional":false,"total":8149,"rate":4.264880870138277,"differentSex":6555,"sameSex":1594,"sameSexMen":743,"sameSexWomen":851},{"year":2020,"provisional":false,"total":5328,"rate":2.7381617416928807,"differentSex":4216,"sameSex":1112,"sameSexMen":529,"sameSexWomen":583},{"year":2021,"provisional":false,"total":8661,"rate":4.401280736614118,"differentSex":6858,"sameSex":1803,"sameSexMen":814,"sameSexWomen":989},{"year":2022,"provisional":true,"total":8917,"rate":4.49704802107949,"differentSex":7908,"sameSex":1009,"sameSexMen":464,"sameSexWomen":545},{"year":2023,"provisional":true,"total":11745,"rate":5.88400646885016,"differentSex":10714,"sameSex":1031,"sameSexMen":493,"sameSexWomen":538},{"year":2024,"provisional":true,"total":16266,"rate":8.1,"differentSex":14688,"sameSex":1578,"sameSexMen":749,"sameSexWomen":829}]}
+{
+  "source": "series-vitales-1992-2025(p).xlsx",
+  "marriages": [
+    {
+      "year": 1992,
+      "provisional": false,
+      "total": 89370,
+      "rate": 6.5,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 1
+          },
+          {
+            "label": "15-19",
+            "value": 4038
+          },
+          {
+            "label": "20-24",
+            "value": 33194
+          },
+          {
+            "label": "25-29",
+            "value": 30227
+          },
+          {
+            "label": "30-34",
+            "value": 11805
+          },
+          {
+            "label": "35-39",
+            "value": 4245
+          },
+          {
+            "label": "40-44",
+            "value": 1903
+          },
+          {
+            "label": "45-49",
+            "value": 1085
+          },
+          {
+            "label": "50-54",
+            "value": 732
+          },
+          {
+            "label": "55-59",
+            "value": 554
+          },
+          {
+            "label": "60-64",
+            "value": 551
+          },
+          {
+            "label": "65-69",
+            "value": 377
+          },
+          {
+            "label": "70 y más",
+            "value": 658
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 27.49515497370482
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 343
+          },
+          {
+            "label": "15-19",
+            "value": 16501
+          },
+          {
+            "label": "20-24",
+            "value": 36345
+          },
+          {
+            "label": "25-29",
+            "value": 21332
+          },
+          {
+            "label": "30-34",
+            "value": 7853
+          },
+          {
+            "label": "35-39",
+            "value": 3166
+          },
+          {
+            "label": "40-44",
+            "value": 1414
+          },
+          {
+            "label": "45-49",
+            "value": 847
+          },
+          {
+            "label": "50-54",
+            "value": 526
+          },
+          {
+            "label": "55-59",
+            "value": 347
+          },
+          {
+            "label": "60-64",
+            "value": 341
+          },
+          {
+            "label": "65-69",
+            "value": 167
+          },
+          {
+            "label": "70 y más",
+            "value": 188
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 24.85740181268882
+      }
+    },
+    {
+      "year": 1993,
+      "provisional": false,
+      "total": 92821,
+      "rate": 6.6,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 5
+          },
+          {
+            "label": "15-19",
+            "value": 5093
+          },
+          {
+            "label": "20-24",
+            "value": 34986
+          },
+          {
+            "label": "25-29",
+            "value": 30216
+          },
+          {
+            "label": "30-34",
+            "value": 12341
+          },
+          {
+            "label": "35-39",
+            "value": 4315
+          },
+          {
+            "label": "40-44",
+            "value": 1862
+          },
+          {
+            "label": "45-49",
+            "value": 1099
+          },
+          {
+            "label": "50-54",
+            "value": 700
+          },
+          {
+            "label": "55-59",
+            "value": 543
+          },
+          {
+            "label": "60-64",
+            "value": 569
+          },
+          {
+            "label": "65-69",
+            "value": 425
+          },
+          {
+            "label": "70 y más",
+            "value": 667
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 27.318462416909966
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 351
+          },
+          {
+            "label": "15-19",
+            "value": 18320
+          },
+          {
+            "label": "20-24",
+            "value": 37632
+          },
+          {
+            "label": "25-29",
+            "value": 21176
+          },
+          {
+            "label": "30-34",
+            "value": 8102
+          },
+          {
+            "label": "35-39",
+            "value": 3222
+          },
+          {
+            "label": "40-44",
+            "value": 1445
+          },
+          {
+            "label": "45-49",
+            "value": 895
+          },
+          {
+            "label": "50-54",
+            "value": 582
+          },
+          {
+            "label": "55-59",
+            "value": 350
+          },
+          {
+            "label": "60-64",
+            "value": 330
+          },
+          {
+            "label": "65-69",
+            "value": 206
+          },
+          {
+            "label": "70 y más",
+            "value": 210
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 24.744820676355566
+      }
+    },
+    {
+      "year": 1994,
+      "provisional": false,
+      "total": 91555,
+      "rate": 6.4,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 7
+          },
+          {
+            "label": "15-19",
+            "value": 5274
+          },
+          {
+            "label": "20-24",
+            "value": 33785
+          },
+          {
+            "label": "25-29",
+            "value": 29244
+          },
+          {
+            "label": "30-34",
+            "value": 12570
+          },
+          {
+            "label": "35-39",
+            "value": 4610
+          },
+          {
+            "label": "40-44",
+            "value": 1971
+          },
+          {
+            "label": "45-49",
+            "value": 1122
+          },
+          {
+            "label": "50-54",
+            "value": 768
+          },
+          {
+            "label": "55-59",
+            "value": 515
+          },
+          {
+            "label": "60-64",
+            "value": 534
+          },
+          {
+            "label": "65-69",
+            "value": 465
+          },
+          {
+            "label": "70 y más",
+            "value": 690
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 27.460804980612746
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 374
+          },
+          {
+            "label": "15-19",
+            "value": 17884
+          },
+          {
+            "label": "20-24",
+            "value": 36431
+          },
+          {
+            "label": "25-29",
+            "value": 20715
+          },
+          {
+            "label": "30-34",
+            "value": 8549
+          },
+          {
+            "label": "35-39",
+            "value": 3388
+          },
+          {
+            "label": "40-44",
+            "value": 1549
+          },
+          {
+            "label": "45-49",
+            "value": 901
+          },
+          {
+            "label": "50-54",
+            "value": 625
+          },
+          {
+            "label": "55-59",
+            "value": 383
+          },
+          {
+            "label": "60-64",
+            "value": 320
+          },
+          {
+            "label": "65-69",
+            "value": 211
+          },
+          {
+            "label": "70 y más",
+            "value": 225
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 24.912762820162744
+      }
+    },
+    {
+      "year": 1995,
+      "provisional": false,
+      "total": 87205,
+      "rate": 6.1,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 1
+          },
+          {
+            "label": "15-19",
+            "value": 4399
+          },
+          {
+            "label": "20-24",
+            "value": 31780
+          },
+          {
+            "label": "25-29",
+            "value": 27945
+          },
+          {
+            "label": "30-34",
+            "value": 12582
+          },
+          {
+            "label": "35-39",
+            "value": 4632
+          },
+          {
+            "label": "40-44",
+            "value": 1959
+          },
+          {
+            "label": "45-49",
+            "value": 1068
+          },
+          {
+            "label": "50-54",
+            "value": 759
+          },
+          {
+            "label": "55-59",
+            "value": 537
+          },
+          {
+            "label": "60-64",
+            "value": 489
+          },
+          {
+            "label": "65-69",
+            "value": 438
+          },
+          {
+            "label": "70 y más",
+            "value": 616
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 27.625101771687405
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 317
+          },
+          {
+            "label": "15-19",
+            "value": 16433
+          },
+          {
+            "label": "20-24",
+            "value": 34276
+          },
+          {
+            "label": "25-29",
+            "value": 20231
+          },
+          {
+            "label": "30-34",
+            "value": 8288
+          },
+          {
+            "label": "35-39",
+            "value": 3450
+          },
+          {
+            "label": "40-44",
+            "value": 1579
+          },
+          {
+            "label": "45-49",
+            "value": 922
+          },
+          {
+            "label": "50-54",
+            "value": 622
+          },
+          {
+            "label": "55-59",
+            "value": 362
+          },
+          {
+            "label": "60-64",
+            "value": 295
+          },
+          {
+            "label": "65-69",
+            "value": 230
+          },
+          {
+            "label": "70 y más",
+            "value": 200
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 25.086910154234275
+      }
+    },
+    {
+      "year": 1996,
+      "provisional": false,
+      "total": 83547,
+      "rate": 5.7,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 1
+          },
+          {
+            "label": "15-19",
+            "value": 3955
+          },
+          {
+            "label": "20-24",
+            "value": 29264
+          },
+          {
+            "label": "25-29",
+            "value": 27073
+          },
+          {
+            "label": "30-34",
+            "value": 12490
+          },
+          {
+            "label": "35-39",
+            "value": 4688
+          },
+          {
+            "label": "40-44",
+            "value": 2062
+          },
+          {
+            "label": "45-49",
+            "value": 1072
+          },
+          {
+            "label": "50-54",
+            "value": 774
+          },
+          {
+            "label": "55-59",
+            "value": 584
+          },
+          {
+            "label": "60-64",
+            "value": 513
+          },
+          {
+            "label": "65-69",
+            "value": 444
+          },
+          {
+            "label": "70 y más",
+            "value": 627
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 27.917052676936336
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 328
+          },
+          {
+            "label": "15-19",
+            "value": 15209
+          },
+          {
+            "label": "20-24",
+            "value": 31843
+          },
+          {
+            "label": "25-29",
+            "value": 20106
+          },
+          {
+            "label": "30-34",
+            "value": 8247
+          },
+          {
+            "label": "35-39",
+            "value": 3535
+          },
+          {
+            "label": "40-44",
+            "value": 1585
+          },
+          {
+            "label": "45-49",
+            "value": 979
+          },
+          {
+            "label": "50-54",
+            "value": 585
+          },
+          {
+            "label": "55-59",
+            "value": 406
+          },
+          {
+            "label": "60-64",
+            "value": 282
+          },
+          {
+            "label": "65-69",
+            "value": 218
+          },
+          {
+            "label": "70 y más",
+            "value": 224
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 25.322453229918487
+      }
+    },
+    {
+      "year": 1997,
+      "provisional": false,
+      "total": 78077,
+      "rate": 5.3,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 1
+          },
+          {
+            "label": "15-19",
+            "value": 3477
+          },
+          {
+            "label": "20-24",
+            "value": 25943
+          },
+          {
+            "label": "25-29",
+            "value": 25978
+          },
+          {
+            "label": "30-34",
+            "value": 12296
+          },
+          {
+            "label": "35-39",
+            "value": 4527
+          },
+          {
+            "label": "40-44",
+            "value": 2055
+          },
+          {
+            "label": "45-49",
+            "value": 1068
+          },
+          {
+            "label": "50-54",
+            "value": 717
+          },
+          {
+            "label": "55-59",
+            "value": 552
+          },
+          {
+            "label": "60-64",
+            "value": 419
+          },
+          {
+            "label": "65-69",
+            "value": 418
+          },
+          {
+            "label": "70 y más",
+            "value": 626
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 28.13320183921001
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 259
+          },
+          {
+            "label": "15-19",
+            "value": 13392
+          },
+          {
+            "label": "20-24",
+            "value": 29120
+          },
+          {
+            "label": "25-29",
+            "value": 19932
+          },
+          {
+            "label": "30-34",
+            "value": 7860
+          },
+          {
+            "label": "35-39",
+            "value": 3424
+          },
+          {
+            "label": "40-44",
+            "value": 1579
+          },
+          {
+            "label": "45-49",
+            "value": 842
+          },
+          {
+            "label": "50-54",
+            "value": 596
+          },
+          {
+            "label": "55-59",
+            "value": 378
+          },
+          {
+            "label": "60-64",
+            "value": 277
+          },
+          {
+            "label": "65-69",
+            "value": 203
+          },
+          {
+            "label": "70 y más",
+            "value": 215
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 25.525916723234754
+      }
+    },
+    {
+      "year": 1998,
+      "provisional": false,
+      "total": 73456,
+      "rate": 4.9,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 1
+          },
+          {
+            "label": "15-19",
+            "value": 3076
+          },
+          {
+            "label": "20-24",
+            "value": 22874
+          },
+          {
+            "label": "25-29",
+            "value": 24867
+          },
+          {
+            "label": "30-34",
+            "value": 11977
+          },
+          {
+            "label": "35-39",
+            "value": 4784
+          },
+          {
+            "label": "40-44",
+            "value": 2100
+          },
+          {
+            "label": "45-49",
+            "value": 1037
+          },
+          {
+            "label": "50-54",
+            "value": 703
+          },
+          {
+            "label": "55-59",
+            "value": 557
+          },
+          {
+            "label": "60-64",
+            "value": 437
+          },
+          {
+            "label": "65-69",
+            "value": 417
+          },
+          {
+            "label": "70 y más",
+            "value": 626
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 28.487312132433022
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 210
+          },
+          {
+            "label": "15-19",
+            "value": 12042
+          },
+          {
+            "label": "20-24",
+            "value": 26043
+          },
+          {
+            "label": "25-29",
+            "value": 19772
+          },
+          {
+            "label": "30-34",
+            "value": 7832
+          },
+          {
+            "label": "35-39",
+            "value": 3468
+          },
+          {
+            "label": "40-44",
+            "value": 1558
+          },
+          {
+            "label": "45-49",
+            "value": 898
+          },
+          {
+            "label": "50-54",
+            "value": 573
+          },
+          {
+            "label": "55-59",
+            "value": 384
+          },
+          {
+            "label": "60-64",
+            "value": 288
+          },
+          {
+            "label": "65-69",
+            "value": 210
+          },
+          {
+            "label": "70 y más",
+            "value": 178
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 25.831137007187976
+      }
+    },
+    {
+      "year": 1999,
+      "provisional": false,
+      "total": 69765,
+      "rate": 4.6,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 2
+          },
+          {
+            "label": "15-19",
+            "value": 2687
+          },
+          {
+            "label": "20-24",
+            "value": 20200
+          },
+          {
+            "label": "25-29",
+            "value": 24430
+          },
+          {
+            "label": "30-34",
+            "value": 11648
+          },
+          {
+            "label": "35-39",
+            "value": 4748
+          },
+          {
+            "label": "40-44",
+            "value": 2165
+          },
+          {
+            "label": "45-49",
+            "value": 1067
+          },
+          {
+            "label": "50-54",
+            "value": 743
+          },
+          {
+            "label": "55-59",
+            "value": 547
+          },
+          {
+            "label": "60-64",
+            "value": 443
+          },
+          {
+            "label": "65-69",
+            "value": 417
+          },
+          {
+            "label": "70 y más",
+            "value": 668
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 28.847186984877805
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 178
+          },
+          {
+            "label": "15-19",
+            "value": 10607
+          },
+          {
+            "label": "20-24",
+            "value": 23817
+          },
+          {
+            "label": "25-29",
+            "value": 19675
+          },
+          {
+            "label": "30-34",
+            "value": 7712
+          },
+          {
+            "label": "35-39",
+            "value": 3493
+          },
+          {
+            "label": "40-44",
+            "value": 1670
+          },
+          {
+            "label": "45-49",
+            "value": 905
+          },
+          {
+            "label": "50-54",
+            "value": 603
+          },
+          {
+            "label": "55-59",
+            "value": 414
+          },
+          {
+            "label": "60-64",
+            "value": 291
+          },
+          {
+            "label": "65-69",
+            "value": 184
+          },
+          {
+            "label": "70 y más",
+            "value": 216
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 26.19631620440049
+      }
+    },
+    {
+      "year": 2000,
+      "provisional": false,
+      "total": 66607,
+      "rate": 4.3,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 1
+          },
+          {
+            "label": "15-19",
+            "value": 2570
+          },
+          {
+            "label": "20-24",
+            "value": 18264
+          },
+          {
+            "label": "25-29",
+            "value": 23733
+          },
+          {
+            "label": "30-34",
+            "value": 11364
+          },
+          {
+            "label": "35-39",
+            "value": 4857
+          },
+          {
+            "label": "40-44",
+            "value": 2087
+          },
+          {
+            "label": "45-49",
+            "value": 1081
+          },
+          {
+            "label": "50-54",
+            "value": 710
+          },
+          {
+            "label": "55-59",
+            "value": 526
+          },
+          {
+            "label": "60-64",
+            "value": 398
+          },
+          {
+            "label": "65-69",
+            "value": 369
+          },
+          {
+            "label": "70 y más",
+            "value": 647
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 28.991036978095394
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 159
+          },
+          {
+            "label": "15-19",
+            "value": 9706
+          },
+          {
+            "label": "20-24",
+            "value": 22226
+          },
+          {
+            "label": "25-29",
+            "value": 19255
+          },
+          {
+            "label": "30-34",
+            "value": 7691
+          },
+          {
+            "label": "35-39",
+            "value": 3346
+          },
+          {
+            "label": "40-44",
+            "value": 1662
+          },
+          {
+            "label": "45-49",
+            "value": 929
+          },
+          {
+            "label": "50-54",
+            "value": 583
+          },
+          {
+            "label": "55-59",
+            "value": 368
+          },
+          {
+            "label": "60-64",
+            "value": 294
+          },
+          {
+            "label": "65-69",
+            "value": 182
+          },
+          {
+            "label": "70 y más",
+            "value": 206
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 26.363775579143333
+      }
+    },
+    {
+      "year": 2001,
+      "provisional": false,
+      "total": 64088,
+      "rate": 4.1,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 2262
+          },
+          {
+            "label": "20-24",
+            "value": 16638
+          },
+          {
+            "label": "25-29",
+            "value": 22788
+          },
+          {
+            "label": "30-34",
+            "value": 11571
+          },
+          {
+            "label": "35-39",
+            "value": 4920
+          },
+          {
+            "label": "40-44",
+            "value": 2129
+          },
+          {
+            "label": "45-49",
+            "value": 1071
+          },
+          {
+            "label": "50-54",
+            "value": 708
+          },
+          {
+            "label": "55-59",
+            "value": 506
+          },
+          {
+            "label": "60-64",
+            "value": 419
+          },
+          {
+            "label": "65-69",
+            "value": 389
+          },
+          {
+            "label": "70 y más",
+            "value": 687
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 29.31899887654475
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 94
+          },
+          {
+            "label": "15-19",
+            "value": 8781
+          },
+          {
+            "label": "20-24",
+            "value": 20837
+          },
+          {
+            "label": "25-29",
+            "value": 18679
+          },
+          {
+            "label": "30-34",
+            "value": 7916
+          },
+          {
+            "label": "35-39",
+            "value": 3458
+          },
+          {
+            "label": "40-44",
+            "value": 1674
+          },
+          {
+            "label": "45-49",
+            "value": 970
+          },
+          {
+            "label": "50-54",
+            "value": 612
+          },
+          {
+            "label": "55-59",
+            "value": 400
+          },
+          {
+            "label": "60-64",
+            "value": 264
+          },
+          {
+            "label": "65-69",
+            "value": 185
+          },
+          {
+            "label": "70 y más",
+            "value": 218
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 26.675493072025965
+      }
+    },
+    {
+      "year": 2002,
+      "provisional": false,
+      "total": 60971,
+      "rate": 3.9,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1757
+          },
+          {
+            "label": "20-24",
+            "value": 14876
+          },
+          {
+            "label": "25-29",
+            "value": 21636
+          },
+          {
+            "label": "30-34",
+            "value": 11669
+          },
+          {
+            "label": "35-39",
+            "value": 4797
+          },
+          {
+            "label": "40-44",
+            "value": 2209
+          },
+          {
+            "label": "45-49",
+            "value": 1151
+          },
+          {
+            "label": "50-54",
+            "value": 758
+          },
+          {
+            "label": "55-59",
+            "value": 550
+          },
+          {
+            "label": "60-64",
+            "value": 442
+          },
+          {
+            "label": "65-69",
+            "value": 375
+          },
+          {
+            "label": "70 y más",
+            "value": 751
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 29.792065080120057
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 91
+          },
+          {
+            "label": "15-19",
+            "value": 7169
+          },
+          {
+            "label": "20-24",
+            "value": 19574
+          },
+          {
+            "label": "25-29",
+            "value": 18399
+          },
+          {
+            "label": "30-34",
+            "value": 7767
+          },
+          {
+            "label": "35-39",
+            "value": 3365
+          },
+          {
+            "label": "40-44",
+            "value": 1806
+          },
+          {
+            "label": "45-49",
+            "value": 972
+          },
+          {
+            "label": "50-54",
+            "value": 671
+          },
+          {
+            "label": "55-59",
+            "value": 441
+          },
+          {
+            "label": "60-64",
+            "value": 297
+          },
+          {
+            "label": "65-69",
+            "value": 193
+          },
+          {
+            "label": "70 y más",
+            "value": 226
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 27.107624936445195
+      }
+    },
+    {
+      "year": 2003,
+      "provisional": false,
+      "total": 56659,
+      "rate": 3.6,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1445
+          },
+          {
+            "label": "20-24",
+            "value": 13323
+          },
+          {
+            "label": "25-29",
+            "value": 19540
+          },
+          {
+            "label": "30-34",
+            "value": 11520
+          },
+          {
+            "label": "35-39",
+            "value": 4615
+          },
+          {
+            "label": "40-44",
+            "value": 2199
+          },
+          {
+            "label": "45-49",
+            "value": 1210
+          },
+          {
+            "label": "50-54",
+            "value": 717
+          },
+          {
+            "label": "55-59",
+            "value": 543
+          },
+          {
+            "label": "60-64",
+            "value": 463
+          },
+          {
+            "label": "65-69",
+            "value": 361
+          },
+          {
+            "label": "70 y más",
+            "value": 723
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 30.128629167475598
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 66
+          },
+          {
+            "label": "15-19",
+            "value": 5905
+          },
+          {
+            "label": "20-24",
+            "value": 18150
+          },
+          {
+            "label": "25-29",
+            "value": 17082
+          },
+          {
+            "label": "30-34",
+            "value": 7735
+          },
+          {
+            "label": "35-39",
+            "value": 3191
+          },
+          {
+            "label": "40-44",
+            "value": 1723
+          },
+          {
+            "label": "45-49",
+            "value": 1037
+          },
+          {
+            "label": "50-54",
+            "value": 590
+          },
+          {
+            "label": "55-59",
+            "value": 455
+          },
+          {
+            "label": "60-64",
+            "value": 308
+          },
+          {
+            "label": "65-69",
+            "value": 188
+          },
+          {
+            "label": "70 y más",
+            "value": 229
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 27.415062037805114
+      }
+    },
+    {
+      "year": 2004,
+      "provisional": false,
+      "total": 53403,
+      "rate": 3.3,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1205
+          },
+          {
+            "label": "20-24",
+            "value": 12004
+          },
+          {
+            "label": "25-29",
+            "value": 18145
+          },
+          {
+            "label": "30-34",
+            "value": 11399
+          },
+          {
+            "label": "35-39",
+            "value": 4618
+          },
+          {
+            "label": "40-44",
+            "value": 2140
+          },
+          {
+            "label": "45-49",
+            "value": 1170
+          },
+          {
+            "label": "50-54",
+            "value": 693
+          },
+          {
+            "label": "55-59",
+            "value": 576
+          },
+          {
+            "label": "60-64",
+            "value": 419
+          },
+          {
+            "label": "65-69",
+            "value": 344
+          },
+          {
+            "label": "70 y más",
+            "value": 690
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 30.383424152201187
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 44
+          },
+          {
+            "label": "15-19",
+            "value": 5009
+          },
+          {
+            "label": "20-24",
+            "value": 16785
+          },
+          {
+            "label": "25-29",
+            "value": 16354
+          },
+          {
+            "label": "30-34",
+            "value": 7803
+          },
+          {
+            "label": "35-39",
+            "value": 3048
+          },
+          {
+            "label": "40-44",
+            "value": 1621
+          },
+          {
+            "label": "45-49",
+            "value": 1038
+          },
+          {
+            "label": "50-54",
+            "value": 633
+          },
+          {
+            "label": "55-59",
+            "value": 392
+          },
+          {
+            "label": "60-64",
+            "value": 297
+          },
+          {
+            "label": "65-69",
+            "value": 197
+          },
+          {
+            "label": "70 y más",
+            "value": 182
+          }
+        ],
+        "modalGroup": "20-24",
+        "approxMean": 27.637286294777446
+      }
+    },
+    {
+      "year": 2005,
+      "provisional": false,
+      "total": 53842,
+      "rate": 3.3,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1075
+          },
+          {
+            "label": "20-24",
+            "value": 11486
+          },
+          {
+            "label": "25-29",
+            "value": 18326
+          },
+          {
+            "label": "30-34",
+            "value": 11898
+          },
+          {
+            "label": "35-39",
+            "value": 4775
+          },
+          {
+            "label": "40-44",
+            "value": 2335
+          },
+          {
+            "label": "45-49",
+            "value": 1205
+          },
+          {
+            "label": "50-54",
+            "value": 673
+          },
+          {
+            "label": "55-59",
+            "value": 542
+          },
+          {
+            "label": "60-64",
+            "value": 443
+          },
+          {
+            "label": "65-69",
+            "value": 354
+          },
+          {
+            "label": "70 y más",
+            "value": 730
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 30.599141933806322
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 1
+          },
+          {
+            "label": "15-19",
+            "value": 4690
+          },
+          {
+            "label": "20-24",
+            "value": 16227
+          },
+          {
+            "label": "25-29",
+            "value": 16893
+          },
+          {
+            "label": "30-34",
+            "value": 8262
+          },
+          {
+            "label": "35-39",
+            "value": 3340
+          },
+          {
+            "label": "40-44",
+            "value": 1600
+          },
+          {
+            "label": "45-49",
+            "value": 1030
+          },
+          {
+            "label": "50-54",
+            "value": 629
+          },
+          {
+            "label": "55-59",
+            "value": 431
+          },
+          {
+            "label": "60-64",
+            "value": 306
+          },
+          {
+            "label": "65-69",
+            "value": 196
+          },
+          {
+            "label": "70 y más",
+            "value": 237
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 27.91252182311207
+      }
+    },
+    {
+      "year": 2006,
+      "provisional": false,
+      "total": 58155,
+      "rate": 3.6,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1152
+          },
+          {
+            "label": "20-24",
+            "value": 11884
+          },
+          {
+            "label": "25-29",
+            "value": 19373
+          },
+          {
+            "label": "30-34",
+            "value": 12702
+          },
+          {
+            "label": "35-39",
+            "value": 5946
+          },
+          {
+            "label": "40-44",
+            "value": 2402
+          },
+          {
+            "label": "45-49",
+            "value": 1378
+          },
+          {
+            "label": "50-54",
+            "value": 871
+          },
+          {
+            "label": "55-59",
+            "value": 649
+          },
+          {
+            "label": "60-64",
+            "value": 528
+          },
+          {
+            "label": "65-69",
+            "value": 436
+          },
+          {
+            "label": "70 y más",
+            "value": 834
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 30.960364543031552
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 4523
+          },
+          {
+            "label": "20-24",
+            "value": 16875
+          },
+          {
+            "label": "25-29",
+            "value": 18348
+          },
+          {
+            "label": "30-34",
+            "value": 8929
+          },
+          {
+            "label": "35-39",
+            "value": 4297
+          },
+          {
+            "label": "40-44",
+            "value": 1882
+          },
+          {
+            "label": "45-49",
+            "value": 1159
+          },
+          {
+            "label": "50-54",
+            "value": 800
+          },
+          {
+            "label": "55-59",
+            "value": 502
+          },
+          {
+            "label": "60-64",
+            "value": 355
+          },
+          {
+            "label": "65-69",
+            "value": 239
+          },
+          {
+            "label": "70 y más",
+            "value": 246
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 28.33324735620325
+      }
+    },
+    {
+      "year": 2007,
+      "provisional": false,
+      "total": 57792,
+      "rate": 3.5,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1099
+          },
+          {
+            "label": "20-24",
+            "value": 10867
+          },
+          {
+            "label": "25-29",
+            "value": 19267
+          },
+          {
+            "label": "30-34",
+            "value": 12739
+          },
+          {
+            "label": "35-39",
+            "value": 5488
+          },
+          {
+            "label": "40-44",
+            "value": 2747
+          },
+          {
+            "label": "45-49",
+            "value": 1582
+          },
+          {
+            "label": "50-54",
+            "value": 1047
+          },
+          {
+            "label": "55-59",
+            "value": 823
+          },
+          {
+            "label": "60-64",
+            "value": 660
+          },
+          {
+            "label": "65-69",
+            "value": 552
+          },
+          {
+            "label": "70 y más",
+            "value": 921
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 31.5609253875969
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 4186
+          },
+          {
+            "label": "20-24",
+            "value": 15611
+          },
+          {
+            "label": "25-29",
+            "value": 18878
+          },
+          {
+            "label": "30-34",
+            "value": 9111
+          },
+          {
+            "label": "35-39",
+            "value": 3793
+          },
+          {
+            "label": "40-44",
+            "value": 2037
+          },
+          {
+            "label": "45-49",
+            "value": 1483
+          },
+          {
+            "label": "50-54",
+            "value": 1024
+          },
+          {
+            "label": "55-59",
+            "value": 672
+          },
+          {
+            "label": "60-64",
+            "value": 450
+          },
+          {
+            "label": "65-69",
+            "value": 299
+          },
+          {
+            "label": "70 y más",
+            "value": 248
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 28.87595168881506
+      }
+    },
+    {
+      "year": 2008,
+      "provisional": false,
+      "total": 56112,
+      "rate": 3.4,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1011
+          },
+          {
+            "label": "20-24",
+            "value": 9803
+          },
+          {
+            "label": "25-29",
+            "value": 18500
+          },
+          {
+            "label": "30-34",
+            "value": 12338
+          },
+          {
+            "label": "35-39",
+            "value": 5684
+          },
+          {
+            "label": "40-44",
+            "value": 2873
+          },
+          {
+            "label": "45-49",
+            "value": 1671
+          },
+          {
+            "label": "50-54",
+            "value": 1138
+          },
+          {
+            "label": "55-59",
+            "value": 882
+          },
+          {
+            "label": "60-64",
+            "value": 734
+          },
+          {
+            "label": "65-69",
+            "value": 522
+          },
+          {
+            "label": "70 y más",
+            "value": 956
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 31.99750499001996
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 3615
+          },
+          {
+            "label": "20-24",
+            "value": 14286
+          },
+          {
+            "label": "25-29",
+            "value": 18567
+          },
+          {
+            "label": "30-34",
+            "value": 9133
+          },
+          {
+            "label": "35-39",
+            "value": 3957
+          },
+          {
+            "label": "40-44",
+            "value": 2160
+          },
+          {
+            "label": "45-49",
+            "value": 1583
+          },
+          {
+            "label": "50-54",
+            "value": 1101
+          },
+          {
+            "label": "55-59",
+            "value": 709
+          },
+          {
+            "label": "60-64",
+            "value": 467
+          },
+          {
+            "label": "65-69",
+            "value": 250
+          },
+          {
+            "label": "70 y más",
+            "value": 284
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 29.31029013401768
+      }
+    },
+    {
+      "year": 2009,
+      "provisional": false,
+      "total": 56127,
+      "rate": 3.3,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 937
+          },
+          {
+            "label": "20-24",
+            "value": 8619
+          },
+          {
+            "label": "25-29",
+            "value": 17060
+          },
+          {
+            "label": "30-34",
+            "value": 12015
+          },
+          {
+            "label": "35-39",
+            "value": 6021
+          },
+          {
+            "label": "40-44",
+            "value": 3224
+          },
+          {
+            "label": "45-49",
+            "value": 2211
+          },
+          {
+            "label": "50-54",
+            "value": 1647
+          },
+          {
+            "label": "55-59",
+            "value": 1325
+          },
+          {
+            "label": "60-64",
+            "value": 1030
+          },
+          {
+            "label": "65-69",
+            "value": 815
+          },
+          {
+            "label": "70 y más",
+            "value": 1223
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 33.50328718798439
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 3080
+          },
+          {
+            "label": "20-24",
+            "value": 12904
+          },
+          {
+            "label": "25-29",
+            "value": 17284
+          },
+          {
+            "label": "30-34",
+            "value": 9306
+          },
+          {
+            "label": "35-39",
+            "value": 4651
+          },
+          {
+            "label": "40-44",
+            "value": 2658
+          },
+          {
+            "label": "45-49",
+            "value": 2184
+          },
+          {
+            "label": "50-54",
+            "value": 1603
+          },
+          {
+            "label": "55-59",
+            "value": 1073
+          },
+          {
+            "label": "60-64",
+            "value": 625
+          },
+          {
+            "label": "65-69",
+            "value": 402
+          },
+          {
+            "label": "70 y más",
+            "value": 357
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 30.697952856913783
+      }
+    },
+    {
+      "year": 2010,
+      "provisional": false,
+      "total": 60362,
+      "rate": 3.5,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 759
+          },
+          {
+            "label": "20-24",
+            "value": 8605
+          },
+          {
+            "label": "25-29",
+            "value": 17040
+          },
+          {
+            "label": "30-34",
+            "value": 12783
+          },
+          {
+            "label": "35-39",
+            "value": 7234
+          },
+          {
+            "label": "40-44",
+            "value": 3956
+          },
+          {
+            "label": "45-49",
+            "value": 2799
+          },
+          {
+            "label": "50-54",
+            "value": 2104
+          },
+          {
+            "label": "55-59",
+            "value": 1594
+          },
+          {
+            "label": "60-64",
+            "value": 1240
+          },
+          {
+            "label": "65-69",
+            "value": 949
+          },
+          {
+            "label": "70 y más",
+            "value": 1299
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 34.309151452900835
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 2709
+          },
+          {
+            "label": "20-24",
+            "value": 12721
+          },
+          {
+            "label": "25-29",
+            "value": 18168
+          },
+          {
+            "label": "30-34",
+            "value": 10331
+          },
+          {
+            "label": "35-39",
+            "value": 5583
+          },
+          {
+            "label": "40-44",
+            "value": 3296
+          },
+          {
+            "label": "45-49",
+            "value": 2755
+          },
+          {
+            "label": "50-54",
+            "value": 1964
+          },
+          {
+            "label": "55-59",
+            "value": 1233
+          },
+          {
+            "label": "60-64",
+            "value": 798
+          },
+          {
+            "label": "65-69",
+            "value": 427
+          },
+          {
+            "label": "70 y más",
+            "value": 377
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 31.46298996057122
+      }
+    },
+    {
+      "year": 2011,
+      "provisional": false,
+      "total": 64768,
+      "rate": 3.8,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 446
+          },
+          {
+            "label": "20-24",
+            "value": 7736
+          },
+          {
+            "label": "25-29",
+            "value": 17155
+          },
+          {
+            "label": "30-34",
+            "value": 14945
+          },
+          {
+            "label": "35-39",
+            "value": 8437
+          },
+          {
+            "label": "40-44",
+            "value": 4768
+          },
+          {
+            "label": "45-49",
+            "value": 3270
+          },
+          {
+            "label": "50-54",
+            "value": 2421
+          },
+          {
+            "label": "55-59",
+            "value": 1824
+          },
+          {
+            "label": "60-64",
+            "value": 1412
+          },
+          {
+            "label": "65-69",
+            "value": 1002
+          },
+          {
+            "label": "70 y más",
+            "value": 1352
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 35.00487895256917
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1884
+          },
+          {
+            "label": "20-24",
+            "value": 12013
+          },
+          {
+            "label": "25-29",
+            "value": 19085
+          },
+          {
+            "label": "30-34",
+            "value": 12679
+          },
+          {
+            "label": "35-39",
+            "value": 6714
+          },
+          {
+            "label": "40-44",
+            "value": 3876
+          },
+          {
+            "label": "45-49",
+            "value": 2954
+          },
+          {
+            "label": "50-54",
+            "value": 2293
+          },
+          {
+            "label": "55-59",
+            "value": 1463
+          },
+          {
+            "label": "60-64",
+            "value": 891
+          },
+          {
+            "label": "65-69",
+            "value": 478
+          },
+          {
+            "label": "70 y más",
+            "value": 438
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 32.25074110671937
+      }
+    },
+    {
+      "year": 2012,
+      "provisional": false,
+      "total": 63736,
+      "rate": 3.7,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 673
+          },
+          {
+            "label": "20-24",
+            "value": 8245
+          },
+          {
+            "label": "25-29",
+            "value": 16431
+          },
+          {
+            "label": "30-34",
+            "value": 14022
+          },
+          {
+            "label": "35-39",
+            "value": 8079
+          },
+          {
+            "label": "40-44",
+            "value": 4645
+          },
+          {
+            "label": "45-49",
+            "value": 3438
+          },
+          {
+            "label": "50-54",
+            "value": 2593
+          },
+          {
+            "label": "55-59",
+            "value": 1979
+          },
+          {
+            "label": "60-64",
+            "value": 1428
+          },
+          {
+            "label": "65-69",
+            "value": 951
+          },
+          {
+            "label": "70 y más",
+            "value": 1252
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 35.00073741684449
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 2374
+          },
+          {
+            "label": "20-24",
+            "value": 12098
+          },
+          {
+            "label": "25-29",
+            "value": 18087
+          },
+          {
+            "label": "30-34",
+            "value": 12004
+          },
+          {
+            "label": "35-39",
+            "value": 6392
+          },
+          {
+            "label": "40-44",
+            "value": 4013
+          },
+          {
+            "label": "45-49",
+            "value": 3101
+          },
+          {
+            "label": "50-54",
+            "value": 2313
+          },
+          {
+            "label": "55-59",
+            "value": 1571
+          },
+          {
+            "label": "60-64",
+            "value": 873
+          },
+          {
+            "label": "65-69",
+            "value": 500
+          },
+          {
+            "label": "70 y más",
+            "value": 410
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 32.26994163424124
+      }
+    },
+    {
+      "year": 2013,
+      "provisional": false,
+      "total": 61446,
+      "rate": 3.5,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 601
+          },
+          {
+            "label": "20-24",
+            "value": 7339
+          },
+          {
+            "label": "25-29",
+            "value": 15418
+          },
+          {
+            "label": "30-34",
+            "value": 13921
+          },
+          {
+            "label": "35-39",
+            "value": 7886
+          },
+          {
+            "label": "40-44",
+            "value": 4758
+          },
+          {
+            "label": "45-49",
+            "value": 3436
+          },
+          {
+            "label": "50-54",
+            "value": 2611
+          },
+          {
+            "label": "55-59",
+            "value": 1842
+          },
+          {
+            "label": "60-64",
+            "value": 1428
+          },
+          {
+            "label": "65-69",
+            "value": 1007
+          },
+          {
+            "label": "70 y más",
+            "value": 1199
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 35.30973537740455
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1912
+          },
+          {
+            "label": "20-24",
+            "value": 10998
+          },
+          {
+            "label": "25-29",
+            "value": 17115
+          },
+          {
+            "label": "30-34",
+            "value": 12242
+          },
+          {
+            "label": "35-39",
+            "value": 6399
+          },
+          {
+            "label": "40-44",
+            "value": 4047
+          },
+          {
+            "label": "45-49",
+            "value": 3061
+          },
+          {
+            "label": "50-54",
+            "value": 2358
+          },
+          {
+            "label": "55-59",
+            "value": 1557
+          },
+          {
+            "label": "60-64",
+            "value": 879
+          },
+          {
+            "label": "65-69",
+            "value": 476
+          },
+          {
+            "label": "70 y más",
+            "value": 402
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 32.64023695602643
+      }
+    },
+    {
+      "year": 2014,
+      "provisional": false,
+      "total": 64868,
+      "rate": 3.7,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 485
+          },
+          {
+            "label": "20-24",
+            "value": 7203
+          },
+          {
+            "label": "25-29",
+            "value": 16059
+          },
+          {
+            "label": "30-34",
+            "value": 14342
+          },
+          {
+            "label": "35-39",
+            "value": 8471
+          },
+          {
+            "label": "40-44",
+            "value": 5292
+          },
+          {
+            "label": "45-49",
+            "value": 3611
+          },
+          {
+            "label": "50-54",
+            "value": 2959
+          },
+          {
+            "label": "55-59",
+            "value": 2243
+          },
+          {
+            "label": "60-64",
+            "value": 1736
+          },
+          {
+            "label": "65-69",
+            "value": 1091
+          },
+          {
+            "label": "70 y más",
+            "value": 1376
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 35.86014675957329
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1670
+          },
+          {
+            "label": "20-24",
+            "value": 10588
+          },
+          {
+            "label": "25-29",
+            "value": 18341
+          },
+          {
+            "label": "30-34",
+            "value": 12968
+          },
+          {
+            "label": "35-39",
+            "value": 6781
+          },
+          {
+            "label": "40-44",
+            "value": 4480
+          },
+          {
+            "label": "45-49",
+            "value": 3376
+          },
+          {
+            "label": "50-54",
+            "value": 2748
+          },
+          {
+            "label": "55-59",
+            "value": 1745
+          },
+          {
+            "label": "60-64",
+            "value": 1134
+          },
+          {
+            "label": "65-69",
+            "value": 589
+          },
+          {
+            "label": "70 y más",
+            "value": 448
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 33.20012949374114
+      }
+    },
+    {
+      "year": 2015,
+      "provisional": false,
+      "total": 61744,
+      "rate": 3.4,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 384
+          },
+          {
+            "label": "20-24",
+            "value": 6368
+          },
+          {
+            "label": "25-29",
+            "value": 15277
+          },
+          {
+            "label": "30-34",
+            "value": 14014
+          },
+          {
+            "label": "35-39",
+            "value": 8094
+          },
+          {
+            "label": "40-44",
+            "value": 5221
+          },
+          {
+            "label": "45-49",
+            "value": 3534
+          },
+          {
+            "label": "50-54",
+            "value": 2821
+          },
+          {
+            "label": "55-59",
+            "value": 2137
+          },
+          {
+            "label": "60-64",
+            "value": 1543
+          },
+          {
+            "label": "65-69",
+            "value": 1117
+          },
+          {
+            "label": "70 y más",
+            "value": 1234
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 35.959170121793214
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1423
+          },
+          {
+            "label": "20-24",
+            "value": 9550
+          },
+          {
+            "label": "25-29",
+            "value": 17368
+          },
+          {
+            "label": "30-34",
+            "value": 12639
+          },
+          {
+            "label": "35-39",
+            "value": 6703
+          },
+          {
+            "label": "40-44",
+            "value": 4430
+          },
+          {
+            "label": "45-49",
+            "value": 3382
+          },
+          {
+            "label": "50-54",
+            "value": 2529
+          },
+          {
+            "label": "55-59",
+            "value": 1696
+          },
+          {
+            "label": "60-64",
+            "value": 1013
+          },
+          {
+            "label": "65-69",
+            "value": 548
+          },
+          {
+            "label": "70 y más",
+            "value": 463
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 33.39171417465665
+      }
+    },
+    {
+      "year": 2016,
+      "provisional": false,
+      "total": 62464,
+      "rate": 3.4,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 349
+          },
+          {
+            "label": "20-24",
+            "value": 5741
+          },
+          {
+            "label": "25-29",
+            "value": 14963
+          },
+          {
+            "label": "30-34",
+            "value": 13908
+          },
+          {
+            "label": "35-39",
+            "value": 8289
+          },
+          {
+            "label": "40-44",
+            "value": 5450
+          },
+          {
+            "label": "45-49",
+            "value": 3804
+          },
+          {
+            "label": "50-54",
+            "value": 3076
+          },
+          {
+            "label": "55-59",
+            "value": 2336
+          },
+          {
+            "label": "60-64",
+            "value": 1818
+          },
+          {
+            "label": "65-69",
+            "value": 1220
+          },
+          {
+            "label": "70 y más",
+            "value": 1510
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 36.6923828125
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1217
+          },
+          {
+            "label": "20-24",
+            "value": 8796
+          },
+          {
+            "label": "25-29",
+            "value": 17161
+          },
+          {
+            "label": "30-34",
+            "value": 12785
+          },
+          {
+            "label": "35-39",
+            "value": 7056
+          },
+          {
+            "label": "40-44",
+            "value": 4703
+          },
+          {
+            "label": "45-49",
+            "value": 3481
+          },
+          {
+            "label": "50-54",
+            "value": 2925
+          },
+          {
+            "label": "55-59",
+            "value": 1960
+          },
+          {
+            "label": "60-64",
+            "value": 1229
+          },
+          {
+            "label": "65-69",
+            "value": 606
+          },
+          {
+            "label": "70 y más",
+            "value": 545
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 34.07935771004098
+      }
+    },
+    {
+      "year": 2017,
+      "provisional": false,
+      "total": 61320,
+      "rate": 3.3,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 344
+          },
+          {
+            "label": "20-24",
+            "value": 5209
+          },
+          {
+            "label": "25-29",
+            "value": 14123
+          },
+          {
+            "label": "30-34",
+            "value": 13447
+          },
+          {
+            "label": "35-39",
+            "value": 8820
+          },
+          {
+            "label": "40-44",
+            "value": 5506
+          },
+          {
+            "label": "45-49",
+            "value": 3937
+          },
+          {
+            "label": "50-54",
+            "value": 3141
+          },
+          {
+            "label": "55-59",
+            "value": 2392
+          },
+          {
+            "label": "60-64",
+            "value": 1802
+          },
+          {
+            "label": "65-69",
+            "value": 1191
+          },
+          {
+            "label": "70 y más",
+            "value": 1408
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 36.974478147423355
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 1121
+          },
+          {
+            "label": "20-24",
+            "value": 8189
+          },
+          {
+            "label": "25-29",
+            "value": 16368
+          },
+          {
+            "label": "30-34",
+            "value": 12664
+          },
+          {
+            "label": "35-39",
+            "value": 7296
+          },
+          {
+            "label": "40-44",
+            "value": 4767
+          },
+          {
+            "label": "45-49",
+            "value": 3619
+          },
+          {
+            "label": "50-54",
+            "value": 2910
+          },
+          {
+            "label": "55-59",
+            "value": 1952
+          },
+          {
+            "label": "60-64",
+            "value": 1247
+          },
+          {
+            "label": "65-69",
+            "value": 644
+          },
+          {
+            "label": "70 y más",
+            "value": 543
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 34.390084801043706
+      }
+    },
+    {
+      "year": 2018,
+      "provisional": false,
+      "total": 63187,
+      "rate": 3.4,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 276
+          },
+          {
+            "label": "20-24",
+            "value": 4882
+          },
+          {
+            "label": "25-29",
+            "value": 14140
+          },
+          {
+            "label": "30-34",
+            "value": 14493
+          },
+          {
+            "label": "35-39",
+            "value": 9361
+          },
+          {
+            "label": "40-44",
+            "value": 5797
+          },
+          {
+            "label": "45-49",
+            "value": 4038
+          },
+          {
+            "label": "50-54",
+            "value": 3163
+          },
+          {
+            "label": "55-59",
+            "value": 2516
+          },
+          {
+            "label": "60-64",
+            "value": 1826
+          },
+          {
+            "label": "65-69",
+            "value": 1279
+          },
+          {
+            "label": "70 y más",
+            "value": 1416
+          }
+        ],
+        "modalGroup": "30-34",
+        "approxMean": 37.12811179514774
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 920
+          },
+          {
+            "label": "20-24",
+            "value": 7813
+          },
+          {
+            "label": "25-29",
+            "value": 16842
+          },
+          {
+            "label": "30-34",
+            "value": 13394
+          },
+          {
+            "label": "35-39",
+            "value": 7895
+          },
+          {
+            "label": "40-44",
+            "value": 4991
+          },
+          {
+            "label": "45-49",
+            "value": 3829
+          },
+          {
+            "label": "50-54",
+            "value": 2883
+          },
+          {
+            "label": "55-59",
+            "value": 2113
+          },
+          {
+            "label": "60-64",
+            "value": 1251
+          },
+          {
+            "label": "65-69",
+            "value": 665
+          },
+          {
+            "label": "70 y más",
+            "value": 591
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 34.6209505119724
+      }
+    },
+    {
+      "year": 2019,
+      "provisional": false,
+      "total": 61596,
+      "rate": 3.2,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 235
+          },
+          {
+            "label": "20-24",
+            "value": 4190
+          },
+          {
+            "label": "25-29",
+            "value": 13191
+          },
+          {
+            "label": "30-34",
+            "value": 14416
+          },
+          {
+            "label": "35-39",
+            "value": 9441
+          },
+          {
+            "label": "40-44",
+            "value": 5839
+          },
+          {
+            "label": "45-49",
+            "value": 4124
+          },
+          {
+            "label": "50-54",
+            "value": 3110
+          },
+          {
+            "label": "55-59",
+            "value": 2522
+          },
+          {
+            "label": "60-64",
+            "value": 1821
+          },
+          {
+            "label": "65-69",
+            "value": 1313
+          },
+          {
+            "label": "70 y más",
+            "value": 1394
+          }
+        ],
+        "modalGroup": "30-34",
+        "approxMean": 37.48201181894928
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 714
+          },
+          {
+            "label": "20-24",
+            "value": 7346
+          },
+          {
+            "label": "25-29",
+            "value": 15398
+          },
+          {
+            "label": "30-34",
+            "value": 13618
+          },
+          {
+            "label": "35-39",
+            "value": 8284
+          },
+          {
+            "label": "40-44",
+            "value": 4978
+          },
+          {
+            "label": "45-49",
+            "value": 3849
+          },
+          {
+            "label": "50-54",
+            "value": 2788
+          },
+          {
+            "label": "55-59",
+            "value": 2076
+          },
+          {
+            "label": "60-64",
+            "value": 1289
+          },
+          {
+            "label": "65-69",
+            "value": 674
+          },
+          {
+            "label": "70 y más",
+            "value": 582
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 34.93809662965128
+      }
+    },
+    {
+      "year": 2020,
+      "provisional": false,
+      "total": 37647,
+      "rate": 2,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 146
+          },
+          {
+            "label": "20-24",
+            "value": 2656
+          },
+          {
+            "label": "25-29",
+            "value": 8072
+          },
+          {
+            "label": "30-34",
+            "value": 8887
+          },
+          {
+            "label": "35-39",
+            "value": 5593
+          },
+          {
+            "label": "40-44",
+            "value": 3447
+          },
+          {
+            "label": "45-49",
+            "value": 2559
+          },
+          {
+            "label": "50-54",
+            "value": 1829
+          },
+          {
+            "label": "55-59",
+            "value": 1533
+          },
+          {
+            "label": "60-64",
+            "value": 1200
+          },
+          {
+            "label": "65-69",
+            "value": 837
+          },
+          {
+            "label": "70 y más",
+            "value": 888
+          }
+        ],
+        "modalGroup": "30-34",
+        "approxMean": 37.50986798416873
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 487
+          },
+          {
+            "label": "20-24",
+            "value": 4190
+          },
+          {
+            "label": "25-29",
+            "value": 9383
+          },
+          {
+            "label": "30-34",
+            "value": 8510
+          },
+          {
+            "label": "35-39",
+            "value": 5079
+          },
+          {
+            "label": "40-44",
+            "value": 3011
+          },
+          {
+            "label": "45-49",
+            "value": 2404
+          },
+          {
+            "label": "50-54",
+            "value": 1751
+          },
+          {
+            "label": "55-59",
+            "value": 1247
+          },
+          {
+            "label": "60-64",
+            "value": 819
+          },
+          {
+            "label": "65-69",
+            "value": 406
+          },
+          {
+            "label": "70 y más",
+            "value": 360
+          }
+        ],
+        "modalGroup": "25-29",
+        "approxMean": 35.04991101548596
+      }
+    },
+    {
+      "year": 2021,
+      "provisional": false,
+      "total": 53255,
+      "rate": 2.7,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 141
+          },
+          {
+            "label": "20-24",
+            "value": 3023
+          },
+          {
+            "label": "25-29",
+            "value": 10320
+          },
+          {
+            "label": "30-34",
+            "value": 13315
+          },
+          {
+            "label": "35-39",
+            "value": 8709
+          },
+          {
+            "label": "40-44",
+            "value": 5273
+          },
+          {
+            "label": "45-49",
+            "value": 3774
+          },
+          {
+            "label": "50-54",
+            "value": 2622
+          },
+          {
+            "label": "55-59",
+            "value": 2250
+          },
+          {
+            "label": "60-64",
+            "value": 1593
+          },
+          {
+            "label": "65-69",
+            "value": 1114
+          },
+          {
+            "label": "70 y más",
+            "value": 1121
+          }
+        ],
+        "modalGroup": "30-34",
+        "approxMean": 37.80696648202047
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 439
+          },
+          {
+            "label": "20-24",
+            "value": 4871
+          },
+          {
+            "label": "25-29",
+            "value": 12536
+          },
+          {
+            "label": "30-34",
+            "value": 13225
+          },
+          {
+            "label": "35-39",
+            "value": 7750
+          },
+          {
+            "label": "40-44",
+            "value": 4610
+          },
+          {
+            "label": "45-49",
+            "value": 3358
+          },
+          {
+            "label": "50-54",
+            "value": 2438
+          },
+          {
+            "label": "55-59",
+            "value": 1840
+          },
+          {
+            "label": "60-64",
+            "value": 1120
+          },
+          {
+            "label": "65-69",
+            "value": 615
+          },
+          {
+            "label": "70 y más",
+            "value": 453
+          }
+        ],
+        "modalGroup": "30-34",
+        "approxMean": 35.47854661534128
+      }
+    },
+    {
+      "year": 2022,
+      "provisional": false,
+      "total": 68707,
+      "rate": 3.5,
+      "menAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 170
+          },
+          {
+            "label": "20-24",
+            "value": 3079
+          },
+          {
+            "label": "25-29",
+            "value": 11481
+          },
+          {
+            "label": "30-34",
+            "value": 16694
+          },
+          {
+            "label": "35-39",
+            "value": 11758
+          },
+          {
+            "label": "40-44",
+            "value": 7657
+          },
+          {
+            "label": "45-49",
+            "value": 5292
+          },
+          {
+            "label": "50-54",
+            "value": 3988
+          },
+          {
+            "label": "55-59",
+            "value": 3159
+          },
+          {
+            "label": "60-64",
+            "value": 2221
+          },
+          {
+            "label": "65-69",
+            "value": 1552
+          },
+          {
+            "label": "70 y más",
+            "value": 1530
+          }
+        ],
+        "modalGroup": "30-34",
+        "approxMean": 38.77855382686167
+      },
+      "womenAge": {
+        "groups": [
+          {
+            "label": "Menores de 15",
+            "value": 0
+          },
+          {
+            "label": "15-19",
+            "value": 476
+          },
+          {
+            "label": "20-24",
+            "value": 5012
+          },
+          {
+            "label": "25-29",
+            "value": 14388
+          },
+          {
+            "label": "30-34",
+            "value": 17233
+          },
+          {
+            "label": "35-39",
+            "value": 10815
+          },
+          {
+            "label": "40-44",
+            "value": 6977
+          },
+          {
+            "label": "45-49",
+            "value": 4830
+          },
+          {
+            "label": "50-54",
+            "value": 3469
+          },
+          {
+            "label": "55-59",
+            "value": 2488
+          },
+          {
+            "label": "60-64",
+            "value": 1610
+          },
+          {
+            "label": "65-69",
+            "value": 855
+          },
+          {
+            "label": "70 y más",
+            "value": 403
+          }
+        ],
+        "modalGroup": "30-34",
+        "approxMean": 36.27417002158819
+      }
+    },
+    {
+      "year": 2023,
+      "provisional": true,
+      "total": 64285,
+      "rate": 3.3,
+      "menAge": null,
+      "womenAge": null
+    },
+    {
+      "year": 2024,
+      "provisional": true,
+      "total": 61119,
+      "rate": 3.1,
+      "menAge": null,
+      "womenAge": null
+    },
+    {
+      "year": 2025,
+      "provisional": true,
+      "total": 60293,
+      "rate": 3,
+      "menAge": null,
+      "womenAge": null
+    }
+  ],
+  "auc": [
+    {
+      "year": 2015,
+      "provisional": false,
+      "total": 2197,
+      "rate": 1.2,
+      "differentSex": 1566,
+      "sameSex": 631,
+      "sameSexMen": 357,
+      "sameSexWomen": 274
+    },
+    {
+      "year": 2016,
+      "provisional": false,
+      "total": 7274,
+      "rate": 4,
+      "differentSex": 5676,
+      "sameSex": 1598,
+      "sameSexMen": 854,
+      "sameSexWomen": 744
+    },
+    {
+      "year": 2017,
+      "provisional": false,
+      "total": 6222,
+      "rate": 3.4,
+      "differentSex": 4947,
+      "sameSex": 1275,
+      "sameSexMen": 613,
+      "sameSexWomen": 662
+    },
+    {
+      "year": 2018,
+      "provisional": false,
+      "total": 7256,
+      "rate": 3.9,
+      "differentSex": 5773,
+      "sameSex": 1483,
+      "sameSexMen": 743,
+      "sameSexWomen": 740
+    },
+    {
+      "year": 2019,
+      "provisional": false,
+      "total": 8149,
+      "rate": 4.3,
+      "differentSex": 6555,
+      "sameSex": 1594,
+      "sameSexMen": 743,
+      "sameSexWomen": 851
+    },
+    {
+      "year": 2020,
+      "provisional": false,
+      "total": 5328,
+      "rate": 2.8,
+      "differentSex": 4216,
+      "sameSex": 1112,
+      "sameSexMen": 529,
+      "sameSexWomen": 583
+    },
+    {
+      "year": 2021,
+      "provisional": false,
+      "total": 8661,
+      "rate": 4.5,
+      "differentSex": 6858,
+      "sameSex": 1803,
+      "sameSexMen": 814,
+      "sameSexWomen": 989
+    },
+    {
+      "year": 2022,
+      "provisional": false,
+      "total": 8917,
+      "rate": 4.6,
+      "differentSex": 7908,
+      "sameSex": 1009,
+      "sameSexMen": 464,
+      "sameSexWomen": 545
+    },
+    {
+      "year": 2023,
+      "provisional": true,
+      "total": 11745,
+      "rate": 5.9,
+      "differentSex": 10714,
+      "sameSex": 1031,
+      "sameSexMen": 493,
+      "sameSexWomen": 538
+    },
+    {
+      "year": 2024,
+      "provisional": true,
+      "total": 16266,
+      "rate": 8.2,
+      "differentSex": 14688,
+      "sameSex": 1578,
+      "sameSexMen": 749,
+      "sameSexWomen": 829
+    },
+    {
+      "year": 2025,
+      "provisional": true,
+      "total": 19700,
+      "rate": 9.8,
+      "differentSex": 17627,
+      "sameSex": 2073,
+      "sameSexMen": 922,
+      "sameSexWomen": 1151
+    }
+  ]
+}

@@ -1,1 +1,1501 @@
-{"source":"series-vitales.xlsx","series":[{"year":1992,"provisional":false,"population":13737062,"correctedBirths":294218,"birthRate":21.41782573304248,"women1549":3681883,"generalRate":79.90965492385283,"specificRates":[{"label":"15 a 19","value":64.61385069435042},{"label":"20 a 24","value":132.51933519828862},{"label":"25 a 29","value":135.44404236842146},{"label":"30 a 34","value":100.79724639012771},{"label":"35 a 39","value":52.116579298316594},{"label":"40 a 44","value":14.350836533581052},{"label":"45 a 49","value":1.2154208357857563}],"tgf":2.505286556594358,"tbr":1.22,"meanFertilityAge":27.4,"meanMotherAge":27.0,"medianMotherAge":26.5},{"year":1993,"provisional":false,"population":13956766,"correctedBirths":289419,"birthRate":20.73682398916769,"women1549":3740549,"generalRate":77.37340160495157,"specificRates":[{"label":"15 a 19","value":63.973881603799036},{"label":"20 a 24","value":129.36329390342863},{"label":"25 a 29","value":129.39765285612398},{"label":"30 a 34","value":99.41831552354202},{"label":"35 a 39","value":51.31640059726472},{"label":"40 a 44","value":14.433979517190929},{"label":"45 a 49","value":1.1999954502542172}],"tgf":2.4455175972580174,"tbr":1.19,"meanFertilityAge":27.4,"meanMotherAge":27.0,"medianMotherAge":26.6},{"year":1994,"provisional":false,"population":14171821,"correctedBirths":285228,"birthRate":20.12641847508517,"women1549":3797129,"generalRate":75.11675268340896,"specificRates":[{"label":"15 a 19","value":64.31181873073379},{"label":"20 a 24","value":127.44039785693515},{"label":"25 a 29","value":124.13432153817736},{"label":"30 a 34","value":96.9968581260286},{"label":"35 a 39","value":50.67325672082163},{"label":"40 a 44","value":13.579258865116767},{"label":"45 a 49","value":0.9198162570638584}],"tgf":2.3902786404743854,"tbr":1.17,"meanFertilityAge":27.4,"meanMotherAge":27.0,"medianMotherAge":26.6},{"year":1995,"provisional":false,"population":14381249,"correctedBirths":275756,"birthRate":19.174690598848542,"women1549":3852189,"generalRate":71.58423431456764,"specificRates":[{"label":"15 a 19","value":64.26947881168171},{"label":"20 a 24","value":120.88484229228561},{"label":"25 a 29","value":116.53788518516711},{"label":"30 a 34","value":92.90354496850459},{"label":"35 a 39","value":50.104945813316235},{"label":"40 a 44","value":13.418832377534331},{"label":"45 a 49","value":0.8447247206830051}],"tgf":2.2948212708458633,"tbr":1.12,"meanFertilityAge":27.4,"meanMotherAge":27.1,"medianMotherAge":26.6},{"year":1996,"provisional":false,"population":14584947,"correctedBirths":272161,"birthRate":18.66040377109358,"women1549":3906774,"generalRate":69.66387100968728,"specificRates":[{"label":"15 a 19","value":65.07314070475968},{"label":"20 a 24","value":115.65018742257759},{"label":"25 a 29","value":113.74548050723118},{"label":"30 a 34","value":91.03211598942434},{"label":"35 a 39","value":50.61824570409158},{"label":"40 a 44","value":13.117741110777446},{"label":"45 a 49","value":0.7804620943750983}],"tgf":2.2500868676661847,"tbr":1.1,"meanFertilityAge":27.4,"meanMotherAge":27.1,"medianMotherAge":26.7},{"year":1997,"provisional":false,"population":14782706,"correctedBirths":265493,"birthRate":17.959702371135567,"women1549":3960637,"generalRate":67.03290405053531,"specificRates":[{"label":"15 a 19","value":66.07759483336457},{"label":"20 a 24","value":107.99276211429164},{"label":"25 a 29","value":110.8728060421866},{"label":"30 a 34","value":87.480905067175},{"label":"35 a 39","value":50.273843917829105},{"label":"40 a 44","value":12.933035440902527},{"label":"45 a 49","value":0.805129618615177}],"tgf":2.182180385171823,"tbr":1.06,"meanFertilityAge":27.4,"meanMotherAge":27.1,"medianMotherAge":26.7},{"year":1998,"provisional":false,"population":14974898,"correctedBirths":261803,"birthRate":17.482790199973312,"women1549":4012790,"generalRate":65.24213826290438,"specificRates":[{"label":"15 a 19","value":66.71346763634068},{"label":"20 a 24","value":102.2610507525454},{"label":"25 a 29","value":109.88909426987061},{"label":"30 a 34","value":85.84691293903785},{"label":"35 a 39","value":49.77134199314721},{"label":"40 a 44","value":12.856134014054343},{"label":"45 a 49","value":0.784510984307473}],"tgf":2.140612562946518,"tbr":1.05,"meanFertilityAge":27.4,"meanMotherAge":27.2,"medianMotherAge":26.8},{"year":1999,"provisional":false,"population":15162353,"correctedBirths":254096,"birthRate":16.75834878662962,"women1549":4063298,"generalRate":62.53442400729653,"specificRates":[{"label":"15 a 19","value":64.22445264051792},{"label":"20 a 24","value":95.52752165986658},{"label":"25 a 29","value":106.83766302061422},{"label":"30 a 34","value":83.98464425367797},{"label":"35 a 39","value":49.6143266651442},{"label":"40 a 44","value":12.825185786725337},{"label":"45 a 49","value":0.6710183859037738}],"tgf":2.0684240620622503,"tbr":1.01,"meanFertilityAge":27.5,"meanMotherAge":27.3,"medianMotherAge":27.0},{"year":2000,"provisional":false,"population":15343326,"correctedBirths":252155,"birthRate":16.434181219899777,"women1549":4109512,"generalRate":61.35886694089225,"specificRates":[{"label":"15 a 19","value":63.63977766592857},{"label":"20 a 24","value":92.27086096093034},{"label":"25 a 29","value":105.17351050693928},{"label":"30 a 34","value":83.57752642169217},{"label":"35 a 39","value":50.004521961660465},{"label":"40 a 44","value":13.350363747431555},{"label":"45 a 49","value":0.7761584375593191}],"tgf":2.0439635985107083,"tbr":0.99,"meanFertilityAge":27.6,"meanMotherAge":27.4,"medianMotherAge":27.1},{"year":2001,"provisional":false,"population":15520049,"correctedBirths":248651,"birthRate":16.021276736948447,"women1549":4149776,"generalRate":59.919137804064604,"specificRates":[{"label":"15 a 19","value":62.50853199965252},{"label":"20 a 24","value":90.02141013561878},{"label":"25 a 29","value":100.297338108325},{"label":"30 a 34","value":83.812259752001},{"label":"35 a 39","value":50.29418224272058},{"label":"40 a 44","value":13.605466871160077},{"label":"45 a 49","value":0.8017655204010464}],"tgf":2.006704773149395,"tbr":0.98,"meanFertilityAge":27.7,"meanMotherAge":27.5,"medianMotherAge":27.3},{"year":2002,"provisional":false,"population":15691701,"correctedBirths":241027,"birthRate":15.360157576288255,"women1549":4189939,"generalRate":57.525181154188644,"specificRates":[{"label":"15 a 19","value":58.46169018077821},{"label":"20 a 24","value":88.72096899655517},{"label":"25 a 29","value":94.43902780964034},{"label":"30 a 34","value":82.35059655965267},{"label":"35 a 39","value":48.54989432527546},{"label":"40 a 44","value":14.035087719298247},{"label":"45 a 49","value":0.6588506936841896}],"tgf":1.9360805814244215,"tbr":0.95,"meanFertilityAge":27.7,"meanMotherAge":27.6,"medianMotherAge":27.4},{"year":2003,"provisional":false,"population":15856977,"correctedBirths":236223,"birthRate":14.897101761577884,"women1549":4232708,"generalRate":55.8089525665366,"specificRates":[{"label":"15 a 19","value":53.30275020317021},{"label":"20 a 24","value":86.5989196414357},{"label":"25 a 29","value":90.20786201338365},{"label":"30 a 34","value":84.01459516881438},{"label":"35 a 39","value":48.56042914925807},{"label":"40 a 44","value":14.205456904127551},{"label":"45 a 49","value":0.7229547861744614}],"tgf":1.8880648393318202,"tbr":0.92,"meanFertilityAge":27.9,"meanMotherAge":27.7,"medianMotherAge":27.6},{"year":2004,"provisional":false,"population":16022133,"correctedBirths":232588,"birthRate":14.51666891043783,"women1549":4282187,"generalRate":54.315236583549485,"specificRates":[{"label":"15 a 19","value":51.453598954409344},{"label":"20 a 24","value":84.54532800102601},{"label":"25 a 29","value":86.70208548092936},{"label":"30 a 34","value":83.80918625868021},{"label":"35 a 39","value":47.69994921049087},{"label":"40 a 44","value":14.16879480631365},{"label":"45 a 49","value":0.6445528628414323}],"tgf":1.8451174778734543,"tbr":0.9,"meanFertilityAge":28.0,"meanMotherAge":27.8,"medianMotherAge":27.6},{"year":2005,"provisional":false,"population":16183489,"correctedBirths":232092,"birthRate":14.341283267161982,"women1549":4331575,"generalRate":53.58143400495201,"specificRates":[{"label":"15 a 19","value":52.18433333525144},{"label":"20 a 24","value":84.42516080206},{"label":"25 a 29","value":85.27855734976232},{"label":"30 a 34","value":81.41698887430414},{"label":"35 a 39","value":47.13906079892466},{"label":"40 a 44","value":13.898728482068812},{"label":"45 a 49","value":0.6929400215705522}],"tgf":1.8251788483197098,"tbr":0.89,"meanFertilityAge":27.9,"meanMotherAge":27.7,"medianMotherAge":27.4},{"year":2006,"provisional":false,"population":16347890,"correctedBirths":233104,"birthRate":14.258965530108167,"women1549":4382429,"generalRate":53.19059361828794,"specificRates":[{"label":"15 a 19","value":53.16215196770092},{"label":"20 a 24","value":84.535200082811},{"label":"25 a 29","value":83.68017073120458},{"label":"30 a 34","value":79.58266416666534},{"label":"35 a 39","value":47.386475862835766},{"label":"40 a 44","value":13.94844994252921},{"label":"45 a 49","value":0.8030853077368144}],"tgf":1.8154909903074183,"tbr":0.89,"meanFertilityAge":27.9,"meanMotherAge":27.6,"medianMotherAge":27.2},{"year":2007,"provisional":false,"population":16517933,"correctedBirths":242054,"birthRate":14.6540127024368,"women1549":4428165,"generalRate":54.66237143376546,"specificRates":[{"label":"15 a 19","value":54.642793490629415},{"label":"20 a 24","value":86.63502518700605},{"label":"25 a 29","value":89.46909040493318},{"label":"30 a 34","value":79.90462740727138},{"label":"35 a 39","value":48.636774819530885},{"label":"40 a 44","value":13.699772678953996},{"label":"45 a 49","value":0.7258957034483622}],"tgf":1.8685698984588668,"tbr":0.91,"meanFertilityAge":27.8,"meanMotherAge":27.5,"medianMotherAge":27.1},{"year":2008,"provisional":false,"population":16697754,"correctedBirths":248366,"birthRate":14.874216017315861,"women1549":4469643,"generalRate":55.56730146009424,"specificRates":[{"label":"15 a 19","value":56.19012703392614},{"label":"20 a 24","value":88.00906308407339},{"label":"25 a 29","value":91.70506696710707},{"label":"30 a 34","value":79.84240079271459},{"label":"35 a 39","value":49.98490130045755},{"label":"40 a 44","value":13.588783407653757},{"label":"45 a 49","value":0.7685036061900428}],"tgf":1.9004442309606129,"tbr":0.93,"meanFertilityAge":27.8,"meanMotherAge":27.5,"medianMotherAge":27.0},{"year":2009,"provisional":false,"population":16881078,"correctedBirths":253574,"birthRate":15.0211971060142,"women1549":4506645,"generalRate":56.26669063127892,"specificRates":[{"label":"15 a 19","value":56.17689125344182},{"label":"20 a 24","value":89.14840834215833},{"label":"25 a 29","value":94.46062697514488},{"label":"30 a 34","value":78.85986643180769},{"label":"35 a 39","value":51.44616408177509},{"label":"40 a 44","value":13.980473673807309},{"label":"45 a 49","value":0.7649442842711333}],"tgf":1.9241868752120308,"tbr":0.94,"meanFertilityAge":27.8,"meanMotherAge":27.5,"medianMotherAge":27.1},{"year":2010,"provisional":false,"population":17063927,"correctedBirths":251199,"birthRate":14.721054538032188,"women1549":4538990,"generalRate":55.3424880865567,"specificRates":[{"label":"15 a 19","value":54.40264215568296},{"label":"20 a 24","value":85.65244191289361},{"label":"25 a 29","value":91.70429629902401},{"label":"30 a 34","value":80.0191549826506},{"label":"35 a 39","value":52.1588267606564},{"label":"40 a 44","value":13.798690756062397},{"label":"45 a 49","value":0.7643393599415466}],"tgf":1.892501961134558,"tbr":0.93,"meanFertilityAge":28.0,"meanMotherAge":27.6,"medianMotherAge":27.3},{"year":2011,"provisional":false,"population":17254159,"correctedBirths":248879,"birthRate":14.424290398622151,"women1549":4570263,"generalRate":54.45616587054181,"specificRates":[{"label":"15 a 19","value":53.14338751841413},{"label":"20 a 24","value":82.69220921751719},{"label":"25 a 29","value":90.14338363456736},{"label":"30 a 34","value":79.76297000832233},{"label":"35 a 39","value":51.25221270549386},{"label":"40 a 44","value":14.188430570877786},{"label":"45 a 49","value":0.8104412678682411}],"tgf":1.8599651746153045,"tbr":0.91,"meanFertilityAge":28.0,"meanMotherAge":27.7,"medianMotherAge":27.4},{"year":2012,"provisional":false,"population":17443491,"correctedBirths":243858,"birthRate":13.979885104420898,"women1549":4598188,"generalRate":53.03349928276095,"specificRates":[{"label":"15 a 19","value":50.922197659843015},{"label":"20 a 24","value":78.93601959364346},{"label":"25 a 29","value":86.69917640979752},{"label":"30 a 34","value":81.33914888600731},{"label":"35 a 39","value":49.38457366856161},{"label":"40 a 44","value":13.821661671607256},{"label":"45 a 49","value":0.7761801130864949}],"tgf":1.8093947900127332,"tbr":0.89,"meanFertilityAge":28.1,"meanMotherAge":27.8,"medianMotherAge":27.5},{"year":2013,"provisional":false,"population":17611902,"correctedBirths":242862,"birthRate":13.789652020548377,"women1549":4616108,"generalRate":52.61185396875463,"specificRates":[{"label":"15 a 19","value":47.88500180328713},{"label":"20 a 24","value":77.00605423189461},{"label":"25 a 29","value":86.50479536324691},{"label":"30 a 34","value":82.66817386656673},{"label":"35 a 39","value":49.407013080433536},{"label":"40 a 44","value":14.45205680849187},{"label":"45 a 49","value":0.7511743195937806}],"tgf":1.793371347367573,"tbr":0.88,"meanFertilityAge":28.3,"meanMotherAge":28.0,"medianMotherAge":27.7},{"year":2014,"provisional":false,"population":17787617,"correctedBirths":252194,"birthRate":14.178065561002354,"women1549":4633341,"generalRate":54.43026964775526,"specificRates":[{"label":"15 a 19","value":45.635164413651744},{"label":"20 a 24","value":78.57303764177752},{"label":"25 a 29","value":90.98259764144281},{"label":"30 a 34","value":87.8389672117696},{"label":"35 a 39","value":51.319634433779164},{"label":"40 a 44","value":15.165919835426733},{"label":"45 a 49","value":0.8188680163124995}],"tgf":1.8516709459708005,"tbr":0.91,"meanFertilityAge":28.4,"meanMotherAge":28.2,"medianMotherAge":28.0},{"year":2015,"provisional":false,"population":17971423,"correctedBirths":245406,"birthRate":13.655346045775007,"women1549":4648855,"generalRate":52.788482325217714,"specificRates":[{"label":"15 a 19","value":40.03899396783455},{"label":"20 a 24","value":74.77256928703116},{"label":"25 a 29","value":88.60310198195378},{"label":"30 a 34","value":86.58203395338481},{"label":"35 a 39","value":52.25202036803881},{"label":"40 a 44","value":15.332702344747181},{"label":"45 a 49","value":0.8216646666331072}],"tgf":1.7920154328481173,"tbr":0.88,"meanFertilityAge":28.7,"meanMotherAge":28.5,"medianMotherAge":28.3},{"year":2016,"provisional":false,"population":18167147,"correctedBirths":232616,"birthRate":12.804211910653885,"women1549":4668739,"generalRate":49.82416022827577,"specificRates":[{"label":"15 a 19","value":32.94580853174603},{"label":"20 a 24","value":68.62864357652506},{"label":"25 a 29","value":83.76377480275374},{"label":"30 a 34","value":84.1530379916368},{"label":"35 a 39","value":51.97158596694694},{"label":"40 a 44","value":15.037510980458332},{"label":"45 a 49","value":0.8387608489236988}],"tgf":1.6866956134949527,"tbr":0.83,"meanFertilityAge":29.0,"meanMotherAge":28.9,"medianMotherAge":28.7},{"year":2017,"provisional":false,"population":18419192,"correctedBirths":219494,"birthRate":11.916592215337134,"women1549":4710725,"generalRate":46.59452632025856,"specificRates":[{"label":"15 a 19","value":27.322378643062294},{"label":"20 a 24","value":63.78182948013615},{"label":"25 a 29","value":78.0634132603271},{"label":"30 a 34","value":78.83104591319616},{"label":"35 a 39","value":51.069695901170924},{"label":"40 a 44","value":14.143661495448615},{"label":"45 a 49","value":0.9073138947711354}],"tgf":1.570596692940562,"tbr":0.77,"meanFertilityAge":29.2,"meanMotherAge":29.1,"medianMotherAge":29.0},{"year":2018,"provisional":false,"population":18751405,"correctedBirths":222088,"birthRate":11.843805837482579,"women1549":4781104,"generalRate":46.45119620907639,"specificRates":[{"label":"15 a 19","value":23.218367169396487},{"label":"20 a 24","value":63.04829656666019},{"label":"25 a 29","value":78.52890820156514},{"label":"30 a 34","value":79.73032617784878},{"label":"35 a 39","value":52.063316554535554},{"label":"40 a 44","value":13.69352357293562},{"label":"45 a 49","value":0.883009347608112}],"tgf":1.5558287379527493,"tbr":0.76,"meanFertilityAge":29.4,"meanMotherAge":29.3,"medianMotherAge":29.2},{"year":2019,"provisional":false,"population":19107216,"correctedBirths":210413,"birthRate":11.012227003661861,"women1549":4865974,"generalRate":43.24170248340826,"specificRates":[{"label":"15 a 19","value":19.1754109758729},{"label":"20 a 24","value":56.5804672810516},{"label":"25 a 29","value":72.94745125469966},{"label":"30 a 34","value":75.3369660654562},{"label":"35 a 39","value":49.408252355563526},{"label":"40 a 44","value":13.343100989728887},{"label":"45 a 49","value":0.8623135505959686}],"tgf":1.4382698123648434,"tbr":0.7,"meanFertilityAge":29.6,"meanMotherAge":29.6,"medianMotherAge":29.6},{"year":2020,"provisional":false,"population":19458310,"correctedBirths":195229,"birthRate":10.033194044087077,"women1549":4949344,"generalRate":39.44542953571221,"specificRates":[{"label":"15 a 19","value":15.790221395661202},{"label":"20 a 24","value":50.43714823612905},{"label":"25 a 29","value":66.10313972051954},{"label":"30 a 34","value":69.10081910272754},{"label":"35 a 39","value":45.99330033272948},{"label":"40 a 44","value":12.600507057266507},{"label":"45 a 49","value":0.8448372790305453}],"tgf":1.3043498656203196,"tbr":0.64,"meanFertilityAge":29.8,"meanMotherAge":29.9,"medianMotherAge":29.9},{"year":2021,"provisional":false,"population":19678363,"correctedBirths":177467,"birthRate":9.018382270923654,"women1549":4980605,"generalRate":35.63161503471968,"specificRates":[{"label":"15 a 19","value":11.904333223123182},{"label":"20 a 24","value":43.674054945843196},{"label":"25 a 29","value":59.65698169805022},{"label":"30 a 34","value":63.815886865997776},{"label":"35 a 39","value":42.93442965724185},{"label":"40 a 44","value":12.140956564681256},{"label":"45 a 49","value":0.7025164815274978}],"tgf":1.174145797182325,"tbr":0.58,"meanFertilityAge":30.1,"meanMotherAge":30.2,"medianMotherAge":30.3},{"year":2022,"provisional":false,"population":19828563,"correctedBirths":189503,"birthRate":9.557071785786999,"women1549":4986012,"generalRate":38.006928182282756,"specificRates":[{"label":"15 a 19","value":12.176193181067621},{"label":"20 a 24","value":46.784409813336794},{"label":"25 a 29","value":64.61433122194519},{"label":"30 a 34","value":67.1798301392217},{"label":"35 a 39","value":46.12515161975607},{"label":"40 a 44","value":13.193465787782381},{"label":"45 a 49","value":0.8986343481043203}],"tgf":1.2548600805560703,"tbr":0.62,"meanFertilityAge":30.1,"meanMotherAge":30.3,"medianMotherAge":30.4},{"year":2023,"provisional":true,"population":19960889,"correctedBirths":174067,"birthRate":8.720403184447346,"women1549":4986632,"generalRate":34.906726624302735,"specificRates":[{"label":"15 a 19","value":11.01254105408103},{"label":"20 a 24","value":43.653139999939356},{"label":"25 a 29","value":59.74146890415728},{"label":"30 a 34","value":60.72488191592889},{"label":"35 a 39","value":42.88141733946708},{"label":"40 a 44","value":12.773462936688992},{"label":"45 a 49","value":0.967342806793896}],"tgf":1.1587712747852825,"tbr":0.57,"meanFertilityAge":30.2,"meanMotherAge":30.4,"medianMotherAge":30.6},{"year":2024,"provisional":true,"population":20086377,"correctedBirths":154441,"birthRate":7.7,"women1549":4986288,"generalRate":31.0,"specificRates":[{"label":"15 a 19","value":9.3},{"label":"20 a 24","value":38.5},{"label":"25 a 29","value":53.4},{"label":"30 a 34","value":54.6},{"label":"35 a 39","value":38.7},{"label":"40 a 44","value":11.3},{"label":"45 a 49","value":0.8}],"tgf":1.03,"tbr":0.51,"meanFertilityAge":30.2,"meanMotherAge":30.6,"medianMotherAge":30.8}]}
+{
+  "source": "series-vitales-1992-2025(p).xlsx",
+  "series": [
+    {
+      "year": 1992,
+      "provisional": false,
+      "population": 13770793,
+      "correctedBirths": 294218,
+      "birthRate": 21.4,
+      "women1549": 3719278,
+      "generalRate": 79.1,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 65.5
+        },
+        {
+          "label": "20 a 24",
+          "value": 129.6
+        },
+        {
+          "label": "25 a 29",
+          "value": 130
+        },
+        {
+          "label": "30 a 34",
+          "value": 95.9
+        },
+        {
+          "label": "35 a 39",
+          "value": 53.9
+        },
+        {
+          "label": "40 a 44",
+          "value": 14.7
+        },
+        {
+          "label": "45 a 49",
+          "value": 1.2
+        }
+      ],
+      "tgf": 2.45,
+      "tbr": 1.2,
+      "meanFertilityAge": 27.4,
+      "meanMotherAge": 27,
+      "medianMotherAge": 26.6
+    },
+    {
+      "year": 1993,
+      "provisional": false,
+      "population": 13991127,
+      "correctedBirths": 289419,
+      "birthRate": 20.7,
+      "women1549": 3767441,
+      "generalRate": 76.8,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 66.4
+        },
+        {
+          "label": "20 a 24",
+          "value": 125.6
+        },
+        {
+          "label": "25 a 29",
+          "value": 125.3
+        },
+        {
+          "label": "30 a 34",
+          "value": 93.9
+        },
+        {
+          "label": "35 a 39",
+          "value": 52.4
+        },
+        {
+          "label": "40 a 44",
+          "value": 14.9
+        },
+        {
+          "label": "45 a 49",
+          "value": 1.2
+        }
+      ],
+      "tgf": 2.4,
+      "tbr": 1.17,
+      "meanFertilityAge": 27.4,
+      "meanMotherAge": 27,
+      "medianMotherAge": 26.6
+    },
+    {
+      "year": 1994,
+      "provisional": false,
+      "population": 14206429,
+      "correctedBirths": 285228,
+      "birthRate": 20.1,
+      "women1549": 3816751,
+      "generalRate": 74.7,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 67.7
+        },
+        {
+          "label": "20 a 24",
+          "value": 123.3
+        },
+        {
+          "label": "25 a 29",
+          "value": 121.3
+        },
+        {
+          "label": "30 a 34",
+          "value": 91.5
+        },
+        {
+          "label": "35 a 39",
+          "value": 50.8
+        },
+        {
+          "label": "40 a 44",
+          "value": 14.2
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.9
+        }
+      ],
+      "tgf": 2.35,
+      "tbr": 1.15,
+      "meanFertilityAge": 27.3,
+      "meanMotherAge": 27,
+      "medianMotherAge": 26.6
+    },
+    {
+      "year": 1995,
+      "provisional": false,
+      "population": 14414046,
+      "correctedBirths": 275756,
+      "birthRate": 19.1,
+      "women1549": 3869896,
+      "generalRate": 71.3,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 67.5
+        },
+        {
+          "label": "20 a 24",
+          "value": 117.8
+        },
+        {
+          "label": "25 a 29",
+          "value": 114.6
+        },
+        {
+          "label": "30 a 34",
+          "value": 88
+        },
+        {
+          "label": "35 a 39",
+          "value": 49.2
+        },
+        {
+          "label": "40 a 44",
+          "value": 14.1
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 2.26,
+      "tbr": 1.1,
+      "meanFertilityAge": 27.3,
+      "meanMotherAge": 27.1,
+      "medianMotherAge": 26.6
+    },
+    {
+      "year": 1996,
+      "provisional": false,
+      "population": 14613776,
+      "correctedBirths": 272161,
+      "birthRate": 18.6,
+      "women1549": 3927650,
+      "generalRate": 69.3,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 67.3
+        },
+        {
+          "label": "20 a 24",
+          "value": 114.5
+        },
+        {
+          "label": "25 a 29",
+          "value": 112
+        },
+        {
+          "label": "30 a 34",
+          "value": 86.7
+        },
+        {
+          "label": "35 a 39",
+          "value": 48.7
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.7
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 2.22,
+      "tbr": 1.08,
+      "meanFertilityAge": 27.3,
+      "meanMotherAge": 27.1,
+      "medianMotherAge": 26.7
+    },
+    {
+      "year": 1997,
+      "provisional": false,
+      "population": 14809841,
+      "correctedBirths": 265560,
+      "birthRate": 17.9,
+      "women1549": 3986127,
+      "generalRate": 66.6,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 67.2
+        },
+        {
+          "label": "20 a 24",
+          "value": 109.5
+        },
+        {
+          "label": "25 a 29",
+          "value": 108.6
+        },
+        {
+          "label": "30 a 34",
+          "value": 84
+        },
+        {
+          "label": "35 a 39",
+          "value": 47.8
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.3
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 2.16,
+      "tbr": 1.05,
+      "meanFertilityAge": 27.3,
+      "meanMotherAge": 27.1,
+      "medianMotherAge": 26.7
+    },
+    {
+      "year": 1998,
+      "provisional": false,
+      "population": 15001623,
+      "correctedBirths": 261866,
+      "birthRate": 17.5,
+      "women1549": 4039011,
+      "generalRate": 64.8,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 67
+        },
+        {
+          "label": "20 a 24",
+          "value": 106.2
+        },
+        {
+          "label": "25 a 29",
+          "value": 106.9
+        },
+        {
+          "label": "30 a 34",
+          "value": 83.1
+        },
+        {
+          "label": "35 a 39",
+          "value": 47
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.1
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 2.12,
+      "tbr": 1.04,
+      "meanFertilityAge": 27.3,
+      "meanMotherAge": 27.2,
+      "medianMotherAge": 26.8
+    },
+    {
+      "year": 1999,
+      "provisional": false,
+      "population": 15185799,
+      "correctedBirths": 254169,
+      "birthRate": 16.7,
+      "women1549": 4085544,
+      "generalRate": 62.2,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 64.2
+        },
+        {
+          "label": "20 a 24",
+          "value": 100.6
+        },
+        {
+          "label": "25 a 29",
+          "value": 103.5
+        },
+        {
+          "label": "30 a 34",
+          "value": 82.1
+        },
+        {
+          "label": "35 a 39",
+          "value": 46.7
+        },
+        {
+          "label": "40 a 44",
+          "value": 12.8
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 2.05,
+      "tbr": 1,
+      "meanFertilityAge": 27.4,
+      "meanMotherAge": 27.3,
+      "medianMotherAge": 27
+    },
+    {
+      "year": 2000,
+      "provisional": false,
+      "population": 15365623,
+      "correctedBirths": 252080,
+      "birthRate": 16.4,
+      "women1549": 4130794,
+      "generalRate": 61,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 63.7
+        },
+        {
+          "label": "20 a 24",
+          "value": 96.8
+        },
+        {
+          "label": "25 a 29",
+          "value": 102.5
+        },
+        {
+          "label": "30 a 34",
+          "value": 82.1
+        },
+        {
+          "label": "35 a 39",
+          "value": 47.2
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.1
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 2.03,
+      "tbr": 0.99,
+      "meanFertilityAge": 27.4,
+      "meanMotherAge": 27.4,
+      "medianMotherAge": 27.1
+    },
+    {
+      "year": 2001,
+      "provisional": false,
+      "population": 15543565,
+      "correctedBirths": 248728,
+      "birthRate": 16,
+      "women1549": 4176747,
+      "generalRate": 59.6,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 62.9
+        },
+        {
+          "label": "20 a 24",
+          "value": 93.1
+        },
+        {
+          "label": "25 a 29",
+          "value": 99.4
+        },
+        {
+          "label": "30 a 34",
+          "value": 82.5
+        },
+        {
+          "label": "35 a 39",
+          "value": 47.8
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.1
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 2,
+      "tbr": 0.98,
+      "meanFertilityAge": 27.5,
+      "meanMotherAge": 27.5,
+      "medianMotherAge": 27.2
+    },
+    {
+      "year": 2002,
+      "provisional": false,
+      "population": 15715924,
+      "correctedBirths": 241146,
+      "birthRate": 15.3,
+      "women1549": 4223788,
+      "generalRate": 57.1,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 59.1
+        },
+        {
+          "label": "20 a 24",
+          "value": 90.1
+        },
+        {
+          "label": "25 a 29",
+          "value": 95.8
+        },
+        {
+          "label": "30 a 34",
+          "value": 80.6
+        },
+        {
+          "label": "35 a 39",
+          "value": 46.5
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.3
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.93,
+      "tbr": 0.95,
+      "meanFertilityAge": 27.6,
+      "meanMotherAge": 27.6,
+      "medianMotherAge": 27.3
+    },
+    {
+      "year": 2003,
+      "provisional": false,
+      "population": 15882092,
+      "correctedBirths": 236903,
+      "birthRate": 14.9,
+      "women1549": 4272548,
+      "generalRate": 55.4,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 53.9
+        },
+        {
+          "label": "20 a 24",
+          "value": 87
+        },
+        {
+          "label": "25 a 29",
+          "value": 93.9
+        },
+        {
+          "label": "30 a 34",
+          "value": 81.8
+        },
+        {
+          "label": "35 a 39",
+          "value": 47
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.4
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.89,
+      "tbr": 0.92,
+      "meanFertilityAge": 27.8,
+      "meanMotherAge": 27.7,
+      "medianMotherAge": 27.5
+    },
+    {
+      "year": 2004,
+      "provisional": false,
+      "population": 16041612,
+      "correctedBirths": 235585,
+      "birthRate": 14.7,
+      "women1549": 4324482,
+      "generalRate": 54.5,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 52.4
+        },
+        {
+          "label": "20 a 24",
+          "value": 85.4
+        },
+        {
+          "label": "25 a 29",
+          "value": 92.4
+        },
+        {
+          "label": "30 a 34",
+          "value": 82.1
+        },
+        {
+          "label": "35 a 39",
+          "value": 47.1
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.5
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.87,
+      "tbr": 0.92,
+      "meanFertilityAge": 27.9,
+      "meanMotherAge": 27.8,
+      "medianMotherAge": 27.5
+    },
+    {
+      "year": 2005,
+      "provisional": false,
+      "population": 16198348,
+      "correctedBirths": 231931,
+      "birthRate": 14.3,
+      "women1549": 4377338,
+      "generalRate": 53,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 52.2
+        },
+        {
+          "label": "20 a 24",
+          "value": 84.4
+        },
+        {
+          "label": "25 a 29",
+          "value": 89.5
+        },
+        {
+          "label": "30 a 34",
+          "value": 79.3
+        },
+        {
+          "label": "35 a 39",
+          "value": 46.2
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.1
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.83,
+      "tbr": 0.89,
+      "meanFertilityAge": 27.8,
+      "meanMotherAge": 27.7,
+      "medianMotherAge": 27.4
+    },
+    {
+      "year": 2006,
+      "provisional": false,
+      "population": 16356738,
+      "correctedBirths": 233028,
+      "birthRate": 14.2,
+      "women1549": 4425443,
+      "generalRate": 52.7,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 53.4
+        },
+        {
+          "label": "20 a 24",
+          "value": 85.1
+        },
+        {
+          "label": "25 a 29",
+          "value": 86.6
+        },
+        {
+          "label": "30 a 34",
+          "value": 78.9
+        },
+        {
+          "label": "35 a 39",
+          "value": 46.5
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.2
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 1.82,
+      "tbr": 0.89,
+      "meanFertilityAge": 27.8,
+      "meanMotherAge": 27.6,
+      "medianMotherAge": 27.3
+    },
+    {
+      "year": 2007,
+      "provisional": false,
+      "population": 16516863,
+      "correctedBirths": 241044,
+      "birthRate": 14.6,
+      "women1549": 4466337,
+      "generalRate": 54,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 54.9
+        },
+        {
+          "label": "20 a 24",
+          "value": 87.3
+        },
+        {
+          "label": "25 a 29",
+          "value": 90.7
+        },
+        {
+          "label": "30 a 34",
+          "value": 80.8
+        },
+        {
+          "label": "35 a 39",
+          "value": 47.4
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.1
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.87,
+      "tbr": 0.92,
+      "meanFertilityAge": 27.8,
+      "meanMotherAge": 27.5,
+      "medianMotherAge": 27.2
+    },
+    {
+      "year": 2008,
+      "provisional": false,
+      "population": 16682228,
+      "correctedBirths": 247233,
+      "birthRate": 14.8,
+      "women1549": 4499417,
+      "generalRate": 54.9,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 56.6
+        },
+        {
+          "label": "20 a 24",
+          "value": 88.6
+        },
+        {
+          "label": "25 a 29",
+          "value": 91.9
+        },
+        {
+          "label": "30 a 34",
+          "value": 82.8
+        },
+        {
+          "label": "35 a 39",
+          "value": 48.4
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.1
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.91,
+      "tbr": 0.94,
+      "meanFertilityAge": 27.8,
+      "meanMotherAge": 27.5,
+      "medianMotherAge": 27.1
+    },
+    {
+      "year": 2009,
+      "provisional": false,
+      "population": 16855484,
+      "correctedBirths": 252691,
+      "birthRate": 15,
+      "women1549": 4526554,
+      "generalRate": 55.8,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 56.8
+        },
+        {
+          "label": "20 a 24",
+          "value": 89.6
+        },
+        {
+          "label": "25 a 29",
+          "value": 94.5
+        },
+        {
+          "label": "30 a 34",
+          "value": 83
+        },
+        {
+          "label": "35 a 39",
+          "value": 49.7
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.6
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.94,
+      "tbr": 0.95,
+      "meanFertilityAge": 27.8,
+      "meanMotherAge": 27.5,
+      "medianMotherAge": 27.1
+    },
+    {
+      "year": 2010,
+      "provisional": false,
+      "population": 17030393,
+      "correctedBirths": 251304,
+      "birthRate": 14.8,
+      "women1549": 4548093,
+      "generalRate": 55.3,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 55.4
+        },
+        {
+          "label": "20 a 24",
+          "value": 86.2
+        },
+        {
+          "label": "25 a 29",
+          "value": 92.3
+        },
+        {
+          "label": "30 a 34",
+          "value": 84.4
+        },
+        {
+          "label": "35 a 39",
+          "value": 51
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.6
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.92,
+      "tbr": 0.94,
+      "meanFertilityAge": 27.9,
+      "meanMotherAge": 27.6,
+      "medianMotherAge": 27.2
+    },
+    {
+      "year": 2011,
+      "provisional": false,
+      "population": 17204567,
+      "correctedBirths": 247909,
+      "birthRate": 14.4,
+      "women1549": 4564611,
+      "generalRate": 54.3,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 53.8
+        },
+        {
+          "label": "20 a 24",
+          "value": 83.2
+        },
+        {
+          "label": "25 a 29",
+          "value": 91
+        },
+        {
+          "label": "30 a 34",
+          "value": 82.7
+        },
+        {
+          "label": "35 a 39",
+          "value": 50.7
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.9
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 1.88,
+      "tbr": 0.92,
+      "meanFertilityAge": 28,
+      "meanMotherAge": 27.7,
+      "medianMotherAge": 27.3
+    },
+    {
+      "year": 2012,
+      "provisional": false,
+      "population": 17380597,
+      "correctedBirths": 244128,
+      "birthRate": 14,
+      "women1549": 4578814,
+      "generalRate": 53.3,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 51.8
+        },
+        {
+          "label": "20 a 24",
+          "value": 80.1
+        },
+        {
+          "label": "25 a 29",
+          "value": 88.4
+        },
+        {
+          "label": "30 a 34",
+          "value": 83.4
+        },
+        {
+          "label": "35 a 39",
+          "value": 50.4
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.6
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.84,
+      "tbr": 0.9,
+      "meanFertilityAge": 28.1,
+      "meanMotherAge": 27.8,
+      "medianMotherAge": 27.5
+    },
+    {
+      "year": 2013,
+      "provisional": false,
+      "population": 17559507,
+      "correctedBirths": 242439,
+      "birthRate": 13.8,
+      "women1549": 4591870,
+      "generalRate": 52.8,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 48.6
+        },
+        {
+          "label": "20 a 24",
+          "value": 78
+        },
+        {
+          "label": "25 a 29",
+          "value": 87.6
+        },
+        {
+          "label": "30 a 34",
+          "value": 83.3
+        },
+        {
+          "label": "35 a 39",
+          "value": 51.4
+        },
+        {
+          "label": "40 a 44",
+          "value": 14
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.82,
+      "tbr": 0.89,
+      "meanFertilityAge": 28.3,
+      "meanMotherAge": 28,
+      "medianMotherAge": 27.7
+    },
+    {
+      "year": 2014,
+      "provisional": false,
+      "population": 17749360,
+      "correctedBirths": 251384,
+      "birthRate": 14.2,
+      "women1549": 4604306,
+      "generalRate": 54.6,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 46.4
+        },
+        {
+          "label": "20 a 24",
+          "value": 79.3
+        },
+        {
+          "label": "25 a 29",
+          "value": 91.6
+        },
+        {
+          "label": "30 a 34",
+          "value": 87.9
+        },
+        {
+          "label": "35 a 39",
+          "value": 54
+        },
+        {
+          "label": "40 a 44",
+          "value": 14.6
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 1.87,
+      "tbr": 0.92,
+      "meanFertilityAge": 28.4,
+      "meanMotherAge": 28.2,
+      "medianMotherAge": 28
+    },
+    {
+      "year": 2015,
+      "provisional": false,
+      "population": 17954875,
+      "correctedBirths": 245042,
+      "birthRate": 13.6,
+      "women1549": 4619225,
+      "generalRate": 53,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 40.8
+        },
+        {
+          "label": "20 a 24",
+          "value": 75.6
+        },
+        {
+          "label": "25 a 29",
+          "value": 88.8
+        },
+        {
+          "label": "30 a 34",
+          "value": 86.9
+        },
+        {
+          "label": "35 a 39",
+          "value": 54.8
+        },
+        {
+          "label": "40 a 44",
+          "value": 14.9
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 1.81,
+      "tbr": 0.89,
+      "meanFertilityAge": 28.7,
+      "meanMotherAge": 28.5,
+      "medianMotherAge": 28.3
+    },
+    {
+      "year": 2016,
+      "provisional": false,
+      "population": 18190964,
+      "correctedBirths": 232062,
+      "birthRate": 12.8,
+      "women1549": 4647322,
+      "generalRate": 49.9,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 33.4
+        },
+        {
+          "label": "20 a 24",
+          "value": 68.9
+        },
+        {
+          "label": "25 a 29",
+          "value": 83.7
+        },
+        {
+          "label": "30 a 34",
+          "value": 84.5
+        },
+        {
+          "label": "35 a 39",
+          "value": 53.6
+        },
+        {
+          "label": "40 a 44",
+          "value": 14.8
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 1.7,
+      "tbr": 0.84,
+      "meanFertilityAge": 29,
+      "meanMotherAge": 28.9,
+      "medianMotherAge": 28.7
+    },
+    {
+      "year": 2017,
+      "provisional": false,
+      "population": 18460529,
+      "correctedBirths": 219439,
+      "birthRate": 11.9,
+      "women1549": 4690404,
+      "generalRate": 46.8,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 27.7
+        },
+        {
+          "label": "20 a 24",
+          "value": 64
+        },
+        {
+          "label": "25 a 29",
+          "value": 78.4
+        },
+        {
+          "label": "30 a 34",
+          "value": 79.5
+        },
+        {
+          "label": "35 a 39",
+          "value": 51.8
+        },
+        {
+          "label": "40 a 44",
+          "value": 14.3
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.9
+        }
+      ],
+      "tgf": 1.58,
+      "tbr": 0.78,
+      "meanFertilityAge": 29.2,
+      "meanMotherAge": 29.1,
+      "medianMotherAge": 29
+    },
+    {
+      "year": 2018,
+      "provisional": false,
+      "population": 18754494,
+      "correctedBirths": 222001,
+      "birthRate": 11.8,
+      "women1549": 4743141,
+      "generalRate": 46.8,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 23.6
+        },
+        {
+          "label": "20 a 24",
+          "value": 63.7
+        },
+        {
+          "label": "25 a 29",
+          "value": 79.4
+        },
+        {
+          "label": "30 a 34",
+          "value": 80.5
+        },
+        {
+          "label": "35 a 39",
+          "value": 52.2
+        },
+        {
+          "label": "40 a 44",
+          "value": 14.2
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.9
+        }
+      ],
+      "tgf": 1.57,
+      "tbr": 0.77,
+      "meanFertilityAge": 29.4,
+      "meanMotherAge": 29.3,
+      "medianMotherAge": 29.2
+    },
+    {
+      "year": 2019,
+      "provisional": false,
+      "population": 19040037,
+      "correctedBirths": 210420,
+      "birthRate": 11.1,
+      "women1549": 4795363,
+      "generalRate": 43.9,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 19.5
+        },
+        {
+          "label": "20 a 24",
+          "value": 57.8
+        },
+        {
+          "label": "25 a 29",
+          "value": 74.7
+        },
+        {
+          "label": "30 a 34",
+          "value": 76.7
+        },
+        {
+          "label": "35 a 39",
+          "value": 49.7
+        },
+        {
+          "label": "40 a 44",
+          "value": 14
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 1.47,
+      "tbr": 0.72,
+      "meanFertilityAge": 29.6,
+      "meanMotherAge": 29.6,
+      "medianMotherAge": 29.5
+    },
+    {
+      "year": 2020,
+      "provisional": false,
+      "population": 19235540,
+      "correctedBirths": 195210,
+      "birthRate": 10.1,
+      "women1549": 4822433,
+      "generalRate": 40.5,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 16.1
+        },
+        {
+          "label": "20 a 24",
+          "value": 52.2
+        },
+        {
+          "label": "25 a 29",
+          "value": 69.2
+        },
+        {
+          "label": "30 a 34",
+          "value": 71.2
+        },
+        {
+          "label": "35 a 39",
+          "value": 46.9
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.3
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 1.35,
+      "tbr": 0.66,
+      "meanFertilityAge": 29.8,
+      "meanMotherAge": 29.9,
+      "medianMotherAge": 29.8
+    },
+    {
+      "year": 2021,
+      "provisional": false,
+      "population": 19391613,
+      "correctedBirths": 177479,
+      "birthRate": 9.2,
+      "women1549": 4843364,
+      "generalRate": 36.6,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 12.1
+        },
+        {
+          "label": "20 a 24",
+          "value": 45
+        },
+        {
+          "label": "25 a 29",
+          "value": 62.6
+        },
+        {
+          "label": "30 a 34",
+          "value": 66.2
+        },
+        {
+          "label": "35 a 39",
+          "value": 44.1
+        },
+        {
+          "label": "40 a 44",
+          "value": 12.6
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.7
+        }
+      ],
+      "tgf": 1.22,
+      "tbr": 0.6,
+      "meanFertilityAge": 30.1,
+      "meanMotherAge": 30.2,
+      "medianMotherAge": 30.3
+    },
+    {
+      "year": 2022,
+      "provisional": false,
+      "population": 19581575,
+      "correctedBirths": 189559,
+      "birthRate": 9.7,
+      "women1549": 4878103,
+      "generalRate": 38.9,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 12.2
+        },
+        {
+          "label": "20 a 24",
+          "value": 47.4
+        },
+        {
+          "label": "25 a 29",
+          "value": 67
+        },
+        {
+          "label": "30 a 34",
+          "value": 69.6
+        },
+        {
+          "label": "35 a 39",
+          "value": 47.4
+        },
+        {
+          "label": "40 a 44",
+          "value": 13.5
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.9
+        }
+      ],
+      "tgf": 1.29,
+      "tbr": 0.64,
+      "meanFertilityAge": 30.1,
+      "meanMotherAge": 30.3,
+      "medianMotherAge": 30.4
+    },
+    {
+      "year": 2023,
+      "provisional": false,
+      "population": 19756365,
+      "correctedBirths": 174292,
+      "birthRate": 8.8,
+      "women1549": 4906511,
+      "generalRate": 35.5,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 11
+        },
+        {
+          "label": "20 a 24",
+          "value": 43.7
+        },
+        {
+          "label": "25 a 29",
+          "value": 61.3
+        },
+        {
+          "label": "30 a 34",
+          "value": 62.7
+        },
+        {
+          "label": "35 a 39",
+          "value": 43.8
+        },
+        {
+          "label": "40 a 44",
+          "value": 12.8
+        },
+        {
+          "label": "45 a 49",
+          "value": 1
+        }
+      ],
+      "tgf": 1.18,
+      "tbr": 0.58,
+      "meanFertilityAge": 30.2,
+      "meanMotherAge": 30.4,
+      "medianMotherAge": 30.6
+    },
+    {
+      "year": 2024,
+      "provisional": true,
+      "population": 19904328,
+      "correctedBirths": 154644,
+      "birthRate": 7.8,
+      "women1549": 4933097,
+      "generalRate": 31.3,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 9.1
+        },
+        {
+          "label": "20 a 24",
+          "value": 38.1
+        },
+        {
+          "label": "25 a 29",
+          "value": 54.2
+        },
+        {
+          "label": "30 a 34",
+          "value": 56.1
+        },
+        {
+          "label": "35 a 39",
+          "value": 39.4
+        },
+        {
+          "label": "40 a 44",
+          "value": 11.3
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.9
+        }
+      ],
+      "tgf": 1.05,
+      "tbr": 0.52,
+      "meanFertilityAge": 30.3,
+      "meanMotherAge": 30.6,
+      "medianMotherAge": 30.8
+    },
+    {
+      "year": 2025,
+      "provisional": true,
+      "population": 20036669,
+      "correctedBirths": 146685,
+      "birthRate": 7.3,
+      "women1549": 4965913,
+      "generalRate": 29.5,
+      "specificRates": [
+        {
+          "label": "15 a 19",
+          "value": 8.2
+        },
+        {
+          "label": "20 a 24",
+          "value": 35.7
+        },
+        {
+          "label": "25 a 29",
+          "value": 51.3
+        },
+        {
+          "label": "30 a 34",
+          "value": 53.7
+        },
+        {
+          "label": "35 a 39",
+          "value": 37.7
+        },
+        {
+          "label": "40 a 44",
+          "value": 10.8
+        },
+        {
+          "label": "45 a 49",
+          "value": 0.8
+        }
+      ],
+      "tgf": 0.99,
+      "tbr": 0.49,
+      "meanFertilityAge": 30.3,
+      "meanMotherAge": 30.7,
+      "medianMotherAge": 30.9
+    }
+  ]
+}

@@ -1,1 +1,1569 @@
-{"source":"series-vitales.xlsx","series":[{"year":1992,"provisional":false,"observed":279098,"men":142723,"women":136375,"masculinity":104.7,"ages":[{"label":"menores de 15 años","value":791},{"label":"15 a 19 años","value":37692},{"label":"20 a 24 años","value":76393},{"label":"25 a 29 años","value":78859},{"label":"30 a 34 años","value":54114},{"label":"35 a 39 años","value":25171},{"label":"40 a 44 años","value":5686},{"label":"45 a 49 años","value":344},{"label":"50 años y más","value":48}]},{"year":1993,"provisional":false,"observed":275916,"men":141304,"women":134612,"masculinity":105.0,"ages":[{"label":"menores de 15 años","value":863},{"label":"15 a 19 años","value":37563},{"label":"20 a 24 años","value":74775},{"label":"25 a 29 años","value":76104},{"label":"30 a 34 años","value":54699},{"label":"35 a 39 años","value":25491},{"label":"40 a 44 años","value":6019},{"label":"45 a 49 años","value":358},{"label":"50 años y más","value":44}]},{"year":1994,"provisional":false,"observed":273766,"men":139746,"women":134020,"masculinity":104.3,"ages":[{"label":"menores de 15 años","value":879},{"label":"15 a 19 años","value":37969},{"label":"20 a 24 años","value":74451},{"label":"25 a 29 años","value":73530},{"label":"30 a 34 años","value":54759},{"label":"35 a 39 años","value":25880},{"label":"40 a 44 años","value":5977},{"label":"45 a 49 años","value":319},{"label":"50 años y más","value":2}]},{"year":1995,"provisional":false,"observed":265932,"men":135982,"women":129950,"masculinity":104.6,"ages":[{"label":"menores de 15 años","value":1033},{"label":"15 a 19 años","value":37852},{"label":"20 a 24 años","value":71651},{"label":"25 a 29 años","value":69073},{"label":"30 a 34 años","value":53608},{"label":"35 a 39 años","value":26221},{"label":"40 a 44 años","value":6187},{"label":"45 a 49 años","value":302},{"label":"50 años y más","value":5}]},{"year":1996,"provisional":false,"observed":264793,"men":135700,"women":129093,"masculinity":105.1,"ages":[{"label":"menores de 15 años","value":1126},{"label":"15 a 19 años","value":38575},{"label":"20 a 24 años","value":69941},{"label":"25 a 29 años","value":67582},{"label":"30 a 34 años","value":53732},{"label":"35 a 39 años","value":27247},{"label":"40 a 44 años","value":6290},{"label":"45 a 49 años","value":292},{"label":"50 años y más","value":8}]},{"year":1997,"provisional":false,"observed":259959,"men":133415,"women":126544,"masculinity":105.4,"ages":[{"label":"menores de 15 años","value":1183},{"label":"15 a 19 años","value":39551},{"label":"20 a 24 años","value":66326},{"label":"25 a 29 años","value":65904},{"label":"30 a 34 años","value":52485},{"label":"35 a 39 años","value":27773},{"label":"40 a 44 años","value":6411},{"label":"45 a 49 años","value":318},{"label":"50 años y más","value":8}]},{"year":1998,"provisional":false,"observed":257105,"men":131234,"women":125871,"masculinity":104.3,"ages":[{"label":"menores de 15 años","value":1175},{"label":"15 a 19 años","value":40355},{"label":"20 a 24 años","value":63235},{"label":"25 a 29 años","value":65389},{"label":"30 a 34 años","value":51943},{"label":"35 a 39 años","value":28131},{"label":"40 a 44 años","value":6543},{"label":"45 a 49 años","value":331},{"label":"50 años y más","value":3}]},{"year":1999,"provisional":false,"observed":250674,"men":128256,"women":122418,"masculinity":104.8,"ages":[{"label":"menores de 15 años","value":1052},{"label":"15 a 19 años","value":39387},{"label":"20 a 24 años","value":59293},{"label":"25 a 29 años","value":64135},{"label":"30 a 34 años","value":51086},{"label":"35 a 39 años","value":28720},{"label":"40 a 44 años","value":6700},{"label":"45 a 49 años","value":298},{"label":"50 años y más","value":3}]},{"year":2000,"provisional":false,"observed":248893,"men":127763,"women":121130,"masculinity":105.5,"ages":[{"label":"menores de 15 años","value":1055},{"label":"15 a 19 años","value":39257},{"label":"20 a 24 años","value":57141},{"label":"25 a 29 años","value":63812},{"label":"30 a 34 años","value":50675},{"label":"35 a 39 años","value":29471},{"label":"40 a 44 años","value":7119},{"label":"45 a 49 años","value":359},{"label":"50 años y más","value":4}]},{"year":2001,"provisional":false,"observed":246116,"men":125335,"women":120781,"masculinity":103.8,"ages":[{"label":"menores de 15 años","value":1162},{"label":"15 a 19 años","value":38722},{"label":"20 a 24 años","value":55892},{"label":"25 a 29 años","value":61735},{"label":"30 a 34 años","value":50651},{"label":"35 a 39 años","value":30146},{"label":"40 a 44 años","value":7420},{"label":"45 a 49 años","value":371},{"label":"50 años y más","value":17}]},{"year":2002,"provisional":false,"observed":238981,"men":121975,"women":117006,"masculinity":104.2,"ages":[{"label":"menores de 15 años","value":1118},{"label":"15 a 19 años","value":36500},{"label":"20 a 24 años","value":55414},{"label":"25 a 29 años","value":58775},{"label":"30 a 34 años","value":49575},{"label":"35 a 39 años","value":29450},{"label":"40 a 44 años","value":7821},{"label":"45 a 49 años","value":326},{"label":"50 años y más","value":2}]},{"year":2003,"provisional":false,"observed":234486,"men":119963,"women":114523,"masculinity":104.8,"ages":[{"label":"menores de 15 años","value":994},{"label":"15 a 19 años","value":33838},{"label":"20 a 24 años","value":54536},{"label":"25 a 29 años","value":56443},{"label":"30 a 34 años","value":50557},{"label":"35 a 39 años","value":29662},{"label":"40 a 44 años","value":8087},{"label":"45 a 49 años","value":362},{"label":"50 años y más","value":7}]},{"year":2004,"provisional":false,"observed":230352,"men":117434,"women":112918,"masculinity":104.0,"ages":[{"label":"menores de 15 años","value":906},{"label":"15 a 19 años","value":33522},{"label":"20 a 24 años","value":53536},{"label":"25 a 29 años","value":54145},{"label":"30 a 34 años","value":50585},{"label":"35 a 39 años","value":29113},{"label":"40 a 44 años","value":8209},{"label":"45 a 49 años","value":334},{"label":"50 años y más","value":2}]},{"year":2005,"provisional":false,"observed":230831,"men":118534,"women":112297,"masculinity":105.6,"ages":[{"label":"menores de 15 años","value":935},{"label":"15 a 19 años","value":35143},{"label":"20 a 24 años","value":54032},{"label":"25 a 29 años","value":53401},{"label":"30 a 34 años","value":49906},{"label":"35 a 39 años","value":28810},{"label":"40 a 44 años","value":8234},{"label":"45 a 49 años","value":364},{"label":"50 años y más","value":6}]},{"year":2006,"provisional":false,"observed":231383,"men":118203,"women":113180,"masculinity":104.4,"ages":[{"label":"menores de 15 años","value":954},{"label":"15 a 19 años","value":36819},{"label":"20 a 24 años","value":54312},{"label":"25 a 29 años","value":52387},{"label":"30 a 34 años","value":49335},{"label":"35 a 39 años","value":28767},{"label":"40 a 44 años","value":8372},{"label":"45 a 49 años","value":430},{"label":"50 años y más","value":7}]},{"year":2007,"provisional":false,"observed":240569,"men":122952,"women":117617,"masculinity":104.5,"ages":[{"label":"menores de 15 años","value":955},{"label":"15 a 19 años","value":38650},{"label":"20 a 24 años","value":56174},{"label":"25 a 29 años","value":56429},{"label":"30 a 34 años","value":50151},{"label":"35 a 39 años","value":29438},{"label":"40 a 44 años","value":8324},{"label":"45 a 49 años","value":394},{"label":"50 años y más","value":9}]},{"year":2008,"provisional":false,"observed":246581,"men":125858,"women":120723,"masculinity":104.3,"ages":[{"label":"menores de 15 años","value":1025},{"label":"15 a 19 años","value":39902},{"label":"20 a 24 años","value":57915},{"label":"25 a 29 años","value":58338},{"label":"30 a 34 años","value":50391},{"label":"35 a 39 años","value":30234},{"label":"40 a 44 años","value":8307},{"label":"45 a 49 años","value":436},{"label":"50 años y más","value":0}]},{"year":2009,"provisional":false,"observed":252240,"men":128659,"women":123581,"masculinity":104.1,"ages":[{"label":"menores de 15 años","value":1073},{"label":"15 a 19 años","value":39629},{"label":"20 a 24 años","value":60361},{"label":"25 a 29 años","value":60759},{"label":"30 a 34 años","value":49955},{"label":"35 a 39 años","value":31375},{"label":"40 a 44 años","value":8581},{"label":"45 a 49 años","value":437},{"label":"50 años y más","value":7}]},{"year":2010,"provisional":false,"observed":250643,"men":127682,"women":122961,"masculinity":103.8,"ages":[{"label":"menores de 15 años","value":963},{"label":"15 a 19 años","value":38047},{"label":"20 a 24 años","value":59884},{"label":"25 a 29 años","value":59623},{"label":"30 a 34 años","value":50841},{"label":"35 a 39 años","value":32300},{"label":"40 a 44 años","value":8478},{"label":"45 a 49 años","value":449},{"label":"50 años y más","value":5}]},{"year":2011,"provisional":false,"observed":247358,"men":126555,"women":120803,"masculinity":104.8,"ages":[{"label":"menores de 15 años","value":955},{"label":"15 a 19 años","value":36258},{"label":"20 a 24 años","value":59378},{"label":"25 a 29 años","value":58848},{"label":"30 a 34 años","value":50671},{"label":"35 a 39 años","value":32082},{"label":"40 a 44 años","value":8653},{"label":"45 a 49 años","value":480},{"label":"50 años y más","value":6}]},{"year":2012,"provisional":false,"observed":243635,"men":124083,"women":119552,"masculinity":103.8,"ages":[{"label":"menores de 15 años","value":879},{"label":"15 a 19 años","value":34305},{"label":"20 a 24 años","value":58146},{"label":"25 a 29 años","value":57491},{"label":"30 a 34 años","value":52386},{"label":"35 a 39 años","value":31475},{"label":"40 a 44 años","value":8449},{"label":"45 a 49 años","value":466},{"label":"50 años y más","value":8}]},{"year":2013,"provisional":false,"observed":242005,"men":123402,"women":118585,"masculinity":104.1,"ages":[{"label":"menores de 15 años","value":902},{"label":"15 a 19 años","value":31506},{"label":"20 a 24 años","value":56898},{"label":"25 a 29 años","value":58140},{"label":"30 a 34 años","value":53625},{"label":"35 a 39 años","value":31614},{"label":"40 a 44 años","value":8814},{"label":"45 a 49 años","value":448},{"label":"50 años y más","value":12}]},{"year":2014,"provisional":false,"observed":250997,"men":128177,"women":122802,"masculinity":104.4,"ages":[{"label":"menores de 15 años","value":852},{"label":"15 a 19 años","value":29454},{"label":"20 a 24 años","value":57612},{"label":"25 a 29 años","value":62810},{"label":"30 a 34 años","value":57520},{"label":"35 a 39 años","value":32888},{"label":"40 a 44 años","value":9302},{"label":"45 a 49 años","value":487},{"label":"50 años y más","value":15}]},{"year":2015,"provisional":false,"observed":244670,"men":124713,"women":119936,"masculinity":104.0,"ages":[{"label":"menores de 15 años","value":717},{"label":"15 a 19 años","value":25448},{"label":"20 a 24 años","value":54261},{"label":"25 a 29 años","value":63210},{"label":"30 a 34 años","value":57373},{"label":"35 a 39 años","value":33596},{"label":"40 a 44 años","value":9545},{"label":"45 a 49 años","value":491},{"label":"50 años y más","value":13}]},{"year":2016,"provisional":false,"observed":231749,"men":117801,"women":113920,"masculinity":103.4,"ages":[{"label":"menores de 15 años","value":649},{"label":"15 a 19 años","value":20521},{"label":"20 a 24 años","value":48888},{"label":"25 a 29 años","value":61734},{"label":"30 a 34 años","value":56325},{"label":"35 a 39 años","value":33565},{"label":"40 a 44 años","value":9497},{"label":"45 a 49 años","value":499},{"label":"50 años y más","value":14}]},{"year":2017,"provisional":false,"observed":219186,"men":111660,"women":107501,"masculinity":103.9,"ages":[{"label":"menores de 15 años","value":472},{"label":"15 a 19 años","value":16897},{"label":"20 a 24 años","value":45057},{"label":"25 a 29 años","value":59455},{"label":"30 a 34 años","value":53929},{"label":"35 a 39 años","value":33523},{"label":"40 a 44 años","value":9095},{"label":"45 a 49 años","value":537},{"label":"50 años y más","value":19}]},{"year":2018,"provisional":false,"observed":221731,"men":113039,"women":108668,"masculinity":104.0,"ages":[{"label":"menores de 15 años","value":389},{"label":"15 a 19 años","value":14252},{"label":"20 a 24 años","value":44659},{"label":"25 a 29 años","value":61397},{"label":"30 a 34 años","value":56396},{"label":"35 a 39 años","value":34942},{"label":"40 a 44 años","value":8940},{"label":"45 a 49 años","value":520},{"label":"50 años y más","value":25}]},{"year":2019,"provisional":false,"observed":210188,"men":107353,"women":102812,"masculinity":104.4,"ages":[{"label":"menores de 15 años","value":285},{"label":"15 a 19 años","value":11692},{"label":"20 a 24 años","value":40194},{"label":"25 a 29 años","value":58301},{"label":"30 a 34 años","value":56105},{"label":"35 a 39 años","value":34100},{"label":"40 a 44 años","value":8837},{"label":"45 a 49 años","value":520},{"label":"50 años y más","value":20}]},{"year":2020,"provisional":false,"observed":194978,"men":99923,"women":95036,"masculinity":105.1,"ages":[{"label":"menores de 15 años","value":225},{"label":"15 a 19 años","value":9535},{"label":"20 a 24 años","value":35742},{"label":"25 a 29 años","value":53546},{"label":"30 a 34 años","value":54194},{"label":"35 a 39 años","value":32579},{"label":"40 a 44 años","value":8446},{"label":"45 a 49 años","value":522},{"label":"50 años y más","value":18}]},{"year":2021,"provisional":false,"observed":177273,"men":90361,"women":86895,"masculinity":104.0,"ages":[{"label":"menores de 15 años","value":161},{"label":"15 a 19 años","value":7097},{"label":"20 a 24 años","value":30379},{"label":"25 a 29 años","value":47790},{"label":"30 a 34 años","value":52051},{"label":"35 a 39 años","value":30941},{"label":"40 a 44 años","value":8219},{"label":"45 a 49 años","value":439},{"label":"50 años y más","value":18}]},{"year":2022,"provisional":false,"observed":189303,"men":96010,"women":93278,"masculinity":102.9,"ages":[{"label":"menores de 15 años","value":193},{"label":"15 a 19 años","value":7162},{"label":"20 a 24 años","value":31672},{"label":"25 a 29 años","value":50641},{"label":"30 a 34 años","value":56010},{"label":"35 a 39 años","value":33720},{"label":"40 a 44 años","value":9030},{"label":"45 a 49 años","value":560},{"label":"50 años y más","value":32}]},{"year":2023,"provisional":true,"observed":174067,"men":88798,"women":85251,"masculinity":104.2,"ages":[{"label":"menores de 15 años","value":168},{"label":"15 a 19 años","value":6510},{"label":"20 a 24 años","value":28745},{"label":"25 a 29 años","value":45739},{"label":"30 a 34 años","value":51083},{"label":"35 a 39 años","value":32023},{"label":"40 a 44 años","value":8873},{"label":"45 a 49 años","value":612},{"label":"50 años y más","value":32}]},{"year":2024,"provisional":true,"observed":154441,"men":78306,"women":76127,"masculinity":102.9,"ages":[{"label":"menores de 15 años","value":181},{"label":"15 a 19 años","value":5504},{"label":"20 a 24 años","value":24682},{"label":"25 a 29 años","value":39826},{"label":"30 a 34 años","value":45674},{"label":"35 a 39 años","value":29806},{"label":"40 a 44 años","value":7960},{"label":"45 a 49 años","value":516},{"label":"50 años y más","value":32}]}]}
+{
+  "source": "series-vitales-1992-2025(p).xlsx",
+  "series": [
+    {
+      "year": 1992,
+      "provisional": false,
+      "observed": 279098,
+      "men": 142723,
+      "women": 136375,
+      "masculinity": 104.7,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 791
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 37692
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 76393
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 78859
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 54114
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 25171
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 5686
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 344
+        },
+        {
+          "label": "50 años y más",
+          "value": 48
+        }
+      ]
+    },
+    {
+      "year": 1993,
+      "provisional": false,
+      "observed": 275916,
+      "men": 141304,
+      "women": 134612,
+      "masculinity": 105,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 863
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 37563
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 74775
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 76104
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 54699
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 25491
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 6019
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 358
+        },
+        {
+          "label": "50 años y más",
+          "value": 44
+        }
+      ]
+    },
+    {
+      "year": 1994,
+      "provisional": false,
+      "observed": 273766,
+      "men": 139746,
+      "women": 134020,
+      "masculinity": 104.3,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 879
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 37969
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 74451
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 73530
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 54759
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 25880
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 5977
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 319
+        },
+        {
+          "label": "50 años y más",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "year": 1995,
+      "provisional": false,
+      "observed": 265932,
+      "men": 135982,
+      "women": 129950,
+      "masculinity": 104.6,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 1033
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 37852
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 71651
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 69073
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 53608
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 26221
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 6187
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 302
+        },
+        {
+          "label": "50 años y más",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "year": 1996,
+      "provisional": false,
+      "observed": 264793,
+      "men": 135700,
+      "women": 129093,
+      "masculinity": 105.1,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 1126
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 38575
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 69941
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 67582
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 53732
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 27247
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 6290
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 292
+        },
+        {
+          "label": "50 años y más",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "year": 1997,
+      "provisional": false,
+      "observed": 259959,
+      "men": 133415,
+      "women": 126544,
+      "masculinity": 105.4,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 1183
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 39551
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 66326
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 65904
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 52485
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 27773
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 6411
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 318
+        },
+        {
+          "label": "50 años y más",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "year": 1998,
+      "provisional": false,
+      "observed": 257105,
+      "men": 131234,
+      "women": 125871,
+      "masculinity": 104.3,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 1175
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 40355
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 63235
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 65389
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 51943
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 28131
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 6543
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 331
+        },
+        {
+          "label": "50 años y más",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "year": 1999,
+      "provisional": false,
+      "observed": 250674,
+      "men": 128256,
+      "women": 122418,
+      "masculinity": 104.8,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 1052
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 39387
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 59293
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 64135
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 51086
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 28720
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 6700
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 298
+        },
+        {
+          "label": "50 años y más",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "year": 2000,
+      "provisional": false,
+      "observed": 248893,
+      "men": 127763,
+      "women": 121130,
+      "masculinity": 105.5,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 1055
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 39257
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 57141
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 63812
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 50675
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 29471
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 7119
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 359
+        },
+        {
+          "label": "50 años y más",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "year": 2001,
+      "provisional": false,
+      "observed": 246116,
+      "men": 125335,
+      "women": 120781,
+      "masculinity": 103.8,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 1162
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 38722
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 55892
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 61735
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 50651
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 30146
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 7420
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 371
+        },
+        {
+          "label": "50 años y más",
+          "value": 17
+        }
+      ]
+    },
+    {
+      "year": 2002,
+      "provisional": false,
+      "observed": 238981,
+      "men": 121975,
+      "women": 117006,
+      "masculinity": 104.2,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 1118
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 36500
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 55414
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 58775
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 49575
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 29450
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 7821
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 326
+        },
+        {
+          "label": "50 años y más",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "year": 2003,
+      "provisional": false,
+      "observed": 234486,
+      "men": 119963,
+      "women": 114523,
+      "masculinity": 104.8,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 994
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 33838
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 54536
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 56443
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 50557
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 29662
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8087
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 362
+        },
+        {
+          "label": "50 años y más",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "year": 2004,
+      "provisional": false,
+      "observed": 230352,
+      "men": 117434,
+      "women": 112918,
+      "masculinity": 104,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 906
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 33522
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 53536
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 54145
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 50585
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 29113
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8209
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 334
+        },
+        {
+          "label": "50 años y más",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "year": 2005,
+      "provisional": false,
+      "observed": 230831,
+      "men": 118534,
+      "women": 112297,
+      "masculinity": 105.6,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 935
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 35143
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 54032
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 53401
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 49906
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 28810
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8234
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 364
+        },
+        {
+          "label": "50 años y más",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "year": 2006,
+      "provisional": false,
+      "observed": 231383,
+      "men": 118203,
+      "women": 113180,
+      "masculinity": 104.4,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 954
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 36819
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 54312
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 52387
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 49335
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 28767
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8372
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 430
+        },
+        {
+          "label": "50 años y más",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "year": 2007,
+      "provisional": false,
+      "observed": 240569,
+      "men": 122952,
+      "women": 117617,
+      "masculinity": 104.5,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 955
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 38650
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 56174
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 56429
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 50151
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 29438
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8324
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 394
+        },
+        {
+          "label": "50 años y más",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "year": 2008,
+      "provisional": false,
+      "observed": 246581,
+      "men": 125858,
+      "women": 120723,
+      "masculinity": 104.3,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 1025
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 39902
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 57915
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 58338
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 50391
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 30234
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8307
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 436
+        },
+        {
+          "label": "50 años y más",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "year": 2009,
+      "provisional": false,
+      "observed": 252240,
+      "men": 128659,
+      "women": 123581,
+      "masculinity": 104.1,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 1073
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 39629
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 60361
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 60759
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 49955
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 31375
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8581
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 437
+        },
+        {
+          "label": "50 años y más",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "year": 2010,
+      "provisional": false,
+      "observed": 250643,
+      "men": 127682,
+      "women": 122961,
+      "masculinity": 103.8,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 963
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 38047
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 59884
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 59623
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 50841
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 32300
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8478
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 449
+        },
+        {
+          "label": "50 años y más",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "year": 2011,
+      "provisional": false,
+      "observed": 247358,
+      "men": 126555,
+      "women": 120803,
+      "masculinity": 104.8,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 955
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 36258
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 59378
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 58848
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 50671
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 32082
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8653
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 480
+        },
+        {
+          "label": "50 años y más",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "year": 2012,
+      "provisional": false,
+      "observed": 243635,
+      "men": 124083,
+      "women": 119552,
+      "masculinity": 103.8,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 879
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 34305
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 58146
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 57491
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 52386
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 31475
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8449
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 466
+        },
+        {
+          "label": "50 años y más",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "year": 2013,
+      "provisional": false,
+      "observed": 242005,
+      "men": 123402,
+      "women": 118585,
+      "masculinity": 104.1,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 902
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 31506
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 56898
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 58140
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 53625
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 31614
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8814
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 448
+        },
+        {
+          "label": "50 años y más",
+          "value": 12
+        }
+      ]
+    },
+    {
+      "year": 2014,
+      "provisional": false,
+      "observed": 250997,
+      "men": 128177,
+      "women": 122802,
+      "masculinity": 104.4,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 852
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 29454
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 57612
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 62810
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 57520
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 32888
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 9302
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 487
+        },
+        {
+          "label": "50 años y más",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "provisional": false,
+      "observed": 244670,
+      "men": 124713,
+      "women": 119936,
+      "masculinity": 104,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 717
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 25448
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 54261
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 63210
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 57373
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 33596
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 9545
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 491
+        },
+        {
+          "label": "50 años y más",
+          "value": 13
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "provisional": false,
+      "observed": 231749,
+      "men": 117801,
+      "women": 113920,
+      "masculinity": 103.4,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 649
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 20521
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 48888
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 61734
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 56325
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 33565
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 9497
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 499
+        },
+        {
+          "label": "50 años y más",
+          "value": 14
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "provisional": false,
+      "observed": 219186,
+      "men": 111660,
+      "women": 107501,
+      "masculinity": 103.9,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 472
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 16897
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 45057
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 59455
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 53929
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 33523
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 9095
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 537
+        },
+        {
+          "label": "50 años y más",
+          "value": 19
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "provisional": false,
+      "observed": 221731,
+      "men": 113039,
+      "women": 108668,
+      "masculinity": 104,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 389
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 14252
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 44659
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 61397
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 56396
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 34942
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8940
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 520
+        },
+        {
+          "label": "50 años y más",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "provisional": false,
+      "observed": 210188,
+      "men": 107353,
+      "women": 102812,
+      "masculinity": 104.4,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 285
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 11692
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 40194
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 58301
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 56105
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 34100
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8837
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 520
+        },
+        {
+          "label": "50 años y más",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "provisional": false,
+      "observed": 194978,
+      "men": 99923,
+      "women": 95036,
+      "masculinity": 105.1,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 225
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 9535
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 35742
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 53546
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 54194
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 32579
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8446
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 522
+        },
+        {
+          "label": "50 años y más",
+          "value": 18
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "provisional": false,
+      "observed": 177273,
+      "men": 90361,
+      "women": 86895,
+      "masculinity": 104,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 161
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 7097
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 30379
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 47790
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 52051
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 30941
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8219
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 439
+        },
+        {
+          "label": "50 años y más",
+          "value": 18
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "provisional": false,
+      "observed": 189303,
+      "men": 96010,
+      "women": 93278,
+      "masculinity": 102.9,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 193
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 7162
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 31672
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 50641
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 56010
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 33720
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 9030
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 560
+        },
+        {
+          "label": "50 años y más",
+          "value": 32
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "provisional": false,
+      "observed": 174057,
+      "men": 88792,
+      "women": 85248,
+      "masculinity": 104.2,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 171
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 6541
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 28789
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 45760
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 51072
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 31991
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 8825
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 611
+        },
+        {
+          "label": "50 años y más",
+          "value": 31
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "provisional": true,
+      "observed": 154441,
+      "men": 78306,
+      "women": 76127,
+      "masculinity": 102.9,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 181
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 5504
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 24682
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 39826
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 45674
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 29806
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 7960
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 516
+        },
+        {
+          "label": "50 años y más",
+          "value": 32
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "provisional": true,
+      "observed": 146446,
+      "men": 74721,
+      "women": 71716,
+      "masculinity": 104.2,
+      "ages": [
+        {
+          "label": "menores de 15 años",
+          "value": 155
+        },
+        {
+          "label": "15 a 19 años",
+          "value": 5039
+        },
+        {
+          "label": "20 a 24 años",
+          "value": 22825
+        },
+        {
+          "label": "25 a 29 años",
+          "value": 37070
+        },
+        {
+          "label": "30 a 34 años",
+          "value": 43327
+        },
+        {
+          "label": "35 a 39 años",
+          "value": 29573
+        },
+        {
+          "label": "40 a 44 años",
+          "value": 7659
+        },
+        {
+          "label": "45 a 49 años",
+          "value": 485
+        },
+        {
+          "label": "50 años y más",
+          "value": 28
+        }
+      ]
+    }
+  ]
+}
