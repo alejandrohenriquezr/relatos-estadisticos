@@ -13,13 +13,40 @@ permissions:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Obtener repositorio
         uses: actions/checkout@v4
 
       - name: Preparar dependencias
         run: npm ci --ignore-scripts
+
+      - name: Descargar fuentes oficiales con reintentos
+        shell: bash
+        run: |
+          set -euo pipefail
+          download() {
+            local url="$1" output="$2"
+            curl -L --fail --retry 5 --retry-all-errors --retry-delay 3 \
+              --connect-timeout 30 --max-time 180 \
+              --user-agent 'Mozilla/5.0 INE-Relatos-source-audit/1.0' \
+              "$url" -o "$output"
+            test "$(xxd -p -l 4 "$output")" = '504b0304'
+          }
+
+          download 'https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/cuadros-estadisticos/series-vigentes/indicadores_principales.xlsx' /tmp/ene-indicators.xlsx
+          download 'https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/cuadros-estadisticos/series-vigentes/rama.xlsx' /tmp/ene-branches.xlsx
+          download 'https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/cuadros-estadisticos/series-vigentes/categoria.xlsx' /tmp/ene-categories.xlsx
+          download 'https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/cuadros-estadisticos/series-vigentes/ocupados_ausentes.xlsx' /tmp/ene-absent.xlsx
+
+          download 'https://www.ine.gob.cl/docs/default-source/informalidad-y-condiciones-laborales/cuadros-estadisticos/proyecciones_censo_2017/informalidad_tasas.xlsx' /tmp/inf-rates.xlsx
+          download 'https://www.ine.gob.cl/docs/default-source/informalidad-y-condiciones-laborales/cuadros-estadisticos/proyecciones_censo_2017/informalidad_rama.xlsx' /tmp/inf-branches.xlsx
+          download 'https://www.ine.gob.cl/docs/default-source/informalidad-y-condiciones-laborales/cuadros-estadisticos/proyecciones_censo_2017/informalidad_categoria.xlsx' /tmp/inf-categories.xlsx
+          download 'https://www.ine.gob.cl/docs/default-source/informalidad-y-condiciones-laborales/cuadros-estadisticos/proyecciones_censo_2017/informalidad_grupo.xlsx' /tmp/inf-groups.xlsx
+
+          stamp="$(date +%s)"
+          download "https://www.ine.gob.cl/docs/default-source/%C3%ADndice-de-precios-al-consumidor/cuadros-estadisticos/base-anual-2023_100/series-de-tiempo/ipc-xls.xlsx?_ine_refresh=$stamp" /tmp/ipc.xlsx
+          download "https://www.ine.gob.cl/docs/default-source/%C3%ADndice-de-precios-al-consumidor/cuadros-estadisticos/base-anual-2023_100/series-de-tiempo/analiticos-xls.xlsx?_ine_refresh=$stamp" /tmp/ipc-analytics.xlsx
 
       - name: Comparar fuentes oficiales con snapshots
         shell: bash
@@ -31,20 +58,17 @@ jobs:
           import { parseInformalityOfficialFiles } from './lib/informality-official-data.ts';
           import { parseIpcOfficialFiles } from './lib/ipc-official-data.ts';
 
-          const get = async (url) => {
-            const response = await fetch(url, {redirect:'follow',headers:{'cache-control':'no-cache','user-agent':'INE-Relatos-source-audit/1.0'}});
-            if (!response.ok) throw new Error(`${response.status} ${url}`);
-            return response.arrayBuffer();
+          const bytes = path => {
+            const data = fs.readFileSync(path);
+            return data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength);
           };
 
-          const eneUrls = {
-            indicators:'https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/cuadros-estadisticos/series-vigentes/indicadores_principales.xlsx',
-            branches:'https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/cuadros-estadisticos/series-vigentes/rama.xlsx',
-            categories:'https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/cuadros-estadisticos/series-vigentes/categoria.xlsx',
-            absent:'https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/cuadros-estadisticos/series-vigentes/ocupados_ausentes.xlsx',
-          };
-          const eneFiles = Object.fromEntries(await Promise.all(Object.entries(eneUrls).map(async ([key,url])=>[key,await get(url)])));
-          const ene = parseEneOfficialFiles(eneFiles);
+          const ene = parseEneOfficialFiles({
+            indicators: bytes('/tmp/ene-indicators.xlsx'),
+            branches: bytes('/tmp/ene-branches.xlsx'),
+            categories: bytes('/tmp/ene-categories.xlsx'),
+            absent: bytes('/tmp/ene-absent.xlsx'),
+          });
           const eneRemote = ene.series.Total.at(-1);
           const eneFallback = JSON.parse(fs.readFileSync('public/ene-data.json','utf8'));
           const eneFallbackLatest = eneFallback.series?.Total?.at?.(-1) ?? null;
@@ -53,14 +77,12 @@ jobs:
           if (!eneRemote || eneRemote.year !== 2026 || !/mayo\s*-?\s*julio|may\s*-?\s*jul/i.test(String(eneRemote.quarter)))
             throw new Error(`ENE remoto no corresponde a mayo-julio 2026: ${JSON.stringify(eneRemote)}`);
 
-          const infUrls = {
-            rates:'https://www.ine.gob.cl/docs/default-source/informalidad-y-condiciones-laborales/cuadros-estadisticos/proyecciones_censo_2017/informalidad_tasas.xlsx',
-            branches:'https://www.ine.gob.cl/docs/default-source/informalidad-y-condiciones-laborales/cuadros-estadisticos/proyecciones_censo_2017/informalidad_rama.xlsx',
-            categories:'https://www.ine.gob.cl/docs/default-source/informalidad-y-condiciones-laborales/cuadros-estadisticos/proyecciones_censo_2017/informalidad_categoria.xlsx',
-            groups:'https://www.ine.gob.cl/docs/default-source/informalidad-y-condiciones-laborales/cuadros-estadisticos/proyecciones_censo_2017/informalidad_grupo.xlsx',
-          };
-          const infFiles = Object.fromEntries(await Promise.all(Object.entries(infUrls).map(async ([key,url])=>[key,await get(url)])));
-          const informal = parseInformalityOfficialFiles(infFiles);
+          const informal = parseInformalityOfficialFiles({
+            rates: bytes('/tmp/inf-rates.xlsx'),
+            branches: bytes('/tmp/inf-branches.xlsx'),
+            categories: bytes('/tmp/inf-categories.xlsx'),
+            groups: bytes('/tmp/inf-groups.xlsx'),
+          });
           const infRemote = informal.rates.at(-1);
           const infFallback = JSON.parse(fs.readFileSync('public/informality-data.json','utf8'));
           const infFallbackLatest = infFallback.rates?.at?.(-1) ?? null;
@@ -71,16 +93,15 @@ jobs:
           if (!infRemote || infRemote.year !== 2026 || Math.abs(infRemote.rate - 26.5) > 0.051)
             throw new Error(`Informalidad remota inesperada: ${JSON.stringify(infRemote)}`);
 
-          const ipcUrls = {
-            ipc:'https://www.ine.gob.cl/docs/default-source/%C3%ADndice-de-precios-al-consumidor/cuadros-estadisticos/base-anual-2023_100/series-de-tiempo/ipc-xls.xlsx',
-            analytics:'https://www.ine.gob.cl/docs/default-source/%C3%ADndice-de-precios-al-consumidor/cuadros-estadisticos/base-anual-2023_100/series-de-tiempo/analiticos-xls.xlsx',
-          };
-          const ipcFiles = Object.fromEntries(await Promise.all(Object.entries(ipcUrls).map(async ([key,url])=>[key,await get(`${url}?_ine_refresh=${Date.now()}`)])));
-          const ipc = parseIpcOfficialFiles(ipcFiles);
+          const ipc = parseIpcOfficialFiles({
+            ipc: bytes('/tmp/ipc.xlsx'),
+            analytics: bytes('/tmp/ipc-analytics.xlsx'),
+          });
           const ipcRemote = ipc.data.series.filter(item=>item.division===0).at(-1);
           const ipcFallback = JSON.parse(fs.readFileSync('public/ipc-data.json','utf8'));
           const ipcFallbackLatest = ipcFallback.series?.filter?.(item=>item.division===0)?.at?.(-1) ?? null;
           const analyticsFallback = JSON.parse(fs.readFileSync('public/ipc-analytics.json','utf8'));
+          console.log('IPC_REMOTE_UPDATED', ipc.data.updated);
           console.log('IPC_REMOTE_LATEST', JSON.stringify(ipcRemote));
           console.log('IPC_FALLBACK_UPDATED', JSON.stringify(ipcFallback.updated ?? null));
           console.log('IPC_FALLBACK_LATEST', JSON.stringify(ipcFallbackLatest));
