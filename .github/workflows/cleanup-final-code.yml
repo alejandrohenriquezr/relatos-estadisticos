@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "scripts/cleanup-final-code.py"
+      - "scripts/enable-mandatory-lint.py"
       - ".github/workflows/cleanup-final-code.yml"
   workflow_dispatch:
 
@@ -21,33 +22,21 @@ jobs:
           ref: main
       - name: Aplicar transformaciones auditables
         run: python3 scripts/cleanup-final-code.py
-      - name: Preparar y validar
-        run: |
-          npm ci --ignore-scripts
-          npx prettier --write app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs
-          npm run lint
-          NODE_OPTIONS=--enable-source-maps npm test
-          python3 scripts/check-repository-integrity.py
-      - name: Hacer obligatorio el lint y versionar
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          path=Path('.github/workflows/ci.yml')
-          text=path.read_text()
-          text=text.replace('''      # El análisis estático queda temporalmente informativo mientras se
-      # resuelven las observaciones heredadas documentadas en TECHNICAL_DEBT.md.
-      - name: Auditar lint
-        continue-on-error: true
-        run: npm run lint''','''      # El análisis estático es una condición obligatoria del CI.
-      - name: Auditar lint
-        run: npm run lint''',1)
-          if 'continue-on-error: true' in text:
-              raise SystemExit('El lint continúa configurado como informativo')
-          path.write_text(text)
-          PY
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs .github/workflows/ci.yml
-          git commit -m 'Corrige lint funcional y lo hace obligatorio'
-          git push origin HEAD:main
+      - name: Instalar dependencias
+        run: npm ci --ignore-scripts
+      - name: Formatear archivos modificados
+        run: npx prettier --write app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs
+      - name: Validar lint
+        run: npm run lint
+      - name: Ejecutar pruebas completas
+        run: NODE_OPTIONS=--enable-source-maps npm test
+      - name: Validar integridad
+        run: python3 scripts/check-repository-integrity.py
+      - name: Activar lint obligatorio
+        run: python3 scripts/enable-mandatory-lint.py
+      - name: Configurar autor
+        run: git config user.name github-actions-bot
+      - name: Configurar correo
+        run: git config user.email github-actions-bot@users.noreply.github.com
+      - name: Versionar cambios validados
+        run: git add app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs .github/workflows/ci.yml && git commit -m "Corrige lint funcional y lo hace obligatorio" && git push origin HEAD:main
