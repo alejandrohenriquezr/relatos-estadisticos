@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """Convierte la hoja Nacimientos del libro oficial de estadísticas vitales a JSON.
 
-Acepta una ruta local o una URL. Por defecto usa la serie histórica detallada
-1992-2024(p) actualmente compatible con la estructura del sitio. Una edición
-provisional posterior debe incorporarse sólo cuando exista un archivo tabular
-con las mismas variables; no se completan campos detallados desde un boletín PDF.
+Acepta una ruta local o una URL. Por defecto usa la serie histórica oficial
+1992-2025(p), cuya compatibilidad con la estructura del sitio fue verificada
+contra el parser productivo.
 """
 
 from __future__ import annotations
@@ -23,7 +22,8 @@ from openpyxl import load_workbook
 
 DEFAULT_SOURCE = (
     "https://www.ine.gob.cl/docs/default-source/nacimientos-matrimonios-y-defunciones/"
-    "cuadros-estadisticos/series-hist%C3%B3ricas/series-vitales-1992-2024(p).xlsx"
+    "cuadros-estadisticos/series-hist%C3%B3ricas/series-vitales-1992-2025(p).xlsx"
+    "?sfvrsn=bfbe614_4"
 )
 DEFAULT_OUTPUT = Path(__file__).resolve().parents[1] / "public" / "births-data.json"
 
@@ -64,7 +64,10 @@ def build_payload(source: Path, source_label: str) -> dict:
         if "Nacimientos" not in workbook.sheetnames:
             raise ValueError("El libro no contiene la hoja 'Nacimientos'")
         worksheet = workbook["Nacimientos"]
-        headers = [cell.value for cell in next(worksheet.iter_rows(min_row=1, max_row=1))]
+        headers = [
+            cell.value
+            for cell in next(worksheet.iter_rows(min_row=1, max_row=1))
+        ]
         age_columns = [
             (
                 index,
@@ -103,9 +106,19 @@ def build_payload(source: Path, source_label: str) -> dict:
 
     if not series:
         raise ValueError("No se encontraron nacimientos válidos")
+    if series[-1]["year"] < 2025:
+        raise ValueError("La fuente no contiene la serie provisional 2025 esperada")
     return {
-        "source": Path(source_label).name if not source_label.startswith("http") else source_label.rsplit("/", 1)[-1],
-        "sourceUrl": source_label if source_label.startswith(("http://", "https://")) else None,
+        "source": (
+            Path(source_label).name
+            if not source_label.startswith("http")
+            else source_label.rsplit("/", 1)[-1].split("?", 1)[0]
+        ),
+        "sourceUrl": (
+            source_label
+            if source_label.startswith(("http://", "https://"))
+            else None
+        ),
         "series": series,
     }
 
