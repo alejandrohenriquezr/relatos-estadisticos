@@ -2,7 +2,13 @@
 
 Fecha de revisión: 2026-09-10.
 
-Este archivo registra controles observables del repositorio. No sustituye el historial de GitHub Actions ni implica que el despliegue productivo esté sirviendo automáticamente el último commit de `main`.
+Este archivo registra controles observables del repositorio y distingue entre **código validado en GitHub** y **revisión efectivamente publicada por Sites**. Una ejecución correcta de GitHub Actions no demuestra, por sí sola, que el dominio productivo esté sirviendo el mismo SHA.
+
+## Resumen de cierre
+
+La revisión del repositorio dejó resueltos los problemas de integridad, construcción SSR, actualización de ENE, continuidad de Servicios, configuración editorial del CMS, metadatos y documentación de clonación/despliegue.
+
+El repositorio debe considerarse técnicamente aceptado únicamente cuando el commit actual de `main` tenga una ejecución satisfactoria de `.github/workflows/ci.yml`. Ese workflow es bloqueante para integridad, lint, build/pruebas y revisión de secretos.
 
 ## Reparación de integridad
 
@@ -14,13 +20,9 @@ Durante la revisión de la sincronización del 8 de septiembre se detectaron cin
 - `public/sdmx/demografia-empresas-observations.json`;
 - `public/worker/vendor/xlsx.full.min.js`.
 
-La reparación reproducible fue ejecutada por `.github/workflows/repair-assets.yml` y guardada en el commit `90ff825` (`Repara artefactos de datos sincronizados [assets-repaired]`).
+La reparación reproducible fue ejecutada por `.github/workflows/repair-assets.yml` y guardada inicialmente en el commit `90ff825` (`Repara artefactos de datos sincronizados [assets-repaired]`). Los controles posteriores volvieron a ejecutar `scripts/check-repository-integrity.py` y el build completo.
 
-Después de la regeneración, `python3 scripts/check-repository-integrity.py` revisó 196 archivos versionados y finalizó con `Integridad básica: OK`.
-
-## Resultados de regeneración
-
-### Encuesta Nacional de Empleo
+## Encuesta Nacional de Empleo
 
 Fuente:
 
@@ -28,18 +30,19 @@ Fuente:
 
 Transformador: `public/sdmx/transformar_ene_sdmx.py`.
 
-Resultado del 10 de septiembre de 2026:
+Resultado validado el 10 de septiembre de 2026:
 
-- validación: válida, sin errores;
-- observaciones: 48.659;
+- observaciones SDMX: 48.659;
 - series: 247;
 - períodos: 197;
-- primer período: 2010-03;
-- último período: 2026-07;
-- coberturas territoriales: total país y 16 regiones;
-- códigos de sexo: total, hombres y mujeres.
+- primer período: `2010-03`;
+- último período: `2026-07`;
+- cobertura territorial: total país y 16 regiones;
+- sexo: total, hombres y mujeres.
 
-### ENUSC
+La interfaz ya no inyecta manualmente `Mar - May 2026`. El período inicial se deriva del último registro del snapshot versionado `public/ene-data.json`, evitando una segunda fuente de verdad en `app/page.tsx`.
+
+## ENUSC
 
 Fuente:
 
@@ -47,49 +50,119 @@ Fuente:
 
 Transformador: `scripts/extract-enusc.py`.
 
-Resultado del 10 de septiembre de 2026:
+Resultado de la regeneración del 10 de septiembre de 2026:
 
 - variables: 286;
 - tabulados: 286;
-- snapshot JSON generado correctamente.
+- snapshot JSON generado y validado.
 
-### Demografía de empresas
+## Servicios
+
+Comercio, Turismo y Supermercados disponen de snapshots versionados:
+
+- `public/commerce-data.json`;
+- `public/tourism-data.json`;
+- `public/supermarkets-data.json`.
+
+La interfaz consulta primero las rutas API/D1 y utiliza esos archivos como respaldo cuando la dependencia compartida no está disponible. La regeneración reproducible se conserva en `.github/workflows/regenerate-services-fallbacks.yml`.
+
+La regresión `tests/client-static-fallback.test.ts` comprueba el comportamiento sin D1. Las fuentes oficiales, períodos observados y detalles de trazabilidad están documentados en `DATA_SOURCES.md`.
+
+## Estadísticas vitales
+
+La ruta `app/api/vital-data/route.ts` persiste correctamente el hash calculado de la fuente.
+
+La fuente anual configurada es:
+
+`series-vitales-1992-2025(p).xlsx`
+
+Su vigencia fue contrastada el 10 de septiembre de 2026 con la publicación anual del INE: corresponde a las cifras provisionales 2025 difundidas en mayo de 2026. Los boletines mensuales 2026 constituyen un producto coyuntural de distinta frecuencia y no sustituyen esa serie histórica anual.
+
+Por tanto, el control de contenido anual de Nacimientos, Fecundidad, Defunciones, Mortalidad, Matrimonios y AUC ya no queda marcado como pendiente por el solo hecho de existir publicaciones mensuales 2026.
+
+## Demografía de empresas
 
 Fuente de recuperación del HTML integrado:
 
 `https://github.com/alejandrohenriquezr/demografia-de-empresas`
 
-En el momento de la reparación, `main` y `migracion-python` apuntaban al commit `54fbcaf92b79938e194f3dc19735f40eaf7b00a5`.
+En la reparación inicial, `main` y `migracion-python` apuntaban al commit `54fbcaf92b79938e194f3dc19735f40eaf7b00a5`.
 
 Regenerador: `scripts/build-business-demography-snapshot.mjs`.
 
-Resultado:
+Resultado documentado:
 
 - observaciones normalizadas: 3.370;
-- HTML validado con estructura reconocible;
-- snapshot JSON válido.
+- HTML con estructura validada;
+- snapshot JSON válido;
+- cuadros estadísticos disponibles en `public/datos_OE/cuadros_estadisticos/`.
 
-Los Excel estadísticos asociados siguen almacenados en `public/datos_OE/cuadros_estadisticos/`.
+## CMS y secciones por operación
 
-## Estadísticas vitales
+El CMS ya no opera sólo como formulario de persistencia:
 
-Se corrigió `app/api/vital-data/route.ts` para persistir el hash calculado de la fuente, en lugar de una variable inexistente. La fuente histórica configurada en esa ruta debe revisarse separadamente frente a la publicación anual más reciente antes de declarar que Nacimientos y las demás estadísticas vitales están actualizadas al último año disponible.
+- `/admin` y las páginas de edición requieren usuario autenticado;
+- el editor de una operación recupera primero la configuración persistida en D1 y usa defaults sólo como respaldo;
+- `PUT /api/admin/operations` exige identidad autenticada y guarda `updated_by` con el correo del usuario;
+- `GET /api/operation-config` continúa siendo la ruta pública de lectura de la configuración editorial;
+- `app/OperationSections.tsx` consulta esa configuración al abrir cada operación;
+- si hay dos o más secciones habilitadas se muestra el menú de pestañas;
+- **Análisis** permanece visible por omisión;
+- Publicaciones, Documentación, Bases de datos y Centro de recursos reutilizan recursos ya enlazados por la operación y nunca inventan archivos inexistentes.
 
-Por tanto, al 10 de septiembre de 2026, la integridad técnica de la ruta está corregida, pero la vigencia anual de la fuente de estadísticas vitales permanece como control de contenido pendiente.
+La integración sobre `app/page.tsx` fue aplicada y validada por una corrida temporal de GitHub Actions que terminó correctamente y produjo el commit `702605b8198638a0703da7a9fe4bc7a0392acb7f`. El workflow y el script usados sólo para esa modificación fueron retirados después de consolidar el cambio.
+
+Las regresiones permanentes se encuentran en `tests/cms-operation-sections.test.mjs`.
+
+## Navegación
+
+El JSX conserva elementos históricos `topbar`/`topics`, pero la hoja de estilos vigente oculta la cabecera superior y transforma la navegación en un panel lateral izquierdo. El menú lateral se comparte con las operaciones integradas, incluida Demografía de empresas bajo **Estadísticas Experimentales**.
+
+No se reescribió esa estructura durante el cierre porque el comportamiento visual final ya corresponde al patrón lateral solicitado.
+
+## Metadatos y documentación
+
+La documentación de clonación y operación se distribuye entre:
+
+- `README.md`;
+- `ARCHITECTURE.md`;
+- `DATA_SOURCES.md`;
+- `DATA_GOVERNANCE.md`;
+- `DEPLOYMENT.md`;
+- `CONTRIBUTING.md`;
+- `TECHNICAL_DEBT.md`;
+- `docs/METADATA.md`;
+- `docs/sdmx/`.
+
+El layout raíz declara `lang="es-CL"`. `docs/METADATA.md` describe metadatos globales, editoriales, de procedencia y SDMX.
 
 ## CI
 
-El workflow `.github/workflows/ci.yml` es el control de aceptación del repositorio. Ejecuta:
+`.github/workflows/ci.yml` ejecuta como controles de aceptación:
 
-- integridad de archivos;
-- instalación reproducible;
-- lint informativo;
-- `npm test` como control bloqueante;
-- generación/conservación del artefacto cuando corresponde;
-- revisión de secretos.
+1. integridad de archivos;
+2. instalación reproducible;
+3. `npm run lint` como control bloqueante;
+4. `npm test`, incluyendo build/SSR y regresiones de caché, fallback estático, CMS y MCP/SDMX;
+5. validación/conservación del artefacto cuando corresponde;
+6. revisión de secretos con Gitleaks.
 
-Los commits de documentación y limpieza posteriores a `90ff825` deben superar nuevamente este workflow. El resultado vigente debe comprobarse en GitHub Actions para el SHA actual de `main`.
+Las cancelaciones de ejecuciones antiguas provocadas por la política de concurrencia no se interpretan como fallos. Para el cierre se debe comprobar la ejecución correspondiente al SHA actual de `main`.
 
-## Despliegue
+## Despliegue productivo
 
-El repositorio documenta la configuración Sites en `.openai/hosting.json`, pero una ejecución correcta de CI no demuestra por sí sola que el dominio publicado esté sirviendo el mismo SHA. La comprobación del sitio productivo debe realizarse sobre las páginas y endpoints desplegados después de publicar la revisión validada.
+La configuración del proyecto Sites se conserva en `.openai/hosting.json`, con binding lógico D1 `DB`.
+
+El repositorio no contiene una copia de la D1 productiva. Una clonación puede reconstruir el código, snapshots y cachés derivadas, pero el estado editorial persistido del CMS requiere una D1 compatible.
+
+La validación final del despliegue debe comprobar, sobre el dominio publicado:
+
+- página principal y navegación lateral;
+- una operación por cada grupo temático;
+- Comercio, Turismo y Supermercados;
+- Demografía de empresas;
+- `/api/operation-config`;
+- `/api/sdmx/catalog` y al menos un `data_endpoint`;
+- acceso autenticado a `/admin` y persistencia visible de una modificación CMS.
+
+Hasta que el dominio publicado se contraste contra el SHA final, el estado de GitHub y el estado de publicación deben reportarse por separado.
