@@ -30,6 +30,25 @@ function database(firstRow: unknown, allRows: unknown[] = []) {
   };
 }
 
+const supermarketRows = () => [
+  {
+    part: "meta",
+    payload: JSON.stringify({
+      kind: "supermarkets",
+      base: "2018",
+      territories: [],
+    }),
+  },
+  ...Array.from({ length: 17 }, (_, i) => ({
+    part: `index:${i}`,
+    payload: "[]",
+  })),
+  ...["sales", "stores", "area"].map((name) => ({
+    part: `matrix:${name}`,
+    payload: JSON.stringify({ territories: [], seriesByTerritory: {} }),
+  })),
+];
+
 test.afterEach(() => {
   globalThis.fetch = originalFetch;
   delete (globalThis as typeof globalThis & { __SITES_DB?: unknown })
@@ -42,26 +61,16 @@ test("Supermercados responde desde D1 antes de consultar al INE", async () => {
     externalCalls++;
     throw new Error("No debe consultar la fuente en la fase caché");
   };
-  const rows = [
-    {
-      part: "meta",
-      payload: JSON.stringify({
-        kind: "supermarkets",
-        base: "2018",
-        territories: [],
-      }),
-    },
-    ...Array.from({ length: 17 }, (_, i) => ({
-      part: `index:${i}`,
-      payload: "[]",
-    })),
-    ...["sales", "stores", "area"].map((name) => ({
-      part: `matrix:${name}`,
-      payload: JSON.stringify({ territories: [], seriesByTerritory: {} }),
-    })),
-  ];
   (globalThis as typeof globalThis & { __SITES_DB?: unknown }).__SITES_DB =
-    database({ cache_key: "k", checked_at: "now" }, rows);
+    database(
+      {
+        cache_key: "k",
+        etag: "hash",
+        checked_at: "now",
+        updated_at: "now",
+      },
+      supermarketRows(),
+    );
   const { GET } = await import("../app/api/supermarkets-data/route");
   const response = await GET(
     new NextRequest("http://test/api/supermarkets-data"),
@@ -69,6 +78,33 @@ test("Supermercados responde desde D1 antes de consultar al INE", async () => {
   assert.equal(response.status, 200);
   assert.equal((await responseJson(response)).source.cache, "cached");
   assert.equal(externalCalls, 0);
+});
+
+test("Supermercados conserva la última revisión si falla la fuente", async () => {
+  let externalCalls = 0;
+  globalThis.fetch = async () => {
+    externalCalls++;
+    throw new Error("Fuente temporalmente no disponible");
+  };
+  (globalThis as typeof globalThis & { __SITES_DB?: unknown }).__SITES_DB =
+    database(
+      {
+        cache_key: "k",
+        etag: "hash",
+        checked_at: "2026-09-10T08:00:00.000Z",
+        updated_at: "2026-09-10T08:00:00.000Z",
+      },
+      supermarketRows(),
+    );
+  const { GET } = await import("../app/api/supermarkets-data/route");
+  const response = await GET(
+    new NextRequest("http://test/api/supermarkets-data?refresh=1"),
+  );
+  const payload = await responseJson(response);
+  assert.equal(response.status, 200);
+  assert.equal(payload.source.cache, "stale");
+  assert.equal(response.headers.get("X-Data-Warning"), "stale");
+  assert.equal(externalCalls, 1);
 });
 
 test("Turismo responde desde D1 antes de consultar al INE", async () => {
