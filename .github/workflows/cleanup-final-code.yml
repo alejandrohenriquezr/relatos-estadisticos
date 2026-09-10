@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Aplicar correcciones determinísticas
+      - name: Aplicar sólo correcciones de lint
         shell: bash
         run: |
           set -euo pipefail
@@ -41,16 +41,8 @@ jobs:
           page=Path('app/page.tsx')
           text=page.read_text()
           text=replace_once(text,'"use client";\n\nimport {','"use client";\n\nimport Link from "next/link";\nimport {','import Link')
-          text=sub_once(
-              text,
-              r'<a\s+className="relatos-home-link"\s+href="/"\s+aria-label="Ir al inicio de Relatos Estadísticos"\s*>(.*?)</a>',
-              r'<Link className="relatos-home-link" href="/" aria-label="Ir al inicio de Relatos Estadísticos">\1</Link>',
-              'logo interno',
-          )
-          text=sub_once(
-              text,
-              r'function useChartTween<T>\(value: T, key: string, duration = 520\) \{.*?\n\}\n\n// Mantiene las abreviaturas',
-              '''function useChartTween<T>(value: T, key: string, duration = 520) {
+          text=sub_once(text,r'<a\s+className="relatos-home-link"\s+href="/"\s+aria-label="Ir al inicio de Relatos Estadísticos"\s*>(.*?)</a>',r'<Link className="relatos-home-link" href="/" aria-label="Ir al inicio de Relatos Estadísticos">\1</Link>','logo interno')
+          text=sub_once(text,r'function useChartTween<T>\(value: T, key: string, duration = 520\) \{.*?\n\}\n\n// Mantiene las abreviaturas','''function useChartTween<T>(value: T, key: string, duration = 520) {
             const target = useRef(value);
             const [previous, setPrevious] = useState(value);
             const [progress, setProgress] = useState(1);
@@ -75,47 +67,20 @@ jobs:
             return { previous, progress };
           }
 
-          // Mantiene las abreviaturas''',
-              'useChartTween',
-          )
-          text=sub_once(
-              text,
-              r'const latest: Record<string, Point> = \{.*?\n\};\n\nfunction Icon',
-              '''const initialEne = rawData as EneData;
-          const latest: Record<string, Point> = {
-            Total: initialEne.series.Total.at(-1)!,
-            Mujeres: initialEne.series.Mujeres.at(-1)!,
-            Hombres: initialEne.series.Hombres.at(-1)!,
-          };
-
-          function Icon''',
-              'latest ENE',
-          )
-          text=sub_once(
-              text,
-              r'\s*\} else \{\s*Object\.keys\(latest\)\.forEach\(\(k\) => \{\s*if \(\s*!d\.series\[k\]\.some\(\(p\) => p\.year === 2026 && p\.quarter === "Mar - May"\)\s*\)\s*d\.series\[k\]\.push\(latest\[k\]\);\s*\}\);\s*\}',
-              '\n    }',
-              'fallback ENE obsoleto',
-          )
-          text=replace_once(text,'  const [year, setYear] = useState(2026);\n  const [quarter, setQuarter] = useState("Mar - May");','  const [year, setYear] = useState(latest.Total.year);\n  const [quarter, setQuarter] = useState(latest.Total.quarter);','periodo inicial ENE')
+          // Mantiene las abreviaturas''','useChartTween')
           text=sub_once(text,r'\n\s*useEffect\(\(\) => \{\s*setRangeStart\(Math\.max\(0, available\.length - defaultLength\)\);\s*setRangeEnd\(Math\.max\(0, available\.length - 1\)\);\s*\}, \[available\.length, defaultLength\]\);','', 'effect rango IPP')
           text=replace_once(text,'  const visibleStart = !customRange ? quickStart : rangeStart;','  const visibleStart = !customRange\n    ? quickStart\n    : Math.min(rangeStart, Math.max(0, available.length - 1));','clamp rango IPP')
           text=sub_once(text,r'if \(\(refreshed as any\)\.cache\?\.status === "updated"\) apply\(refreshed\);','if ((refreshed as { cache?: { status?: string } }).cache?.status === "updated") apply(refreshed);','tipo IPP refresh',flags=0)
           text=replace_once(text,'    setDisplayYear(data[0].year);\n    const timer = setInterval(','    const timer = setInterval(','reproducción nacimientos effect')
-          text=sub_once(text,r'onClick=\{\(\) => setPlaying\(\(value\) => !value\)\}', '''onClick={() => {
+          text=sub_once(text,r'onClick=\{\(\) => setPlaying\(\(value\) => !value\)\}','''onClick={() => {
               if (playing) setPlaying(false);
               else {
                 setDisplayYear(data[0].year);
                 setPlaying(true);
               }
             }}''','reproducción nacimientos botón',flags=0)
-          text=sub_once(
-              text,
-              r'\s*useEffect\(\(\) => \{\s*const next = data\.metadata\.find\(\(item\) => item\.theme === theme\)!;\s*setVariable\(next\.variable\);\s*setRegion\("TOTAL NACIONAL"\);\s*setGroup\("Total"\);\s*\}, \[theme, data\.metadata\]\);\s*useEffect\(\(\) => \{\s*setRegion\("TOTAL NACIONAL"\);\s*setGroup\("Total"\);\s*\}, \[variable\]\);',
-              '',
-              'effects ENUSC',
-          )
-          text=sub_once(text,r'onChange=\{\(event\) => setTheme\(event\.target\.value\)\}', '''onChange={(event) => {
+          text=sub_once(text,r'\s*useEffect\(\(\) => \{\s*const next = data\.metadata\.find\(\(item\) => item\.theme === theme\)!;\s*setVariable\(next\.variable\);\s*setRegion\("TOTAL NACIONAL"\);\s*setGroup\("Total"\);\s*\}, \[theme, data\.metadata\]\);\s*useEffect\(\(\) => \{\s*setRegion\("TOTAL NACIONAL"\);\s*setGroup\("Total"\);\s*\}, \[variable\]\);','','effects ENUSC')
+          text=sub_once(text,r'onChange=\{\(event\) => setTheme\(event\.target\.value\)\}','''onChange={(event) => {
               const nextTheme = event.target.value;
               const next = data.metadata.find((item) => item.theme === nextTheme)!;
               setTheme(nextTheme);
@@ -123,7 +88,7 @@ jobs:
               setRegion("TOTAL NACIONAL");
               setGroup("Total");
             }}''','selector tema ENUSC',flags=0)
-          text=sub_once(text,r'onChange=\{\(event\) => setVariable\(event\.target\.value\)\}', '''onChange={(event) => {
+          text=sub_once(text,r'onChange=\{\(event\) => setVariable\(event\.target\.value\)\}','''onChange={(event) => {
               setVariable(event.target.value);
               setRegion("TOTAL NACIONAL");
               setGroup("Total");
@@ -132,10 +97,7 @@ jobs:
 
           econ=Path('app/EconomicPage.tsx')
           text=econ.read_text()
-          text=sub_once(
-              text,
-              r'useEffect\(\(\) => \{\s*let alive = true;\s*setData\(kind === "commerce" \? peekDataset\("commerce"\) : fallbackData\[kind\]\);\s*setError\(""\);\s*setMetric\(kind === "permits" \? "value" : "index"\);\s*const initialRequest =',
-              '''useEffect(() => {
+          text=sub_once(text,r'useEffect\(\(\) => \{\s*let alive = true;\s*setData\(kind === "commerce" \? peekDataset\("commerce"\) : fallbackData\[kind\]\);\s*setError\(""\);\s*setMetric\(kind === "permits" \? "value" : "index"\);\s*const initialRequest =','''useEffect(() => {
             let alive = true;
             queueMicrotask(() => {
               if (!alive) return;
@@ -143,9 +105,7 @@ jobs:
               setError("");
               setMetric(kind === "permits" ? "value" : "index");
             });
-            const initialRequest =''',
-              'EconomicPage effect',
-          )
+            const initialRequest =''','EconomicPage effect')
           econ.write_text(text)
 
           for filename in ['lib/labor-sdmx.ts','lib/price-sdmx.ts']:
@@ -157,7 +117,6 @@ jobs:
           source=replace_once(source,'    "build/**",\n    "next-env.d.ts",','    "build/**",\n    "public/worker/vendor/**",\n    "next-env.d.ts",','ignorar vendor')
           eslint.write_text(source)
           PY
-
       - name: Formatear y validar lint
         shell: bash
         run: |
@@ -165,35 +124,44 @@ jobs:
           npm ci --ignore-scripts
           npx prettier --write app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs
           npm run lint
-
-      - name: Pruebas e integridad
+      - name: Build, SSR, pruebas e integridad
         shell: bash
         run: |
           set -euo pipefail
-          npm test
+          NODE_OPTIONS=--enable-source-maps npm test
           python3 scripts/check-repository-integrity.py
-
       - name: Convertir lint en control obligatorio y versionar
         shell: bash
         run: |
           set -euo pipefail
           python3 <<'PY'
           from pathlib import Path
-          import re
           path=Path('.github/workflows/ci.yml')
           text=path.read_text()
-          pattern=r'''      # El análisis estático queda temporalmente informativo mientras se\n      # resuelven las observaciones heredadas documentadas en TECHNICAL_DEBT\.md\.\n      - name: Auditar lint\n        continue-on-error: true\n        run: npm run lint'''
-          replacement='''      # El análisis estático es una condición obligatoria del CI.
+          old='''      # El análisis estático queda temporalmente informativo mientras se
+                # resuelven las observaciones heredadas documentadas en TECHNICAL_DEBT.md.
                 - name: Auditar lint
-                  run: npm run lint'''
-          text,count=re.subn(pattern,replacement,text,count=1)
-          if count != 1:
-              raise SystemExit(f'ci lint: {count} coincidencias')
-          path.write_text(text)
+                  continue-on-error: true
+                  run: npm run lint
+          '''
+          if old not in text:
+              old='''      # El análisis estático queda temporalmente informativo mientras se
+      # resuelven las observaciones heredadas documentadas en TECHNICAL_DEBT.md.
+      - name: Auditar lint
+        continue-on-error: true
+        run: npm run lint
+          '''.rstrip()
+          new='''      # El análisis estático es una condición obligatoria del CI.
+                - name: Auditar lint
+                  run: npm run lint
+          '''
+          if old not in text:
+              raise SystemExit('No se encontró el bloque informativo de lint en ci.yml')
+          path.write_text(text.replace(old,new,1))
           PY
           npx prettier --write .github/workflows/ci.yml
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add app/page.tsx app/EconomicPage.tsx lib/labor-sdmx.ts lib/price-sdmx.ts eslint.config.mjs .github/workflows/ci.yml
-          git commit -m 'Elimina hardcodes ENE y hace obligatorio el lint'
+          git commit -m 'Corrige lint funcional y lo hace obligatorio'
           git push origin HEAD:main
