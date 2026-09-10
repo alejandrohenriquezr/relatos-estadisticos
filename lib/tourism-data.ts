@@ -1,6 +1,7 @@
 import * as XLSX from "xlsx";
 
 type Cell = string | number | null;
+type Period = { year:number; month:number; label:string };
 
 // Las claves reproducen exactamente las glosas regionales del libro; los valores son rótulos breves para la interfaz.
 const regionAliases:Record<string,string> = {
@@ -14,14 +15,39 @@ const regionAliases:Record<string,string> = {
 const monthNumbers: Record<string, number> = {
   ene:1, feb:2, mar:3, abr:4, may:5, jun:6, jul:7, ago:8, sept:9, oct:10, nov:11, dic:12,
 };
+const monthLabels = Object.fromEntries(Object.entries(monthNumbers).map(([label,month])=>[month,label])) as Record<number,string>;
 
-const parsePeriod = (value: unknown) => {
+const parsePeriod = (value: unknown):Period|null => {
   const match = String(value ?? "").trim().toLowerCase().match(/^(ene|feb|mar|abr|may|jun|jul|ago|sept|oct|nov|dic)-(\d{2,4})(?:\/r|\/p)?$/);
   if (!match) return null;
   let year = Number(match[2]);
   if (year < 100) year += 2000;
   return { year, month: monthNumbers[match[1]], label: `${match[1]}-${year}` };
 };
+
+// Sitefinity conserva en algunos libros valores mensuales cuya celda de cabecera
+// está vacía. Sólo se completa un hueco cuando queda exactamente entre dos
+// períodos válidos y la distancia de columnas coincide con la distancia mensual.
+// Así se recuperan, por ejemplo, jul-2025 y jun-2026 sin inventar fechas en las
+// columnas de variaciones e incidencias que siguen a la serie.
+function parsePeriods(values:Cell[]):Array<Period|null> {
+  const periods=values.map(parsePeriod);
+  const monthIndex=(period:Period)=>period.year*12+(period.month-1);
+  const fromIndex=(index:number):Period=>{
+    const year=Math.floor(index/12),month=index%12+1;
+    return {year,month,label:`${monthLabels[month]}-${year}`};
+  };
+  const valid=periods.flatMap((period,index)=>period?[{period,index}]:[]);
+  for(let position=0;position<valid.length-1;position++){
+    const current=valid[position],next=valid[position+1];
+    const columnDistance=next.index-current.index;
+    const monthDistance=monthIndex(next.period)-monthIndex(current.period);
+    if(columnDistance!==monthDistance||columnDistance<=1)continue;
+    for(let offset=1;offset<columnDistance;offset++)
+      periods[current.index+offset]=fromIndex(monthIndex(current.period)+offset);
+  }
+  return periods;
+}
 
 const numeric = (value: unknown) => typeof value === "number" && Number.isFinite(value) ? value : null;
 
@@ -47,7 +73,7 @@ const sheetMeta: Record<number, { shortTitle:string; unit:"number"|"nights"|"per
 function parseSheet(book:XLSX.WorkBook, sheetNumber:number) {
   const sheet = book.Sheets[String(sheetNumber)];
   const rows = XLSX.utils.sheet_to_json<Cell[]>(sheet,{header:1,raw:true,defval:null});
-  const periods = (rows[6] ?? []).slice(1).map(parsePeriod);
+  const periods = parsePeriods((rows[6] ?? []).slice(1));
   const title = String(rows[2]?.[0] ?? sheetMeta[sheetNumber].shortTitle).replace(/^Cuadro\s+\d+\.-\s*/i,"").replace(/\/P\.?$/i,"").trim();
   const seriesByRegion:Record<string,unknown[]> = {};
   for (const row of rows.slice(7)) {
