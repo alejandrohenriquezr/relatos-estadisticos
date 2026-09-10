@@ -1,0 +1,63 @@
+name: Generar migración CMS
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/generate-cms-migration.yml"
+      - "db/schema.ts"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generar-migracion-cms
+  cancel-in-progress: false
+
+jobs:
+  generar:
+    if: ${{ !contains(github.event.head_commit.message, '[cms-migration-generated]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.13.0"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Generar migración desde db/schema.ts
+        run: npm run db:generate
+
+      - name: Verificar que la tabla CMS quedó migrada
+        run: |
+          grep -R "CREATE TABLE .*statistical_operation_config" drizzle/*.sql
+          grep -R '"statistical_operation_config"' drizzle/meta/*_snapshot.json
+
+      - name: Verificar integridad
+        run: python3 scripts/check-repository-integrity.py
+
+      - name: Auditar lint
+        run: npm run lint
+
+      - name: Ejecutar pruebas y build
+        run: npm test
+
+      - name: Consolidar migración generada
+        run: |
+          if git diff --quiet -- drizzle; then
+            echo "No se generaron cambios en drizzle"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add drizzle
+          git commit -m "Genera migración D1 para configuración CMS [cms-migration-generated]"
+          git push origin HEAD:main
