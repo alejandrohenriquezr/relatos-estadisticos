@@ -21,6 +21,8 @@ export const PRICE_COLUMNS = [
 ] as const;
 
 export type PriceRow = Record<(typeof PRICE_COLUMNS)[number], string>;
+// El payload normalizado reúne estructuras heterogéneas de varias operaciones.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyRecord = Record<string, any>;
 
 const structures = {
@@ -83,19 +85,20 @@ const pushPoint = (
   indicators: readonly string[],
 ) => {
   for (const indicator of indicators) {
-    const value = point[
-      indicator === "INDEX"
-        ? "index"
-        : indicator === "MONTHLY_CHANGE"
-          ? "monthly"
-          : indicator === "ACCUMULATED_CHANGE"
-            ? "accumulated"
-            : indicator === "ANNUAL_CHANGE"
-              ? "annual"
-              : indicator === "MONTHLY_INCIDENCE"
-                ? "monthlyIncidence"
-                : "weight"
-    ];
+    const value =
+      point[
+        indicator === "INDEX"
+          ? "index"
+          : indicator === "MONTHLY_CHANGE"
+            ? "monthly"
+            : indicator === "ACCUMULATED_CHANGE"
+              ? "accumulated"
+              : indicator === "ANNUAL_CHANGE"
+                ? "annual"
+                : indicator === "MONTHLY_INCIDENCE"
+                  ? "monthlyIncidence"
+                  : "weight"
+      ];
     const row = observation(
       dataset,
       breakdown,
@@ -111,7 +114,9 @@ const pushPoint = (
 
 export function buildIpcRows(payload: AnyRecord) {
   const data = payload.data?.series ? payload.data : payload;
-  const analytics = payload.analytics?.series ? payload.analytics : {series: []};
+  const analytics = payload.analytics?.series
+    ? payload.analytics
+    : { series: [] };
   const rows: PriceRow[] = [];
 
   // Series general y por divisiones CCIF presentes en la página del IPC.
@@ -194,11 +199,12 @@ export function buildIppRows(payload: AnyRecord) {
     ["MINING", data.mining],
     ["ELECTRICITY_GAS_WATER", data.ipdega],
   ] as const) {
-    for (const [period, summary] of Object.entries(
-      detail?.summaries ?? {},
-    ) as [string, AnyRecord][]) {
+    for (const [period, summary] of Object.entries(detail?.summaries ?? {}) as [
+      string,
+      AnyRecord,
+    ][]) {
       const [year, month] = period.split("-").map(Number);
-      const point = {year, month};
+      const point = { year, month };
       for (const [kind, items] of [
         ["CLASS_UP", summary.topClasses],
         ["CLASS_DOWN", summary.bottomClasses],

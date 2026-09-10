@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   type ChangeEvent,
   useEffect,
@@ -343,13 +344,17 @@ function useVitalData() {
         void fetch("/api/vital-data?refresh=1", { cache: "no-store" })
           .then((response) => (response.ok ? response.json() : null))
           .then((updated) => {
-            if (active && updated?.cache?.status === "updated" && updated.births?.series?.length)
+            if (
+              active &&
+              updated?.cache?.status === "updated" &&
+              updated.births?.series?.length
+            )
               setData(updated);
           });
       })
       .catch(() => {
-      // La copia incluida permanece visible cuando la fuente oficial no responde.
-      setReady(true);
+        // La copia incluida permanece visible cuando la fuente oficial no responde.
+        setReady(true);
       });
     return () => {
       active = false;
@@ -416,7 +421,7 @@ function RelatosHeaderLogo() {
   return (
     <div className="relatos-header-logo">
       <IneLogo />
-      <a
+      <Link
         className="relatos-home-link"
         href="/"
         aria-label="Ir al inicio de Relatos Estadísticos"
@@ -426,7 +431,7 @@ function RelatosHeaderLogo() {
           src="/branding/logo-relatos-estadisticos-home.png"
           alt="Relatos Estadísticos"
         />
-      </a>
+      </Link>
     </div>
   );
 }
@@ -463,30 +468,28 @@ const MONTH_NAMES: Record<string, string> = {
 };
 
 function useChartTween<T>(value: T, key: string, duration = 520) {
-  // Conserva el estado geométrico anterior y entrega un progreso suavizado entre ambos estados.
-  const previous = useRef(value),
-    current = useRef(value),
-    previousKey = useRef(key);
+  const target = useRef(value);
+  const [previous, setPrevious] = useState(value);
   const [progress, setProgress] = useState(1);
-  current.current = value;
   useLayoutEffect(() => {
-    if (previousKey.current === key) return;
+    target.current = value;
+  }, [value]);
+  useLayoutEffect(() => {
     let frame = 0;
     const start = performance.now();
-    setProgress(0);
     const tick = (now: number) => {
       const linear = Math.min(1, (now - start) / duration);
       setProgress(1 - Math.pow(1 - linear, 3));
       if (linear < 1) frame = requestAnimationFrame(tick);
-      else {
-        previous.current = current.current;
-        previousKey.current = key;
-      }
+      else setPrevious(target.current);
     };
-    frame = requestAnimationFrame(tick);
+    frame = requestAnimationFrame((now) => {
+      setProgress(0);
+      tick(now);
+    });
     return () => cancelAnimationFrame(frame);
   }, [key, duration]);
-  return { previous: previous.current, progress };
+  return { previous, progress };
 }
 
 // Mantiene las abreviaturas como claves internas y presenta siempre los meses completos.
@@ -669,9 +672,7 @@ async function downloadChartPng(shell: HTMLElement) {
     1,
     notes.reduce((total, note) => total + Math.ceil(note.length / 105), 0),
   );
-  const notesHeight = notes.length
-    ? (28 + estimatedNoteLines * 19) * scale
-    : 0;
+  const notesHeight = notes.length ? (28 + estimatedNoteLines * 19) * scale : 0;
   const canvas = document.createElement("canvas");
   canvas.width = contentWidth + margin * 2;
   canvas.height = headerHeight + chartCanvas.height + notesHeight + margin;
@@ -708,23 +709,11 @@ async function downloadChartPng(shell: HTMLElement) {
   context.fillText(heading.toUpperCase(), margin, 30 * scale);
   context.fillStyle = "#123f87";
   context.font = `800 ${27 * scale}px Arial, sans-serif`;
-  drawWrapped(
-    title,
-    margin,
-    64 * scale,
-    contentWidth,
-    31 * scale,
-  );
+  drawWrapped(title, margin, 64 * scale, contentWidth, 31 * scale);
   if (subtitle) {
     context.fillStyle = "#4f6078";
     context.font = `500 ${15 * scale}px Arial, sans-serif`;
-    drawWrapped(
-      subtitle,
-      margin,
-      103 * scale,
-      contentWidth,
-      20 * scale,
-    );
+    drawWrapped(subtitle, margin, 103 * scale, contentWidth, 20 * scale);
   }
   context.drawImage(chartCanvas, margin, headerHeight);
   if (notes.length) {
@@ -732,13 +721,7 @@ async function downloadChartPng(shell: HTMLElement) {
     context.font = `500 ${13 * scale}px Arial, sans-serif`;
     let noteY = headerHeight + chartCanvas.height + 24 * scale;
     notes.forEach((note) => {
-      noteY = drawWrapped(
-        note,
-        margin,
-        noteY,
-        contentWidth,
-        noteLineHeight,
-      );
+      noteY = drawWrapped(note, margin, noteY, contentWidth, noteLineHeight);
     });
   }
   canvas.toBlob(
@@ -811,9 +794,7 @@ function useChartDownloads() {
   useEffect(() => {
     const enhance = () =>
       document
-        .querySelectorAll<HTMLElement>(
-          ".chart-shell, .ipp-chart, .econ-chart",
-        )
+        .querySelectorAll<HTMLElement>(".chart-shell, .ipp-chart, .econ-chart")
         .forEach((shell) => {
           if (shell.dataset.exports || !shell.querySelector("svg.chart"))
             return;
@@ -883,9 +864,7 @@ function useChartStandardHeadings() {
       element?.textContent?.replace(/\s+/g, " ").trim() || "";
 
     const rangeFromChart = (shell: HTMLElement) => {
-      const explicit = text(
-        shell.querySelector(".ipp-time-reading strong"),
-      );
+      const explicit = text(shell.querySelector(".ipp-time-reading strong"));
       if (explicit) return explicit.replace(/\s+[—–-]\s+/g, "–");
 
       const axisLabels = Array.from(
@@ -944,9 +923,7 @@ function useChartStandardHeadings() {
             standard.append(title);
           }
 
-          const hasGuidance = Boolean(
-            shell.querySelector(".chart-subtitle"),
-          );
+          const hasGuidance = Boolean(shell.querySelector(".chart-subtitle"));
           const seriesControls = shell.querySelectorAll(
             ".legend button, .series-legend button, .police-legend button, .series-toggles button, .birth-series-controls button",
           ).length;
@@ -1065,10 +1042,7 @@ function useChartEndpointLabels() {
             );
             text.setAttribute("x", String(point.x));
             text.setAttribute("y", String(Math.max(13, point.y - 10)));
-            text.setAttribute(
-              "text-anchor",
-              index === 0 ? "start" : "end",
-            );
+            text.setAttribute("text-anchor", index === 0 ? "start" : "end");
             text.textContent = label;
             layer.append(text);
           });
@@ -1650,7 +1624,15 @@ function PriceHeader({
             Estadísticas Experimentales
           </button>
           <div className="topic-submenu">
-            <button onClick={() => window.dispatchEvent(new CustomEvent("site:navigate", { detail: "businessDemography" }))}>
+            <button
+              onClick={() =>
+                window.dispatchEvent(
+                  new CustomEvent("site:navigate", {
+                    detail: "businessDemography",
+                  }),
+                )
+              }
+            >
               Demografía de empresas
             </button>
           </div>
@@ -1685,11 +1667,11 @@ function IpcChart({
   );
   // El período seleccionado fija el extremo derecho de la serie histórica.
   const availablePoints = data.series.filter(
-      (p) =>
-        p.division === division &&
-        (p.year < selectedYear ||
-          (p.year === selectedYear && p.month <= selectedMonth)),
-    );
+    (p) =>
+      p.division === division &&
+      (p.year < selectedYear ||
+        (p.year === selectedYear && p.month <= selectedMonth)),
+  );
   const ipcTemporalPresets: TemporalPreset[] = [
     { value: 25, label: "25 períodos" },
     { value: 60, label: "5 años" },
@@ -2275,7 +2257,10 @@ function IpcPage({
   );
   useEffect(() => {
     let active = true;
-    const applyPayload = (payload: { data: IpcData; analytics: IpcAnalyticsData }) => {
+    const applyPayload = (payload: {
+      data: IpcData;
+      analytics: IpcAnalyticsData;
+    }) => {
       if (!active || !payload.data?.series?.length) return;
       setData(payload.data);
       setAnalytics(payload.analytics);
@@ -2302,7 +2287,9 @@ function IpcPage({
         const payload = await response.json();
         return payload.cache?.status === "updated" ? payload : null;
       })
-      .then((payload) => { if (payload) applyPayload(payload); })
+      .then((payload) => {
+        if (payload) applyPayload(payload);
+      })
       .catch(() => {
         // La copia incluida permanece visible cuando la fuente oficial no responde.
       });
@@ -2325,7 +2312,12 @@ function IpcPage({
       current = false;
     };
   }, [selectedYear, selectedMonth]);
-  if (!cacheReady) return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+  if (!cacheReady)
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   return (
     <main>
       <PriceHeader
@@ -2661,14 +2653,12 @@ function IppSeriesChart({
     Math.max(0, available.length - defaultLength),
   );
   const [rangeEnd, setRangeEnd] = useState(Math.max(0, available.length - 1));
-  useEffect(() => {
-    setRangeStart(Math.max(0, available.length - defaultLength));
-    setRangeEnd(Math.max(0, available.length - 1));
-  }, [available.length, defaultLength]);
   const selectedLength =
     quickRange === "all" ? available.length : Number(quickRange);
   const quickStart = Math.max(0, available.length - selectedLength);
-  const visibleStart = !customRange ? quickStart : rangeStart;
+  const visibleStart = !customRange
+    ? quickStart
+    : Math.min(rangeStart, Math.max(0, available.length - 1));
   const visibleEnd = !customRange
     ? Math.max(0, available.length - 1)
     : Math.min(rangeEnd, Math.max(0, available.length - 1));
@@ -2770,81 +2760,81 @@ function IppSeriesChart({
         ))}
       </svg>
       <div className="ipp-time-levels">
-          <div className="ipp-time-reading">
-            <span>Lectura actual</span>
-            <strong>
-              {periodName(points[0])} — {periodName(points.at(-1))}
-            </strong>
-            <small>{points.length} períodos visibles</small>
-          </div>
-          <div className="ipp-time-quick" aria-label="Rangos históricos rápidos">
-            <span>Ampliar período</span>
-            <div>
-              {[
-                ["25", "25 períodos"],
-                ["60", "5 años"],
-                ["120", "10 años"],
-                ["all", "Serie completa"],
-              ].map(([value, label]) => (
-                <button
-                  type="button"
-                  key={value}
-                  aria-pressed={!customRange && quickRange === value}
-                  onClick={() =>
-                    selectQuickRange(value as "25" | "60" | "120" | "all")
-                  }
-                >
-                  {label}
-                </button>
-              ))}
+        <div className="ipp-time-reading">
+          <span>Lectura actual</span>
+          <strong>
+            {periodName(points[0])} — {periodName(points.at(-1))}
+          </strong>
+          <small>{points.length} períodos visibles</small>
+        </div>
+        <div className="ipp-time-quick" aria-label="Rangos históricos rápidos">
+          <span>Ampliar período</span>
+          <div>
+            {[
+              ["25", "25 períodos"],
+              ["60", "5 años"],
+              ["120", "10 años"],
+              ["all", "Serie completa"],
+            ].map(([value, label]) => (
               <button
                 type="button"
-                aria-pressed={customRange}
-                onClick={() => setCustomRange((current) => !current)}
+                key={value}
+                aria-pressed={!customRange && quickRange === value}
+                onClick={() =>
+                  selectQuickRange(value as "25" | "60" | "120" | "all")
+                }
               >
-                Elegir fechas
+                {label}
               </button>
-            </div>
+            ))}
+            <button
+              type="button"
+              aria-pressed={customRange}
+              onClick={() => setCustomRange((current) => !current)}
+            >
+              Elegir fechas
+            </button>
           </div>
-          {customRange && (
-            <div className="ipp-time-custom">
-              <label>
-                Desde
-                <select
-                  value={rangeStart}
-                  onChange={(event) => {
-                    const next = Number(event.target.value);
-                    setRangeStart(next);
-                    if (next > rangeEnd) setRangeEnd(next);
-                  }}
-                >
-                  {available.map((point, index) => (
-                    <option key={`${point.year}-${point.month}`} value={index}>
-                      {periodName(point)}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <label>
-                Hasta
-                <select
-                  value={rangeEnd}
-                  onChange={(event) => {
-                    const next = Number(event.target.value);
-                    setRangeEnd(next);
-                    if (next < rangeStart) setRangeStart(next);
-                  }}
-                >
-                  {available.map((point, index) => (
-                    <option key={`${point.year}-${point.month}`} value={index}>
-                      {periodName(point)}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            </div>
-          )}
         </div>
+        {customRange && (
+          <div className="ipp-time-custom">
+            <label>
+              Desde
+              <select
+                value={rangeStart}
+                onChange={(event) => {
+                  const next = Number(event.target.value);
+                  setRangeStart(next);
+                  if (next > rangeEnd) setRangeEnd(next);
+                }}
+              >
+                {available.map((point, index) => (
+                  <option key={`${point.year}-${point.month}`} value={index}>
+                    {periodName(point)}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Hasta
+              <select
+                value={rangeEnd}
+                onChange={(event) => {
+                  const next = Number(event.target.value);
+                  setRangeEnd(next);
+                  if (next < rangeStart) setRangeStart(next);
+                }}
+              >
+                {available.map((point, index) => (
+                  <option key={`${point.year}-${point.month}`} value={index}>
+                    {periodName(point)}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        )}
+      </div>
       <p>
         Fuente: INE. Base anual 2019=100. {points.length} períodos visibles.
       </p>
@@ -3281,7 +3271,11 @@ function IppPage({
       }
       try {
         const refreshed = await read("/api/ipp-data?refresh=1");
-        if ((refreshed as any).cache?.status === "updated") apply(refreshed);
+        if (
+          (refreshed as { cache?: { status?: string } }).cache?.status ===
+          "updated"
+        )
+          apply(refreshed);
       } catch {
         // La última copia disponible permanece visible si el INE no responde.
         setCacheReady(true);
@@ -3293,7 +3287,11 @@ function IppPage({
     };
   }, []);
   if (!cacheReady)
-    return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   const [year, month] = period.split("-").map(Number);
   const current = data.industries.find(
     (point) => point.year === year && point.month === month,
@@ -3508,9 +3506,7 @@ function InformalityLineChart({
   ];
   const temporal = useTemporalWindow(
     allPoints,
-    allPoints.map(
-      (point) => `${formatQuarter(point.quarter)} ${point.year}`,
-    ),
+    allPoints.map((point) => `${formatQuarter(point.quarter)} ${point.year}`),
     informalityPresets,
     25,
   );
@@ -4029,7 +4025,7 @@ function IncidenceList({
   );
 }
 
-function LaborSdmxBox({context}: {context: "ene" | "informality"}) {
+function LaborSdmxBox({ context }: { context: "ene" | "informality" }) {
   const titleId = `labor-sdmx-title-${context}`;
   return (
     <section className="ene-sdmx" aria-labelledby={titleId}>
@@ -4099,7 +4095,8 @@ function LaborSdmxBox({context}: {context: "ene" | "informality"}) {
         <div className="ene-api-query-example">
           <span>Ejemplo · Informalidad por rama · últimos 13 períodos</span>
           <code>
-            GET /api/sdmx/data/INE.GOB.CL,DF_ENE_MERCADO_LABORAL,2.0/all?dataset=INFORMALITY&amp;breakdown=ECONOMIC_ACTIVITY&amp;last_n_periods=13
+            GET
+            /api/sdmx/data/INE.GOB.CL,DF_ENE_MERCADO_LABORAL,2.0/all?dataset=INFORMALITY&amp;breakdown=ECONOMIC_ACTIVITY&amp;last_n_periods=13
           </code>
           <a
             href="/api/sdmx/data/INE.GOB.CL,DF_ENE_MERCADO_LABORAL,2.0/all?dataset=INFORMALITY&breakdown=ECONOMIC_ACTIVITY&last_n_periods=13"
@@ -4110,10 +4107,18 @@ function LaborSdmxBox({context}: {context: "ene" | "informality"}) {
           </a>
         </div>
         <div className="ene-api-meta" aria-label="Metadatos del conjunto">
-          <span><b>Frecuencia</b> Trimestre móvil</span>
-          <span><b>Ámbito</b> Nacional</span>
-          <span><b>Sexo</b> Total, mujeres y hombres</span>
-          <span><b>Calidad</b> F, A y B</span>
+          <span>
+            <b>Frecuencia</b> Trimestre móvil
+          </span>
+          <span>
+            <b>Ámbito</b> Nacional
+          </span>
+          <span>
+            <b>Sexo</b> Total, mujeres y hombres
+          </span>
+          <span>
+            <b>Calidad</b> F, A y B
+          </span>
         </div>
         <p>
           Dimensiones: <b>DATASET</b>, <b>REF_AREA</b>, <b>SEX</b>,{" "}
@@ -4141,7 +4146,7 @@ function LaborSdmxBox({context}: {context: "ene" | "informality"}) {
   );
 }
 
-function PriceSdmxBox({dataset}: {dataset: "IPC" | "IPP"}) {
+function PriceSdmxBox({ dataset }: { dataset: "IPC" | "IPP" }) {
   const isIpc = dataset === "IPC";
   const dataflow = isIpc ? "DF_IPC" : "DF_IPP";
   const titleId = `price-sdmx-title-${dataset.toLowerCase()}`;
@@ -4212,7 +4217,8 @@ function PriceSdmxBox({dataset}: {dataset: "IPC" | "IPP"}) {
         <div className="ene-api-query-example">
           <span>Ejemplo · últimos 25 meses del índice y sus variaciones</span>
           <code>
-            GET {apiPath}?indicator=INDEX,MONTHLY_CHANGE,ANNUAL_CHANGE&amp;last_n_periods=25
+            GET {apiPath}
+            ?indicator=INDEX,MONTHLY_CHANGE,ANNUAL_CHANGE&amp;last_n_periods=25
           </code>
           <a
             href={`${apiPath}?indicator=INDEX,MONTHLY_CHANGE,ANNUAL_CHANGE&last_n_periods=25`}
@@ -4223,10 +4229,18 @@ function PriceSdmxBox({dataset}: {dataset: "IPC" | "IPP"}) {
           </a>
         </div>
         <div className="ene-api-meta" aria-label={`Metadatos del ${dataset}`}>
-          <span><b>Frecuencia</b> Mensual</span>
-          <span><b>Ámbito</b> Nacional</span>
-          <span><b>Agencia</b> INE.GOB.CL</span>
-          <span><b>Precisión</b> Decimales de origen</span>
+          <span>
+            <b>Frecuencia</b> Mensual
+          </span>
+          <span>
+            <b>Ámbito</b> Nacional
+          </span>
+          <span>
+            <b>Agencia</b> INE.GOB.CL
+          </span>
+          <span>
+            <b>Precisión</b> Decimales de origen
+          </span>
         </div>
         <p>
           Dimensiones: <b>DATASET</b>, <b>REF_AREA</b>, <b>BREAKDOWN</b>,{" "}
@@ -4307,12 +4321,13 @@ function InformalityPage({
         void fetch("/api/informality-data?refresh=1", { cache: "no-store" })
           .then((response) => (response.ok ? response.json() : null))
           .then((updated) => {
-            if (active && updated?.cache?.status === "updated") setData({ ...fallback, ...updated } as InformalityData);
+            if (active && updated?.cache?.status === "updated")
+              setData({ ...fallback, ...updated } as InformalityData);
           });
       })
       .catch(() => {
-      // La versión incluida en el sitio permanece disponible si la fuente falla.
-      setCacheReady(true);
+        // La versión incluida en el sitio permanece disponible si la fuente falla.
+        setCacheReady(true);
       });
 
     return () => {
@@ -4320,7 +4335,12 @@ function InformalityPage({
     };
   }, []);
 
-  if (!cacheReady) return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+  if (!cacheReady)
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   const periods = [...data.rates].reverse(),
     [yearText, quarter] = period.split("|"),
     year = +yearText;
@@ -4374,11 +4394,10 @@ function InformalityPage({
     topCategories = rank(category?.items, categoryPrev?.items).slice(0, 3),
     topGroups = rank(group?.items, groupPrev?.items).slice(0, 3),
     chartPoints = data.rates.slice(0, index + 1),
-    categoryChartPoints = chartPoints.map(
-      (point) =>
-        data.categorySeries.find(
-          (item) => item.year === point.year && item.quarter === point.quarter,
-        )!,
+    categoryChartPoints = chartPoints.map((point) =>
+      data.categorySeries.find(
+        (item) => item.year === point.year && item.quarter === point.quarter,
+      )!,
     ),
     periodLabel = `${formatQuarter(quarter)} de ${year}`;
   const fmt = (v: number | null, d = 1) =>
@@ -4811,7 +4830,6 @@ function BirthAgeChart({ data }: { data: BirthPoint[] }) {
     [playing, setPlaying] = useState(false);
   useEffect(() => {
     if (!playing) return;
-    setDisplayYear(data[0].year);
     const timer = setInterval(
       () =>
         setDisplayYear((current) => {
@@ -4866,7 +4884,13 @@ function BirthAgeChart({ data }: { data: BirthPoint[] }) {
           </label>
           <button
             className={playing ? "playing" : ""}
-            onClick={() => setPlaying((value) => !value)}
+            onClick={() => {
+              if (playing) setPlaying(false);
+              else {
+                setDisplayYear(data[0].year);
+                setPlaying(true);
+              }
+            }}
           >
             {playing ? "❚❚ Pausar" : "▶ Reproducir desde 1992"}
           </button>
@@ -5005,9 +5029,7 @@ function BirthComparisonChart({
                 setChartState((current) => ({
                   ...current,
                   transform: event.target.value as
-                    | "index"
-                    | "annual"
-                    | "accumulated",
+                    "index" | "annual" | "accumulated",
                 }))
               }
             >
@@ -5100,11 +5122,7 @@ function BirthComparisonChart({
   );
 }
 
-function FertilityTrendChart({
-  data: allData,
-}: {
-  data: FertilityPoint[];
-}) {
+function FertilityTrendChart({ data: allData }: { data: FertilityPoint[] }) {
   const [metric, setMetric] = useState<"birthRate" | "generalRate">(
     "birthRate",
   );
@@ -5473,7 +5491,12 @@ function FertilityPage({
   onDeaths: () => void;
 }) {
   const vital = useVitalData();
-  if (!vital.ready) return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+  if (!vital.ready)
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   const data = vital.data.fertility.series,
     latest = data.at(-1)!,
     first = data[0],
@@ -5885,8 +5908,7 @@ function EarlyDeathsChart({
     },
     valueOf = (point: DeathPoint) =>
       (mode === "counts" ? point[metric] : point[rateKey[metric]]) as
-        | number
-        | null,
+        number | null,
     available = data.filter((point) => valueOf(point) !== null),
     values = available.map((point) => valueOf(point) as number),
     max = Math.max(...values) * 1.12,
@@ -6189,11 +6211,7 @@ const LIFE_SERIES = {
   lifeWomen: { label: "Mujeres", color: "#e43d37" },
 } as const;
 
-function MortalityRatesChart({
-  data: allData,
-}: {
-  data: MortalityPoint[];
-}) {
+function MortalityRatesChart({ data: allData }: { data: MortalityPoint[] }) {
   type RateKey = keyof typeof MORTALITY_RATES;
   const colors: Record<RateKey, string> = {
       crude: "#123f87",
@@ -6363,17 +6381,13 @@ function MortalityRatesChart({
   );
 }
 
-function LifeExpectancyChart({
-  data: allData,
-}: {
-  data: MortalityPoint[];
-}) {
+function LifeExpectancyChart({ data: allData }: { data: MortalityPoint[] }) {
   type LifeKey = keyof typeof LIFE_SERIES;
   const [active, setActive] = useState<LifeKey[]>([
-      "lifeBoth",
-      "lifeMen",
-      "lifeWomen",
-    ]);
+    "lifeBoth",
+    "lifeMen",
+    "lifeWomen",
+  ]);
   const temporal = useTemporalWindow(
     allData,
     allData.map((point) => String(point.year)),
@@ -6630,27 +6644,23 @@ function UnionTotalsChart({
   const marriages = temporal.visible;
   const auc = allAuc.filter(
     (point) =>
-      point.year >= marriages[0].year &&
-      point.year <= marriages.at(-1)!.year,
+      point.year >= marriages[0].year && point.year <= marriages.at(-1)!.year,
   );
-  const [firstYear, lastYear] = [
-    marriages[0].year,
-    marriages.at(-1)!.year,
-  ];
+  const [firstYear, lastYear] = [marriages[0].year, marriages.at(-1)!.year];
   const series = {
-      marriages: {
-        label: "Matrimonios",
-        color: "#123f87",
-        points: marriages.map((point) => ({
-          year: point.year,
-          value: point.total,
-        })),
-      },
-      auc: {
-        label: "Acuerdos de Unión Civil",
-        color: "#e43d37",
-        points: auc.map((point) => ({ year: point.year, value: point.total })),
-      },
+    marriages: {
+      label: "Matrimonios",
+      color: "#123f87",
+      points: marriages.map((point) => ({
+        year: point.year,
+        value: point.total,
+      })),
+    },
+    auc: {
+      label: "Acuerdos de Unión Civil",
+      color: "#e43d37",
+      points: auc.map((point) => ({ year: point.year, value: point.total })),
+    },
   };
   const w = 900,
     h = 420,
@@ -6666,8 +6676,7 @@ function UnionTotalsChart({
       ) * 1.1,
     x = (year: number) =>
       pL +
-      ((year - firstYear) * (w - pL - pR)) /
-        Math.max(1, lastYear - firstYear),
+      ((year - firstYear) * (w - pL - pR)) / Math.max(1, lastYear - firstYear),
     y = (value: number) => h - pB - (value * (h - pT - pB)) / max,
     toggle = (key: string) =>
       setActive((current) =>
@@ -6779,8 +6788,7 @@ function UnionRatesChart({
   const marriages = temporal.visible;
   const auc = allAuc.filter(
     (point) =>
-      point.year >= marriages[0].year &&
-      point.year <= marriages.at(-1)!.year,
+      point.year >= marriages[0].year && point.year <= marriages.at(-1)!.year,
   );
   const firstYear = marriages[0].year,
     lastYear = marriages.at(-1)!.year,
@@ -6804,8 +6812,7 @@ function UnionRatesChart({
     max = Math.max(...values) * 1.1,
     x = (year: number) =>
       pL +
-      ((year - firstYear) * (w - pL - pR)) /
-        Math.max(1, lastYear - firstYear),
+      ((year - firstYear) * (w - pL - pR)) / Math.max(1, lastYear - firstYear),
     y = (value: number) =>
       h - pB - ((value - min) * (h - pT - pB)) / (max - min);
   return (
@@ -7229,7 +7236,12 @@ function UnionsPage({
   onDeaths: () => void;
 }) {
   const vital = useVitalData();
-  if (!vital.ready) return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+  if (!vital.ready)
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   const raw = vital.data.unions,
     marriages = raw.marriages,
     auc = raw.auc,
@@ -7495,7 +7507,12 @@ function MortalityPage({
   onDeaths: () => void;
 }) {
   const vital = useVitalData();
-  if (!vital.ready) return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+  if (!vital.ready)
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   const data = vital.data.mortality.series,
     latest = data.at(-1)!,
     previous = data.at(-2)!,
@@ -7728,7 +7745,12 @@ function DeathsPage({
   onMortality: () => void;
 }) {
   const vital = useVitalData();
-  if (!vital.ready) return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+  if (!vital.ready)
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   const data = vital.data.deaths.series,
     latest = data.at(-1)!,
     previous = data.at(-2)!,
@@ -7955,7 +7977,12 @@ function BirthsPage({
   onDeaths: () => void;
 }) {
   const vital = useVitalData();
-  if (!vital.ready) return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+  if (!vital.ready)
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   const data = vital.data.births.series,
     latest = data.at(-1)!,
     previous = data.at(-2)!,
@@ -8536,26 +8563,31 @@ export function PolicePage({
         if (
           active &&
           payload.institutions?.carabineros?.series?.denuncias?.length
-        )
-          {
-            setData(payload);
-            setCacheReady(true);
-          }
+        ) {
+          setData(payload);
+          setCacheReady(true);
+        }
         void fetch("/api/police-data?refresh=1", { cache: "no-store" })
           .then((response) => (response.ok ? response.json() : null))
           .then((updated) => {
-            if (active && updated?.cache?.status === "updated") setData(updated as PoliceData);
+            if (active && updated?.cache?.status === "updated")
+              setData(updated as PoliceData);
           });
       })
       .catch(() => {
-      /* La copia local permanece visible si la fuente oficial no responde. */
-      setCacheReady(true);
+        /* La copia local permanece visible si la fuente oficial no responde. */
+        setCacheReady(true);
       });
     return () => {
       active = false;
     };
   }, []);
-  if (!cacheReady) return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+  if (!cacheReady)
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   return (
     <main className="police-page">
       <PriceHeader
@@ -8964,16 +8996,6 @@ function EnuscExplorer({ data }: { data: EnuscData }) {
       "Total",
     ],
     [group, setGroup] = useState("Total");
-  useEffect(() => {
-    const next = data.metadata.find((item) => item.theme === theme)!;
-    setVariable(next.variable);
-    setRegion("TOTAL NACIONAL");
-    setGroup("Total");
-  }, [theme, data.metadata]);
-  useEffect(() => {
-    setRegion("TOTAL NACIONAL");
-    setGroup("Total");
-  }, [variable]);
   const chartItems: EnuscChartItem[] =
     meta.type === "Categórica"
       ? regionalRecords
@@ -8997,7 +9019,16 @@ function EnuscExplorer({ data }: { data: EnuscData }) {
           Tema
           <select
             value={theme}
-            onChange={(event) => setTheme(event.target.value)}
+            onChange={(event) => {
+              const nextTheme = event.target.value;
+              const next = data.metadata.find(
+                (item) => item.theme === nextTheme,
+              )!;
+              setTheme(nextTheme);
+              setVariable(next.variable);
+              setRegion("TOTAL NACIONAL");
+              setGroup("Total");
+            }}
           >
             {themes.map((item) => (
               <option key={item}>{item}</option>
@@ -9008,7 +9039,11 @@ function EnuscExplorer({ data }: { data: EnuscData }) {
           Indicador
           <select
             value={meta.variable}
-            onChange={(event) => setVariable(event.target.value)}
+            onChange={(event) => {
+              setVariable(event.target.value);
+              setRegion("TOTAL NACIONAL");
+              setGroup("Total");
+            }}
           >
             {options.map((item) => (
               <option key={item.variable} value={item.variable}>
@@ -9096,7 +9131,8 @@ function EnuscPage({
           void fetch("/api/enusc-data?refresh=1", { cache: "no-store" })
             .then((response) => (response.ok ? response.json() : null))
             .then((updated) => {
-              if (active && updated?.cache?.status === "updated") setData(updated as EnuscData);
+              if (active && updated?.cache?.status === "updated")
+                setData(updated as EnuscData);
             });
         }
       })
@@ -9106,7 +9142,11 @@ function EnuscPage({
     };
   }, []);
   if (!fullDataReady && !error)
-    return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   const meta = (variable: string) =>
       data.metadata.find((item) => item.variable === variable)!,
     national = (variable: string, group = "Total") => {
@@ -9824,29 +9864,118 @@ function LaborPopulationDendrogram({
   const potential = level(current.potential);
   const habitual = level(current.habitual);
   const nodes: DendrogramNode[] = [
-    {id:"pet",label:"Población en edad de trabajar",value:pet,x:28,y:268,tone:"root"},
-    {id:"labor",label:"Fuerza de trabajo",value:labor,parentValue:pet,x:282,y:132,tone:"labor"},
-    {id:"inactive",label:"Fuera de la fuerza de trabajo",value:inactive,parentValue:pet,x:282,y:420,tone:"inactive"},
-    {id:"employed",label:"Personas ocupadas",value:employed,parentValue:labor,x:546,y:52,tone:"detail"},
-    {id:"unemployed",label:"Personas desocupadas",value:unemployed,parentValue:labor,x:546,y:212,tone:"detail"},
-    {id:"initiators",label:"Personas iniciadoras",value:initiators,parentValue:inactive,x:546,y:356,tone:"detail"},
-    {id:"potential",label:"Inactivas potencialmente activas",value:potential,parentValue:inactive,x:546,y:452,tone:"detail"},
-    {id:"habitual",label:"Personas inactivas habituales",value:habitual,parentValue:inactive,x:546,y:548,tone:"detail"},
-    {id:"ceased",label:"Personas cesantes",value:ceased,parentValue:unemployed,x:814,y:164,tone:"detail"},
-    {id:"firstJob",label:"Buscan trabajo por primera vez",value:firstJob,parentValue:unemployed,x:814,y:260,tone:"detail"},
+    {
+      id: "pet",
+      label: "Población en edad de trabajar",
+      value: pet,
+      x: 28,
+      y: 268,
+      tone: "root",
+    },
+    {
+      id: "labor",
+      label: "Fuerza de trabajo",
+      value: labor,
+      parentValue: pet,
+      x: 282,
+      y: 132,
+      tone: "labor",
+    },
+    {
+      id: "inactive",
+      label: "Fuera de la fuerza de trabajo",
+      value: inactive,
+      parentValue: pet,
+      x: 282,
+      y: 420,
+      tone: "inactive",
+    },
+    {
+      id: "employed",
+      label: "Personas ocupadas",
+      value: employed,
+      parentValue: labor,
+      x: 546,
+      y: 52,
+      tone: "detail",
+    },
+    {
+      id: "unemployed",
+      label: "Personas desocupadas",
+      value: unemployed,
+      parentValue: labor,
+      x: 546,
+      y: 212,
+      tone: "detail",
+    },
+    {
+      id: "initiators",
+      label: "Personas iniciadoras",
+      value: initiators,
+      parentValue: inactive,
+      x: 546,
+      y: 356,
+      tone: "detail",
+    },
+    {
+      id: "potential",
+      label: "Inactivas potencialmente activas",
+      value: potential,
+      parentValue: inactive,
+      x: 546,
+      y: 452,
+      tone: "detail",
+    },
+    {
+      id: "habitual",
+      label: "Personas inactivas habituales",
+      value: habitual,
+      parentValue: inactive,
+      x: 546,
+      y: 548,
+      tone: "detail",
+    },
+    {
+      id: "ceased",
+      label: "Personas cesantes",
+      value: ceased,
+      parentValue: unemployed,
+      x: 814,
+      y: 164,
+      tone: "detail",
+    },
+    {
+      id: "firstJob",
+      label: "Buscan trabajo por primera vez",
+      value: firstJob,
+      parentValue: unemployed,
+      x: 814,
+      y: 260,
+      tone: "detail",
+    },
   ];
   const byId = Object.fromEntries(nodes.map((node) => [node.id, node]));
   const links = [
-    ["pet","labor"],["pet","inactive"],["labor","employed"],["labor","unemployed"],
-    ["unemployed","ceased"],["unemployed","firstJob"],["inactive","initiators"],
-    ["inactive","potential"],["inactive","habitual"],
+    ["pet", "labor"],
+    ["pet", "inactive"],
+    ["labor", "employed"],
+    ["labor", "unemployed"],
+    ["unemployed", "ceased"],
+    ["unemployed", "firstJob"],
+    ["inactive", "initiators"],
+    ["inactive", "potential"],
+    ["inactive", "habitual"],
   ] as const;
   const formatPeople = (value: number) =>
-    (value * 1000).toLocaleString("es-CL", {maximumFractionDigits:0});
+    (value * 1000).toLocaleString("es-CL", { maximumFractionDigits: 0 });
   const regionLabel =
     ENE_REGIONS.find(([code]) => code === region)?.[1] || "País";
   const sexLabel =
-    sex === "Hombres" ? "Hombres" : sex === "Mujeres" ? "Mujeres" : "Ambos sexos";
+    sex === "Hombres"
+      ? "Hombres"
+      : sex === "Mujeres"
+        ? "Mujeres"
+        : "Ambos sexos";
   const geographicPhrase =
     region === "CL"
       ? "para el país"
@@ -9874,9 +10003,7 @@ function LaborPopulationDendrogram({
     return ratio && ratio[1] > 0 ? (ratio[0] / ratio[1]) * 100 : null;
   };
   const formatPp = (value: number | null) =>
-    value === null
-      ? "s/d"
-      : `${value.toFixed(1).replace(".", ",")} p.p.`;
+    value === null ? "s/d" : `${value.toFixed(1).replace(".", ",")} p.p.`;
 
   return (
     <section className="labor-tree-section" aria-labelledby="labor-tree-title">
@@ -9884,7 +10011,9 @@ function LaborPopulationDendrogram({
         <div className="labor-tree-head">
           <div className="section-title">
             <span className="eyebrow">Estructura de la población</span>
-            <h2 id="labor-tree-title">Cómo se distribuye la población en edad de trabajar</h2>
+            <h2 id="labor-tree-title">
+              Cómo se distribuye la población en edad de trabajar
+            </h2>
             <p>
               Cada rama descompone la categoría anterior {geographicPhrase},{" "}
               {sexLabel.toLowerCase()}, en{" "}
@@ -9902,12 +10031,15 @@ function LaborPopulationDendrogram({
                   if (nextRegion !== "CL") setSex("Total");
                   const nextSeries =
                     nextRegion === "CL"
-                      ? nationalSeriesBySex[sex] || nationalSeriesBySex.Total || []
+                      ? nationalSeriesBySex[sex] ||
+                        nationalSeriesBySex.Total ||
+                        []
                       : regionalSeries?.[nextRegion] || [];
                   const matching = nextSeries.find(
                     (item) => item.year === year && item.quarter === quarter,
                   );
-                  if (!matching && nextSeries.length) onPeriod(nextSeries.at(-1)!);
+                  if (!matching && nextSeries.length)
+                    onPeriod(nextSeries.at(-1)!);
                 }}
               >
                 {ENE_REGIONS.map(([code, label]) => (
@@ -9932,10 +10064,13 @@ function LaborPopulationDendrogram({
                   const matching = nextSeries.find(
                     (item) => item.year === year && item.quarter === quarter,
                   );
-                  if (!matching && nextSeries.length) onPeriod(nextSeries.at(-1)!);
+                  if (!matching && nextSeries.length)
+                    onPeriod(nextSeries.at(-1)!);
                 }}
                 disabled={region !== "CL"}
-                aria-describedby={region !== "CL" ? "labor-tree-sex-note" : undefined}
+                aria-describedby={
+                  region !== "CL" ? "labor-tree-sex-note" : undefined
+                }
               >
                 <option value="Total">Ambos sexos</option>
                 <option value="Hombres">Hombres</option>
@@ -9968,8 +10103,12 @@ function LaborPopulationDendrogram({
         </div>
         <div className="labor-tree-card">
           <div className="labor-tree-period" aria-live="polite">
-            <span>{regionLabel} · {sexLabel}</span>
-            <strong>{formatQuarter(current.quarter)} {current.year}</strong>
+            <span>
+              {regionLabel} · {sexLabel}
+            </span>
+            <strong>
+              {formatQuarter(current.quarter)} {current.year}
+            </strong>
           </div>
           <svg
             className="labor-tree"
@@ -9978,10 +10117,19 @@ function LaborPopulationDendrogram({
             aria-label={`Dendrograma de la población en edad de trabajar de ${regionLabel}, ${sexLabel}, ${formatQuarter(current.quarter)} de ${current.year}`}
           >
             <g className="labor-tree-links" aria-hidden="true">
-              {links.map(([fromId,toId]) => {
-                const from=byId[fromId],to=byId[toId];
-                const x1=from.x+194,y1=from.y+38,x2=to.x,y2=to.y+38;
-                return <path key={`${fromId}-${toId}`} d={`M${x1},${y1} C${x1+34},${y1} ${x2-34},${y2} ${x2},${y2}`} />;
+              {links.map(([fromId, toId]) => {
+                const from = byId[fromId],
+                  to = byId[toId];
+                const x1 = from.x + 194,
+                  y1 = from.y + 38,
+                  x2 = to.x,
+                  y2 = to.y + 38;
+                return (
+                  <path
+                    key={`${fromId}-${toId}`}
+                    d={`M${x1},${y1} C${x1 + 34},${y1} ${x2 - 34},${y2} ${x2},${y2}`}
+                  />
+                );
               })}
             </g>
             {nodes.map((node) => {
@@ -10000,15 +10148,18 @@ function LaborPopulationDendrogram({
                 shareValue !== null
                   ? `${shareValue.toFixed(1).replace(".", ",")}% de la categoría anterior`
                   : "Universo de referencia";
-              const words=node.label.split(" ");
-              const labelLines=words.reduce<string[]>((lines,word)=>{
-                const currentLine=lines.at(-1) || "";
-                if(!currentLine || `${currentLine} ${word}`.length<=28){
-                  if(lines.length) lines[lines.length-1]=`${currentLine} ${word}`.trim();
-                  else lines.push(word);
-                }else lines.push(word);
-                return lines;
-              },[]).slice(0,2);
+              const words = node.label.split(" ");
+              const labelLines = words
+                .reduce<string[]>((lines, word) => {
+                  const currentLine = lines.at(-1) || "";
+                  if (!currentLine || `${currentLine} ${word}`.length <= 28) {
+                    if (lines.length)
+                      lines[lines.length - 1] = `${currentLine} ${word}`.trim();
+                    else lines.push(word);
+                  } else lines.push(word);
+                  return lines;
+                }, [])
+                .slice(0, 2);
               return (
                 <g
                   key={`${node.id}-${current.year}-${current.quarter}-${region}-${sex}`}
@@ -10019,14 +10170,23 @@ function LaborPopulationDendrogram({
                 >
                   <rect width="194" height="76" rx="10" />
                   <text className="node-label" x="14" y="20">
-                    {labelLines.map((line,index)=>(
-                      <tspan key={line} x="14" dy={index===0?0:13}>{line}</tspan>
+                    {labelLines.map((line, index) => (
+                      <tspan key={line} x="14" dy={index === 0 ? 0 : 13}>
+                        {line}
+                      </tspan>
                     ))}
                   </text>
-                  <text className="node-value" x="14" y="54">{formatPeople(node.value)}</text>
+                  <text className="node-value" x="14" y="54">
+                    {formatPeople(node.value)}
+                  </text>
                   {shareValue !== null && (
                     <>
-                      <text className="node-share" x="72" y="68" textAnchor="end">
+                      <text
+                        className="node-share"
+                        x="72"
+                        y="68"
+                        textAnchor="end"
+                      >
                         {share.split(" ")[0]}
                       </text>
                       <text
@@ -10051,7 +10211,10 @@ function LaborPopulationDendrogram({
           </svg>
           <div className="labor-tree-note">
             <span>Valores expresados en personas.</span>
-            <span>Los porcentajes corresponden a la categoría inmediatamente anterior.</span>
+            <span>
+              Los porcentajes corresponden a la categoría inmediatamente
+              anterior.
+            </span>
             <span id="labor-tree-sex-note">
               La desagregación por sexo está disponible para el total país.
             </span>
@@ -10161,9 +10324,13 @@ export default function Home() {
       .then(async (response) => {
         if (!response || !response.ok) return null;
         const payload = await response.json();
-        return payload.cache?.status === "updated" ? payload as EneRemoteData : null;
+        return payload.cache?.status === "updated"
+          ? (payload as EneRemoteData)
+          : null;
       })
-      .then((payload) => { if (activeRequest && payload) setRemoteEne(payload); })
+      .then((payload) => {
+        if (activeRequest && payload) setRemoteEne(payload);
+      })
       .catch(() => {
         /* La copia incluida mantiene la página operativa si aún no existe caché. */
       });
@@ -10289,8 +10456,9 @@ export default function Home() {
   );
   const genderGap = women.unemploymentRate - men.unemploymentRate;
   const seasonalIndex =
-    data?.seasonal.findIndex((p) => p.year === year && p.quarter === quarter) ??
-    -1;
+    data?.seasonal?.findIndex(
+      (p) => p.year === year && p.quarter === quarter,
+    ) ?? -1;
   const seasonalPoint =
     seasonalIndex >= 0 ? data?.seasonal[seasonalIndex] : undefined;
   const priorSeasonal =
@@ -10300,14 +10468,14 @@ export default function Home() {
       ? seasonalPoint.value - priorSeasonal.value
       : null;
   const sectors =
-    data?.sectorContributions.find(
+    data?.sectorContributions?.find(
       (p) => p.year === year && p.quarter === quarter,
     )?.items || [];
   const categories =
-    data?.categoryContributions.find(
+    data?.categoryContributions?.find(
       (p) => p.year === year && p.quarter === quarter,
     )?.items || [];
-  const absent = data?.absentEmployment.find(
+  const absent = data?.absentEmployment?.find(
     (p) => p.year === year && p.quarter === quarter,
   );
   const quarterLabel = formatQuarter(quarter);
@@ -10352,7 +10520,11 @@ export default function Home() {
       />
     );
   if (view === "ene" && !remoteEne)
-    return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   if (view === "informality")
     return (
       <InformalityPage
@@ -10877,7 +11049,12 @@ export default function Home() {
               Estadísticas Experimentales
             </button>
             <div className="topic-submenu">
-              <button onClick={() => { setExperimentalOpen(false); void openDestination("businessDemography"); }}>
+              <button
+                onClick={() => {
+                  setExperimentalOpen(false);
+                  void openDestination("businessDemography");
+                }}
+              >
                 Demografía de empresas
               </button>
             </div>
@@ -10947,9 +11124,7 @@ export default function Home() {
                   : "down"
               }
             >
-              {unemploymentDelta !== null && unemploymentDelta >= 0
-                ? "↗"
-                : "↘"}{" "}
+              {unemploymentDelta !== null && unemploymentDelta >= 0 ? "↗" : "↘"}{" "}
               {unemploymentDelta === null
                 ? "Sin comparación anual"
                 : `${Math.abs(unemploymentDelta).toFixed(1).replace(".", ",")} pp. a 12 meses`}
@@ -11648,121 +11823,127 @@ export default function Home() {
               </a>
             ))}
           </div>
-          {false && <section className="ene-sdmx" aria-labelledby="ene-sdmx-title">
-            <div className="ene-sdmx-head">
-              <div>
-                <span className="eyebrow">Datos abiertos · SDMX y API</span>
-                <h3 id="ene-sdmx-title">
-                  Una misma fuente, distintas formas de uso
-                </h3>
-                <p>
-                  Descarga el conjunto completo en SDMX-CSV 2.0, consulta su
-                  estructura estadística o intégralo directamente en tus
-                  aplicaciones.
-                </p>
+          {false && (
+            <section className="ene-sdmx" aria-labelledby="ene-sdmx-title">
+              <div className="ene-sdmx-head">
+                <div>
+                  <span className="eyebrow">Datos abiertos · SDMX y API</span>
+                  <h3 id="ene-sdmx-title">
+                    Una misma fuente, distintas formas de uso
+                  </h3>
+                  <p>
+                    Descarga el conjunto completo en SDMX-CSV 2.0, consulta su
+                    estructura estadística o intégralo directamente en tus
+                    aplicaciones.
+                  </p>
+                </div>
+                <span className="api-badge">Piloto ENE · versión 1.0</span>
               </div>
-              <span className="api-badge">Piloto ENE · versión 1.0</span>
-            </div>
 
-            <div className="ene-sdmx-options">
-              <article>
-                <span>01</span>
-                <h4>Descargar datos SDMX</h4>
-                <p>
-                  48.165 observaciones, 247 series y 195 períodos, desde marzo
-                  de 2010 hasta mayo de 2026.
-                </p>
-                <a
-                  href="/sdmx/ENE_IND_PRINCIPALES_completo_SDMX-CSV_2.0.csv"
-                  download
-                >
-                  Descargar SDMX-CSV 2.0 ↓
-                </a>
-              </article>
-              <article>
-                <span>02</span>
-                <h4>Explorar la estructura</h4>
-                <p>
-                  Conceptos, listas de códigos, DSD y Dataflow con agencia
-                  oficial INE.GOB.CL.
-                </p>
-                <a href="/sdmx/00_Estructuras_ENE_completo.xml" download>
-                  Descargar estructuras SDMX-ML 3.0 ↓
-                </a>
-              </article>
-              <article>
-                <span>03</span>
-                <h4>Consumir mediante API</h4>
-                <p>
-                  Endpoint estable para sistemas, scripts y herramientas de
-                  análisis, con respuesta en SDMX-CSV.
-                </p>
-                <a
-                  href="/api/sdmx/data/INE.GOB.CL,DF_ENE_IND_PRINCIPALES,1.0/all"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Probar endpoint ↗
-                </a>
-              </article>
-            </div>
+              <div className="ene-sdmx-options">
+                <article>
+                  <span>01</span>
+                  <h4>Descargar datos SDMX</h4>
+                  <p>
+                    48.165 observaciones, 247 series y 195 períodos, desde marzo
+                    de 2010 hasta mayo de 2026.
+                  </p>
+                  <a
+                    href="/sdmx/ENE_IND_PRINCIPALES_completo_SDMX-CSV_2.0.csv"
+                    download
+                  >
+                    Descargar SDMX-CSV 2.0 ↓
+                  </a>
+                </article>
+                <article>
+                  <span>02</span>
+                  <h4>Explorar la estructura</h4>
+                  <p>
+                    Conceptos, listas de códigos, DSD y Dataflow con agencia
+                    oficial INE.GOB.CL.
+                  </p>
+                  <a href="/sdmx/00_Estructuras_ENE_completo.xml" download>
+                    Descargar estructuras SDMX-ML 3.0 ↓
+                  </a>
+                </article>
+                <article>
+                  <span>03</span>
+                  <h4>Consumir mediante API</h4>
+                  <p>
+                    Endpoint estable para sistemas, scripts y herramientas de
+                    análisis, con respuesta en SDMX-CSV.
+                  </p>
+                  <a
+                    href="/api/sdmx/data/INE.GOB.CL,DF_ENE_IND_PRINCIPALES,1.0/all"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Probar endpoint ↗
+                  </a>
+                </article>
+              </div>
 
-            <div className="ene-api-example">
-              <div>
-                <span>Ejemplo · Conjunto completo</span>
-                <code>
-                  GET /api/sdmx/data/INE.GOB.CL,DF_ENE_IND_PRINCIPALES,1.0/all
-                </code>
-              </div>
-              <div className="ene-api-query-example">
-                <span>
-                  Ejemplo · Región Metropolitana · últimos 13 trimestres móviles
-                </span>
-                <code>
-                  GET
-                  /api/sdmx/data/INE.GOB.CL,DF_ENE_IND_PRINCIPALES,1.0/all?ref_area=CL-RM&amp;last_n_periods=13
-                </code>
-                <a
-                  href="/api/sdmx/data/INE.GOB.CL,DF_ENE_IND_PRINCIPALES,1.0/all?ref_area=CL-RM&last_n_periods=13"
-                  target="_blank"
-                  rel="noreferrer"
+              <div className="ene-api-example">
+                <div>
+                  <span>Ejemplo · Conjunto completo</span>
+                  <code>
+                    GET /api/sdmx/data/INE.GOB.CL,DF_ENE_IND_PRINCIPALES,1.0/all
+                  </code>
+                </div>
+                <div className="ene-api-query-example">
+                  <span>
+                    Ejemplo · Región Metropolitana · últimos 13 trimestres
+                    móviles
+                  </span>
+                  <code>
+                    GET
+                    /api/sdmx/data/INE.GOB.CL,DF_ENE_IND_PRINCIPALES,1.0/all?ref_area=CL-RM&amp;last_n_periods=13
+                  </code>
+                  <a
+                    href="/api/sdmx/data/INE.GOB.CL,DF_ENE_IND_PRINCIPALES,1.0/all?ref_area=CL-RM&last_n_periods=13"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ejecutar consulta y descargar SDMX-CSV ↗
+                  </a>
+                </div>
+                <div
+                  className="ene-api-meta"
+                  aria-label="Metadatos del conjunto"
                 >
-                  Ejecutar consulta y descargar SDMX-CSV ↗
-                </a>
+                  <span>
+                    <b>FREQ</b> Trimestral móvil
+                  </span>
+                  <span>
+                    <b>Ámbito</b> Nacional y regional
+                  </span>
+                  <span>
+                    <b>Sexo</b> Total, mujeres y hombres
+                  </span>
+                  <span>
+                    <b>Calidad</b> F, A y B
+                  </span>
+                </div>
+                <p>
+                  Dimensiones: <b>FREQ</b>, <b>REF_AREA</b>, <b>SEX</b>,{" "}
+                  <b>INDICATOR</b> y <b>TIME_PERIOD</b>. El período corresponde
+                  al mes final del trimestre móvil y los valores conservan todos
+                  los decimales del archivo Excel.
+                </p>
+                <div className="ene-sdmx-secondary">
+                  <a href="/sdmx/Guia_tecnica_ENE_SDMX.pdf" download>
+                    Guía técnica en PDF ↓
+                  </a>
+                  <a href="/sdmx/transformar_ene_sdmx.py" download>
+                    Transformador Excel → SDMX-CSV ↓
+                  </a>
+                  <a href="/sdmx/informe_validacion_completo.json" download>
+                    Informe de validación ↓
+                  </a>
+                </div>
               </div>
-              <div className="ene-api-meta" aria-label="Metadatos del conjunto">
-                <span>
-                  <b>FREQ</b> Trimestral móvil
-                </span>
-                <span>
-                  <b>Ámbito</b> Nacional y regional
-                </span>
-                <span>
-                  <b>Sexo</b> Total, mujeres y hombres
-                </span>
-                <span>
-                  <b>Calidad</b> F, A y B
-                </span>
-              </div>
-              <p>
-                Dimensiones: <b>FREQ</b>, <b>REF_AREA</b>, <b>SEX</b>,{" "}
-                <b>INDICATOR</b> y <b>TIME_PERIOD</b>. El período corresponde al
-                mes final del trimestre móvil y los valores conservan todos los
-                decimales del archivo Excel.
-              </p>
-              <div className="ene-sdmx-secondary">
-                <a href="/sdmx/Guia_tecnica_ENE_SDMX.pdf" download>
-                  Guía técnica en PDF ↓
-                </a>
-                <a href="/sdmx/transformar_ene_sdmx.py" download>
-                  Transformador Excel → SDMX-CSV ↓
-                </a>
-                <a href="/sdmx/informe_validacion_completo.json" download>
-                  Informe de validación ↓
-                </a>
-              </div>
-            </div>
-          </section>}
+            </section>
+          )}
           <LaborSdmxBox context="ene" />
         </div>
       </section>

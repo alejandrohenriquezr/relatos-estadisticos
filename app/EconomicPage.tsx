@@ -9,10 +9,7 @@ import {
   primeDataset,
   refreshDataset,
 } from "../lib/client-data-prefetch";
-import SectionHeader, {
-  IneLogo,
-  type SiteDestination,
-} from "./SectionHeader";
+import SectionHeader, { IneLogo, type SiteDestination } from "./SectionHeader";
 import {
   useTemporalWindow,
   type TemporalPreset,
@@ -656,9 +653,14 @@ export default function EconomicPage({
     [metric, setMetric] = useState(kind === "permits" ? "value" : "index");
   useEffect(() => {
     let alive = true;
-    setData(kind === "commerce" ? peekDataset("commerce") : fallbackData[kind]);
-    setError("");
-    setMetric(kind === "permits" ? "value" : "index");
+    queueMicrotask(() => {
+      if (!alive) return;
+      setData(
+        kind === "commerce" ? peekDataset("commerce") : fallbackData[kind],
+      );
+      setError("");
+      setMetric(kind === "permits" ? "value" : "index");
+    });
     const initialRequest =
       kind === "commerce"
         ? primeDataset<any>("commerce")
@@ -699,13 +701,20 @@ export default function EconomicPage({
     [data, kind],
   );
   if (!cacheReady)
-    return <main className="data-loading" aria-busy="true">Cargando datos oficiales…</main>;
+    return (
+      <main className="data-loading" aria-busy="true">
+        Cargando datos oficiales…
+      </main>
+    );
   const latest = series.at(-1);
   if (kind === "commerce")
     return data ? (
       <CommercePage data={data} onNavigate={onNavigate} />
     ) : (
-      <main className="economic-page cache-ready-placeholder" aria-hidden="true" />
+      <main
+        className="economic-page cache-ready-placeholder"
+        aria-hidden="true"
+      />
     );
   const title = info[kind];
   const annual = latest?.annual;
